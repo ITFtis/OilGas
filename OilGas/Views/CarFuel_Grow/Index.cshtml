@@ -1,0 +1,219 @@
+﻿<script src="~/Scripts/highcharts/7.1.2/highcharts.js"></script>
+@using Dou.Misc.Extension
+@Html.MenuMap()
+
+<div id="container1" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
+<div id="container2" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
+<div>
+    <ol class="first">
+        <li>本報表可提供加油站年度統計總站數之趨勢圖。(資料來源:2014年前資料來源為能源局提供統計數據，2014年後資料來源為本系統)</li>
+        <li>圖二之加油站成長率計算方式為(當年度總站數-上年度總站數)/上年度總站數*百分比。</li>
+    </ol>
+</div>
+<script>
+    $(document).ready(function () {
+        //ALL年份、站數
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("GetData", "CarFuel_Grow")',
+            success: function (res) {
+                console.log('success');
+                var years = [];
+                var counts = [];
+                for (var i = 0; i < res.length; i++) {
+                    years.push(res[i].year);
+                    counts.push(res[i].counts);
+                }
+                console.log(years);
+                console.log(counts);
+
+                Highcharts.chart('container1', {
+                    chart: {
+                        type: 'line',
+                        borderColor: "gray",
+                        borderWidth: 3,
+                        borderRadius: 20,
+                    },
+
+                    title: {
+                        text: '加油站總站數',
+                        align: 'center',
+                    },
+
+                    subtitle: {
+                        text: '',
+                        align: 'left'
+                    },
+
+                    yAxis: {
+                        title: {
+                            text: '站數'
+                        },
+                        plotLines: [{
+                            value: 0,
+
+                        }]
+                    },
+
+                    xAxis: {
+                        title: {
+                            text: '年份'
+                        },
+                        categories: years,
+                        gridLineWidth: 1,
+                        tickWidth: 1,
+                        tickmarkPlacement: 'on',
+                    },
+
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'middle'
+                    },
+
+                    plotOptions: {
+                        series: {
+                            label: {
+                                connectorAllowed: false
+                            },
+                        },
+                        line: {
+                            dataLabels: {
+                                enabled: true
+                            },
+                            enableMouseTracking: true
+                        }
+                    },
+
+                    series: [{
+                        name: '站數',
+                        data: counts,
+                        color: 'Green'
+
+                    }],
+
+                    responsive: {
+                        rules: [{
+                            condition: {
+                                maxWidth: 500
+                            },
+                            chartOptions: {
+                                legend: {
+                                    layout: 'horizontal',
+                                    align: 'center',
+                                    verticalAlign: 'bottom'
+                                }
+                            }
+                        }]
+                    }
+
+                });
+            },
+            error: function (request) {
+                alert("Error");
+            }
+        });
+        //ALL年份、成長率
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("GetGrowData", "CarFuel_Grow")',
+            success: function (res) {
+                console.log('success');
+                var years = [];
+                var rates = [];
+                for (var i = 0; i < res.length; i++) {
+                    years.push(res[i].year);
+                    rates.push(res[i].rate);
+                }
+                console.log(years);
+                console.log(rates);
+
+                Highcharts.chart('container2', {
+                    chart: {
+                        type: 'line',
+                        borderColor: "gray",
+                        borderWidth: 3,
+                        borderRadius: 20,
+                    },
+
+                    title: {
+                        text: '加油站成長率',
+                        align: 'center',
+                    },
+
+                    subtitle: {
+                        text: '',
+                        align: 'left'
+                    },
+
+                    yAxis: {
+                        title: {
+                            text: '成長率(%)'
+                        },
+                        plotLines: [{
+                            value: 0,
+
+                        }]
+                    },
+
+                    xAxis: {
+                        title: {
+                            text: '年份'
+                        },
+                        categories: years,
+                        gridLineWidth: 1,
+                        tickWidth: 1,
+                        tickmarkPlacement: 'on',
+                    },
+
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'middle'
+                    },
+
+                    plotOptions: {
+                        series: {
+                            label: {
+                                connectorAllowed: false
+                            },
+                        },
+                        line: {
+                            dataLabels: {
+                                enabled: true
+                            },
+                            enableMouseTracking: true
+                        }
+                    },
+
+                    series: [{
+                        name: '成長率(%)',
+                        data: rates,
+
+
+                    }],
+
+                    responsive: {
+                        rules: [{
+                            condition: {
+                                maxWidth: 500
+                            },
+                            chartOptions: {
+                                legend: {
+                                    layout: 'horizontal',
+                                    align: 'center',
+                                    verticalAlign: 'bottom'
+                                }
+                            }
+                        }]
+                    }
+
+                });
+            },
+            error: function (request) {
+                alert("Error");
+            }
+        });
+    });
+</script>
+

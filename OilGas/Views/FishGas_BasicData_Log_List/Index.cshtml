@@ -1,0 +1,547 @@
+﻿<script src="~/Scripts/prj/report.js"></script>
+<script src="~/Scripts/prjReport/FishGas_BasicData_Log_List.js"></script>
+@using Dou.Misc.Extension
+@Html.MenuMap()
+
+<link href="~/Content/prj/fonts/reportOil.css" rel="stylesheet">
+
+<table class="mTable" width="100%">
+    <colgroup>
+        <col width="20%" align="right" />
+        <col width="80%" class="td_right" />
+    </colgroup>
+    <tr>
+        <td>
+            查詢期間：<br />
+            (現況資料修改時間)
+        </td>
+        <td>
+            <div class="row">
+                <div class="col-3">
+                    <input type="date" id="txt_mod_date" name="filterConditions" class="form-control" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}" placeholder="2017/01/01">
+                </div>
+                <div class="col-3">
+                    <input type="date" id="txt_mod_dateE" name="filterConditions" class="form-control" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}" placeholder="2017/01/01">
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            收件日期：
+        </td>
+        <td>
+            <div class="row">
+                <div class="col-3">
+                    <input type="date" id="txt_Recipient_dateS" name="filterConditions" class="form-control" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}">
+                </div>
+                <div class="col-3">
+                    <input type="date" id="txt_Recipient_dateE" name="filterConditions" class="form-control" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}">
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            發文日期：
+        </td>
+        <td>
+            <div class="row">
+                <div class="col-3">
+                    <input type="date" id="txt_Dispatch_dateS" name="filterConditions" class="form-control" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}">
+                </div>
+                <div class="col-3">
+                    <input type="date" id="txt_Dispatch_dateE" name="filterConditions" class="form-control" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}">
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            案件編號：
+        </td>
+        <td>
+            <div class="row">
+                <div class="col-3">
+                    <input type="number" class="form-control" id="CaseNoS" name="filterConditions" />
+                </div>
+                <div class="col-3">
+                    <input type="number" class="form-control" id="CaseNoE" name="filterConditions" />
+                </div>
+                <div class="text-danger col-3">
+                    請勿輸入第一個英文字母
+                </div>
+            </div>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            縣市別：
+        </td>
+        <td>
+            <div class="row">
+                <div class="col-3">
+                    <select class="form-control form-select" id="ddl_City" name="filterConditions">
+                        <option value="">--全國--</option>
+                        @{
+                            List<string> userCitys = ViewBag.userCitys;
+
+                            List<OilGas.Models.CityCode> cityCode = ViewBag.CityCode;
+                            if (cityCode != null)
+                            {
+                                foreach (var item in cityCode)
+                                {                                    
+                                    //string selected = item.GSLCode.Split(',').Where(a => userCitys.Any(b => a == b)).Count() > 0 ? "selected" : "";
+                                    <option value="@item.GSLCode">@item.CityName</option>
+                                }
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="col-3">
+                    <select class="form-control form-select" id="ddl_Area" name="filterConditions">
+                        <option value="">--鄉鎮(全部)--</option>
+                        @{
+                            List<OilGas.Models.AreaCode> areaCode = ViewBag.AreaCode;
+                            if (areaCode != null)
+                            {
+                                foreach (var item in areaCode)
+                                {
+                                    <option value="@item.AreaCode1">@item.AreaName</option>
+                                }
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            營業主體：
+            <div class="form-check" group="g2">
+                <input class="form-check-input" type="radio" value="" id="AllcarVehicleGas_BusinessOrganization">
+                <label class="form-check-label" for="AllcarVehicleGas_BusinessOrganization">
+                    全部
+                </label>
+            </div>
+            <div class="form-check" group="g2">
+                <input class="form-check-input" type="radio" value="" id="Business_1">
+                <label class="form-check-label" for="Business_1">
+                    集團
+                </label>
+            </div>
+            <div class="form-check" group="g2">
+                <input class="form-check-input" type="radio" value="" id="Business_16">
+                <label class="form-check-label" for="Business_16">
+                    非集團
+                </label>
+            </div>
+        </td>
+        <td>
+            <div class="row">
+                @{
+                    List<OilGas.Models.CarVehicleGas_BusinessOrganization> carVehicleGas_BusinessOrganization = ViewBag.carVehicleGas_BusinessOrganization;
+                    if (carVehicleGas_BusinessOrganization != null)
+                    {
+                        foreach (var item in carVehicleGas_BusinessOrganization)
+                        {
+                            <div class="form-check col-5 ms-3">
+                                <input class="form-check-input" type="checkbox" fsource="carVehicleGas_BusinessOrganization" id="carVehicleGas_BusinessOrganization_@item.Value" value="@item.Value" name="filterConditions">
+                                <label class="form-check-label" for="carVehicleGas_BusinessOrganization_@item.Value">
+                                    @item.Name
+                                </label>
+                            </div>
+                        }
+                    }
+                }
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            營業別：
+        </td>
+        <td>
+            <div id="divUsageState1" class="row">
+                <div class="form-check col-5 ms-3">
+                    <input class="form-check-input" type="radio" id="rblUsageState1_1" value="未開業" name="filterConditions">
+                    <label class="form-check-label" for="rblUsageState1_1">
+                        申請設置(未開業)
+                    </label>
+                </div>
+                <div class="form-check col-5 ms-3">
+                    <input class="form-check-input" type="radio" id="rblUsageState1_2" value="已開業" name="filterConditions">
+                    <label class="form-check-label" for="rblUsageState1_2">
+                        經營管理(已開業)
+                    </label>
+                </div>
+                <div class="form-check col-5 ms-3">
+                    <input class="form-check-input" type="radio" id="rblUsageState1_3" value="失效" name="filterConditions">
+                    <label class="form-check-label" for="rblUsageState1_3">
+                        失效
+                    </label>
+                </div>
+                <div class="form-check col-5 ms-3">
+                    <input class="form-check-input" type="radio" id="rblUsageState1_4" value="" name="filterConditions" Selected>
+                    <label class="form-check-label" for="rblUsageState1_4">
+                        不限
+                    </label>
+                </div>
+            </div>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            營運狀態：
+        </td>
+        <td>
+            <select class="form-control form-select" id="ddl_UsageState" name="filterConditions">
+                <option value="">不限</option>
+                @{
+                    List<OilGas.Models.UsageStateCode> usageStateCode = ViewBag.usageStateCode;
+                    if (cityCode != null)
+                    {
+                        foreach (var item in usageStateCode)
+                        {
+                            <option type="@item.Type" value="@item.Value" style="display:none">@item.Name</option>
+                        }
+                    }
+                }
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span class="text-danger">欄位清單</span>
+        </td>
+        <td>
+            <table border="1" width="100%">
+                <colgroup>
+                    <col width="50%" />
+                    <col width="50%" />
+                </colgroup>
+                <tr>
+                    <td>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="cbOperationDate" name="filterColumns">
+                            <label class="form-check-label" for="cbOperationDate">
+                                營業日期
+                            </label>
+                        </div>
+                    </td>
+                    <td>
+                        <input class="form-check-input" type="checkbox" value="" id="cbRecipient_date" name="filterColumns">
+                        <label class="form-check-label" for="cbRecipient_date">
+                            收件日期
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="cbBoss" name="filterColumns">
+                            <label class="form-check-label" for="cbBoss">
+                                負責人姓名
+                            </label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="cbTelNo" name="filterColumns">
+                            <label class="form-check-label" for="cbTelNo">
+                                漁船加油站電話
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="cbLicenseNo" name="filterColumns">
+                            <label class="form-check-label" for="cbLicenseNo">
+                                經營許可證號
+                            </label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="cbAddr" name="filterColumns">
+                            <label class="form-check-label" for="cbAddr">
+                                漁船加油站地址/地號
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:CheckBox ID="" runat="server" />
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="cbReport_date" name="filterColumns">
+                            <label class="form-check-label" for="cbReport_date">
+                                核發證號日期
+                            </label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="cbSoilServerData" name="filterColumns">
+                            <label class="form-check-label" for="cbSoilServerData">
+                                油品供應商
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="cbBusiness_theme" name="filterColumns">
+                            <label class="form-check-label" for="cbBusiness_theme">
+                                營業主體
+                            </label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="cbUsageState1" name="filterColumns">
+                            <label class="form-check-label" for="cbUsageState1">
+                                營業別
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="cbUsageState" name="filterColumns">
+                            <label class="form-check-label" for="cbUsageState">
+                                營運狀態
+                            </label>
+                        </div>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-check" group="g1">
+                            <input class="form-check-input" type="radio" value="" id="Insurance">
+                            <label class="form-check-label" for="Insurance">
+                                保險資料
+                            </label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="Insurance_Company" name="filterColumns">
+                            <label class="form-check-label" for="Insurance_Company">
+                                保險公司名稱
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="Insurance_No" name="filterColumns">
+                            <label class="form-check-label" for="Insurance_No">
+                                保險號碼
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="Insurance_policy" name="filterColumns">
+                            <label class="form-check-label" for="Insurance_policy">
+                                保單有效期限
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="Insurance_TypeN" name="filterColumns">
+                            <label class="form-check-label" for="Insurance_TypeN">
+                                保單類型
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-check" group="g1">
+                            <input class="form-check-input" type="radio" value="" id="Land">
+                            <label class="form-check-label" for="Land">
+                                土地資料
+                            </label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="LandPriority" name="filterColumns">
+                            <label class="form-check-label" for="LandPriority">
+                                土地權屬
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="Land_acreage" name="filterColumns">
+                            <label class="form-check-label" for="Land_acreage">
+                                用地總面積
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="LandClass" name="filterColumns">
+                            <label class="form-check-label" for="LandClass">
+                                用地類別
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="LandUsageZone" name="filterColumns">
+                            <label class="form-check-label" for="LandUsageZone">
+                                土地使用分區
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-check" group="g1">
+                            <input class="form-check-input" type="radio" value="" id="AllIsland">
+                            <label class="form-check-label" for="AllIsland">
+                                設施狀況
+                            </label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="Tank" name="filterColumns">
+                            <label class="form-check-label" for="Tank">
+                                油槽總數
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="Flowmeter" name="filterColumns">
+                            <label class="form-check-label" for="Flowmeter">
+                                流量計
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="gun" name="filterColumns">
+                            <label class="form-check-label" for="gun">
+                                加油機數
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="one_gun" name="filterColumns">
+                            <label class="form-check-label" for="one_gun">
+                                單槍
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="two_gun" name="filterColumns">
+                            <label class="form-check-label" for="two_gun">
+                                雙槍
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="four_gun" name="filterColumns">
+                            <label class="form-check-label" for="four_gun">
+                                四槍
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="six_gun" name="filterColumns">
+                            <label class="form-check-label" for="six_gun">
+                                六槍
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="eight_gun" name="filterColumns">
+                            <label class="form-check-label" for="eight_gun">
+                                八槍
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="Oil_barge" name="filterColumns">
+                            <label class="form-check-label" for="Oil_barge">
+                                油駁船加油
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="Fire_Safety" name="filterColumns">
+                            <label class="form-check-label" for="Fire_Safety">
+                                消防安全措施
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="Pollution_Prevention" name="filterColumns">
+                            <label class="form-check-label" for="Pollution_Prevention">
+                                污染防治措施
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-check" group="g1">
+                            <input class="form-check-input" type="radio" value="" id="AllOilData">
+                            <label class="form-check-label" for="AllOilData">
+                                販售油品、油槽種類與容量
+                            </label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="Oil_type" name="filterColumns">
+                            <label class="form-check-label" for="Oil_type">
+                                販售油品種類
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="Tank_type" name="filterColumns">
+                            <label class="form-check-label" for="Tank_type">
+                                油槽種類
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="Tank_type_tank" name="filterColumns">
+                            <label class="form-check-label" for="Tank_type_tank">
+                                油槽種類(公秉)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="Tank_type_tank_seat" name="filterColumns">
+                            <label class="form-check-label" for="Tank_type_tank_seat">
+                                油槽種類(座)
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2">
+            <button id="btnExportBasicExcel" class="btn btn-success">開始查詢</button>
+            <button id="btnRest" class="btn btn-secondary">重新設定</button>
+            <button id="btnRenewCache" class="btn btn-secondary">資料更新(Cache)</button>
+        </td>
+    </tr>
+
+</table>
+<div>
+    &lt;報表說明&gt;
+    <ol class="first">
+        <li>本報表可依勾選條件檢視漁船加油站變更歷程之基本資料清單查詢。</li>
+        <li>
+            本報表查詢條件說明：
+            <ol class="second">
+                <li>查詢時間：以該漁船加油站變更之營運狀況所設定的日期進行查詢。</li>
+                <li>收件日期：以漁船加油站基本資料之收件日期為依據。</li>
+                <li>發文日期：以漁船加油站基本資料之發文日期為依據。</li>
+                <li>案件編號：以系統所核發之編號為依據，輸入時請勿輸入第一個英文字母，且可輸入編號區間來做查詢。</li>
+                <li>縣市別：如有全國權限即可查詢全國資料，或縣市承辦人可查詢該轄內縣市資料。</li>
+                <li>營業主體：以漁船加油站基本資料之營業主體為依據，勾選「全部」可全選，勾選「集團」為集團站(即排除其他選項)，勾選「非集團」為其他之選項。</li>
+                <li>營業別：以漁船加油站基本資料之營運狀態為依據，選擇「不限」可同時查詢申請設置(未開業)及經營管理(已開業)之清單。</li>
+                <li>營運狀態：可選擇全部或單一查詢之漁船加油站之營運狀態。</li>
+                <li>欄位清單：可依使用者選擇查詢結果報表清單呈現之內容。</li>
+            </ol>
+        </li>
+        <li>注意事項：本功能所查詢之結果，同一案件可能會有多筆資料出現。（同一查詢時間區間內有多次變更歷程）</li>
+    </ol>
+</div>

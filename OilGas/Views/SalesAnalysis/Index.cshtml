@@ -1,0 +1,48 @@
+﻿
+@using Dou.Misc.Extension
+@Html.MenuMap()
+
+<label>中油</label>
+<input id="CPC" type="file" />
+
+<label>台塑</label>
+<input id="FPG" type="file" />
+
+<button id="btnExportBasicExcel" class="btn btn-success">產出銷售分析表</button>
+
+
+<script>
+    $(document).ready(function () {
+        $('#btnExportBasicExcel').on('click', function () {
+
+
+            var FD = new FormData();
+            FD.append('fileCPC', $('#CPC')[0].files[0]);
+            FD.append('fileFPG', $('#FPG')[0].files[0]);
+
+            var url ='@Url.Action("Sendupload", "SalesAnalysis")';
+
+            $.ajax({
+                url: url,
+                type: "POST",
+                data: FD,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    if (data != "false") {
+                        location.href = app.siteRoot + data;
+
+                    } else { alert("檔案合成失敗"); }
+                },
+            }).fail(function () {
+                alert("檔案合成失敗");
+            });
+
+
+
+
+        })
+
+
+    });
+</script>

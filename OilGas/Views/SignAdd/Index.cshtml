@@ -1,0 +1,32 @@
+﻿@using Dou.Misc.Extension
+@Html.MenuMap()
+@Html.DataManagerOptionsJavascript(null, "dou_options")
+
+<table id="_table"></table>
+
+
+<script src="~/Scripts/basic/basic.js"></script>
+<script>
+    $(document).ready(function () {
+
+       
+        dou_options.afterCreateEditDataForm = function ($_c, row) {
+            //拿掉取消
+            $(".btn-default").remove();
+            $('[data-field="LessonID"] select').val(request('ID'));
+            //禁止登打      
+            $('[data-field="LessonID"] select').prop('disabled', true);
+
+        }
+      
+
+
+        $("#_table").DouEditableTable(dou_options);
+    });
+
+
+
+
+
+
+</script>

@@ -1,0 +1,195 @@
+﻿@using Dou.Misc.Extension
+@Html.MenuMap()
+@Html.DataManagerOptionsJavascript(null, "dou_options")
+
+
+
+
+
+
+<div class="modal-body">
+    <div name="form" action="" class="form-horizontal data-edit-form-group row">
+        <div class="form-group field-container col-md-4">
+            <label class="col-sm-12 control-label">加油站名稱</label>
+            <div class="field-content col-sm-12">
+                <input id="Gas_Name" type="text" class="form-control" maxlength="10" disabled>
+            </div>
+        </div>
+        <div class="form-group field-container col-md-4">
+            <label class="col-sm-12 control-label">查核編號</label>
+            <div  class="field-content col-sm-12">
+                <input id="CheckNo" type="text" class="form-control" maxlength="50" disabled>
+            </div>
+        </div>
+        <div class="form-group field-container col-md-4">
+            <label class="col-sm-12 control-label">檢測日期</label>
+            <div class="field-content col-sm-12">
+                <input id="CheckDate" type="text" class="form-control" maxlength="10" disabled>
+            </div>
+        </div>
+        <div class="form-group field-container col-md-4">
+            <label class="col-sm-12 control-label">天氣</label>
+            <select id="Weather" class="form-control form-select">             
+                <option value="1">晴</option>
+                <option value="2">陰</option>
+                <option value="3">雨</option>
+            </select>
+        </div>
+        <div class="form-group field-container col-md-4">
+            <label class="col-sm-12 control-label">檢測人員</label>
+            <div class="field-content col-sm-12">
+                <input id="Testing_personnel" type="text" class="form-control" maxlength="10">
+            </div>
+        </div>
+        <div class="form-group field-container col-md-4">
+            <label class="col-sm-12 control-label">儲槽總數</label>
+            <div class="field-content col-sm-12">
+                <input id="TankCount" type="text" class="form-control" maxlength="10">
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<table id="_table"></table>
+<button id="summit" onclick="save()" class="btn btn-primary " style="float: right;">儲存</button>
+
+
+<script src="~/Scripts/basic/basic.js"></script>
+<script>
+    $(document).ready(function () {
+
+        //是否可以編輯
+        if (request("edit") == "0") {
+            readonly();
+            dou_options.addable = false
+            dou_options.deleteable = false
+        }
+
+
+
+        dou_options.tableOptions.url = dou_options.tableOptions.url + "?CheckNo=" + request('CheckNo')
+
+        typeint('#TankCount');//只能打數字
+
+
+
+
+
+        dou_options.afterCreateEditDataForm = function ($_c, row) {
+
+
+
+            otherdisplay("Testing_instruments", "Detection", 1) //選項選測爆器要顯示Detection
+
+            otherdisplay("Testing_instruments", "PID", 2) //選項選PID/FID要顯示PID
+            otherdisplay("Testing_instruments", "FID", 2) //選項選PID/FID要顯示FID
+
+
+            //禁止登打
+            $('[data-field="CaseNo"] input').val(request('CaseNo'));
+            $('[data-field="CaseNo"] input').prop('disabled', true);
+            $('[data-field="CheckNo"] input').val(request('CheckNo'));
+            $('[data-field="CheckNo"] input').prop('disabled', true);
+
+
+
+
+
+
+
+
+            //是否可以編輯
+            if (request("edit") == "0") {
+                readonly();
+            }
+        }
+
+
+
+        $("#_table").DouEditableTable(dou_options);
+
+
+
+
+
+
+        //放初始資料
+        var settings = {
+            "url": "@Url.Action("GetCheckBasic", "Check_Tank_well")" + '?CheckNo=' + request('CheckNo'),
+            "method": "GET",
+            "dataType": 'json',
+            "timeout": 0,
+        };
+        $.ajax(settings).done(function (response) {
+
+            $('#Gas_Name').val(response.Gas_Name);
+
+            $('#CheckNo').val(response.CheckNo);
+            $('#CheckDate').val(response.CheckDate);
+
+            $('#Weather').val(response.Weather);
+
+            $('#Testing_personnel').val(response.Testing_personnel);
+            $('#TankCount').val(response.TankCount);
+
+
+            //$('#Tank_total').val(response.Tank_total);
+
+
+
+        });
+
+
+
+
+
+    });
+
+
+    //儲存非表格資料
+    function save() {
+
+
+        //是否可以編輯
+        if (request("edit") == "0") {
+            var URL = $.AppConfigOptions.baseurl + 'ComprehensiveOpinions?CheckNo=' + request('CheckNo') + '&CaseNo=' + request('CaseNo') + '&edit=' + request('edit')
+            $(location).attr('href', URL);
+        }
+        else {
+
+            var Weather = $('#Weather').val();
+            var Testing_personnel = $('#Testing_personnel').val();
+            var TankCount = $('#TankCount').val();
+
+
+            //放初始資料
+            var settings = {
+                "url": "@Url.Action("SaveCheckBasic", "Check_Tank_well")" + '?CheckNo=' + request('CheckNo') + '&Weather=' + Weather + '&Testing_personnel=' + Testing_personnel + '&TankCount=' + TankCount,
+                "method": "GET",
+                "dataType": 'json',
+                "timeout": 0,
+            };
+            $.ajax(settings).done(function (response) {
+
+                alert("以儲存")
+
+
+                var URL = $.AppConfigOptions.baseurl + 'ComprehensiveOpinions?CheckNo=' + request('CheckNo') + '&CaseNo=' + request('CaseNo')
+                $(location).attr('href', URL);
+
+            });
+
+
+
+        }
+        
+
+
+    }
+
+
+</script>

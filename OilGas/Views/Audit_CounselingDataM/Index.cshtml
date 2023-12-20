@@ -1,0 +1,68 @@
+﻿@using Dou.Misc.Extension
+@Html.MenuMap()
+@Html.DataManagerOptionsJavascript(null, "dou_options")
+
+<table id="_table"></table>
+
+<script src="~/Scripts/basic/basic.js"></script>
+<script>
+    $(document).ready(function () {
+
+        dou_options.afterCreateEditDataForm = function ($_c, row) {
+
+            //禁止登打
+            if ($('[data-field="s_CaseNo"] input').val() != "") {
+                $('[data-field="s_CaseNo"] input').prop('disabled', true);
+                $('[data-field="s_GasName"] input').prop('disabled', true);
+               // $('[data-fn="s_BusinessNo"]').prop('disabled', true);
+
+                
+            }
+            else {
+
+
+
+                //新增要能搜尋加油站，先把原本的地方隱藏
+                $('[data-field="s_CaseNo"] input').addClass('d-none');
+                $('[data-field="s_GasName"] input').addClass('d-none');
+                $('[data-field="s_GasName"] label').addClass('d-none');
+               //$('[data-field="s_BusinessNo"]').addClass('d-none');
+                $('div[data-field="s_CaseNo"] .field-content').append('<input type="text" id="CaseNoforSERCH" class="form-control" placeholder="搜尋" maxlength="200"><button type="button" onclick="serchCaseNo()" class="btn btn-primary "> 搜尋</button>');   //加搜尋欄
+
+
+            }
+
+        }
+
+        $("#_table").DouEditableTable(dou_options);
+    });
+
+
+    //搜尋加油站
+    function serchCaseNo() {
+        var CaseNo = $('#CaseNoforSERCH').val();
+      
+        var settings = {
+            "url": $.AppConfigOptions.baseurl + "Audit_Guidance_Check_List/GetCaseNoSelectList?CaseNoOrName=" + CaseNo ,
+            "method": "GET",
+        };
+
+        $.ajax(settings).done(function (response) {
+
+
+
+            //組選項
+            //val填入CaseNo,Gas_Name，這樣可以直接存Gas_Name，不用再做處理
+            var option = "";
+            $.each(JSON.parse(response), function (index, value) {
+                option = option + '<option value="' + value.CaseNo + ',' + value.Gas_Name + '">' + value.Gas_Name + '(' + value.CaseNo + ')</option>'
+            });
+
+
+            //把隱藏的CaseNo填寫欄位變成下拉選單，並填入選項
+            $('[data-fn="s_CaseNo"]').replaceWith('<select class="form-control" data-fn="s_CaseNo">' + option + '</select>');
+            $('[data-field="s_CaseNo"] input:first').removeClass('d-none');
+        });
+
+    }
+</script>

@@ -1,0 +1,78 @@
+﻿@using Dou.Misc.Extension
+@Html.MenuMap()
+@Html.DataManagerOptionsJavascript(null, "dou_options")
+
+<table id="_table"></table>
+
+<script src="~/Scripts/basic/basic.js"></script>
+
+
+
+<script>
+    $(document).ready(function () {
+
+        //跳進查核頁
+        douHelper.getField(dou_options, "URL").formatter = function (v, r) {
+
+            if (v == null) {
+                var text = "-"
+            }
+            else {
+                var text = '<a  href="' + $.AppConfigOptions.baseurl + v + '&edit=0">' + r.AllDoesmeet+'</a>';
+            }
+            return (text);
+        }
+
+        //跳進複查頁
+        douHelper.getField(dou_options, "URLAction").formatter = function (v, r) {
+
+            if (v == null) {
+                var text = "-"
+            }
+            else {
+                var text = '<a  href="' + $.AppConfigOptions.baseurl + v + '&edit=0">複查</a>';
+            }
+            return (text);
+        }
+
+        //跳進輔導頁
+        douHelper.getField(dou_options, "URLCounseling").formatter = function (v, r) {
+
+            if (v == null) {
+                var text = "-"
+            }
+            else {
+                var text = '<a  href="' + $.AppConfigOptions.baseurl + v + '&edit=0">輔導</a>';
+            }
+            return (text);
+        }
+
+
+
+
+
+
+
+
+
+
+        dou_options.afterCreateEditDataForm = function ($_c, row) {
+
+            //禁止登打
+            $('[data-field="CaseNo"] input').prop('disabled', true);
+            $('[data-field="Gas_Name"] input').prop('disabled', true);
+        }
+
+
+
+
+        $("#_table").DouEditableTable(dou_options);
+    });
+
+
+
+
+
+
+
+</script>

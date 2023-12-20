@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新油氣設施管理系統</title>
+    <link rel="SHORTCUT ICON" href="~/images/logo.png" data-logo />
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/dou/css")
+    <link href="~/Scripts/gis/b3/css/bootstrap.css" rel="stylesheet">
+
+    <script>
+        window.app = window.app || {};
+        app.siteRoot = "@Url.Content("~/")";
+    </script>
+
+    @*@Styles.Render("~/content/prj/css")*@
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/dou/js")
+
+    <style>
+
+
+        @@media (max-width: 576px) {
+            .dou-menu > .container-fluid > .prj-title {
+                white-space: nowrap;
+                max-width: calc( 100% - 120px );
+            }
+        }
+    </style>
+
+</head>
+<body data-controller="@ViewContext.RouteData.Values["controller"].ToString()">
+    <header class="fixed-top">
+        <nav class="dou-menu navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <h3 class="prj-title"><b>新油氣設施管理系統</b></h3>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1 justify-content-end">
+                        @Html.Partial("DouMenuPartial")@*功能菜單*@
+                    </ul>
+                </div>
+                @Html.Partial("DouUserProfilePartial")@*登入人員資料*@
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid body-content">
+        @RenderBody()@*各controoler資料*@
+
+    </div>
+    <hr />
+    <footer class="text-center">
+        <p>&copy; @DateTime.Now.Year - 版權所有,最佳解析度1280x800</p>
+    </footer>
+
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

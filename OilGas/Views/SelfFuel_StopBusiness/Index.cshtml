@@ -1,0 +1,65 @@
+﻿<script src="~/Scripts/prjReport/SelfFuel_StopBusiness.js"></script>
+<script src="~/Scripts/highcharts/7.1.2/highcharts.js"></script>
+<script src="~/Scripts/prj/baseb.js"></script>
+@using Dou.Misc.Extension
+@Html.MenuMap()
+@Html.DataManagerOptionsJavascript(null, "douoptions")
+
+<table id="_table"></table>
+<div class="modal fade" id="ITPopUp" role="dialog">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h3><span id="titledetail"></span></h3>
+                <div class="fixed-table-toolbar">
+                    <button type="button" class="btn btn-success glyphicon glyphicon-download-alt" onclick="ExportDetailExcel()">匯出Excel</button>
+                </div>  
+                <div class="fixed-table-body default-scrollbar">
+                    <table id="_table_detail" class="table table-bordered table-hover">
+                        <tr>
+                            <th>自用加儲油站編號</th>
+                            <th>自用加儲油站名稱</th>
+                            <th>營業主體</th>
+                            <th>發文日期</th>
+                            <th>發文文號</th>
+                            <th>發文類別</th>
+                            <th>縣市別</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <span id="DetailCount"></span>
+                @*<button type="button" class="btn btn-default" onclick="closeDialog()">取消</button>*@
+            </div>
+        </div>
+    </div>
+</div>
+<div id="container1" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
+<div>
+    &lt;報表說明&gt;
+    <ol class="first">
+        <li>
+            本報表可產出各縣市每年「新設」及「歇業」家數統計報表。
+            <ol class="second">
+                <li>新設：發文類型為「同意使用」</li>
+                <li>歇業：發文類型為「撤案」、「廢止」、「失效」</li>
+            </ol>
+        </li>
+        <li>本報表於年底12/31結算年度資料。</li>
+        <li>
+            查詢條件說明：
+            <ol class="second">
+                <li>查詢期間：依發文日期為依據，如該站在發文類型設定「申請暫停營業－同意暫停營業」(停業)，及發文日期，該站即算入停業統計。可選擇不同年度資料進行查詢。</li>
+                <li>縣市別：可選擇全國或各縣市別進行資料篩選後產出報表。如只有單一縣市權限僅能查詢單一縣市。</li>
+            </ol>
+        </li>
+        <li>
+            查詢結果說明：
+            <ol class="second">
+                <li>統計報表：分別統計查詢年度各縣市新設、停業與終止營運自用加儲油站家數之總計。如需應用資料，可點選左下方「Excel下載功能」進行下載。</li>
+                <li>圖表瀏覽：以圖表方式呈現新設、停業與終止營運自用加儲油站家數之總計。</li>
+            </ol>
+        </li>
+    </ol>
+</div>

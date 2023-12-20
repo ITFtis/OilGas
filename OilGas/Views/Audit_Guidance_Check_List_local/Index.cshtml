@@ -1,0 +1,147 @@
+﻿@using Dou.Misc.Extension
+@Html.MenuMap()
+@Html.DataManagerOptionsJavascript(null, "dou_options")
+
+<table id="_table"></table>
+
+<script src="~/Scripts/basic/basic.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+
+        //下載EXCEL
+        douHelper.getField(dou_options, "EXCEL").formatter = function (v, r) {
+
+            if (v == null) {
+                var text = "-"
+            }
+            else {
+                var text = '<button onclick="download(\'' + v +'\')"  >下載</button>';
+            }
+            return (text);
+        }
+
+        dou_options.afterCreateEditDataForm = function ($_c, row) {
+
+            //禁止登打
+            if ($('[data-field="CaseNo"] input').val() != "") {
+                $('[data-field="CaseNo"] input').prop('disabled', true);
+                $('[data-field="Gas_Name"] input').prop('disabled', true);
+            }
+            else {
+
+
+
+                //新增要能搜尋加油站，先把原本的地方隱藏
+                $('[data-field="CaseNo"] input').addClass('d-none');
+                $('[data-field="Gas_Name"] input').addClass('d-none');
+                $('[data-field="Gas_Name"] label').addClass('d-none');
+                $('div[data-field="CaseNo"] .field-content').append('<input type="text" id="CaseNoforSERCH" class="form-control" placeholder="搜尋" maxlength="200"><button type="button" onclick="serchCaseNo()" class="btn btn-primary "> 搜尋</button>');   //加搜尋欄
+
+
+            }
+
+
+
+
+            multiple(row, "A01_Options")//選項換多選
+            multiple(row, "A02_Options")//選項換多選
+            multiple(row, "A03_Options")//選項換多選
+            multiple(row, "B05_Options")//選項換多選
+            multiple(row, "B06_Options")//選項換多選
+            multiple(row, "G01")//選項換多選
+        }
+
+
+        dou_options.afterEditDataConfirm = function (row, callback) {
+           
+
+            
+            var A01_Options = multiplesave("A01_Options").join(';')
+            row.A01_Options = A01_Options != "" ? A01_Options : "";
+
+
+            var A02_Options = multiplesave("A02_Options").join(';')
+            row.A02_Options = A02_Options != "" ? A02_Options : "";
+
+            var A03_Options = multiplesave("A03_Options").join(';')
+            row.A03_Options = A03_Options != "" ? A03_Options : "";
+
+            var B05_Options = multiplesave("B05_Options").join(';')
+            row.B05_Options = B05_Options != "" ? B05_Options : "";
+
+
+            var B06_Options = multiplesave("B06_Options").join(';')
+            row.B06_Options = B05_Options != "" ? B06_Options : "";
+
+            var G01 = multiplesave("G01").join(';')
+            row.G01 = G01 != "" ? G01 : "";
+
+
+
+
+
+
+            callback();
+        }
+
+
+        $("#_table").DouEditableTable(dou_options);
+    });
+
+
+
+
+    //搜尋加油站
+    function serchCaseNo() {
+        var CaseNo = $('#CaseNoforSERCH').val();
+       
+
+
+        var settings = {
+            "url": $.AppConfigOptions.baseurl + "Audit_Guidance_Check_List/GetCaseNoSelectList?CaseNoOrName=" + CaseNo,
+            "method": "GET",
+        };
+
+        $.ajax(settings).done(function (response) {
+
+
+
+            //組選項
+            //val填入CaseNo,Gas_Name，這樣可以直接存Gas_Name，不用再做處理
+            var option = "";
+            $.each(JSON.parse(response), function (index, value) {
+                option = option + '<option value="' + value.CaseNo + ',' + value.Gas_Name + '">' + value.Gas_Name + '(' + value.CaseNo + ')</option>'
+            });
+
+
+            //把隱藏的CaseNo填寫欄位變成下拉選單，並填入選項
+            $('[data-fn="CaseNo"]').replaceWith('<select class="form-control" data-fn="CaseNo">' + option + '</select>');
+            $('[data-field="CaseNo"] input:first').removeClass('d-none');
+        });
+
+    }
+
+    //下載
+    function download(CaseNo) {
+
+        $.ajax({
+            url: app.siteRoot + 'Audit_Guidance_Check_List_local/Export',
+            datatype: "json",
+            type: "POST",
+            data: { CaseNo: CaseNo },
+            success: function (data) {
+                if (data != "false") {
+                    location.href = app.siteRoot + data;
+                } else {
+                    alert("下載失敗：\n" + data.errorMessage);
+                }
+            },
+         
+        });
+
+    }
+
+
+</script>

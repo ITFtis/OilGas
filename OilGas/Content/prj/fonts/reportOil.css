@@ -1,0 +1,13 @@
+﻿.mTable table {
+    border: 1px solid #000;
+}
+
+.mTable td {
+    border: 1px solid #000;
+    padding: 10px;
+}
+
+/*表格中的偶數對 tr*/
+.mTable Table tr:nth-child(even) {
+    background-color: #e8e8e8;
+}

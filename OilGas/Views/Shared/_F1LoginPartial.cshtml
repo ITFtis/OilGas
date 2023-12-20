@@ -1,0 +1,42 @@
+﻿@model Dou.Models.UserBase
+<div class="input-info rounded overflow-hidden">
+    <h3 class="input-info-title text-center text-white py-2 mb-0">
+        登入專區
+    </h3>
+    @using (Html.BeginForm("DouLogin", "User", new { ReturnUrl = ViewBag.ReturnUrl, re = true }, FormMethod.Post))
+    {
+        <div class="input-info-content p-4 d-flex flex-column align-items-start gap-3">
+            <div class="d-flex align-items-center justify-content-between gap-2 w-100">
+              
+                @Html.LabelFor(m => m.Id, new { @class = " fw-bold fs-5" })
+
+                @Html.TextBoxFor(m => m.Id, new { @class = "" })
+            </div>
+            <div class="d-flex align-items-center justify-content-between gap-2 w-100">
+                <span class="fw-bold fs-5">密 碼</span>
+                @Html.PasswordFor(m => m.Password, new { @class = "" })
+            </div>
+            <div class="d-flex align-items-center justify-content-between gap-2">
+                <span class="fw-bold fs-5">驗證碼</span>
+                <input type="text" />
+            </div>
+
+            <div class="verification-area">
+                <img src="https://gsl.ftis.org.tw/Account/CheckImageCodeC.aspx"
+                     width="130" />
+                <button class="btn cus-btn-1 text-white p-1 ms-4">
+                    刷新圖檔
+                </button>
+            </div>
+
+            <div class="input-btns d-flex align-items-center justify-content-between mt-3">                
+                <button type="submit"  class="btn cus-btn-1 text-white fw-bold px-2 fs-5" value="@ViewBag.ReturnUrl">
+                    登入系統
+                </button>
+                <button class="btn cus-btn-1 text-white fw-bold px-2 fs-5">
+                    忘記密碼
+                </button>
+            </div>
+        </div>
+    }
+</div>

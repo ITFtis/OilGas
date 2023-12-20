@@ -1,0 +1,59 @@
+﻿@using Dou.Misc.Extension
+@Html.MenuMap()
+@Html.DataManagerOptionsJavascript(null, "dou_options")
+
+<table id="_table"></table>
+
+<script src="~/Scripts/basic/basic.js"></script>
+<script>
+    $(document).ready(function () {
+        dou_options.editformSize = { minWidth: 1000 }
+    
+        dou_options.tableOptions.pageSize = 15;
+        dou_options.tableOptions.pageList = [15, 30, 80, 200, 500];
+
+
+
+        dou_options.tableOptions.url = dou_options.tableOptions.url + "?CaseNo=" + request('CaseNo')
+
+
+        dou_options.afterCreateEditDataForm = function ($c, row) {
+
+            otherdisplay("Insurance_Company","Insurance_otherCompany",15) //選項選其他欄位要顯示或不顯示
+            multiple(row,"Insurance_Type")//選項換多選
+
+            //$('[data-field="Insurance_Company"] select').change(function () {
+            //    otherdisplay("Insurance_Company", "Insurance_otherCompany", 15)
+            //})
+        }
+
+
+        dou_options.afterEditDataConfirm = function (row, callback) {
+            row.CaseNo = row.CaseNo ? row.CaseNo : request('CaseNo');
+
+            var result = multiplesave("Insurance_Type");
+            var Insurance_Type = result.join(';')
+            row.Insurance_Type = Insurance_Type!="" ? Insurance_Type:"";
+
+            callback();
+        }
+
+
+
+
+
+        dou_options.appendCustomToolbars = [{
+            item: '<span class="btn btn-primary   glyphicon glyphicon-ok " title="下一頁"> 下一頁</span>', event: 'click',
+            callback: function (e) {
+
+                var URL = $.AppConfigOptions.baseurl + 'CarFuel_Dispatch?CaseNo=' + request('CaseNo')
+                $(location).attr('href', URL);
+            }
+        }];
+
+
+        $("#_table").DouEditableTable(dou_options);
+    });
+
+
+</script>

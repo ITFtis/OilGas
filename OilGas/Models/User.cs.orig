@@ -1,0 +1,69 @@
+﻿using Dou.Misc.Attr;
+using OilGas.Controllers;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Web;
+
+namespace OilGas.Models
+{
+	[Table("User")]
+	public partial class User : Dou.Models.UserBase { 
+
+    [Display(Name = "縣市")]
+    [ColumnDef(VisibleEdit = true, Sortable = true, Filter = true, EditType = EditType.Select, SelectItemsClassNamespace = UsercitySelectItemsClassImp.AssemblyQualifiedName)]
+     public string city { set; get; }
+
+    }
+
+
+    public class UsercitySelectItemsClassImp : Dou.Misc.Attr.SelectItemsClass
+    {
+        static public OilGasModelContextExt db = new OilGasModelContextExt();
+        static public basicController basic = new basicController();
+        public const string AssemblyQualifiedName = "OilGas.Models.UsercitySelectItemsClassImp,OilGas";
+        public override IEnumerable<KeyValuePair<string, object>> GetSelectItems()
+        {
+       
+            var cityCodes = db.CityCode.ToArray();
+
+            //不是ADMIN只能看自己
+             if (!Dou.Context.CurrentIsAdminUser && !basic.Permissions("admin"))
+            {
+                cityCodes = cityCodes.Where(x => x.GSLCode == Dou.Context.CurrentUser<User>().city).ToArray();
+            }
+
+<<<<<<< HEAD
+            return cityCodes.Select(s => new KeyValuePair<string, object>(s.GSLCode, "{\"v\":\"" + s.CityName + "\",\"s\":\"" + s.Rank + "\"}")); 
+=======
+            var zz = cityCodes.OrderBy(a => a.Rank).ToList();
+            var aa = cityCodes.ToList();
+            var cc = cityCodes.OrderBy(a => a.Rank).Select(s => new KeyValuePair<string, object>(s.GSLCode, s.CityName));
+
+            return cityCodes.OrderBy(a => a.Rank).Select(s => new KeyValuePair<string, object>(s.GSLCode, s.CityName));
+        }
+    }
+
+    public class UsercityCodeSelectItems : Dou.Misc.Attr.SelectItemsClass
+    {
+        static public OilGasModelContextExt db = new OilGasModelContextExt();
+        static public basicController basic = new basicController();
+        public const string AssemblyQualifiedName = "OilGas.Models.UsercityCodeSelectItems,OilGas";
+        public override IEnumerable<KeyValuePair<string, object>> GetSelectItems()
+        {
+
+            var cityCodes = db.CityCode.ToArray();
+
+            //不是ADMIN只能看自己
+            if (!Dou.Context.CurrentIsAdminUser && !basic.Permissions("admin"))
+            {
+                cityCodes = cityCodes.Where(x => x.GSLCode == Dou.Context.CurrentUser<User>().city).ToArray();
+            }
+
+            return cityCodes.OrderBy(a => a.Rank).Select(s => new KeyValuePair<string, object>(s.CityCode1, s.CityName));
+>>>>>>> origin/main
+        }
+    }
+}

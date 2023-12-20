@@ -1,0 +1,65 @@
+﻿@using Dou.Misc.Extension
+@Html.MenuMap()
+@Html.DataManagerOptionsJavascript(null, "dou_options")
+
+<table id="_table"></table>
+
+
+<script src="~/Scripts/basic/basic.js"></script>
+<script>
+    $(document).ready(function () {
+
+        //跳進查核頁
+        douHelper.getField(dou_options, "URL").formatter = function (v, r) {
+
+            if (v == null) {
+                var text = "-"
+            }
+            else {
+                var text = '<a  href="' + $.AppConfigOptions.baseurl + v + '">報名網址</a>';
+            }
+            return (text);
+        }
+
+        dou_options.afterCreateEditDataForm = function ($_c, row) {
+            multiple(row, "NoNullcolumn")//選項換多選
+        }
+
+
+
+
+
+
+        dou_options.afterEditDataConfirm = function (row, callback) {
+
+
+            var result = multiplesave("NoNullcolumn");
+            var NoNullcolumn = result.join(';')
+            row.NoNullcolumn = NoNullcolumn != "" ? NoNullcolumn : "";
+
+         
+
+            callback();
+        }
+
+
+
+
+
+
+
+
+
+
+        dou_options.tableOptions.pageSize = 15;
+        dou_options.tableOptions.pageList = [15, 30, 80, 200, 500];
+
+        $("#_table").DouEditableTable(dou_options);
+    });
+
+
+
+
+
+
+</script>

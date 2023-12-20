@@ -1,0 +1,248 @@
+﻿<script src="~/Scripts/prj/report.js"></script>
+<script src="~/Scripts/prjReport/FishGas_Grow.js"></script>
+<script src="~/Scripts/highcharts/7.1.2/highcharts.js"></script>
+@using Dou.Misc.Extension
+@Html.MenuMap()
+<link href="~/Content/prj/fonts/reportOil.css" rel="stylesheet">
+<table class="mTable" border="1" width="100%">
+    <colgroup>
+        <col width="20%" align="right" />
+        <col width="80%" class="td_right" />
+    </colgroup>
+    <tr>
+        <td>
+            查詢期間：<br />
+            (現況資料修改時間)
+        </td>
+        <td>
+            <div class="row">
+                <div class="col-3">
+                    @Html.DropDownList("txt_mod_date", null, htmlAttributes: new { @class = "form-control", @Name = "filterConditions" })
+                </div>
+                <div class="col-1"> ～ </div>
+                <div class="col-3">
+                    @Html.DropDownList("txt_mod_dateE", null, htmlAttributes: new { @class = "form-control", @Name = "filterConditions" })
+                </div>
+                <div class="col-5" align="right">
+                    <button id="btnExportBasicExcel" class="btn btn-success">開始查詢</button>
+                    <button id="btnRest" class="btn btn-secondary">重新設定</button>
+                    <button id="btnRenewCache" class="btn btn-secondary">資料更新(Cache)</button>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<div id="container1" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
+<div id="container2" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
+<div>
+    <ol class="first">
+        <li>本報表可提供漁船加油站年度統計總站數之趨勢圖。(資料來源:本系統)</li>
+        <li>圖二之漁船加油站成長率計算方式為(當年度總站數-上年度總站數)/上年度總站數*百分比。</li>
+    </ol>
+</div>
+<script>
+    $(document).ready(function () {
+        //ALL年份、站數
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("GetData", "FishGas_Grow")',
+            success: function (res) {
+                console.log('success');
+                var years = [];
+                var counts = [];
+                for (var i = 0; i < res.length; i++) {
+                    years.push(res[i].year);
+                    counts.push(res[i].counts);
+                }
+                console.log(years);
+                console.log(counts);
+
+                Highcharts.chart('container1', {
+                    chart: {
+                        type: 'line',
+                        borderColor: "gray",
+                        borderWidth: 3,
+                        borderRadius: 20,
+                    },
+                    title: {
+                        text: '漁船加油站核照站數',
+                        align: 'center'
+                    },
+
+                    subtitle: {
+                        text: '',
+                        align: 'left'
+                    },
+
+                    yAxis: {
+                        title: {
+                            text: '站數'
+                        },
+                        plotLines: [{
+                            value: 0,
+
+                        }]
+                    },
+
+                    xAxis: {
+                        title: {
+                            text: '年份'
+                        },
+                        categories: years,
+                        gridLineWidth: 1,
+                        tickWidth: 1,
+                        tickmarkPlacement: 'on',
+                    },
+
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'middle'
+                    },
+
+                    plotOptions: {
+                        series: {
+                            label: {
+                                connectorAllowed: false
+                            },
+                        },
+                        line: {
+                            dataLabels: {
+                                enabled: true
+                            },
+                            enableMouseTracking: true
+                        }
+                    },
+
+                    series: [{
+                        name: '站數',
+                        data: counts,
+
+
+                    }],
+
+                    responsive: {
+                        rules: [{
+                            condition: {
+                                maxWidth: 500
+                            },
+                            chartOptions: {
+                                legend: {
+                                    layout: 'horizontal',
+                                    align: 'center',
+                                    verticalAlign: 'bottom'
+                                }
+                            }
+                        }]
+                    }
+
+                });
+            },
+            error: function (request) {
+                alert("Error");
+            }
+        });
+        //ALL年份、成長率
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("GetGrowData", "FishGas_Grow")',
+            success: function (res) {
+                console.log('success');
+                var years = [];
+                var rates = [];
+                for (var i = 0; i < res.length; i++) {
+                    years.push(res[i].year);
+                    rates.push(res[i].rate);
+                }
+                console.log(years);
+                console.log(rates);
+
+                Highcharts.chart('container2', {
+                    chart: {
+                        type: 'line',
+                        borderColor: "gray",
+                        borderWidth: 3,
+                        borderRadius: 20,
+                    },
+                    title: {
+                        text: '漁船加油站成長率',
+                        align: 'center'
+                    },
+
+                    subtitle: {
+                        text: '',
+                        align: 'left'
+                    },
+
+                    yAxis: {
+                        title: {
+                            text: '成長率(%)'
+                        },
+                        plotLines: [{
+                            value: 0,
+
+                        }]
+                    },
+
+                    xAxis: {
+                        title: {
+                            text: '年份'
+                        },
+                        categories: years,
+                        gridLineWidth: 1,
+                        tickWidth: 1,
+                        tickmarkPlacement: 'on',
+                    },
+
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'middle'
+                    },
+
+                    plotOptions: {
+                        series: {
+                            label: {
+                                connectorAllowed: false
+                            },
+                        },
+                        line: {
+                            dataLabels: {
+                                enabled: true
+                            },
+                            enableMouseTracking: true
+                        }
+                    },
+
+                    series: [{
+                        name: '成長率(%)',
+                        data: rates,
+
+
+                    }],
+
+                    responsive: {
+                        rules: [{
+                            condition: {
+                                maxWidth: 500
+                            },
+                            chartOptions: {
+                                legend: {
+                                    layout: 'horizontal',
+                                    align: 'center',
+                                    verticalAlign: 'bottom'
+                                }
+                            }
+                        }]
+                    }
+
+                });
+            },
+            error: function (request) {
+                alert("Error");
+            }
+        });
+    });
+</script>
+

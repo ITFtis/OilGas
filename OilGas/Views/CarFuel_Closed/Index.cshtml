@@ -1,0 +1,22 @@
+﻿<script src="~/Scripts/prjReport/CarFuel_Closed.js"></script>
+<script src="~/Scripts/prj/baseb.js"></script>
+@using Dou.Misc.Extension
+@Html.MenuMap()
+@Html.DataManagerOptionsJavascript(null, "douoptions")
+
+<table id="_table"></table>
+<div>
+    &lt;報表說明&gt;
+    <ol class="first">
+        <li>本報表可產出中油及非中油暫停營業家數統計。</li>
+        <li>暫停營業之定義：基本資料之營運狀態為申請暫停營業、申請暫停營業展延及暫停營業中變更。</li>
+        <li>
+            本報表查詢條件說明：
+            <ol class="second">
+                <li>查詢期間：以加油站基本資料之修改時間為依據，分為現況資料營運狀況修改時間及變更營運狀況資料時間。</li>
+                <li>縣市別：如有全國權限即可查詢全國資料，或縣市承辦人可查詢該轄內縣市資料，可查詢縣市及鄉鎮。</li>
+                <li>查詢結果說明：分別列出中油及非中油已開業扣除暫停營業、暫停營業、及已開業加暫停營業之總計。</li>
+            </ol>
+        </li>
+    </ol>
+</div>

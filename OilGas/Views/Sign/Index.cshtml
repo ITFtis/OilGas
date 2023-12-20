@@ -1,0 +1,123 @@
+﻿@using Dou.Misc.Extension
+@Html.MenuMap()
+@Html.DataManagerOptionsJavascript(null, "dou_options")
+
+<table id="_table"></table>
+
+<script src="~/Scripts/prj/baseb.js"></script>
+<script src="~/Scripts/basic/basic.js"></script>
+<script>
+    $(document).ready(function () {
+
+
+
+
+
+        var a = {};
+        a.item = '<span class="btn btn-success glyphicon glyphicon-download-alt"> 匯出Excel</span>';
+        a.event = 'click .glyphicon-download-alt';
+        a.callback = function ExportExcel(evt) {
+
+            var conditions = GetFilterParams($_MasterTable)
+            if (conditions.length > 0) {
+                var paras = { key: 'filter', value: JSON.stringify(conditions) };
+            }
+
+            helper.misc.showBusyIndicator();
+            $.ajax({
+                url: app.siteRoot + 'Sign/ExportSignUserExcel',
+                datatype: "json",
+                type: "POST",
+                data: { paras: [paras] },
+                success: function (data) {
+                    if (data.result) {
+                        location.href = app.siteRoot + data.url;
+                    } else {
+                        alert("查詢失敗：\n" + data.errorMessage);
+                    }
+                },
+                complete: function () {
+                    helper.misc.hideBusyIndicator();
+                },
+                error: function (xhr, status, error) {
+                    var err = eval("(" + xhr.responseText + ")");
+                    alert(err.Message);
+                    helper.misc.hideBusyIndicator();
+                }
+            });
+        };
+
+      //  dou_options.appendCustomToolbars = [a];
+
+
+
+
+
+
+
+
+        var b = {};
+        b.item = '<span class="btn btn-success glyphicon glyphicon-download-alt"> 匯出簽到表</span>';
+        b.event = 'click .glyphicon-download-alt';
+        b.callback = function ExportExcel(evt) {
+
+            var conditions = GetFilterParams($_MasterTable)
+            if (conditions.length > 0) {
+                var paras = { key: 'filter', value: JSON.stringify(conditions) };
+            }
+
+            helper.misc.showBusyIndicator();
+            $.ajax({
+                url: app.siteRoot + 'Sign/ExportSignUserword',
+                datatype: "json",
+                type: "POST",
+                data: { paras: [paras] },
+                success: function (data) {
+                    if (data.result) {
+                        location.href = app.siteRoot + data.url;
+                    } else {
+                        alert("查詢失敗：\n" + data.errorMessage);
+                    }
+                },
+                complete: function () {
+                    helper.misc.hideBusyIndicator();
+                },
+                error: function (xhr, status, error) {
+                    var err = eval("(" + xhr.responseText + ")");
+                    alert(err.Message);
+                    helper.misc.hideBusyIndicator();
+                }
+            });
+        };
+
+        dou_options.appendCustomToolbars = [a,b];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        dou_options.tableOptions.pageSize = 50;
+        dou_options.tableOptions.pageList = [50, 80, 200, 500];
+
+        var $_MasterTable=  $("#_table").DouEditableTable(dou_options);
+    });
+
+
+
+
+
+
+</script>

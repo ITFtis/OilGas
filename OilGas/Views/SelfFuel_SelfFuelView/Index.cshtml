@@ -1,0 +1,63 @@
+﻿@using Dou.Misc.Extension
+@Html.MenuMap()
+@Html.DataManagerOptionsJavascript(null, "dou_options")
+
+<table id="_table"></table>
+
+
+<script src="~/Scripts/basic/basic.js"></script>
+<script>
+    $(document).ready(function () {
+        dou_options.editformSize = { minWidth: 1000 }
+
+
+
+
+
+        dou_options.afterCreateEditDataForm = function ($_c, row) {
+
+            otherdisplay("Facility", "FacilityOther", 99)//其他
+
+
+          
+          
+
+
+            //禁止登打
+            $('[data-field="CreateTime"] input').prop('disabled', true);
+            $('[data-field="CreateUser"] input').prop('disabled', true);
+            $('[data-field="ModifyTime"] input').prop('disabled', true);
+            $('[data-field="LastModifyUser"] input').prop('disabled', true);
+           
+
+
+        }
+
+
+
+
+        dou_options.afterUpdateServerData = function (row, callback) {
+            var URL = $.AppConfigOptions.baseurl + 'SelfFuel_Land?CaseNo=' + row.CaseNo
+            $(location).attr('href', URL);
+        }
+        dou_options.afterAddServerData = dou_options.afterUpdateServerData
+
+
+
+
+
+
+
+
+        dou_options.tableOptions.pageSize = 15;
+        dou_options.tableOptions.pageList = [15, 30, 80, 200, 500];
+
+        $("#_table").DouEditableTable(dou_options);
+    });
+
+
+
+
+
+
+</script>

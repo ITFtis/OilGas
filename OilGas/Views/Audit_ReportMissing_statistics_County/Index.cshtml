@@ -1,0 +1,40 @@
+﻿<script src="~/Scripts/prjReport/Audit_ReportMissing_statistics_County.js"></script>
+<script src="~/Scripts/prj/baseb.js"></script>
+@using Dou.Misc.Extension
+@Html.MenuMap()
+@Html.DataManagerOptionsJavascript(null, "douoptions")
+
+<table id="_table"></table>
+<div class="modal fade" id="ITPopUp" role="dialog">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h3><span id="titledetail"></span></h3>
+                <div class="fixed-table-toolbar">
+                    <button type="button" class="btn btn-success glyphicon glyphicon-download-alt" onclick="ExportDetailExcel()">匯出Excel</button>
+                </div>
+                <div class="fixed-table-body default-scrollbar">
+                    <table id="_table_detail" class="table table-bordered table-hover">
+                        <tr>
+                            <th>加氣站編號</th>
+                            <th>加氣站名稱</th>
+                            <th>營業主體</th>
+                            <th>發文日期</th>
+                            <th>發文文號</th>
+                            <th>發文類別</th>
+                            <th>縣市別</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <span id="DetailCount"></span>
+                @*<button type="button" class="btn btn-default" onclick="closeDialog()">取消</button>*@
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    缺失數定義：檢查設備之各項檢查項目不符合家數之總和。
+</div>
+

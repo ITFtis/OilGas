@@ -1,0 +1,1493 @@
+﻿<body data-controller="CarFuel_Select" class="bootstrp-version-5 dou-edit-open dou-edit-style-showEditformOnly">
+    <header class="fixed-top">
+        <nav class="dou-menu navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <h3 class="prj-title"><b>新油氣設施管理系統</b></h3>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1 justify-content-end">
+
+                        <style>
+    /*muti level*/
+
+    .dou-menu .dropdown-submenu {
+        position: relative;
+    }
+
+    .dou-menu .dropdown-submenu > .dropdown-menu {
+        top: .5rem;
+        left: 100%;
+        margin-top: -6px;
+        /*margin-left: .25rem;*/
+        -webkit-border-radius: 0 6px 6px 6px;
+        -moz-border-radius: 0 6px 6px 6px;
+        border-radius: 0 6px 6px 6px;
+    }
+
+    .dou-menu .dropdown-submenu:hover > .dropdown-menu {
+        display: inline-table;
+    }
+    .dou-menu .dropdown-submenu:hover > .dropdown-menu > .nav-item {
+        display: block;
+    }
+
+    .dou-menu .dropdown-submenu > a:after {
+        display: block;
+        content: " ";
+        float: right;
+        width: 0;
+        height: 0;
+        border-color: transparent;
+        border-style: solid;
+        border-width: 0.25rem 0 0.25rem 0.4rem;
+        border-left-color: #cccccc;
+        padding-right:.75rem;
+        margin-top: 0.3rem;
+    }
+
+    .dou-menu .dropdown-submenu:hover > a:after {
+        border-left-color: #ffffff;
+    }
+
+    .dou-menu .dropdown-submenu.pull-left {
+        float: none;
+    }
+
+    .dou-menu .dropdown-submenu.pull-left > .dropdown-menu {
+        left: -100%;
+        margin-left: 10px;
+        -webkit-border-radius: 6px 0 6px 6px;
+        -moz-border-radius: 6px 0 6px 6px;
+        border-radius: 6px 0 6px 6px;
+    }
+
+    .dou-menu .nav-link.dou-non-action-controller {
+        white-space: nowrap;
+    }
+
+    .fixed-table-toolbar {
+        background-color: #dfdfdf;
+        border-radius: .4rem .4rem 0 0;
+    }
+    
+        .dou-menu .dropdown-submenu > .dropdown-menu > .nav-item {
+            display: block;
+        }
+        .dou-menu .dropdown-menu {
+            transition: none;
+        }
+                        </style>
+
+
+
+                        <li class="dropdown nav-item">
+
+
+                            <a href="#" class="dropdown-toggle nav-link dou-action-controller-root" data-toggle="dropdown" data-bs-toggle="dropdown"><span class="汽機車加油站">汽機車加油站</span><b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle nav-link dou-action-controller-root" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="汽機車加油站_A管理專區">A管理專區</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/" class="nav-link dou-action-controller">
+
+                                                <span class="CarFuel_Select">汽機車加油站基本資料查詢修改</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/CarFuel_TGOS_Select" class="nav-link dou-non-action-controller">
+
+                                                <span class="CarFuel_TGOS_Select">汽機車加油站地圖資料查詢</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/CarFuel_TGOS_Area" class="nav-link dou-non-action-controller">
+
+                                                <span class="CarFuel_TGOS_Area">地圖環域查詢</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="汽機車加油站_A統計報表專區">A統計報表專區</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/CarFuel_BasicData_List" class="nav-link dou-non-action-controller">
+
+                                                <span class="CarFuel_BasicData_List">現況資料-基本資料欄位清單</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/CarFuel_BasicData_Statistic" class="nav-link dou-non-action-controller">
+
+                                                <span class="CarFuel_BasicData_Statistic">現況資料-基本資料欄位統計</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/CarFuel_BasicData_Log_List" class="nav-link dou-non-action-controller">
+
+                                                <span class="CarFuel_BasicData_Log_List">變更歷程-基本資料欄位清單</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/CarFuel_BasicData_Log_Statistic" class="nav-link dou-non-action-controller">
+
+                                                <span class="CarFuel_BasicData_Log_Statistic">變更歷程-基本資料欄位統計</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/CarFuel_Grow" class="nav-link dou-non-action-controller">
+
+                                                <span class="CarFuel_Grow">加油站成長分析報表</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/CarFuel_LandData" class="nav-link dou-non-action-controller">
+
+                                                <span class="CarFuel_LandData">已開業汽、機車加油站分析統計報表</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/CarFuel_Closed" class="nav-link dou-non-action-controller">
+
+                                                <span class="CarFuel_Closed">各縣市暫停營業家數統計報表</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/CarFuel_StopBusiness" class="nav-link dou-non-action-controller">
+
+                                                <span class="CarFuel_StopBusiness">各縣市新設、停業、復業與歇業之加油站家數統計報表</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/CarFuel_GSM_Select" class="nav-link dou-non-action-controller">
+
+                                                <span class="CarFuel_GSM_Select">地下儲油槽列管狀況查詢</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/CarFuel_CheckOilTypeByYear" class="nav-link dou-non-action-controller">
+
+                                                <span class="CarFuel_CheckOilTypeByYear">各縣市已發照及營業中家數統計報表</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="汽機車加油站_A異常報表">A異常報表</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/CarFuel_CaseError1" class="nav-link dou-non-action-controller">
+
+                                                <span class="CarFuel_CaseError1">系統最後發文與營運狀況不符合之清單</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/CarFuel_CaseError2" class="nav-link dou-non-action-controller">
+
+                                                <span class="CarFuel_CaseError2">營運主體分類異常之清單</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/CarFuel_ConsentOrExpiration" class="nav-link dou-non-action-controller">
+
+                                                <span class="CarFuel_ConsentOrExpiration">加油站申請設置同意認定/籌建到期報表</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/CarFuel_CarVehicleGas_CheckError1" class="nav-link dou-non-action-controller">
+
+                                                <span class="CarFuel_CarVehicleGas_CheckError1">查核系統與油氣設施子系統連結異常之清單</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="汽機車加油站_A系統操作手冊">A系統操作手冊</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/CarFuel_DownLoad_Operate" class="nav-link dou-non-action-controller">
+
+                                                <span class="CarFuel_DownLoad_Operate">加油站管理專區操作手冊</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li class="dropdown nav-item">
+
+
+                            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" data-bs-toggle="dropdown"><span class="汽車加氣站">汽車加氣站</span><b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="汽車加氣站_B管理專區">B管理專區</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/CarGas_CarGas_Select" class="nav-link dou-non-action-controller">
+
+                                                <span class="CarGas_CarGas_Select">汽車加氣站基本資料查詢修改</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/CarGas_TGOS_Select" class="nav-link dou-non-action-controller">
+
+                                                <span class="CarGas_TGOS_Select">汽車加氣站地圖資料查詢</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/CarGas_TGOS_Area" class="nav-link dou-non-action-controller">
+
+                                                <span class="CarGas_TGOS_Area">地圖環域查詢</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="汽車加氣站_B統計報表專區">B統計報表專區</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/CarGas_BasicData_List" class="nav-link dou-non-action-controller">
+
+                                                <span class="CarGas_BasicData_List">現況資料-基本資料欄位清單</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/CarGas_BasicData_Statistic" class="nav-link dou-non-action-controller">
+
+                                                <span class="CarGas_BasicData_Statistic">現況資料-基本資料欄位統計</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/CarGas_BasicData_Log_List" class="nav-link dou-non-action-controller">
+
+                                                <span class="CarGas_BasicData_Log_List">變更歷程-基本資料欄位清單</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/CarGas_BasicData_Log_Statistic" class="nav-link dou-non-action-controller">
+
+                                                <span class="CarGas_BasicData_Log_Statistic">變更歷程-基本資料欄位統計</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/CarGas_ConsentOrExpiration" class="nav-link dou-non-action-controller">
+
+                                                <span class="CarGas_ConsentOrExpiration">加氣站申請設置同意認定/籌建到期報表</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/CarGas_Grow" class="nav-link dou-non-action-controller">
+
+                                                <span class="CarGas_Grow">加氣站成長分析報表</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/CarGas_LandData" class="nav-link dou-non-action-controller">
+
+                                                <span class="CarGas_LandData">已開業汽車加氣站分析統計報表</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/CarGas_Closed" class="nav-link dou-non-action-controller">
+
+                                                <span class="CarGas_Closed">各縣市暫停營業家數統計報表</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/CarGas_StopBusiness" class="nav-link dou-non-action-controller">
+
+                                                <span class="CarGas_StopBusiness">各縣市新設、停業、復業與歇業之加氣站家數統計報表</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="汽車加氣站_B系統操作手冊">B系統操作手冊</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/CarGas_DownLoad_Operate" class="nav-link dou-non-action-controller">
+
+                                                <span class="CarGas_DownLoad_Operate">加氣站管理專區操作手冊</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li class="dropdown nav-item">
+
+
+                            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" data-bs-toggle="dropdown"><span class="漁船加油站">漁船加油站</span><b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="漁船加油站_C管理專區">C管理專區</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/FishGas_Select" class="nav-link dou-non-action-controller">
+
+                                                <span class="FishGas_Select">漁船加油站基本資料查詢修改</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/FishGas_TGOS_Select" class="nav-link dou-non-action-controller">
+
+                                                <span class="FishGas_TGOS_Select">漁船加油站地圖資料查詢</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/FishGas_TGOS_Area" class="nav-link dou-non-action-controller">
+
+                                                <span class="FishGas_TGOS_Area">地圖環域查詢</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="漁船加油站_C統計報表專區">C統計報表專區</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/FishGas_BasicData_List" class="nav-link dou-non-action-controller">
+
+                                                <span class="FishGas_BasicData_List">現況資料-基本資料欄位清單</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/FishGas_BasicData_Statistic" class="nav-link dou-non-action-controller">
+
+                                                <span class="FishGas_BasicData_Statistic">現況資料-基本資料欄位統計</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/FishGas_BasicData_Log_List" class="nav-link dou-non-action-controller">
+
+                                                <span class="FishGas_BasicData_Log_List">變更歷程-基本資料欄位清單</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/FishGas_BasicData_Log_Statistic" class="nav-link dou-non-action-controller">
+
+                                                <span class="FishGas_BasicData_Log_Statistic">變更歷程-基本資料欄位統計</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/FishGas_ConsentOrExpiration" class="nav-link dou-non-action-controller">
+
+                                                <span class="FishGas_ConsentOrExpiration">漁船加油站申請設置同意籌建到期報表</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/FishGas_Grow" class="nav-link dou-non-action-controller">
+
+                                                <span class="FishGas_Grow">漁船加油站成長分析報表</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/FishGas_LandData" class="nav-link dou-non-action-controller">
+
+                                                <span class="FishGas_LandData">已開業漁船加油站分析統計報表</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/FishGas_Closed" class="nav-link dou-non-action-controller">
+
+                                                <span class="FishGas_Closed">各縣市暫停營業家數統計報表</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/FishGas_StopBusiness" class="nav-link dou-non-action-controller">
+
+                                                <span class="FishGas_StopBusiness">各縣市新設、停業、復業與歇業之漁船加油站家數統計報表</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="漁船加油站_C系統操作手冊">C系統操作手冊</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/FishGas_DownLoad_Operate" class="nav-link dou-non-action-controller">
+
+                                                <span class="FishGas_DownLoad_Operate">漁船加油站管理專區操作手冊</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li class="dropdown nav-item">
+
+
+                            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" data-bs-toggle="dropdown"><span class="自用加儲油">自用加儲油</span><b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="自用加儲油_D管理專區">D管理專區</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/SelfFuel_SelfFuelView" class="nav-link dou-non-action-controller">
+
+                                                <span class="SelfFuel_SelfFuelView">自用加儲油設施基本資料查詢修改</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="自用加儲油_D違規案件專區">D違規案件專區</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/SelfFuel_SelfFuelBanView" class="nav-link dou-non-action-controller">
+
+                                                <span class="SelfFuel_SelfFuelBanView">違規案件資料查詢修改</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="自用加儲油_D統計報表專區">D統計報表專區</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/SelfFuel_UsageState" class="nav-link dou-non-action-controller">
+
+                                                <span class="SelfFuel_UsageState">使用狀況統計查詢</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/SelfFuel_BasicData" class="nav-link dou-non-action-controller">
+
+                                                <span class="SelfFuel_BasicData">基本資料清單查詢</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/SelfFuel_StopBusiness" class="nav-link dou-non-action-controller">
+
+                                                <span class="SelfFuel_StopBusiness">各縣市新設與歇業之自用加儲氣家數統計報表</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="自用加儲油_D系統操作手冊">D系統操作手冊</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/SelfFuel_DownLoad_Operate" class="nav-link dou-non-action-controller">
+
+                                                <span class="SelfFuel_DownLoad_Operate">自用加儲氣管理專區操作手冊</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li class="dropdown nav-item">
+
+
+                            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" data-bs-toggle="dropdown"><span class="航港自用加儲油">航港自用加儲油</span><b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="航港自用加儲油_E設施管理專區">E設施管理專區</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/PortGas_Main" class="nav-link dou-non-action-controller">
+
+                                                <span class="PortGas_Main">航港設施基本資料查詢修改</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="航港自用加儲油_E違規案件專區">E違規案件專區</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/PortGas_Ban_View" class="nav-link dou-non-action-controller">
+
+                                                <span class="PortGas_Ban_View">違規案件資料查詢修改</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="航港自用加儲油_E查核輔導專區">E查核輔導專區</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/PortGas_Check_View" class="nav-link dou-non-action-controller">
+
+                                                <span class="PortGas_Check_View">查核輔導資料查詢修改</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="航港自用加儲油_E統計報表專區">E統計報表專區</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/PortGas_BasicData" class="nav-link dou-non-action-controller">
+
+                                                <span class="PortGas_BasicData">現況資料匯出</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/PortGas_BasicDataLog" class="nav-link dou-non-action-controller">
+
+                                                <span class="PortGas_BasicDataLog">變更歷程資料匯出</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="航港自用加儲油_E系統操作手冊">E系統操作手冊</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/PortGas_DownLoad_Operate" class="nav-link dou-non-action-controller">
+
+                                                <span class="PortGas_DownLoad_Operate">航港設施管理專區操作手冊</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li class="dropdown nav-item">
+
+
+                            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" data-bs-toggle="dropdown"><span class="取締管理作業">取締管理作業</span><b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="取締管理作業_F違規案件維護">F違規案件維護</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/GasLawBan_Select" class="nav-link dou-non-action-controller">
+
+                                                <span class="GasLawBan_Select">石油管理法取締案件資料查詢</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="取締管理作業_F統計報表專區">F統計報表專區</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/GasLawBan_StatisticReportPlace" class="nav-link dou-non-action-controller">
+
+                                                <span class="GasLawBan_StatisticReportPlace">年度取締處分案件查獲地點彙整表</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/GasLawBan_StatisticReportCase" class="nav-link dou-non-action-controller">
+
+                                                <span class="GasLawBan_StatisticReportCase">年度取締違規經營石油案件彙整表</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="取締管理作業_F系統操作手冊">F系統操作手冊</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/GasLawBan_DownLoad_Operate" class="nav-link dou-non-action-controller">
+
+                                                <span class="GasLawBan_DownLoad_Operate">加油站管理專區操作手冊</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li class="dropdown nav-item">
+
+
+                            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" data-bs-toggle="dropdown"><span class="查核輔導專區">查核輔導專區</span><b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="查核輔導專區_G查核輔導資料">G查核輔導資料</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/Audit_Guidance_Check_List" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_Guidance_Check_List">新增查核結果</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Audit_Guidance_Check_List_Action" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_Guidance_Check_List_Action">新增複查結果</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Audit_Guidance_Check_Counseling_List" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_Guidance_Check_Counseling_List">新增輔導結果</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Audit_Guidance_Check_Select" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_Guidance_Check_Select">查核輔導資料查詢修改</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="查核輔導專區_G公文上傳專區">G公文上傳專區</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/Audit_Guidance_Check_document" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_Guidance_Check_document">公文上傳專區</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Audit_Guidance_Check_document_list" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_Guidance_Check_document_list">查詢公文附件資料</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="查核輔導專區_G統計報表專區">G統計報表專區</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/Audit_StatisticReportTroughView" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_StatisticReportTroughView">儲槽總數差異勾稽報表</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Audit_StatisticReportEquipView" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_StatisticReportEquipView">設備檢查缺失</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Audit_StatisticReportItemView" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_StatisticReportItemView">石油設施缺失項目彙整表</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Audit_StatisticReportGasItemView" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_StatisticReportGasItemView">石油設施缺失統計表</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Audit_Missing_statistics_origin" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_Missing_statistics_origin">石油設施各項設備檢查缺失數</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Audit_Project_Statistics" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_Project_Statistics">石油設施各檢查項目缺失數</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Audit_Check_counts" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_Check_counts">已查核家數統計表</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Audit_ResultDownload" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_ResultDownload">石油設施查核結果彙整</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="查核輔導專區_G輔導講習專區">G輔導講習專區</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/Audit_CounselingDataM" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_CounselingDataM">輔導講習會參加者資料維護</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Audit_CounselingReportRate1" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_CounselingReportRate1">參加講習會的縣市出席率統計</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Audit_CounselingReportRate2" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_CounselingReportRate2">參加講習會的集團出席率統計</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Audit_CounselingReportMissing1" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_CounselingReportMissing1">各縣市出席率與查核缺失數比較圖</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Audit_CounselingReportMissing2" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_CounselingReportMissing2">各集團出席率與查核缺失數比較圖</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Audit_CounselingReportAFMissing" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_CounselingReportAFMissing">參加講習會前後之查核缺失數比較</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="查核輔導專區_G交叉分析報表">G交叉分析報表</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/Audit_ReportCheckPMListDownLoad" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_ReportCheckPMListDownLoad">石油設施查核名單篩選</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Audit_ReportCheck_counts_CrossAnalysis" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_ReportCheck_counts_CrossAnalysis">查核缺失趨勢交叉分析報表</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Audit_ReportCheckDistribution" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_ReportCheckDistribution">分級管理趨勢交叉分析報表</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Audit_ReportCheck_counts_ImportantFactor" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_ReportCheck_counts_ImportantFactor">分級管理及重要因子交叉分析清單報表</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Audit_ReportPreviousDistribution" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_ReportPreviousDistribution">歷年度查核次數與缺失分布</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Audit_ReportSpecificProject" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_ReportSpecificProject">特定查核項目歷年度缺失改善變化圖表</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Audit_ReportCheckProjectError" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_ReportCheckProjectError">歷年加油站各檢查項目缺失統計</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Audit_ReportCheckCityError" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_ReportCheckCityError">歷年各縣市石油設施檢查缺失統計</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Audit_ReportCheckBussionError" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_ReportCheckBussionError">歷年各集團加油站檢查缺失統計</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Audit_ReportZeroMissing" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_ReportZeroMissing">歷年度查核零缺失比例統計</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Audit_ReportMissingYear" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_ReportMissingYear">年度及查核缺失項目查詢符合該條件之油氣設施名單</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Audit_ReportCheckItemOil" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_ReportCheckItemOil">依加油站名稱及查核缺失項目查詢歷年該缺失查核結果</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Audit_ReportMissing_statistics" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_ReportMissing_statistics">依不同年度篩選各集團站檢查發現缺失加油站名單及統計報表</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Audit_ReportMissing_statistics_County" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_ReportMissing_statistics_County">依各縣市篩選檢查發現缺失項目及統計報表</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="查核輔導專區_G異常報表">G異常報表</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/Audit_ReportCheckError1" class="nav-link dou-non-action-controller">
+
+                                                <span class="Audit_ReportCheckError1">查核系統與油氣設施子系統連結異常之清單</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li class="dropdown nav-item">
+
+
+                            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" data-bs-toggle="dropdown"><span class="系統管理專區">系統管理專區</span><b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="系統管理專區_H帳號權限管理">H帳號權限管理</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/Admin_ApplyAccount" class="nav-link dou-non-action-controller">
+
+                                                <span class="Admin_ApplyAccount">帳號申請</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Admin_AccountUseCount" class="nav-link dou-non-action-controller">
+
+                                                <span class="Admin_AccountUseCount">系統使用率</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Admin_PwdEdit" class="nav-link dou-non-action-controller">
+
+                                                <span class="Admin_PwdEdit">修改密碼</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="系統管理專區_H最新消息管理">H最新消息管理</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/Admin_NewsMaintain" class="nav-link dou-non-action-controller">
+
+                                                <span class="Admin_NewsMaintain">即時新聞</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="系統管理專區_H工安環保專區">H工安環保專區</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/Admin_Protection" class="nav-link dou-non-action-controller">
+
+                                                <span class="Admin_Protection">工安環保資料</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li class="dropdown nav-item">
+
+
+                            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" data-bs-toggle="dropdown"><span class="資訊查詢">資訊查詢</span><b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="資訊查詢_I最新消息">I最新消息</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/Info_Main" class="nav-link dou-non-action-controller">
+
+                                                <span class="Info_Main">最新消息資料</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="資訊查詢_I最新能源法規">I最新能源法規</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/Info_EnergyLaw" class="nav-link dou-non-action-controller">
+
+                                                <span class="Info_EnergyLaw">最新能源法規</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="資訊查詢_IODF相關文件">IODF相關文件</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/Info_ODFView" class="nav-link dou-non-action-controller">
+
+                                                <span class="Info_ODFView">ODF說明</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Info_ODFDownLoad" class="nav-link dou-non-action-controller">
+
+                                                <span class="Info_ODFDownLoad">ODF轉檔文件</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="資訊查詢_I函釋資料庫">I函釋資料庫</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/Info_LawSearchM" class="nav-link dou-non-action-controller">
+
+                                                <span class="Info_LawSearchM">函釋資料庫維護</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/Info_LawSearch" class="nav-link dou-non-action-controller">
+
+                                                <span class="Info_LawSearch">函釋資料庫搜尋</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                                <li class="dropdown  dropdown-submenu nav-item">
+
+                                    <a href="#" class="dropdown-toggle  nav-link" data-bs-toggle="dropdown" data-toggle="dropdown"><span class="資訊查詢_I圖文懶人包">I圖文懶人包</span></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li class="nav-item">
+                                            <a href="/Info_LazybagM" class="nav-link dou-non-action-controller">
+
+                                                <span class="Info_LazybagM">圖文懶人包維護</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li class="dropdown nav-item">
+
+
+                            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" data-bs-toggle="dropdown"><span class="系統管理">系統管理</span><b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+
+                                <li class="nav-item">
+                                    <a href="/Role" class="nav-link dou-non-action-controller">
+
+                                        <span class="系統管理_角色管理">角色管理</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Logger" class="nav-link dou-non-action-controller">
+
+                                        <span class="系統管理_記錄查詢">記錄查詢</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/User" class="nav-link dou-non-action-controller">
+
+                                        <span class="系統管理_使用者管理">使用者管理</span>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </li>
+
+                        <script>
+
+                            $('.dou-action-controller').parents('.dropdown ').find('> a[data-toggle="dropdown"]').addClass("dou-action-controller-root");
+                            $('.dou-menu a[url=""]').removeAttr("url");
+                            $('.dou-menu a[target=""]').removeAttr("target");
+
+                            $.each($('.dou-menu a[url]'), function () {
+                                $(this).attr("href", $(this).attr("href") + "?url=" + $(this).attr("url")).removeAttr("url");
+                            });
+
+                            //$('.dou-menu a:not([href="#"]):not([target]), #user-profile + .popover a').click(function () { //20220928
+                            $('.dou-menu a:not(#user-profile):not([href="#"]):not([target])').click(function () {   ////bootstrap 5
+                                helper.misc.showBusyIndicator();
+                            });
+
+                        </script>
+
+
+
+                    </ul>
+                </div>
+
+
+                <ul class="nav navbar-nav navbar-right user-profile-nav">
+                    <li><a id="user-profile" data-name="系統管理者" aria-label="使用者資訊" data-bs-original-title="使用者資訊"> <span class="glyphicon glyphicon-user"></span></a></li>
+                </ul>
+                <script>
+
+                    $(document).ready(function () {
+                        var _profileContent = '<div>帳 號:admin </div><div>名 稱:系統管理者 </div><div> IP:::1<hr>' +
+                            '<div><a href="/User/DouResetPassword" id="resetPasswordLink">變更密碼</a></div>' +
+                            '<div><a href="/User/DouEditProfile" id="editEditProfileLink">編輯個人資料</a></div><hr>' +
+                            '<div><a href="/User/DouLogoff" id="logoffLink">登出</a></div>';
+
+                        $('#user-profile').popover({ content: _profileContent, placement: function () { return $('.system-menu-header > button').is(":visible") ? "top" : "bottom" }, trigger: "click hover ", html: true, animation: true }).//, container:'body' }).
+                            click(function () {
+                                $(this).toggleClass("fix-popover");
+                                var pid = $(this).attr('aria-describedby');
+                                var $_sdom = $('#user-profile + .popover a');
+                                if (pid) { //bootstrap5  20220928
+                                    $_sdom = $('#' + pid + ' a')
+                                }
+                                $_sdom.off('click').click(function () {
+                                    helper.misc.showBusyIndicator();
+                                });
+                            });
+
+                    });
+                </script>
+                <style>
+    .navbar-nav.navbar-right{
+        /*align-items:flex-end;*/
+    }
+    #user-profile + div {
+        white-space: nowrap;
+        width: auto;
+        /*padding:2px 6px;*/
+    }
+	#user-profile:before {
+        content: attr(data-name);
+    }
+	#user-profile:not(.fix-popover) {
+        color: white;
+        text-decoration: none;
+    }
+   
+		#user-profile:before{
+			content:"";
+		}
+       #user-profile + .popover {
+            margin-left: 42px;
+        }
+        #user-profile.fix-popover + .popover {
+            box-shadow: 0 5px 10px rgba(255,255,255,1);
+        }
+        .user-profile-nav{
+            order:-1;
+        }
+    }
+                </style>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid body-content">
+
+        <div class="data-manager-menu-map"><a href="/">汽機車加油站/A管理專區/汽機車加油站基本資料查詢修改</a></div>
+        <script>$.AppConfigOptions = $.AppConfigOptions || {}; $.AppConfigOptions.baseurl = "/"; $.AppConfigOptions.default_loading = { icon: "/Scripts/gis/images/loading/loading_black.gif", size: "0.9em" }; var dou_options = { "classes": "carfuel_selectcontroller", "title": "汽機車加油站基本資料查詢修改", "fields": [{ "field": "CaseNo", "title": "案件編號", "sortable": false, "allowNull": false, "visible": true, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-CaseNo", "key": true, "maxlength": 10, "filter": true }, { "field": "CITY", "title": "縣市", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": false, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-CITY", "maxlength": 10, "datatype": "select", "selectitems": { "04": "宜蘭縣", "22": "花蓮縣", "24": "金門縣", "12": "南投縣", "20": "屏東縣", "08": "苗栗縣", "07": "桃園市", "18,19": "高雄市", "02": "基隆市", "25": "連江縣", "15": "雲林縣", "03": "新北市", "05": "新竹市", "06": "新竹縣", "13": "嘉義市", "14": "嘉義縣", "11": "彰化縣", "09,10": "臺中市", "01": "臺北市", "21": "臺東縣", "16,17": "臺南市", "23": "澎湖縣" }, "filter": true }, { "field": "Gas_Name", "title": "加油站名稱", "sortable": false, "allowNull": true, "visible": true, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-Gas_Name", "maxlength": 70, "filter": true }, { "field": "Business_theme", "title": "營業主體", "sortable": true, "allowNull": true, "visible": true, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-Business_theme", "maxlength": 20, "datatype": "select", "selectitems": { "17": "久井企業股份有限公司", "1": "千越加油站實業股份有限公司", "2": "山隆通運股份有限公司", "3": "中華石油股份有限公司", "4": "北基國際股份有限公司", "5": "台亞石油股份有限公司", "6": "台灣中油股份有限公司", "7": "台灣糖業股份有限公司", "8": "台灣優力流通事業股份有限公司", "9": "台灣聯合環球石油股份有限公司", "10": "全國加油站股份有限公司", "11": "西歐加油站股份有限公司", "18": "車容坊股份有限公司", "12": "亞太國際物流股份有限公司", "16": "其他", "13": "統一精工股份有限公司", "14": "福懋興業股份有限公司", "15": "鯨世界國際股份有限公司" }, "filter": true }, { "field": "otherBusiness_theme", "title": "其他營業主體", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-otherBusiness_theme", "maxlength": 30 }, { "datatype": "datetime", "field": "Recipient_date-Start-Between_", "title": "收件日期(起)", "visible": false, "visibleEdit": false, "filter": true, "useInputType": true }, { "datatype": "datetime", "field": "Recipient_date-End-Between_", "title": "收件日期(迄)", "visible": false, "visibleEdit": false, "filter": true, "useInputType": true }, { "field": "Recipient_date", "title": "收件日期", "sortable": false, "allowNull": true, "visible": true, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-Recipient_date", "datatype": "datetime", "filter": false }, { "field": "UsageState", "title": "營運狀況", "sortable": false, "allowNull": true, "visible": true, "visibleEdit": false, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-UsageState", "maxlength": 10, "datatype": "select", "selectitems": { "0": "申請中", "1": "申請中變更", "10": "同意籌建展延失效", "11": "同意籌建展延核駁", "12": "同意籌建展延廢止", "13": "同意籌建展延撤案", "14": "同意籌建失效", "15": "同意籌建變更", "17": "核發經營許可執照", "19": "同意核發經營許可執照展延", "2": "同意認定", "20": "申請核發經營許可執照展延失效", "21": "申請核發經營許可執照展延核駁", "22": "申請核發經營許可執照展延廢止", "23": "申請核發經營許可執照展延撤案", "24": "同意籌建核駁", "25": "同意籌建廢止", "26": "同意籌建撤案", "27": "核駁", "28": "廢止", "29": "撤案", "3": "同意認定失效", "30": "已開業", "31": "申請開業展延", "32": "同意開業展延", "34": "申請開業展延核駁", "35": "申請開業展延廢止", "36": "申請開業展延撤案", "4": "同意認定變更", "44": "申請暫停營業", "45": "同意暫停營業", "47": "同意暫停營業展延", "48": "經營管理-申請暫停營業核駁", "49": "申請暫停營業撤案", "5": "同意認定核駁", "55": "申請復業", "56": "同意復業", "58": "申請復業失效", "6": "同意認定廢止", "60": "同意復業撤案", "61": "申請歇業", "62": "同意歇業", "63": "繳銷經營許可執照", "64": "註銷經營許可執照", "65": "申請歇業核駁", "66": "申請歇業廢止", "67": "申請歇業撤案", "68": "換發經營許可執照", "7": "同意認定撤案", "70": "撤案", "71": "申請歇業失效", "72": "核照逾期開業失效", "73": "暫停營業展延核駁", "74": "廢止經營許可執照", "75": "同意營業中變更", "76": "營業中變更核駁", "77": "營業中變更廢止", "78": "營業中變更撤案", "79": "同意暫停營業中變更", "8": "同意籌建", "80": "暫停營業中變更核駁", "81": "暫停營業中變更廢止", "82": "暫停營業中變更撤案", "9": "同意籌建展延" }, "filter": true }, { "field": "Report_date", "title": "核發證號日期", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-Report_date", "datatype": "datetime" }, { "field": "ChangeReport_date", "title": "換發證號日期", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-ChangeReport_date", "datatype": "datetime" }, { "field": "LicenseNo1", "title": "證號", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-LicenseNo1", "maxlength": 20 }, { "field": "LicenseNo2", "title": "字第", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-LicenseNo2", "maxlength": 20 }, { "field": "LicenseNo3", "title": "之", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-LicenseNo3", "maxlength": 20 }, { "field": "SoilServerData", "title": "油品供應商", "sortable": true, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-SoilServerData", "maxlength": 20, "datatype": "select", "selectitems": { "0": "92無鉛汽油", "1": "95無鉛汽油", "2": "98無鉛汽油", "3": "柴油" } }, { "field": "otherSoilServerData", "title": "其他油品供應商", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": false, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-otherSoilServerData", "maxlength": 20 }, { "field": "UsageState1", "title": "營運狀況(選單1)", "sortable": true, "allowNull": false, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-UsageState1", "maxlength": 10, "datatype": "select", "selectGearingWith": "UsageState2,Parent,true", "selectitems": { "0": "申請設置", "1": "經營管理" } }, { "field": "UsageState2", "title": "營運狀況(選單2)", "sortable": true, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-UsageState2", "maxlength": 10, "datatype": "select", "selectGearingWith": "UsageState3,Parent,true", "selectitems": { "0": "{\"v\":\"申請中\",\"Parent\":\"0\"}", "2": "{\"v\":\"已開業\",\"Parent\":\"1\"}" } }, { "field": "UsageState3", "title": "營運狀況(選單3)", "sortable": true, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-UsageState3", "maxlength": 10, "datatype": "select", "selectGearingWith": "UsageState4,Parent,true", "selectitems": { "0": "{\"v\":\"申請中變更\",\"Parent\":\"0\"}", "1": "{\"v\":\"同意認定\",\"Parent\":\"0\"}", "10": "{\"v\":\"暫停營業中變更\",\"Parent\":\"2\"}", "11": "{\"v\":\"申請復業\",\"Parent\":\"2\"}", "12": "{\"v\":\"申請歇業\",\"Parent\":\"2\"}", "19": "{\"v\":\"撤案\",\"Parent\":\"2\"}", "2": "{\"v\":\"同意籌建\",\"Parent\":\"0\"}", "20": "{\"v\":\"廢止經營許可執照\",\"Parent\":\"2\"}", "21": "{\"v\":\"核照逾期開業失效\",\"Parent\":\"2\"}", "4": "{\"v\":\"核駁\",\"Parent\":\"0\"}", "5": "{\"v\":\"廢止\",\"Parent\":\"0\"}", "6": "{\"v\":\"撤案\",\"Parent\":\"0\"}", "7": "{\"v\":\"申請開業展延\",\"Parent\":\"2\"}", "8": "{\"v\":\"營業中變更\",\"Parent\":\"2\"}", "9": "{\"v\":\"申請暫停營業\",\"Parent\":\"2\"}", "999": "{\"v\":\" －請選擇－ \",\"Parent\":\"\"}" } }, { "field": "UsageState4", "title": "營運狀況(選單4)", "sortable": true, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-UsageState4", "maxlength": 10, "datatype": "select", "selectGearingWith": "UsageState5,Parent,true", "selectitems": { "0": "{\"v\":\"同意認定失效\",\"Parent\":\"1\"}", "1": "{\"v\":\"同意認定變更\",\"Parent\":\"1\"}", "10": "{\"v\":\"核駁\",\"Parent\":\"2\"}", "11": "{\"v\":\"廢止\",\"Parent\":\"2\"}", "12": "{\"v\":\"撤案\",\"Parent\":\"2\"}", "17": "{\"v\":\"同意開業展延\",\"Parent\":\"7\"}", "18": "{\"v\":\"核駁\",\"Parent\":\"7\"}", "19": "{\"v\":\"廢止\",\"Parent\":\"7\"}", "2": "{\"v\":\"同意籌建\",\"Parent\":\"1\"}", "20": "{\"v\":\"撤案\",\"Parent\":\"7\"}", "26": "{\"v\":\"暫停營業展延\",\"Parent\":\"9\"}", "27": "{\"v\":\"同意暫停營業\",\"Parent\":\"9\"}", "28": "{\"v\":\"撤案\",\"Parent\":\"9\"}", "3": "{\"v\":\"核駁\",\"Parent\":\"1\"}", "34": "{\"v\":\"同意復業\",\"Parent\":\"11\"}", "35": "{\"v\":\"撤案\",\"Parent\":\"11\"}", "36": "{\"v\":\"同意歇業\",\"Parent\":\"12\"}", "37": "{\"v\":\"核駁\",\"Parent\":\"12\"}", "38": "{\"v\":\"廢止\",\"Parent\":\"12\"}", "39": "{\"v\":\"撤案\",\"Parent\":\"12\"}", "4": "{\"v\":\"廢止\",\"Parent\":\"1\"}", "41": "{\"v\":\"失效\",\"Parent\":\"11\"}", "42": "{\"v\":\"核駁\",\"Parent\":\"9\"}", "44": "{\"v\":\"申請同意籌建展延\",\"Parent\":\"1\"}", "45": "{\"v\":\"失效\",\"Parent\":\"12\"}", "46": "{\"v\":\"同意營業中變更\",\"Parent\":\"8\"}", "47": "{\"v\":\"核駁\",\"Parent\":\"8\"}", "48": "{\"v\":\"廢止\",\"Parent\":\"8\"}", "49": "{\"v\":\"撤案\",\"Parent\":\"8\"}", "5": "{\"v\":\"撤案\",\"Parent\":\"1\"}", "50": "{\"v\":\"同意暫停營業中變更\",\"Parent\":\"10\"}", "51": "{\"v\":\"核駁\",\"Parent\":\"10\"}", "52": "{\"v\":\"廢止\",\"Parent\":\"10\"}", "53": "{\"v\":\"撤案\",\"Parent\":\"10\"}", "6": "{\"v\":\"同意籌建變更\",\"Parent\":\"2\"}", "7": "{\"v\":\"同意籌建失效\",\"Parent\":\"2\"}", "8": "{\"v\":\"核發經營許可執照\",\"Parent\":\"2\"}", "9": "{\"v\":\"申請核發經營許可執照展延\",\"Parent\":\"2\"}", "999": "{\"v\":\" －請選擇－ \",\"Parent\":\"\"}" } }, { "field": "UsageState5", "title": "營運狀況(選單5)", "sortable": true, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-UsageState5", "maxlength": 10, "datatype": "select", "selectGearingWith": "UsageState6,Parent,true", "selectitems": { "14": "{\"v\":\"已歇業\",\"Parent\":\"36\"}", "16": "{\"v\":\"同意復業撤案\",\"Parent\":\"34\"}", "17": "{\"v\":\"同意籌建變更\",\"Parent\":\"2\"}", "18": "{\"v\":\"同意籌建失效\",\"Parent\":\"2\"}", "19": "{\"v\":\"核發經營許可執照\",\"Parent\":\"2\"}", "2": "{\"v\":\"核照展延失效\",\"Parent\":\"9\"}", "20": "{\"v\":\"申請核發經營許可執照展延\",\"Parent\":\"2\"}", "21": "{\"v\":\"核駁\",\"Parent\":\"2\"}", "22": "{\"v\":\"廢止\",\"Parent\":\"2\"}", "23": "{\"v\":\"撤案\",\"Parent\":\"2\"}", "24": "{\"v\":\"同意\",\"Parent\":\"26\"}", "25": "{\"v\":\"核駁\",\"Parent\":\"26\"}", "26": "{\"v\":\"同意籌建展延\",\"Parent\":\"44\"}", "27": "{\"v\":\"同意籌建展延失效\",\"Parent\":\"44\"}", "28": "{\"v\":\"核駁\",\"Parent\":\"44\"}", "29": "{\"v\":\"廢止\",\"Parent\":\"44\"}", "3": "{\"v\":\"核駁\",\"Parent\":\"9\"}", "30": "{\"v\":\"撤案\",\"Parent\":\"44\"}", "32": "{\"v\":\"同意\",\"Parent\":\"9\"}", "4": "{\"v\":\"廢止\",\"Parent\":\"9\"}", "5": "{\"v\":\"撤案\",\"Parent\":\"9\"}", "999": "{\"v\":\" －請選擇－ \",\"Parent\":\"\"}" } }, { "field": "UsageState6", "title": "營運狀況(選單6)", "sortable": true, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-UsageState6", "maxlength": 10, "datatype": "select", "selectGearingWith": "UsageState7,Parent,true", "selectitems": { "0": "{\"v\":\"繳銷經營許可執照\",\"Parent\":\"14\"}", "1": "{\"v\":\"註銷經營許可執照\",\"Parent\":\"14\"}", "10": "{\"v\":\"同意\",\"Parent\":\"20\"}", "2": "{\"v\":\"法拍\",\"Parent\":\"14\"}", "5": "{\"v\":\"核照展延失效\",\"Parent\":\"20\"}", "6": "{\"v\":\"核駁\",\"Parent\":\"20\"}", "7": "{\"v\":\"廢止\",\"Parent\":\"20\"}", "8": "{\"v\":\"撤案\",\"Parent\":\"20\"}", "999": "{\"v\":\" －請選擇－ \",\"Parent\":\"\"}" } }, { "field": "UsageState7", "title": "營運狀況(選單7)", "sortable": true, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-UsageState7", "maxlength": 10, "datatype": "select", "selectitems": { "0": "{\"v\":\"換發經營許可執照\",\"Parent\":\"2\"}", "999": "{\"v\":\" －請選擇－ \",\"Parent\":\"2\"}" } }, { "field": "AgreeDate", "title": "同意認定期限", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-AgreeDate", "datatype": "datetime" }, { "field": "Build_Deadline", "title": "同意籌建期限", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-Build_Deadline", "datatype": "datetime" }, { "field": "ExtensionCount1", "title": "同意籌建展延次數", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-ExtensionCount1", "halign": "center", "align": "right", "datatype": "number" }, { "field": "ExtensionDateStart1", "title": "同意籌建開始日期", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-ExtensionDateStart1", "datatype": "datetime" }, { "field": "ExtensionDateEnd1", "title": "同意籌建結束日期", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-ExtensionDateEnd1", "datatype": "datetime" }, { "field": "ExtensionCount2", "title": "申請開業展延次數", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-ExtensionCount2", "halign": "center", "align": "right", "datatype": "number" }, { "field": "ExtensionDateStart2", "title": "申請開業展延開始日期", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-ExtensionDateStart2", "datatype": "datetime" }, { "field": "ExtensionDateEnd2", "title": "申請開業展延結束日期", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-ExtensionDateEnd2", "datatype": "datetime" }, { "field": "ExtensionCount3", "title": "核發經營許可執照展延次數", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-ExtensionCount3", "halign": "center", "align": "right", "datatype": "number" }, { "field": "ExtensionDateStart3", "title": "核發經營許可執照展延延開始日期", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-ExtensionDateStart3", "datatype": "datetime" }, { "field": "ExtensionDateEnd3", "title": "核發經營許可執照展延延結束日期", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-ExtensionDateEnd3", "datatype": "datetime" }, { "field": "ExtensionCount4", "title": "申請暫停營業展延次數", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-ExtensionCount4", "halign": "center", "align": "right", "datatype": "number" }, { "field": "ExtensionDateStart4", "title": "申請暫停營業展延次數開始日期", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-ExtensionDateStart4", "datatype": "datetime" }, { "field": "ExtensionDateEnd4", "title": "申請暫停營業展延次數結束日期", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-ExtensionDateEnd4", "datatype": "datetime" }, { "field": "ExtensionCount5", "title": "申請開業展延次數", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-ExtensionCount5", "halign": "center", "align": "right", "datatype": "number" }, { "field": "ExtensionDateStart5", "title": "申請復業展延開始日期", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-ExtensionDateStart5", "datatype": "datetime" }, { "field": "ExtensionDateEnd5", "title": "申請復業展延結束日期", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-ExtensionDateEnd5", "datatype": "datetime" }, { "field": "BuildDate", "title": "籌建完成日期", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-BuildDate", "datatype": "datetime" }, { "field": "OperationDate", "title": "營運日期", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-OperationDate", "datatype": "datetime" }, { "field": "ForeclosureDate", "title": "進入法拍作業程序日期", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-ForeclosureDate", "datatype": "datetime" }, { "field": "ClosedDate", "title": "同意暫停歇業日期", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-ClosedDate", "datatype": "datetime" }, { "field": "StopDate", "title": "同意歇業日期", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-StopDate", "datatype": "datetime" }, { "field": "UsageStateSub", "title": "營業中變更", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-UsageStateSub", "maxlength": 50, "datatype": "select", "selectitems": { "1": "經營許可執照", "2": "加油站平面配置", "3": "營運設施", "4": "兼營事項", "5": "附屬設施" } }, { "field": "TelNo", "title": "加油站電話", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-TelNo", "maxlength": 20 }, { "field": "ZipCode", "title": "郵遞區號", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-ZipCode", "maxlength": 5 }, { "field": "Address", "title": "地址", "sortable": false, "allowNull": true, "visible": true, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-Address", "maxlength": 100, "filter": true }, { "field": "AddressNo", "title": "加油站地號", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-AddressNo", "maxlength": 200 }, { "field": "Boss", "title": "負責人姓名", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-Boss", "maxlength": 25 }, { "field": "ID_No", "title": "負責人身份證字號", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-ID_No", "maxlength": 10 }, { "field": "ZipCode2", "title": "負責人郵遞區號", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-ZipCode2", "maxlength": 5 }, { "field": "Address2", "title": "負責人聯絡地址", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-Address2", "maxlength": 100 }, { "field": "Boss_Tel", "title": "負責人聯絡電話", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-Boss_Tel", "maxlength": 20 }, { "field": "Boss_Email", "title": "電子郵件信箱", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-Boss_Email", "maxlength": 50, "datatype": "email" }, { "field": "AncillaryFacility", "title": "附屬設施", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-AncillaryFacility", "maxlength": 50, "datatype": "radio", "selectitems": { "5": "自動販賣機及民生用品零售服務設施", "1": "汽機車簡易保養設施", "2": "洗車設施", "4": "銷售汽機車用品設施", "3": "簡易排污檢測服務設施", "6": "多媒體事務機", "7": "接受事業機構委託收費服務設施" } }, { "field": "Facility", "title": "兼營設施", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-Facility", "maxlength": 100, "datatype": "radio", "selectitems": { "11": "代售高速公路回數票證", "4": "代辦汽車定期檢驗", "16": "汽機車與自行車買賣及租賃", "3": "車用液化石油氣", "14": "其他經中央主管機關核准之兼營項目", "1": "便利商店", "17": "屋頂供他人設置裝置容量不及五百瓩並利用太陽能之自用發電設備", "2": "停車場", "12": "從事僅供收受洗滌物場所之洗衣業務", "9": "接受他人委託代收物品服務", "10": "接受事業機構委託收費服務", "15": "販售農產品", "18": "提供加油站營業站屋，供具有身心障礙者、原住民或低收入單親家庭身分之公益彩卷經銷商銷售公益彩卷。", "8": "提供場所供設置「金融機構營業場所外自動化服務設備」", "13": "提供營業站屋屋頂供設置行動電話基地台", "5": "經銷公益彩券", "7": "電動機車電池更換", "6": "廣告服務" } }, { "field": "otherFacility", "title": "其他兼營設施", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-otherFacility", "maxlength": 80 }, { "field": "LandPriority", "title": "土地權屬", "sortable": true, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-LandPriority", "maxlength": 10, "datatype": "select", "selectitems": { "1": "自用", "3": "自用、租用", "2": "租用" } }, { "field": "Land_acreage", "title": "用地總面積", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-Land_acreage", "halign": "center", "align": "right", "datatype": "number", "step": "any" }, { "field": "LandType", "title": "土地使用分區", "sortable": true, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-LandType", "maxlength": 10, "datatype": "select", "selectitems": { "4": "乙種建築用地(鄉村區)", "6": "丁種建築用地(工業區)", "5": "丙種建築用地", "2": "加油站用地", "3": "甲種建築用地", "99": "其他", "8": "特定目的事業用地(加油站)", "7": "遊憩用地", "0": " － " } }, { "field": "LandUsageZone", "title": "土地使用分區(選單2)", "sortable": true, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-LandUsageZone", "maxlength": 30, "datatype": "select", "selectitems": { "66": "", "14": "一般農業區", "2": "工業區", "11": "公共設施用地", "4": "文教區", "3": "行政區", "0": "住宅區", "98": "其他", "10": "加油站專用區", "7": "保存區", "8": "保護區", "6": "風景區", "13": "特定農業區", "1": "商業區", "15": "鄉村區", "9": "農業區", "5": "體育運動區", "17": "森林區", "18": "山坡地保育區", "20": "河川區", "21": "特定專用區" } }, { "field": "OtherLandUsageZone", "title": "土地使用分區(選單3)", "sortable": true, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-OtherLandUsageZone", "maxlength": 50, "datatype": "select", "selectitems": { "4": "乙種建築用地(鄉村區)", "6": "丁種建築用地(工業區)", "5": "丙種建築用地", "2": "加油站用地", "3": "甲種建築用地", "99": "其他", "8": "特定目的事業用地(加油站)", "7": "遊憩用地", "0": " － " } }, { "field": "LandClass", "title": "用地類別", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": false, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-LandClass", "maxlength": 50 }, { "field": "OtherLandClass", "title": "其他用地類別", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": false, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-OtherLandClass", "maxlength": 50 }, { "field": "Island", "title": "加油泵島數", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-Island", "halign": "center", "align": "right", "datatype": "number" }, { "field": "Tank", "title": "油槽總數", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-Tank", "halign": "center", "align": "right", "datatype": "number" }, { "field": "one_gun", "title": "加油機數:單槍", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-one_gun", "halign": "center", "align": "right", "datatype": "number" }, { "field": "two_gun", "title": "加油機數:雙槍", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-two_gun", "halign": "center", "align": "right", "datatype": "number" }, { "field": "four_gun", "title": "加油機數: 四槍", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-four_gun", "halign": "center", "align": "right", "datatype": "number" }, { "field": "six_gun", "title": "加油機數:六槍", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-six_gun", "halign": "center", "align": "right", "datatype": "number" }, { "field": "eight_gun", "title": "加油機數: 八槍", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-eight_gun", "halign": "center", "align": "right", "datatype": "number" }, { "field": "other_gun", "title": "加油機數: 其他", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-other_gun", "halign": "center", "align": "right", "datatype": "number" }, { "field": "total_gun", "title": "加油機數:共計", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-total_gun", "halign": "center", "align": "right", "datatype": "number" }, { "field": "Self_one_gun", "title": "自助加油機數:單槍", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-Self_one_gun", "halign": "center", "align": "right", "datatype": "number" }, { "field": "Self_two_gun", "title": "自助加油機數:雙槍", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-Self_two_gun", "halign": "center", "align": "right", "datatype": "number" }, { "field": "Self_four_gun", "title": "自助加油機數: 四槍", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-Self_four_gun", "halign": "center", "align": "right", "datatype": "number" }, { "field": "Self_six_gun", "title": "自助加油機數:六槍", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-Self_six_gun", "halign": "center", "align": "right", "datatype": "number" }, { "field": "Self_eight_gun", "title": "自助加油機數: 八槍", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-Self_eight_gun", "halign": "center", "align": "right", "datatype": "number" }, { "field": "Self_other_gun", "title": "自助加油機數: 其他", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-Self_other_gun", "halign": "center", "align": "right", "datatype": "number" }, { "field": "Self_total_gun", "title": "自助加油機數:共計", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-Self_total_gun", "halign": "center", "align": "right", "datatype": "number" }, { "field": "total_one_gun", "title": "加油機及自助加油機數:單槍", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-total_one_gun", "halign": "center", "align": "right", "datatype": "number" }, { "field": "total_two_gun", "title": "加油機及自助加油機數:雙槍", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-total_two_gun", "halign": "center", "align": "right", "datatype": "number" }, { "field": "total_four_gun", "title": "加油機及自助加油機數: 四槍", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-total_four_gun", "halign": "center", "align": "right", "datatype": "number" }, { "field": "total_six_gun", "title": "加油機及自助加油機數:六槍", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-total_six_gun", "halign": "center", "align": "right", "datatype": "number" }, { "field": "total_eight_gun", "title": "加油機及自助加油機數: 八槍", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-total_eight_gun", "halign": "center", "align": "right", "datatype": "number" }, { "field": "total_other_gun", "title": "加油機及自助加油機數: 其他", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-total_other_gun", "halign": "center", "align": "right", "datatype": "number" }, { "field": "total_total_gun", "title": "加油機及自助加油機數:共計", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-total_total_gun", "halign": "center", "align": "right", "datatype": "number" }, { "field": "File_name", "title": "平面配置圖", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-File_name", "maxlength": 30 }, { "field": "Create_date", "title": "資料建立時間", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-Create_date", "datatype": "datetime" }, { "field": "Create_name", "title": "資料建立者", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-Create_name", "maxlength": 25 }, { "field": "Mod_date", "title": "資料修改時間", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-Mod_date", "datatype": "datetime" }, { "field": "Mod_name", "title": "最後修改者", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-Mod_name", "maxlength": 25 }, { "field": "Note2", "title": "備註", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": true, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-Note2", "maxlength": 200 }, { "field": "MemberID", "title": "修改人帳號", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": false, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-MemberID", "maxlength": 52 }, { "field": "Longitude_E", "title": "X", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": false, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-Longitude_E", "maxlength": 20 }, { "field": "Longitude_N", "title": "Y", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": false, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-Longitude_N", "maxlength": 20 }, { "field": "ID", "title": "ID", "sortable": false, "allowNull": false, "visible": false, "visibleEdit": false, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-ID", "key": true }, { "field": "Officials", "title": "Officials", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": false, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-Officials", "maxlength": 25 }, { "field": "Change", "title": "Change", "sortable": false, "allowNull": true, "visible": false, "visibleEdit": false, "visibleView": true, "colsize": 12, "coltier": "md", "useInputType": true, "class": "dou-field-Change", "halign": "center", "align": "right", "datatype": "number" }], "search": false, "ctrlFieldAlign": "right", "addable": true, "editable": true, "deleteable": true, "viewable": false, "ext1able": false, "ext2able": false, "ext3able": false, "useMutiDelete": false, "useMutiSelect": false, "addToListTop": false, "singleDataEdit": false, "addServerData": function (row, callback) { transactionDouClientDataToServer.call(this, row, '/CarFuel_Select/Add', callback); }, "deleteServerData": function (row, callback) { transactionDouClientDataToServer.call(this, row, '/CarFuel_Select/Delete', callback); }, "updateServerData": function (row, callback) { transactionDouClientDataToServer.call(this, row, '/CarFuel_Select/Update', callback); }, "tableOptions": { "striped": true, "search": true, "formatSearch": function () { return '搜尋'; }, "formatNoMatches": function () { return '無符合資料'; }, "url": "/CarFuel_Select/GetData", "queryParams": function (params) { if (!params) return params; var ps = []; for (var pkey in params) { ps.push({ key: pkey, value: params[pkey] }); } return { paras: ps }; }, "method": "post", "responseHandler": function (res) { res.rows = res.data; res.total = res.TotalItemCount; res.fixedScroll = false; return res; }, "pagination": true, "sidePagination": "server" }, "jsPanelClasses": "dou-JsPanel carfuel_selectcontroller", "editformMaxheight": 0, "editformSize": { "width": "auto", "height": "auto", "minWidth": 450, "minHeight": 360 }, "editformLabelWidth": 0, "editformWindowStyle": "showEditformOnly", "editformWindowClasses": "" };</script>
+
+        <div data-backdrop="false" class="modal dou-JsPanel carfuel_selectcontroller data-edit-jspanel window-style-showEditformOnly" tabindex="-1" role="dialog" data-show="true" style="display: block; position: static; width: auto; height: auto;"><div class="modal-dialog " role="document" style="min-width: 1000px; min-height: 360px;"><div class="modal-content" style="height: auto;"><div class="modal-header"><h5 class="modal-title" id="myModalLabel">汽機車加油站基本資料查詢修改-編輯</h5></div><div class="modal-body"><div id="errormsg1694741555605" class="errormsg alert alert-danger" style="display:none"></div><div name="form" action="" class="form-horizontal data-edit-form-group row">
+    <div class="form-group field-container col-md-12" data-field="CaseNo"><label class="col-sm-12 control-label">案件編號</label><div class="field-content col-sm-12"><input type="text" class="form-control" data-fn="CaseNo" placeholder="不能空值" maxlength="10" disabled=""></div></div><div class="form-group field-container col-md-12" data-field="Gas_Name"><label class="col-sm-12 control-label">加油站名稱</label><div class="field-content col-sm-12"><input type="text" class="form-control" data-fn="Gas_Name" maxlength="70"></div></div><div class="form-group field-container col-md-12" data-field="Business_theme"><label class="col-sm-12 control-label">營業主體</label><div class="field-content col-sm-12"><select class="form-control form-select" data-fn="Business_theme"> <option value="" title="所有營業主體">選擇營業主體</option> <option value="1" data-v="千越加油站實業股份有限公司" data-k="1" data-s="99">千越加油站實業股份有限公司</option> <option value="2" data-v="山隆通運股份有限公司" data-k="2" data-s="99">山隆通運股份有限公司</option> <option value="3" data-v="中華石油股份有限公司" data-k="3" data-s="99">中華石油股份有限公司</option> <option value="4" data-v="北基國際股份有限公司" data-k="4" data-s="99">北基國際股份有限公司</option> <option value="5" data-v="台亞石油股份有限公司" data-k="5" data-s="99">台亞石油股份有限公司</option> <option value="6" data-v="台灣中油股份有限公司" data-k="6" data-s="99">台灣中油股份有限公司</option> <option value="7" data-v="台灣糖業股份有限公司" data-k="7" data-s="99">台灣糖業股份有限公司</option> <option value="8" data-v="台灣優力流通事業股份有限公司" data-k="8" data-s="99">台灣優力流通事業股份有限公司</option> <option value="9" data-v="台灣聯合環球石油股份有限公司" data-k="9" data-s="99">台灣聯合環球石油股份有限公司</option> <option value="10" data-v="全國加油站股份有限公司" data-k="10" data-s="99">全國加油站股份有限公司</option> <option value="11" data-v="西歐加油站股份有限公司" data-k="11" data-s="99">西歐加油站股份有限公司</option> <option value="12" data-v="亞太國際物流股份有限公司" data-k="12" data-s="99">亞太國際物流股份有限公司</option> <option value="13" data-v="統一精工股份有限公司" data-k="13" data-s="99">統一精工股份有限公司</option> <option value="14" data-v="福懋興業股份有限公司" data-k="14" data-s="99">福懋興業股份有限公司</option> <option value="15" data-v="鯨世界國際股份有限公司" data-k="15" data-s="99">鯨世界國際股份有限公司</option> <option value="16" data-v="其他" data-k="16" data-s="99">其他</option> <option value="17" data-v="久井企業股份有限公司" data-k="17" data-s="99">久井企業股份有限公司</option> <option value="18" data-v="車容坊股份有限公司" data-k="18" data-s="99">車容坊股份有限公司</option> </select></div></div><div class="form-group field-container col-md-12 d-none" data-field="otherBusiness_theme"><label class="col-sm-12 control-label">其他營業主體</label><div class="field-content col-sm-12"><input type="text" class="form-control" data-fn="otherBusiness_theme" maxlength="30"></div></div><div class="form-group field-container col-md-12" data-field="Recipient_date"><label class="col-sm-12 control-label">收件日期</label><div class="field-content col-sm-12"><div id="idfd8f3b80-bf8b-41ef-bf93-4bb2d5449c92" class="input-group date datetimeul datepick" data-fn="Recipient_date" data-target-input="nearest"><input type="datetime-local" title="收件日期" required="" class="form-control not-datetimepicker-input" data-target="#idfd8f3b80-bf8b-41ef-bf93-4bb2d5449c92" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}" value="2023-09-07T16:02:00"><span class="validity input-group-text-no"></span></div></div></div><div class="form-group field-container col-md-12" data-field="Report_date"><label class="col-sm-12 control-label">核發證號日期</label><div class="field-content col-sm-12"><div id="id4923afc9-3ea8-4514-a049-9b5f25bd548e" class="input-group date datetimeul datepick" data-fn="Report_date" data-target-input="nearest"><input type="datetime-local" title="核發證號日期" required="" class="form-control not-datetimepicker-input" data-target="#id4923afc9-3ea8-4514-a049-9b5f25bd548e" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}" value="2023-09-14T16:02:00" disabled=""><span class="validity input-group-text-no"></span></div></div></div><div class="form-group field-container col-md-12" data-field="ChangeReport_date"><label class="col-sm-12 control-label">換發證號日期</label><div class="field-content col-sm-12"><div id="id5686da1b-f7d0-43b1-a14d-1bd5ff8afd40" class="input-group date datetimeul datepick" data-fn="ChangeReport_date" data-target-input="nearest"><input type="datetime-local" title="換發證號日期" required="" class="form-control not-datetimepicker-input" data-target="#id5686da1b-f7d0-43b1-a14d-1bd5ff8afd40" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}" value="2023-09-29T16:02:00"><span class="validity input-group-text-no"></span></div></div></div>
+
+
+
+
+
+
+
+
+
+    <div class="form-group field-container">
+        <label class="col-sm-2 control-label">證號</label>
+    </div>
+    <div class="row">
+        <div class="form-group field-container col-md-2 row" data-field="LicenseNo1">           
+            <div class="field-content col-sm-12">
+                <input type="text" class="form-control" data-fn="LicenseNo1" maxlength="20">
+            </div>
+        </div>
+
+        <div class="form-group field-container col-md-3 row" data-field="LicenseNo2">
+            <label class="col-sm-2 control-label">字第</label>
+            <div class="field-content col-sm-8">
+                <input type="text" class="form-control" data-fn="LicenseNo2" maxlength="20">
+            </div>
+            <label class="col-sm-2 control-label">字第</label>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="form-group field-container col-md-12" data-field="LicenseNo1">
+        <label class="col-sm-12 control-label">證號</label>
+        <div class="field-content col-sm-12">
+            <input type="text" class="form-control" data-fn="LicenseNo1" maxlength="20">
+        </div>
+    </div>
+
+    <div class="form-group field-container col-md-12" data-field="LicenseNo2">
+        <label class="col-sm-12 control-label">字第</label>
+        <div class="field-content col-sm-12">
+            <input type="text" class="form-control" data-fn="LicenseNo2" maxlength="20">
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="form-group field-container col-md-12" data-field="LicenseNo3"><label class="col-sm-12 control-label">之</label><div class="field-content col-sm-12"><input type="text" class="form-control" data-fn="LicenseNo3" maxlength="20"></div></div><div class="form-group field-container col-md-12" data-field="SoilServerData"><label class="col-sm-12 control-label">油品供應商</label><div class="field-content col-sm-12"><select class="form-control form-select" data-fn="SoilServerData"> <option value="" title="所有油品供應商">選擇油品供應商</option> <option value="0" data-v="92無鉛汽油" data-k="0" data-s="99">92無鉛汽油</option> <option value="1" data-v="95無鉛汽油" data-k="1" data-s="99">95無鉛汽油</option> <option value="2" data-v="98無鉛汽油" data-k="2" data-s="99">98無鉛汽油</option> <option value="3" data-v="柴油" data-k="3" data-s="99">柴油</option> </select></div></div><div class="form-group field-container col-md-12" data-field="UsageState1"><label class="col-sm-12 control-label">營運狀況(選單1)</label><div class="field-content col-sm-12"><select class="form-control form-select field-gearing" data-fn="UsageState1"> <option value="0" data-v="申請設置" data-k="0" data-s="99">申請設置</option> <option value="1" data-v="經營管理" data-k="1" data-s="99">經營管理</option> </select></div></div><div class="form-group field-container col-md-12" data-field="UsageState2"><label class="col-sm-12 control-label">營運狀況(選單2)</label><div class="field-content col-sm-12"><select class="form-control form-select field-gearing" data-fn="UsageState2"><option value="" title="所有營運狀況(選單2)">選擇營運狀況(選單2)</option><option value="2" data-v="已開業" data-parent="1" data-k="2" data-s="99">已開業</option></select></div></div><div class="form-group field-container col-md-12" data-field="UsageState3"><label class="col-sm-12 control-label">營運狀況(選單3)</label><div class="field-content col-sm-12"><select class="form-control form-select field-gearing" data-fn="UsageState3"><option value="" title="所有營運狀況(選單3)">選擇營運狀況(選單3)</option><option value="7" data-v="申請開業展延" data-parent="2" data-k="7" data-s="99">申請開業展延</option><option value="8" data-v="營業中變更" data-parent="2" data-k="8" data-s="99">營業中變更</option><option value="9" data-v="申請暫停營業" data-parent="2" data-k="9" data-s="99">申請暫停營業</option><option value="10" data-v="暫停營業中變更" data-parent="2" data-k="10" data-s="99">暫停營業中變更</option><option value="11" data-v="申請復業" data-parent="2" data-k="11" data-s="99">申請復業</option><option value="12" data-v="申請歇業" data-parent="2" data-k="12" data-s="99">申請歇業</option><option value="19" data-v="撤案" data-parent="2" data-k="19" data-s="99">撤案</option><option value="20" data-v="廢止經營許可執照" data-parent="2" data-k="20" data-s="99">廢止經營許可執照</option><option value="21" data-v="核照逾期開業失效" data-parent="2" data-k="21" data-s="99">核照逾期開業失效</option></select></div></div><div class="form-group field-container col-md-12" data-field="UsageState4"><label class="col-sm-12 control-label">營運狀況(選單4)</label><div class="field-content col-sm-12"><select class="form-control form-select field-gearing" data-fn="UsageState4"><option value="" title="所有營運狀況(選單4)">選擇營運狀況(選單4)</option></select></div></div><div class="form-group field-container col-md-12" data-field="UsageState5"><label class="col-sm-12 control-label">營運狀況(選單5)</label><div class="field-content col-sm-12"><select class="form-control form-select field-gearing" data-fn="UsageState5"><option value="" title="所有營運狀況(選單5)">選擇營運狀況(選單5)</option></select></div></div><div class="form-group field-container col-md-12" data-field="UsageState6"><label class="col-sm-12 control-label">營運狀況(選單6)</label><div class="field-content col-sm-12"><select class="form-control form-select field-gearing" data-fn="UsageState6"><option value="" title="所有營運狀況(選單6)">選擇營運狀況(選單6)</option></select></div></div><div class="form-group field-container col-md-12" data-field="UsageState7"><label class="col-sm-12 control-label">營運狀況(選單7)</label><div class="field-content col-sm-12"><select class="form-control form-select" data-fn="UsageState7"><option value="" title="所有營運狀況(選單7)">選擇營運狀況(選單7)</option></select></div></div><div class="form-group field-container col-md-12 d-none" data-field="AgreeDate"><label class="col-sm-12 control-label">同意認定期限</label><div class="field-content col-sm-12"><div id="id2cff6ed9-0114-4473-afc2-c4e1df177f96" class="input-group date datetimeul datepick" data-fn="AgreeDate" data-target-input="nearest"><input type="datetime-local" title="同意認定期限" required="" class="form-control not-datetimepicker-input" data-target="#id2cff6ed9-0114-4473-afc2-c4e1df177f96" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"><span class="validity input-group-text-no"></span></div></div></div><div class="form-group field-container col-md-12 d-none" data-field="Build_Deadline"><label class="col-sm-12 control-label">同意籌建期限</label><div class="field-content col-sm-12"><div id="id23934d36-aa68-4fed-a9e2-75151a42a4ba" class="input-group date datetimeul datepick" data-fn="Build_Deadline" data-target-input="nearest"><input type="datetime-local" title="同意籌建期限" required="" class="form-control not-datetimepicker-input" data-target="#id23934d36-aa68-4fed-a9e2-75151a42a4ba" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"><span class="validity input-group-text-no"></span></div></div></div><div class="form-group field-container col-md-12 d-none" data-field="ExtensionCount1"><label class="col-sm-12 control-label">同意籌建展延次數</label><div class="field-content col-sm-12"><input type="number" class=" form-control" data-fn="ExtensionCount1"></div></div><div class="form-group field-container col-md-12 d-none" data-field="ExtensionDateStart1"><label class="col-sm-12 control-label">同意籌建開始日期</label><div class="field-content col-sm-12"><div id="idfa105b82-e786-4e6c-9bdc-6b19bf671476" class="input-group date datetimeul datepick" data-fn="ExtensionDateStart1" data-target-input="nearest"><input type="datetime-local" title="同意籌建開始日期" required="" class="form-control not-datetimepicker-input" data-target="#idfa105b82-e786-4e6c-9bdc-6b19bf671476" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"><span class="validity input-group-text-no"></span></div></div></div><div class="form-group field-container col-md-12 d-none" data-field="ExtensionDateEnd1"><label class="col-sm-12 control-label">同意籌建結束日期</label><div class="field-content col-sm-12"><div id="id6bd6182a-7f11-44d4-8301-ae40a536b159" class="input-group date datetimeul datepick" data-fn="ExtensionDateEnd1" data-target-input="nearest"><input type="datetime-local" title="同意籌建結束日期" required="" class="form-control not-datetimepicker-input" data-target="#id6bd6182a-7f11-44d4-8301-ae40a536b159" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"><span class="validity input-group-text-no"></span></div></div></div><div class="form-group field-container col-md-12 d-none" data-field="ExtensionCount2"><label class="col-sm-12 control-label">申請開業展延次數</label><div class="field-content col-sm-12"><input type="number" class=" form-control" data-fn="ExtensionCount2"></div></div><div class="form-group field-container col-md-12 d-none" data-field="ExtensionDateStart2"><label class="col-sm-12 control-label">申請開業展延開始日期</label><div class="field-content col-sm-12"><div id="idcbbf135f-ec30-4798-87f6-3199546bd63b" class="input-group date datetimeul datepick" data-fn="ExtensionDateStart2" data-target-input="nearest"><input type="datetime-local" title="申請開業展延開始日期" required="" class="form-control not-datetimepicker-input" data-target="#idcbbf135f-ec30-4798-87f6-3199546bd63b" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"><span class="validity input-group-text-no"></span></div></div></div><div class="form-group field-container col-md-12 d-none" data-field="ExtensionDateEnd2"><label class="col-sm-12 control-label">申請開業展延結束日期</label><div class="field-content col-sm-12"><div id="id642dc9f8-109a-4b62-8fa3-7ee7b065d788" class="input-group date datetimeul datepick" data-fn="ExtensionDateEnd2" data-target-input="nearest"><input type="datetime-local" title="申請開業展延結束日期" required="" class="form-control not-datetimepicker-input" data-target="#id642dc9f8-109a-4b62-8fa3-7ee7b065d788" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"><span class="validity input-group-text-no"></span></div></div></div><div class="form-group field-container col-md-12 d-none" data-field="ExtensionCount3"><label class="col-sm-12 control-label">核發經營許可執照展延次數</label><div class="field-content col-sm-12"><input type="number" class=" form-control" data-fn="ExtensionCount3"></div></div><div class="form-group field-container col-md-12 d-none" data-field="ExtensionDateStart3"><label class="col-sm-12 control-label">核發經營許可執照展延延開始日期</label><div class="field-content col-sm-12"><div id="id2a4c56af-6c13-4227-a303-0a88a741b738" class="input-group date datetimeul datepick" data-fn="ExtensionDateStart3" data-target-input="nearest"><input type="datetime-local" title="核發經營許可執照展延延開始日期" required="" class="form-control not-datetimepicker-input" data-target="#id2a4c56af-6c13-4227-a303-0a88a741b738" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"><span class="validity input-group-text-no"></span></div></div></div><div class="form-group field-container col-md-12 d-none" data-field="ExtensionDateEnd3"><label class="col-sm-12 control-label">核發經營許可執照展延延結束日期</label><div class="field-content col-sm-12"><div id="id83d5a290-fb52-464d-8457-c195582cf57c" class="input-group date datetimeul datepick" data-fn="ExtensionDateEnd3" data-target-input="nearest"><input type="datetime-local" title="核發經營許可執照展延延結束日期" required="" class="form-control not-datetimepicker-input" data-target="#id83d5a290-fb52-464d-8457-c195582cf57c" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"><span class="validity input-group-text-no"></span></div></div></div><div class="form-group field-container col-md-12 d-none" data-field="ExtensionCount4"><label class="col-sm-12 control-label">申請暫停營業展延次數</label><div class="field-content col-sm-12"><input type="number" class=" form-control" data-fn="ExtensionCount4"></div></div><div class="form-group field-container col-md-12 d-none" data-field="ExtensionDateStart4"><label class="col-sm-12 control-label">申請暫停營業展延次數開始日期</label><div class="field-content col-sm-12"><div id="id5dd265ae-2656-4a3f-be23-cf29f8e04c91" class="input-group date datetimeul datepick" data-fn="ExtensionDateStart4" data-target-input="nearest"><input type="datetime-local" title="申請暫停營業展延次數開始日期" required="" class="form-control not-datetimepicker-input" data-target="#id5dd265ae-2656-4a3f-be23-cf29f8e04c91" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"><span class="validity input-group-text-no"></span></div></div></div><div class="form-group field-container col-md-12 d-none" data-field="ExtensionDateEnd4"><label class="col-sm-12 control-label">申請暫停營業展延次數結束日期</label><div class="field-content col-sm-12"><div id="id95962d8d-9ef3-4760-bc3d-e6572bdc3671" class="input-group date datetimeul datepick" data-fn="ExtensionDateEnd4" data-target-input="nearest"><input type="datetime-local" title="申請暫停營業展延次數結束日期" required="" class="form-control not-datetimepicker-input" data-target="#id95962d8d-9ef3-4760-bc3d-e6572bdc3671" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"><span class="validity input-group-text-no"></span></div></div></div><div class="form-group field-container col-md-12 d-none" data-field="ExtensionCount5"><label class="col-sm-12 control-label">申請開業展延次數</label><div class="field-content col-sm-12"><input type="number" class=" form-control" data-fn="ExtensionCount5"></div></div><div class="form-group field-container col-md-12 d-none" data-field="ExtensionDateStart5"><label class="col-sm-12 control-label">申請復業展延開始日期</label><div class="field-content col-sm-12"><div id="idf3766cd8-4777-4261-870e-def4cd30420c" class="input-group date datetimeul datepick" data-fn="ExtensionDateStart5" data-target-input="nearest"><input type="datetime-local" title="申請復業展延開始日期" required="" class="form-control not-datetimepicker-input" data-target="#idf3766cd8-4777-4261-870e-def4cd30420c" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"><span class="validity input-group-text-no"></span></div></div></div><div class="form-group field-container col-md-12 d-none" data-field="ExtensionDateEnd5"><label class="col-sm-12 control-label">申請復業展延結束日期</label><div class="field-content col-sm-12"><div id="iddb374071-e891-4cc7-86aa-9d2d1f370d49" class="input-group date datetimeul datepick" data-fn="ExtensionDateEnd5" data-target-input="nearest"><input type="datetime-local" title="申請復業展延結束日期" required="" class="form-control not-datetimepicker-input" data-target="#iddb374071-e891-4cc7-86aa-9d2d1f370d49" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"><span class="validity input-group-text-no"></span></div></div></div><div class="form-group field-container col-md-12 d-none" data-field="BuildDate"><label class="col-sm-12 control-label">籌建完成日期</label><div class="field-content col-sm-12"><div id="id3b6126cc-203f-46be-bd46-3ac1d2fa9cba" class="input-group date datetimeul datepick" data-fn="BuildDate" data-target-input="nearest"><input type="datetime-local" title="籌建完成日期" required="" class="form-control not-datetimepicker-input" data-target="#id3b6126cc-203f-46be-bd46-3ac1d2fa9cba" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"><span class="validity input-group-text-no"></span></div></div></div><div class="form-group field-container col-md-12" data-field="OperationDate"><label class="col-sm-12 control-label">營運日期</label><div class="field-content col-sm-12"><div id="id5b6ae810-7878-47c3-9fc4-b99f19290057" class="input-group date datetimeul datepick" data-fn="OperationDate" data-target-input="nearest"><input type="datetime-local" title="營運日期" required="" class="form-control not-datetimepicker-input" data-target="#id5b6ae810-7878-47c3-9fc4-b99f19290057" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}" value="2023-09-14T16:03:00"><span class="validity input-group-text-no"></span></div></div></div><div class="form-group field-container col-md-12 d-none" data-field="ForeclosureDate"><label class="col-sm-12 control-label">進入法拍作業程序日期</label><div class="field-content col-sm-12"><div id="id0c515fba-5b6b-4963-8c19-b4c155c64b09" class="input-group date datetimeul datepick" data-fn="ForeclosureDate" data-target-input="nearest"><input type="datetime-local" title="進入法拍作業程序日期" required="" class="form-control not-datetimepicker-input" data-target="#id0c515fba-5b6b-4963-8c19-b4c155c64b09" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"><span class="validity input-group-text-no"></span></div></div></div><div class="form-group field-container col-md-12 d-none" data-field="ClosedDate"><label class="col-sm-12 control-label">同意暫停歇業日期</label><div class="field-content col-sm-12"><div id="idd414c11a-cb58-43d2-8fd5-84c2c715215b" class="input-group date datetimeul datepick" data-fn="ClosedDate" data-target-input="nearest"><input type="datetime-local" title="同意暫停歇業日期" required="" class="form-control not-datetimepicker-input" data-target="#idd414c11a-cb58-43d2-8fd5-84c2c715215b" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"><span class="validity input-group-text-no"></span></div></div></div><div class="form-group field-container col-md-12 d-none" data-field="StopDate"><label class="col-sm-12 control-label">同意歇業日期</label><div class="field-content col-sm-12"><div id="idb90dedf6-7424-46f4-a177-1b9ced977387" class="input-group date datetimeul datepick" data-fn="StopDate" data-target-input="nearest"><input type="datetime-local" title="同意歇業日期" required="" class="form-control not-datetimepicker-input" data-target="#idb90dedf6-7424-46f4-a177-1b9ced977387" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"><span class="validity input-group-text-no"></span></div></div></div><div class="form-group field-container col-md-12 d-none" data-field="UsageStateSub"><label class="col-sm-12 control-label">營業中變更</label><div class="field-content col-sm-12"><select class="form-control form-select" data-fn="UsageStateSub"> <option value="" title="所有營業中變更">選擇營業中變更</option> <option value="1" data-v="經營許可執照" data-k="1" data-s="99">經營許可執照</option> <option value="2" data-v="加油站平面配置" data-k="2" data-s="99">加油站平面配置</option> <option value="3" data-v="營運設施" data-k="3" data-s="99">營運設施</option> <option value="4" data-v="兼營事項" data-k="4" data-s="99">兼營事項</option> <option value="5" data-v="附屬設施" data-k="5" data-s="99">附屬設施</option> </select></div></div><div class="form-group field-container col-md-12" data-field="TelNo"><label class="col-sm-12 control-label">加油站電話</label><div class="field-content col-sm-12"><input type="text" class="form-control" data-fn="TelNo" maxlength="20"></div></div><div class="form-group field-container col-md-12" data-field="ZipCode"><label class="col-sm-12 control-label">郵遞區號</label><div class="field-content col-sm-12"><input type="text" class="form-control" data-fn="ZipCode" maxlength="5"></div></div><div class="form-group field-container col-md-12" data-field="Address"><label class="col-sm-12 control-label">地址</label><div class="field-content col-sm-12"><input type="text" class="form-control" data-fn="Address" maxlength="100"></div></div><div class="form-group field-container col-md-12" data-field="AddressNo"><label class="col-sm-12 control-label">加油站地號</label><div class="field-content col-sm-12"><input type="text" class="form-control" data-fn="AddressNo" maxlength="200"></div></div><div class="form-group field-container col-md-12" data-field="Boss"><label class="col-sm-12 control-label">負責人姓名</label><div class="field-content col-sm-12"><input type="text" class="form-control" data-fn="Boss" maxlength="25"></div></div><div class="form-group field-container col-md-12" data-field="ID_No"><label class="col-sm-12 control-label">負責人身份證字號</label><div class="field-content col-sm-12"><input type="text" class="form-control" data-fn="ID_No" maxlength="10"></div></div><div class="form-group field-container col-md-12" data-field="ZipCode2"><label class="col-sm-12 control-label">負責人郵遞區號</label><div class="field-content col-sm-12"><input type="text" class="form-control" data-fn="ZipCode2" maxlength="5"></div></div><div class="form-group field-container col-md-12" data-field="Address2"><label class="col-sm-12 control-label">負責人聯絡地址</label><div class="field-content col-sm-12"><input type="text" class="form-control" data-fn="Address2" maxlength="100"></div></div><div class="form-group field-container col-md-12" data-field="Boss_Tel"><label class="col-sm-12 control-label">負責人聯絡電話</label><div class="field-content col-sm-12"><input type="text" class="form-control" data-fn="Boss_Tel" maxlength="20"></div></div><div class="form-group field-container col-md-12" data-field="Boss_Email"><label class="col-sm-12 control-label">電子郵件信箱</label><div class="field-content col-sm-12"><input type="email" class="form-control" data-fn="Boss_Email" maxlength="50"></div></div><div class="form-group field-container col-md-12" data-field="AncillaryFacility"><label class="col-sm-12 control-label">附屬設施</label><div class="field-content col-sm-12"><div data-fn="AncillaryFacility" class="ftype-radio"> <label><input type="checkbox" name="AncillaryFacility1694741555617" value="1">汽機車簡易保養設施</label> <label><input type="checkbox" name="AncillaryFacility1694741555617" value="2">洗車設施</label> <label><input type="checkbox" name="AncillaryFacility1694741555617" value="3">簡易排污檢測服務設施</label> <label><input type="checkbox" name="AncillaryFacility1694741555617" value="4">銷售汽機車用品設施</label> <label><input type="checkbox" name="AncillaryFacility1694741555617" value="5">自動販賣機及民生用品零售服務設施</label> <label><input type="checkbox" name="AncillaryFacility1694741555617" value="6">多媒體事務機</label> <label><input type="checkbox" name="AncillaryFacility1694741555617" value="7">接受事業機構委託收費服務設施</label></div></div></div><div class="form-group field-container col-md-12" data-field="Facility"><label class="col-sm-12 control-label">兼營設施</label><div class="field-content col-sm-12"><div data-fn="Facility" class="ftype-radio"> <label><input type="checkbox" name="Facility1694741555617" value="1">便利商店</label> <label><input type="checkbox" name="Facility1694741555617" value="2">停車場</label> <label><input type="checkbox" name="Facility1694741555617" value="3">車用液化石油氣</label> <label><input type="checkbox" name="Facility1694741555617" value="4">代辦汽車定期檢驗</label> <label><input type="checkbox" name="Facility1694741555617" value="5">經銷公益彩券</label> <label><input type="checkbox" name="Facility1694741555617" value="6">廣告服務</label> <label><input type="checkbox" name="Facility1694741555617" value="7">電動機車電池更換</label> <label><input type="checkbox" name="Facility1694741555617" value="8">提供場所供設置「金融機構營業場所外自動化服務設備」</label> <label><input type="checkbox" name="Facility1694741555617" value="9">接受他人委託代收物品服務</label> <label><input type="checkbox" name="Facility1694741555617" value="10">接受事業機構委託收費服務</label> <label><input type="checkbox" name="Facility1694741555617" value="11">代售高速公路回數票證</label> <label><input type="checkbox" name="Facility1694741555617" value="12">從事僅供收受洗滌物場所之洗衣業務</label> <label><input type="checkbox" name="Facility1694741555617" value="13">提供營業站屋屋頂供設置行動電話基地台</label> <label><input type="checkbox" name="Facility1694741555617" value="14">其他經中央主管機關核准之兼營項目</label> <label><input type="checkbox" name="Facility1694741555617" value="15">販售農產品</label> <label><input type="checkbox" name="Facility1694741555617" value="16">汽機車與自行車買賣及租賃</label> <label><input type="checkbox" name="Facility1694741555617" value="17">屋頂供他人設置裝置容量不及五百瓩並利用太陽能之自用發電設備</label> <label><input type="checkbox" name="Facility1694741555617" value="18">提供加油站營業站屋，供具有身心障礙者、原住民或低收入單親家庭身分之公益彩卷經銷商銷售公益彩卷。</label></div></div></div><div class="form-group field-container col-md-12" data-field="otherFacility"><label class="col-sm-12 control-label">其他兼營設施</label><div class="field-content col-sm-12"><input type="text" class="form-control" data-fn="otherFacility" maxlength="80"></div></div><div class="form-group field-container col-md-12" data-field="LandPriority"><label class="col-sm-12 control-label">土地權屬</label><div class="field-content col-sm-12"><select class="form-control form-select" data-fn="LandPriority"> <option value="" title="所有土地權屬">選擇土地權屬</option> <option value="1" data-v="自用" data-k="1" data-s="99">自用</option> <option value="2" data-v="租用" data-k="2" data-s="99">租用</option> <option value="3" data-v="自用、租用" data-k="3" data-s="99">自用、租用</option> </select></div></div><div class="form-group field-container col-md-12" data-field="Land_acreage"><label class="col-sm-12 control-label">用地總面積</label><div class="field-content col-sm-12"><input type="number" class=" form-control" data-fn="Land_acreage" step="any"></div></div><div class="form-group field-container col-md-12" data-field="LandType"><label class="col-sm-12 control-label">土地使用分區</label><div class="field-content col-sm-12"><select class="form-control form-select" data-fn="LandType"> <option value="" title="所有土地使用分區">選擇土地使用分區</option> <option value="0" data-v="－" data-k="0" data-s="99">－</option> <option value="2" data-v="加油站用地" data-k="2" data-s="99">加油站用地</option> <option value="3" data-v="甲種建築用地" data-k="3" data-s="99">甲種建築用地</option> <option value="4" data-v="乙種建築用地(鄉村區)" data-k="4" data-s="99">乙種建築用地(鄉村區)</option> <option value="5" data-v="丙種建築用地" data-k="5" data-s="99">丙種建築用地</option> <option value="6" data-v="丁種建築用地(工業區)" data-k="6" data-s="99">丁種建築用地(工業區)</option> <option value="7" data-v="遊憩用地" data-k="7" data-s="99">遊憩用地</option> <option value="8" data-v="特定目的事業用地(加油站)" data-k="8" data-s="99">特定目的事業用地(加油站)</option> <option value="99" data-v="其他" data-k="99" data-s="99">其他</option> </select></div></div><div class="form-group field-container col-md-12" data-field="LandUsageZone"><label class="col-sm-12 control-label">土地使用分區(選單2)</label><div class="field-content col-sm-12"><select class="form-control form-select" data-fn="LandUsageZone"> <option value="" title="所有土地使用分區(選單2)">選擇土地使用分區(選單2)</option> <option value="0" data-v="住宅區" data-k="0" data-s="99">住宅區</option> <option value="1" data-v="商業區" data-k="1" data-s="99">商業區</option> <option value="2" data-v="工業區" data-k="2" data-s="99">工業區</option> <option value="3" data-v="行政區" data-k="3" data-s="99">行政區</option> <option value="4" data-v="文教區" data-k="4" data-s="99">文教區</option> <option value="5" data-v="體育運動區" data-k="5" data-s="99">體育運動區</option> <option value="6" data-v="風景區" data-k="6" data-s="99">風景區</option> <option value="7" data-v="保存區" data-k="7" data-s="99">保存區</option> <option value="8" data-v="保護區" data-k="8" data-s="99">保護區</option> <option value="9" data-v="農業區" data-k="9" data-s="99">農業區</option> <option value="10" data-v="加油站專用區" data-k="10" data-s="99">加油站專用區</option> <option value="11" data-v="公共設施用地" data-k="11" data-s="99">公共設施用地</option> <option value="13" data-v="特定農業區" data-k="13" data-s="99">特定農業區</option> <option value="14" data-v="一般農業區" data-k="14" data-s="99">一般農業區</option> <option value="15" data-v="鄉村區" data-k="15" data-s="99">鄉村區</option> <option value="17" data-v="森林區" data-k="17" data-s="99">森林區</option> <option value="18" data-v="山坡地保育區" data-k="18" data-s="99">山坡地保育區</option> <option value="20" data-v="河川區" data-k="20" data-s="99">河川區</option> <option value="21" data-v="特定專用區" data-k="21" data-s="99">特定專用區</option> <option value="66" data-v="" data-k="66" data-s="99"></option> <option value="98" data-v="其他" data-k="98" data-s="99">其他</option> </select></div></div><div class="form-group field-container col-md-12" data-field="OtherLandUsageZone"><label class="col-sm-12 control-label">土地使用分區(選單3)</label><div class="field-content col-sm-12"><select class="form-control form-select" data-fn="OtherLandUsageZone"> <option value="" title="所有土地使用分區(選單3)">選擇土地使用分區(選單3)</option> <option value="0" data-v="－" data-k="0" data-s="99">－</option> <option value="2" data-v="加油站用地" data-k="2" data-s="99">加油站用地</option> <option value="3" data-v="甲種建築用地" data-k="3" data-s="99">甲種建築用地</option> <option value="4" data-v="乙種建築用地(鄉村區)" data-k="4" data-s="99">乙種建築用地(鄉村區)</option> <option value="5" data-v="丙種建築用地" data-k="5" data-s="99">丙種建築用地</option> <option value="6" data-v="丁種建築用地(工業區)" data-k="6" data-s="99">丁種建築用地(工業區)</option> <option value="7" data-v="遊憩用地" data-k="7" data-s="99">遊憩用地</option> <option value="8" data-v="特定目的事業用地(加油站)" data-k="8" data-s="99">特定目的事業用地(加油站)</option> <option value="99" data-v="其他" data-k="99" data-s="99">其他</option> </select></div></div><div class="form-group field-container col-md-12" data-field="Island"><label class="col-sm-12 control-label">加油泵島數</label><div class="field-content col-sm-12"><input type="number" class=" form-control" data-fn="Island"></div></div><div class="form-group field-container col-md-12" data-field="Tank"><label class="col-sm-12 control-label">油槽總數</label><div class="field-content col-sm-12"><input type="number" class=" form-control" data-fn="Tank"></div></div><div class="form-group field-container col-md-12" data-field="one_gun"><label class="col-sm-12 control-label">加油機數:單槍</label><div class="field-content col-sm-12"><input type="number" class=" form-control" data-fn="one_gun"></div></div><div class="form-group field-container col-md-12" data-field="two_gun"><label class="col-sm-12 control-label">加油機數:雙槍</label><div class="field-content col-sm-12"><input type="number" class=" form-control" data-fn="two_gun"></div></div><div class="form-group field-container col-md-12" data-field="four_gun"><label class="col-sm-12 control-label">加油機數: 四槍</label><div class="field-content col-sm-12"><input type="number" class=" form-control" data-fn="four_gun"></div></div><div class="form-group field-container col-md-12" data-field="six_gun"><label class="col-sm-12 control-label">加油機數:六槍</label><div class="field-content col-sm-12"><input type="number" class=" form-control" data-fn="six_gun"></div></div><div class="form-group field-container col-md-12" data-field="eight_gun"><label class="col-sm-12 control-label">加油機數: 八槍</label><div class="field-content col-sm-12"><input type="number" class=" form-control" data-fn="eight_gun"></div></div><div class="form-group field-container col-md-12" data-field="other_gun"><label class="col-sm-12 control-label">加油機數: 其他</label><div class="field-content col-sm-12"><input type="number" class=" form-control" data-fn="other_gun"></div></div><div class="form-group field-container col-md-12" data-field="total_gun"><label class="col-sm-12 control-label">加油機數:共計</label><div class="field-content col-sm-12"><input type="number" class=" form-control" data-fn="total_gun" disabled=""></div></div><div class="form-group field-container col-md-12" data-field="Self_one_gun"><label class="col-sm-12 control-label">自助加油機數:單槍</label><div class="field-content col-sm-12"><input type="number" class=" form-control" data-fn="Self_one_gun"></div></div><div class="form-group field-container col-md-12" data-field="Self_two_gun"><label class="col-sm-12 control-label">自助加油機數:雙槍</label><div class="field-content col-sm-12"><input type="number" class=" form-control" data-fn="Self_two_gun"></div></div><div class="form-group field-container col-md-12" data-field="Self_four_gun"><label class="col-sm-12 control-label">自助加油機數: 四槍</label><div class="field-content col-sm-12"><input type="number" class=" form-control" data-fn="Self_four_gun"></div></div><div class="form-group field-container col-md-12" data-field="Self_six_gun"><label class="col-sm-12 control-label">自助加油機數:六槍</label><div class="field-content col-sm-12"><input type="number" class=" form-control" data-fn="Self_six_gun"></div></div><div class="form-group field-container col-md-12" data-field="Self_eight_gun"><label class="col-sm-12 control-label">自助加油機數: 八槍</label><div class="field-content col-sm-12"><input type="number" class=" form-control" data-fn="Self_eight_gun"></div></div><div class="form-group field-container col-md-12" data-field="Self_other_gun"><label class="col-sm-12 control-label">自助加油機數: 其他</label><div class="field-content col-sm-12"><input type="number" class=" form-control" data-fn="Self_other_gun"></div></div><div class="form-group field-container col-md-12" data-field="Self_total_gun"><label class="col-sm-12 control-label">自助加油機數:共計</label><div class="field-content col-sm-12"><input type="number" class=" form-control" data-fn="Self_total_gun" disabled=""></div></div><div class="form-group field-container col-md-12" data-field="total_one_gun"><label class="col-sm-12 control-label">加油機及自助加油機數:單槍</label><div class="field-content col-sm-12"><input type="number" class=" form-control" data-fn="total_one_gun" disabled=""></div></div><div class="form-group field-container col-md-12" data-field="total_two_gun"><label class="col-sm-12 control-label">加油機及自助加油機數:雙槍</label><div class="field-content col-sm-12"><input type="number" class=" form-control" data-fn="total_two_gun" disabled=""></div></div><div class="form-group field-container col-md-12" data-field="total_four_gun"><label class="col-sm-12 control-label">加油機及自助加油機數: 四槍</label><div class="field-content col-sm-12"><input type="number" class=" form-control" data-fn="total_four_gun" disabled=""></div></div><div class="form-group field-container col-md-12" data-field="total_six_gun"><label class="col-sm-12 control-label">加油機及自助加油機數:六槍</label><div class="field-content col-sm-12"><input type="number" class=" form-control" data-fn="total_six_gun" disabled=""></div></div><div class="form-group field-container col-md-12" data-field="total_eight_gun"><label class="col-sm-12 control-label">加油機及自助加油機數: 八槍</label><div class="field-content col-sm-12"><input type="number" class=" form-control" data-fn="total_eight_gun" disabled=""></div></div><div class="form-group field-container col-md-12" data-field="total_other_gun"><label class="col-sm-12 control-label">加油機及自助加油機數: 其他</label><div class="field-content col-sm-12"><input type="number" class=" form-control" data-fn="total_other_gun" disabled=""></div></div><div class="form-group field-container col-md-12" data-field="total_total_gun"><label class="col-sm-12 control-label">加油機及自助加油機數:共計</label><div class="field-content col-sm-12"><input type="number" class=" form-control" data-fn="total_total_gun" disabled=""></div></div><div class="form-group field-container col-md-12" data-field="File_name"><label class="col-sm-12 control-label">平面配置圖</label><div class="field-content col-sm-12"><a id="linkherf" href="http://localhost//down//CarFuel\basic\中華電信電子發票系統 -- 發票檔.pdf">中華電信電子發票系統 -- 發票檔.pdf</a><input type="text" class="form-control d-none" data-fn="File_name" maxlength="30"><button type="button" id="reupload" onclick="showupload('File_name')" class="btn btn-default">重新上傳</button></div></div><div class="form-group field-container col-md-12" data-field="Create_date"><label class="col-sm-12 control-label">資料建立時間</label><div class="field-content col-sm-12"><div id="idbb0e1453-d364-4e8b-8423-6d8d42100383" class="input-group date datetimeul datepick" data-fn="Create_date" data-target-input="nearest"><input type="datetime-local" title="資料建立時間" required="" class="form-control not-datetimepicker-input" data-target="#idbb0e1453-d364-4e8b-8423-6d8d42100383" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}" value="2023-09-12T16:03:31" disabled=""><span class="validity input-group-text-no"></span></div></div></div><div class="form-group field-container col-md-12" data-field="Create_name"><label class="col-sm-12 control-label">資料建立者</label><div class="field-content col-sm-12"><input type="text" class="form-control" data-fn="Create_name" maxlength="25" disabled=""></div></div><div class="form-group field-container col-md-12" data-field="Mod_date"><label class="col-sm-12 control-label">資料修改時間</label><div class="field-content col-sm-12"><div id="idfe710e48-db66-4335-8826-c10ba3a1c209" class="input-group date datetimeul datepick" data-fn="Mod_date" data-target-input="nearest"><input type="datetime-local" title="資料修改時間" required="" class="form-control not-datetimepicker-input" data-target="#idfe710e48-db66-4335-8826-c10ba3a1c209" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}" value="2023-09-14T15:37:26" disabled=""><span class="validity input-group-text-no"></span></div></div></div><div class="form-group field-container col-md-12" data-field="Mod_name"><label class="col-sm-12 control-label">最後修改者</label><div class="field-content col-sm-12"><input type="text" class="form-control" data-fn="Mod_name" maxlength="25" disabled=""></div></div><div class="form-group field-container col-md-12" data-field="Note2"><label class="col-sm-12 control-label">備註</label><div class="field-content col-sm-12"><input type="text" class="form-control" data-fn="Note2" maxlength="200"></div></div>
+</div></div><div class="modal-footer"><button type="button" class="btn btn-primary "> 確 定 </button><button type="button" class="btn btn-default"> 取 消 </button><button type="button" class="btn btn-default  data-dismiss" data-bs-dismiss="modal" data-dismiss="modal" style="display:none"> 取dfd 消 </button></div></div></div></div><div class="bootstrap-table bootstrap5 dou-bootstrap-table carfuel_selectcontroller" style="display: none;">
+            <div class="fixed-table-toolbar"><div class="bs-bars float-right"><div class="filter-toolbar-plus"><div class="form-inline row"><div class="form-group filter-continer col-auto"><label class="sr-only visually-hidden">案件編號</label><input type="text" class="form-control" data-fn="CaseNo" placeholder="案件編號" maxlength="10"></div><div class="form-group filter-continer col-auto"><label class="sr-only visually-hidden">縣市</label><select class="form-control form-select" data-fn="CITY" placeholder="縣市"> <option value="" title="所有縣市">選擇縣市</option> <option value="11" data-v="彰化縣" data-k="11" data-s="99">彰化縣</option> <option value="12" data-v="南投縣" data-k="12" data-s="99">南投縣</option> <option value="13" data-v="嘉義市" data-k="13" data-s="99">嘉義市</option> <option value="14" data-v="嘉義縣" data-k="14" data-s="99">嘉義縣</option> <option value="15" data-v="雲林縣" data-k="15" data-s="99">雲林縣</option> <option value="20" data-v="屏東縣" data-k="20" data-s="99">屏東縣</option> <option value="21" data-v="臺東縣" data-k="21" data-s="99">臺東縣</option> <option value="22" data-v="花蓮縣" data-k="22" data-s="99">花蓮縣</option> <option value="23" data-v="澎湖縣" data-k="23" data-s="99">澎湖縣</option> <option value="24" data-v="金門縣" data-k="24" data-s="99">金門縣</option> <option value="25" data-v="連江縣" data-k="25" data-s="99">連江縣</option> <option value="04" data-v="宜蘭縣" data-k="04" data-s="99">宜蘭縣</option> <option value="08" data-v="苗栗縣" data-k="08" data-s="99">苗栗縣</option> <option value="07" data-v="桃園市" data-k="07" data-s="99">桃園市</option> <option value="18,19" data-v="高雄市" data-k="18,19" data-s="99">高雄市</option> <option value="02" data-v="基隆市" data-k="02" data-s="99">基隆市</option> <option value="03" data-v="新北市" data-k="03" data-s="99">新北市</option> <option value="05" data-v="新竹市" data-k="05" data-s="99">新竹市</option> <option value="06" data-v="新竹縣" data-k="06" data-s="99">新竹縣</option> <option value="09,10" data-v="臺中市" data-k="09,10" data-s="99">臺中市</option> <option value="01" data-v="臺北市" data-k="01" data-s="99">臺北市</option> <option value="16,17" data-v="臺南市" data-k="16,17" data-s="99">臺南市</option> </select></div><div class="form-group filter-continer col-auto"><label class="sr-only visually-hidden">加油站名稱</label><input type="text" class="form-control" data-fn="Gas_Name" maxlength="70" placeholder="加油站名稱"></div><div class="form-group filter-continer col-auto"><label class="sr-only visually-hidden">營業主體</label><select class="form-control form-select" data-fn="Business_theme" placeholder="營業主體"> <option value="" title="所有營業主體">選擇營業主體</option> <option value="1" data-v="千越加油站實業股份有限公司" data-k="1" data-s="99">千越加油站實業股份有限公司</option> <option value="2" data-v="山隆通運股份有限公司" data-k="2" data-s="99">山隆通運股份有限公司</option> <option value="3" data-v="中華石油股份有限公司" data-k="3" data-s="99">中華石油股份有限公司</option> <option value="4" data-v="北基國際股份有限公司" data-k="4" data-s="99">北基國際股份有限公司</option> <option value="5" data-v="台亞石油股份有限公司" data-k="5" data-s="99">台亞石油股份有限公司</option> <option value="6" data-v="台灣中油股份有限公司" data-k="6" data-s="99">台灣中油股份有限公司</option> <option value="7" data-v="台灣糖業股份有限公司" data-k="7" data-s="99">台灣糖業股份有限公司</option> <option value="8" data-v="台灣優力流通事業股份有限公司" data-k="8" data-s="99">台灣優力流通事業股份有限公司</option> <option value="9" data-v="台灣聯合環球石油股份有限公司" data-k="9" data-s="99">台灣聯合環球石油股份有限公司</option> <option value="10" data-v="全國加油站股份有限公司" data-k="10" data-s="99">全國加油站股份有限公司</option> <option value="11" data-v="西歐加油站股份有限公司" data-k="11" data-s="99">西歐加油站股份有限公司</option> <option value="12" data-v="亞太國際物流股份有限公司" data-k="12" data-s="99">亞太國際物流股份有限公司</option> <option value="13" data-v="統一精工股份有限公司" data-k="13" data-s="99">統一精工股份有限公司</option> <option value="14" data-v="福懋興業股份有限公司" data-k="14" data-s="99">福懋興業股份有限公司</option> <option value="15" data-v="鯨世界國際股份有限公司" data-k="15" data-s="99">鯨世界國際股份有限公司</option> <option value="16" data-v="其他" data-k="16" data-s="99">其他</option> <option value="17" data-v="久井企業股份有限公司" data-k="17" data-s="99">久井企業股份有限公司</option> <option value="18" data-v="車容坊股份有限公司" data-k="18" data-s="99">車容坊股份有限公司</option> </select></div><div class="form-group filter-continer col-auto"><label class="sr-only visually-hidden">收件日期(起)</label><div id="id4d048b4c-3303-4143-a3aa-867217008341" class="input-group date datetimeul datepick" data-fn="Recipient_date-Start-Between_" data-target-input="nearest" placeholder="收件日期(起)"><input type="datetime-local" title="收件日期(起)" required="" class="form-control not-datetimepicker-input" data-target="#id4d048b4c-3303-4143-a3aa-867217008341" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}" placeholder="收件日期(起)"><span class="validity input-group-text-no"></span></div></div><div class="form-group filter-continer col-auto"><label class="sr-only visually-hidden">收件日期(迄)</label><div id="id708ee1c5-d102-45ad-916c-145f31fba20f" class="input-group date datetimeul datepick" data-fn="Recipient_date-End-Between_" data-target-input="nearest" placeholder="收件日期(迄)"><input type="datetime-local" title="收件日期(迄)" required="" class="form-control not-datetimepicker-input" data-target="#id708ee1c5-d102-45ad-916c-145f31fba20f" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}" placeholder="收件日期(迄)"><span class="validity input-group-text-no"></span></div></div><div class="form-group filter-continer col-auto"><label class="sr-only visually-hidden">營運狀況</label><select class="form-control form-select" data-fn="UsageState" placeholder="營運狀況"> <option value="" title="所有營運狀況">選擇營運狀況</option> <option value="0" data-v="申請中" data-k="0" data-s="99">申請中</option> <option value="1" data-v="申請中變更" data-k="1" data-s="99">申請中變更</option> <option value="2" data-v="同意認定" data-k="2" data-s="99">同意認定</option> <option value="3" data-v="同意認定失效" data-k="3" data-s="99">同意認定失效</option> <option value="4" data-v="同意認定變更" data-k="4" data-s="99">同意認定變更</option> <option value="5" data-v="同意認定核駁" data-k="5" data-s="99">同意認定核駁</option> <option value="6" data-v="同意認定廢止" data-k="6" data-s="99">同意認定廢止</option> <option value="7" data-v="同意認定撤案" data-k="7" data-s="99">同意認定撤案</option> <option value="8" data-v="同意籌建" data-k="8" data-s="99">同意籌建</option> <option value="9" data-v="同意籌建展延" data-k="9" data-s="99">同意籌建展延</option> <option value="10" data-v="同意籌建展延失效" data-k="10" data-s="99">同意籌建展延失效</option> <option value="11" data-v="同意籌建展延核駁" data-k="11" data-s="99">同意籌建展延核駁</option> <option value="12" data-v="同意籌建展延廢止" data-k="12" data-s="99">同意籌建展延廢止</option> <option value="13" data-v="同意籌建展延撤案" data-k="13" data-s="99">同意籌建展延撤案</option> <option value="14" data-v="同意籌建失效" data-k="14" data-s="99">同意籌建失效</option> <option value="15" data-v="同意籌建變更" data-k="15" data-s="99">同意籌建變更</option> <option value="17" data-v="核發經營許可執照" data-k="17" data-s="99">核發經營許可執照</option> <option value="19" data-v="同意核發經營許可執照展延" data-k="19" data-s="99">同意核發經營許可執照展延</option> <option value="20" data-v="申請核發經營許可執照展延失效" data-k="20" data-s="99">申請核發經營許可執照展延失效</option> <option value="21" data-v="申請核發經營許可執照展延核駁" data-k="21" data-s="99">申請核發經營許可執照展延核駁</option> <option value="22" data-v="申請核發經營許可執照展延廢止" data-k="22" data-s="99">申請核發經營許可執照展延廢止</option> <option value="23" data-v="申請核發經營許可執照展延撤案" data-k="23" data-s="99">申請核發經營許可執照展延撤案</option> <option value="24" data-v="同意籌建核駁" data-k="24" data-s="99">同意籌建核駁</option> <option value="25" data-v="同意籌建廢止" data-k="25" data-s="99">同意籌建廢止</option> <option value="26" data-v="同意籌建撤案" data-k="26" data-s="99">同意籌建撤案</option> <option value="27" data-v="核駁" data-k="27" data-s="99">核駁</option> <option value="28" data-v="廢止" data-k="28" data-s="99">廢止</option> <option value="29" data-v="撤案" data-k="29" data-s="99">撤案</option> <option value="30" data-v="已開業" data-k="30" data-s="99">已開業</option> <option value="31" data-v="申請開業展延" data-k="31" data-s="99">申請開業展延</option> <option value="32" data-v="同意開業展延" data-k="32" data-s="99">同意開業展延</option> <option value="34" data-v="申請開業展延核駁" data-k="34" data-s="99">申請開業展延核駁</option> <option value="35" data-v="申請開業展延廢止" data-k="35" data-s="99">申請開業展延廢止</option> <option value="36" data-v="申請開業展延撤案" data-k="36" data-s="99">申請開業展延撤案</option> <option value="44" data-v="申請暫停營業" data-k="44" data-s="99">申請暫停營業</option> <option value="45" data-v="同意暫停營業" data-k="45" data-s="99">同意暫停營業</option> <option value="47" data-v="同意暫停營業展延" data-k="47" data-s="99">同意暫停營業展延</option> <option value="48" data-v="經營管理-申請暫停營業核駁" data-k="48" data-s="99">經營管理-申請暫停營業核駁</option> <option value="49" data-v="申請暫停營業撤案" data-k="49" data-s="99">申請暫停營業撤案</option> <option value="55" data-v="申請復業" data-k="55" data-s="99">申請復業</option> <option value="56" data-v="同意復業" data-k="56" data-s="99">同意復業</option> <option value="58" data-v="申請復業失效" data-k="58" data-s="99">申請復業失效</option> <option value="60" data-v="同意復業撤案" data-k="60" data-s="99">同意復業撤案</option> <option value="61" data-v="申請歇業" data-k="61" data-s="99">申請歇業</option> <option value="62" data-v="同意歇業" data-k="62" data-s="99">同意歇業</option> <option value="63" data-v="繳銷經營許可執照" data-k="63" data-s="99">繳銷經營許可執照</option> <option value="64" data-v="註銷經營許可執照" data-k="64" data-s="99">註銷經營許可執照</option> <option value="65" data-v="申請歇業核駁" data-k="65" data-s="99">申請歇業核駁</option> <option value="66" data-v="申請歇業廢止" data-k="66" data-s="99">申請歇業廢止</option> <option value="67" data-v="申請歇業撤案" data-k="67" data-s="99">申請歇業撤案</option> <option value="68" data-v="換發經營許可執照" data-k="68" data-s="99">換發經營許可執照</option> <option value="70" data-v="撤案" data-k="70" data-s="99">撤案</option> <option value="71" data-v="申請歇業失效" data-k="71" data-s="99">申請歇業失效</option> <option value="72" data-v="核照逾期開業失效" data-k="72" data-s="99">核照逾期開業失效</option> <option value="73" data-v="暫停營業展延核駁" data-k="73" data-s="99">暫停營業展延核駁</option> <option value="74" data-v="廢止經營許可執照" data-k="74" data-s="99">廢止經營許可執照</option> <option value="75" data-v="同意營業中變更" data-k="75" data-s="99">同意營業中變更</option> <option value="76" data-v="營業中變更核駁" data-k="76" data-s="99">營業中變更核駁</option> <option value="77" data-v="營業中變更廢止" data-k="77" data-s="99">營業中變更廢止</option> <option value="78" data-v="營業中變更撤案" data-k="78" data-s="99">營業中變更撤案</option> <option value="79" data-v="同意暫停營業中變更" data-k="79" data-s="99">同意暫停營業中變更</option> <option value="80" data-v="暫停營業中變更核駁" data-k="80" data-s="99">暫停營業中變更核駁</option> <option value="81" data-v="暫停營業中變更廢止" data-k="81" data-s="99">暫停營業中變更廢止</option> <option value="82" data-v="暫停營業中變更撤案" data-k="82" data-s="99">暫停營業中變更撤案</option> </select></div><div class="form-group filter-continer col-auto"><label class="sr-only visually-hidden">地址</label><input type="text" class="form-control" data-fn="Address" maxlength="100" placeholder="地址"></div><div class="form-group col-auto"><span class="btn btn-confirm btn-secondary">查 詢</span></div></div></div></div><div class="bars bs-bars float-left btn-toolbar"><span class="btn btn-add-data-manager btn-success glyphicon glyphicon-plus">新 增</span></div></div>
+
+            <div class="fixed-table-container" style="padding-bottom: 0px;">
+                <div class="fixed-table-header fixed-table-header-extend" style="display: none;"><table></table></div>
+                <div class="fixed-table-body default-scrollbar">
+                    <div class="fixed-table-loading table table-bordered table-hover" style="top: 50px;">
+                        <span class="loading-wrap">
+                            <span class="loading-text" style="font-size: 32px;">載入資料中，請稍候</span>
+                            <span class="animation-wrap"><span class="animation-dot"></span></span>
+                        </span>
+
+                    </div>
+                    <table id="_table" class="table table-bordered table-hover"><thead class=""><tr><th class="dou-field-CaseNo" style="" data-field="CaseNo"><div class="th-inner ">案件編號</div><div class="fht-cell"></div></th><th class="dou-field-Gas_Name" style="" data-field="Gas_Name"><div class="th-inner ">加油站名稱</div><div class="fht-cell"></div></th><th class="dou-field-Business_theme" style="" data-field="Business_theme"><div class="th-inner sortable both">營業主體</div><div class="fht-cell"></div></th><th class="dou-field-Recipient_date" style="" data-field="Recipient_date"><div class="th-inner ">收件日期</div><div class="fht-cell"></div></th><th class="dou-field-UsageState" style="" data-field="UsageState"><div class="th-inner ">營運狀況</div><div class="fht-cell"></div></th><th class="dou-field-Address" style="" data-field="Address"><div class="th-inner ">地址</div><div class="fht-cell"></div></th><th class="dou-ctrl-header" style="width: 94px; " data-field="ctrl"><div class="th-inner ">&nbsp;</div><div class="fht-cell"></div></th></tr></thead><tbody><tr data-index="0"><td class="dou-field-CaseNo">4949494949</td><td class="dou-field-Gas_Name">scscCS</td><td class="dou-field-Business_theme">統一精工股份有限公司</td><td class="dou-field-Recipient_date">2023/09/07 16:02:00</td><td class="dou-field-UsageState">已開業</td><td class="dou-field-Address">C</td><td class="dou-ctrl-header" style="ctrl-header: #aaa; width: 94px; "><span style="background-color:rgba(255,255,255,0);" class="btn btn-data-manager-ctrl btn-update-data-manager btn-default btn-sm  glyphicon glyphicon-pencil" title="修改" data-user-id="undefined" data-ctrl="1"></span> <span style="background-color:rgba(255,255,255,0);" class="btn btn-data-manager-ctrl btn-delete-data-manager btn-default btn-sm  glyphicon glyphicon-trash" title="刪除" data-ctrl="2"></span></td></tr><tr data-index="1"><td class="dou-field-CaseNo">1111111111</td><td class="dou-field-Gas_Name">CC</td><td class="dou-field-Business_theme">-</td><td class="dou-field-Recipient_date">---</td><td class="dou-field-UsageState">申請中變更</td><td class="dou-field-Address">-</td><td class="dou-ctrl-header" style="ctrl-header: #aaa; width: 94px; "><span style="background-color:rgba(255,255,255,0);" class="btn btn-data-manager-ctrl btn-update-data-manager btn-default btn-sm  glyphicon glyphicon-pencil" title="修改" data-user-id="undefined" data-ctrl="1"></span> <span style="background-color:rgba(255,255,255,0);" class="btn btn-data-manager-ctrl btn-delete-data-manager btn-default btn-sm  glyphicon glyphicon-trash" title="刪除" data-ctrl="2"></span></td></tr><tr data-index="2"><td class="dou-field-CaseNo">5444444444</td><td class="dou-field-Gas_Name">AX</td><td class="dou-field-Business_theme">-</td><td class="dou-field-Recipient_date">---</td><td class="dou-field-UsageState">無</td><td class="dou-field-Address">-</td><td class="dou-ctrl-header" style="ctrl-header: #aaa; width: 94px; "><span style="background-color:rgba(255,255,255,0);" class="btn btn-data-manager-ctrl btn-update-data-manager btn-default btn-sm  glyphicon glyphicon-pencil" title="修改" data-user-id="undefined" data-ctrl="1"></span> <span style="background-color:rgba(255,255,255,0);" class="btn btn-data-manager-ctrl btn-delete-data-manager btn-default btn-sm  glyphicon glyphicon-trash" title="刪除" data-ctrl="2"></span></td></tr><tr data-index="3"><td class="dou-field-CaseNo">P555555555</td><td class="dou-field-Gas_Name">超級中油</td><td class="dou-field-Business_theme">其他</td><td class="dou-field-Recipient_date">2023/09/01 14:58:00</td><td class="dou-field-UsageState">同意營業中變更</td><td class="dou-field-Address">板橋車站</td><td class="dou-ctrl-header" style="ctrl-header: #aaa; width: 94px; "><span style="background-color:rgba(255,255,255,0);" class="btn btn-data-manager-ctrl btn-update-data-manager btn-default btn-sm  glyphicon glyphicon-pencil" title="修改" data-user-id="undefined" data-ctrl="1"></span> <span style="background-color:rgba(255,255,255,0);" class="btn btn-data-manager-ctrl btn-delete-data-manager btn-default btn-sm  glyphicon glyphicon-trash" title="刪除" data-ctrl="2"></span></td></tr><tr data-index="4"><td class="dou-field-CaseNo">CSSSSSSSSS</td><td class="dou-field-Gas_Name">A</td><td class="dou-field-Business_theme">-</td><td class="dou-field-Recipient_date">---</td><td class="dou-field-UsageState">同意暫停營業</td><td class="dou-field-Address">-</td><td class="dou-ctrl-header" style="ctrl-header: #aaa; width: 94px; "><span style="background-color:rgba(255,255,255,0);" class="btn btn-data-manager-ctrl btn-update-data-manager btn-default btn-sm  glyphicon glyphicon-pencil" title="修改" data-user-id="undefined" data-ctrl="1"></span> <span style="background-color:rgba(255,255,255,0);" class="btn btn-data-manager-ctrl btn-delete-data-manager btn-default btn-sm  glyphicon glyphicon-trash" title="刪除" data-ctrl="2"></span></td></tr><tr data-index="5"><td class="dou-field-CaseNo">P500000000</td><td class="dou-field-Gas_Name">CVVV</td><td class="dou-field-Business_theme">其他</td><td class="dou-field-Recipient_date">---</td><td class="dou-field-UsageState">-</td><td class="dou-field-Address">-</td><td class="dou-ctrl-header" style="ctrl-header: #aaa; width: 94px; "><span style="background-color:rgba(255,255,255,0);" class="btn btn-data-manager-ctrl btn-update-data-manager btn-default btn-sm  glyphicon glyphicon-pencil" title="修改" data-user-id="undefined" data-ctrl="1"></span> <span style="background-color:rgba(255,255,255,0);" class="btn btn-data-manager-ctrl btn-delete-data-manager btn-default btn-sm  glyphicon glyphicon-trash" title="刪除" data-ctrl="2"></span></td></tr><tr data-index="6"><td class="dou-field-CaseNo">P121222122</td><td class="dou-field-Gas_Name">CCC</td><td class="dou-field-Business_theme">-</td><td class="dou-field-Recipient_date">---</td><td class="dou-field-UsageState">-</td><td class="dou-field-Address">-</td><td class="dou-ctrl-header" style="ctrl-header: #aaa; width: 94px; "><span style="background-color:rgba(255,255,255,0);" class="btn btn-data-manager-ctrl btn-update-data-manager btn-default btn-sm  glyphicon glyphicon-pencil" title="修改" data-user-id="undefined" data-ctrl="1"></span> <span style="background-color:rgba(255,255,255,0);" class="btn btn-data-manager-ctrl btn-delete-data-manager btn-default btn-sm  glyphicon glyphicon-trash" title="刪除" data-ctrl="2"></span></td></tr><tr data-index="7"><td class="dou-field-CaseNo">P112150005</td><td class="dou-field-Gas_Name">台亞麥寮橋頭加油站A</td><td class="dou-field-Business_theme">台亞石油股份有限公司</td><td class="dou-field-Recipient_date">2023/03/28 00:00:00</td><td class="dou-field-UsageState">同意營業中變更</td><td class="dou-field-Address">雲林縣麥寮鄉工業路五號</td><td class="dou-ctrl-header" style="ctrl-header: #aaa; width: 94px; "><span style="background-color:rgba(255,255,255,0);" class="btn btn-data-manager-ctrl btn-update-data-manager btn-default btn-sm  glyphicon glyphicon-pencil" title="修改" data-user-id="undefined" data-ctrl="1"></span> <span style="background-color:rgba(255,255,255,0);" class="btn btn-data-manager-ctrl btn-delete-data-manager btn-default btn-sm  glyphicon glyphicon-trash" title="刪除" data-ctrl="2"></span></td></tr><tr data-index="8"><td class="dou-field-CaseNo">P112160001</td><td class="dou-field-Gas_Name">全聯保安滴滴</td><td class="dou-field-Business_theme">其他</td><td class="dou-field-Recipient_date">2022/09/05 00:00:00</td><td class="dou-field-UsageState">同意籌建</td><td class="dou-field-Address">台南市仁德區中正路二段一○四號</td><td class="dou-ctrl-header" style="ctrl-header: #aaa; width: 94px; "><span style="background-color:rgba(255,255,255,0);" class="btn btn-data-manager-ctrl btn-update-data-manager btn-default btn-sm  glyphicon glyphicon-pencil" title="修改" data-user-id="undefined" data-ctrl="1"></span> <span style="background-color:rgba(255,255,255,0);" class="btn btn-data-manager-ctrl btn-delete-data-manager btn-default btn-sm  glyphicon glyphicon-trash" title="刪除" data-ctrl="2"></span></td></tr><tr data-index="9"><td class="dou-field-CaseNo">P112150004</td><td class="dou-field-Gas_Name">北基正心加油站</td><td class="dou-field-Business_theme">北基國際股份有限公司</td><td class="dou-field-Recipient_date">2023/02/03 00:00:00</td><td class="dou-field-UsageState">已開業</td><td class="dou-field-Address">雲林縣斗六市西平路二七三號</td><td class="dou-ctrl-header" style="ctrl-header: #aaa; width: 94px; "><span style="background-color:rgba(255,255,255,0);" class="btn btn-data-manager-ctrl btn-update-data-manager btn-default btn-sm  glyphicon glyphicon-pencil" title="修改" data-user-id="undefined" data-ctrl="1"></span> <span style="background-color:rgba(255,255,255,0);" class="btn btn-data-manager-ctrl btn-delete-data-manager btn-default btn-sm  glyphicon glyphicon-trash" title="刪除" data-ctrl="2"></span></td></tr><tr data-index="10"><td class="dou-field-CaseNo">P111120001</td><td class="dou-field-Gas_Name">上村加油站</td><td class="dou-field-Business_theme">其他</td><td class="dou-field-Recipient_date">1900/01/01 00:00:00</td><td class="dou-field-UsageState">已開業</td><td class="dou-field-Address">南投縣草屯鎮上林里草溪路四六九號</td><td class="dou-ctrl-header" style="ctrl-header: #aaa; width: 94px; "><span style="background-color:rgba(255,255,255,0);" class="btn btn-data-manager-ctrl btn-update-data-manager btn-default btn-sm  glyphicon glyphicon-pencil" title="修改" data-user-id="undefined" data-ctrl="1"></span> <span style="background-color:rgba(255,255,255,0);" class="btn btn-data-manager-ctrl btn-delete-data-manager btn-default btn-sm  glyphicon glyphicon-trash" title="刪除" data-ctrl="2"></span></td></tr><tr data-index="11"><td class="dou-field-CaseNo">P111030001</td><td class="dou-field-Gas_Name">添丁</td><td class="dou-field-Business_theme">其他</td><td class="dou-field-Recipient_date">2022/08/03 00:00:00</td><td class="dou-field-UsageState">同意籌建</td><td class="dou-field-Address"></td><td class="dou-ctrl-header" style="ctrl-header: #aaa; width: 94px; "><span style="background-color:rgba(255,255,255,0);" class="btn btn-data-manager-ctrl btn-update-data-manager btn-default btn-sm  glyphicon glyphicon-pencil" title="修改" data-user-id="undefined" data-ctrl="1"></span> <span style="background-color:rgba(255,255,255,0);" class="btn btn-data-manager-ctrl btn-delete-data-manager btn-default btn-sm  glyphicon glyphicon-trash" title="刪除" data-ctrl="2"></span></td></tr><tr data-index="12"><td class="dou-field-CaseNo">P111090035</td><td class="dou-field-Gas_Name">協仁</td><td class="dou-field-Business_theme">其他</td><td class="dou-field-Recipient_date">2022/07/08 00:00:00</td><td class="dou-field-UsageState">同意籌建</td><td class="dou-field-Address"></td><td class="dou-ctrl-header" style="ctrl-header: #aaa; width: 94px; "><span style="background-color:rgba(255,255,255,0);" class="btn btn-data-manager-ctrl btn-update-data-manager btn-default btn-sm  glyphicon glyphicon-pencil" title="修改" data-user-id="undefined" data-ctrl="1"></span> <span style="background-color:rgba(255,255,255,0);" class="btn btn-data-manager-ctrl btn-delete-data-manager btn-default btn-sm  glyphicon glyphicon-trash" title="刪除" data-ctrl="2"></span></td></tr><tr data-index="13"><td class="dou-field-CaseNo">P111090034</td><td class="dou-field-Gas_Name">統一</td><td class="dou-field-Business_theme">其他</td><td class="dou-field-Recipient_date">2021/01/12 00:00:00</td><td class="dou-field-UsageState">同意籌建變更</td><td class="dou-field-Address"></td><td class="dou-ctrl-header" style="ctrl-header: #aaa; width: 94px; "><span style="background-color:rgba(255,255,255,0);" class="btn btn-data-manager-ctrl btn-update-data-manager btn-default btn-sm  glyphicon glyphicon-pencil" title="修改" data-user-id="undefined" data-ctrl="1"></span> <span style="background-color:rgba(255,255,255,0);" class="btn btn-data-manager-ctrl btn-delete-data-manager btn-default btn-sm  glyphicon glyphicon-trash" title="刪除" data-ctrl="2"></span></td></tr><tr data-index="14"><td class="dou-field-CaseNo">P111090003</td><td class="dou-field-Gas_Name">北基北陽路</td><td class="dou-field-Business_theme">北基國際股份有限公司</td><td class="dou-field-Recipient_date">1900/01/01 00:00:00</td><td class="dou-field-UsageState">同意籌建</td><td class="dou-field-Address"></td><td class="dou-ctrl-header" style="ctrl-header: #aaa; width: 94px; "><span style="background-color:rgba(255,255,255,0);" class="btn btn-data-manager-ctrl btn-update-data-manager btn-default btn-sm  glyphicon glyphicon-pencil" title="修改" data-user-id="undefined" data-ctrl="1"></span> <span style="background-color:rgba(255,255,255,0);" class="btn btn-data-manager-ctrl btn-delete-data-manager btn-default btn-sm  glyphicon glyphicon-trash" title="刪除" data-ctrl="2"></span></td></tr></tbody></table>
+                </div>
+                <div class="fixed-table-footer"></div>
+            </div>
+            <div class="fixed-table-pagination" style="">
+                <div class="float-left pagination-detail">
+                    <span class="pagination-info">
+                        顯示第 1 到第 15 筆資料，總共 3914 筆資料
+                    </span><div class="page-list">
+                        每頁顯示 <div class="btn-group dropdown dropup">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                <span class="page-size">
+                                    15
+                                </span>
+                                <span class="caret"></span>
+                            </button>
+                            <div class="dropdown-menu"><a class="dropdown-item active" href="#">15</a><a class="dropdown-item " href="#">30</a><a class="dropdown-item " href="#">80</a><a class="dropdown-item " href="#">200</a><a class="dropdown-item " href="#">500</a></div>
+                        </div> 項記錄
+                    </div>
+                </div><div class="float-right pagination"><ul class="pagination"><li class="page-item page-pre"><a class="page-link" aria-label="previous page" href="javascript:void(0)">‹</a></li><li class="page-item active"><a class="page-link" aria-label="to page 1" href="javascript:void(0)">1</a></li><li class="page-item"><a class="page-link" aria-label="to page 2" href="javascript:void(0)">2</a></li><li class="page-item"><a class="page-link" aria-label="to page 3" href="javascript:void(0)">3</a></li><li class="page-item"><a class="page-link" aria-label="to page 4" href="javascript:void(0)">4</a></li><li class="page-item"><a class="page-link" aria-label="to page 5" href="javascript:void(0)">5</a></li><li class="page-item page-last-separator disabled"><a class="page-link" aria-label="" href="javascript:void(0)">...</a></li><li class="page-item"><a class="page-link" aria-label="to page 261" href="javascript:void(0)">261</a></li><li class="page-item page-next"><a class="page-link" aria-label="next page" href="javascript:void(0)">›</a></li></ul></div>
+            </div>
+        </div><div class="clearfix"></div>
+
+
+        <script src="/Scripts/basic/basic.js"></script>
+        <script>
+            $(document).ready(function () {
+                dou_options.editformSize = { minWidth: 1000 }
+
+
+
+
+
+                dou_options.afterCreateEditDataForm = function ($_c, row) {
+
+
+
+
+
+
+                    if (row.File_name == null) {
+                        showupload('File_name')//沒檔案就顯示可上傳
+                    }
+                    else {
+                        uploadonlytext('File_name', "CarFuel\\basic\\")//有檔案就顯示檔案
+                    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    otherdisplay("Business_theme", "otherBusiness_theme", 16)//其他
+
+
+
+                    multiple(row, "AncillaryFacility")//選項換多選
+                    multiple(row, "Facility")//選項換多選
+
+
+                    //禁止登打
+                    if ($('[data-field="CaseNo"] input').val() == "") {
+                        $('[data-field="total_gun"]').addClass('d-none');
+                        $('[data-field="Self_total_gun"]').addClass('d-none');
+                        $('[data-field="total_one_gun"]').addClass('d-none');
+                        $('[data-field="total_two_gun"]').addClass('d-none');
+                        $('[data-field="total_four_gun"]').addClass('d-none');
+                        $('[data-field="total_six_gun"]').addClass('d-none');
+                        $('[data-field="total_eight_gun"]').addClass('d-none');
+                        $('[data-field="total_other_gun"]').addClass('d-none');
+                        $('[data-field="total_total_gun"]').addClass('d-none');
+                    }
+                    else {
+                        $('[data-field="Report_date"] input').prop('disabled', true);
+                    }
+                    $('[data-field="Create_date"] input').prop('disabled', true);
+                    $('[data-field="Create_name"] input').prop('disabled', true);
+                    $('[data-field="Mod_date"] input').prop('disabled', true);
+                    $('[data-field="Mod_name"] input').prop('disabled', true);
+                    $('[data-field="total_gun"] input').prop('disabled', true);
+                    $('[data-field="Self_total_gun"] input').prop('disabled', true);
+                    $('[data-field="total_one_gun"] input').prop('disabled', true);
+                    $('[data-field="total_two_gun"] input').prop('disabled', true);
+                    $('[data-field="total_four_gun"] input').prop('disabled', true);
+                    $('[data-field="total_six_gun"] input').prop('disabled', true);
+                    $('[data-field="total_eight_gun"] input').prop('disabled', true);
+                    $('[data-field="total_other_gun"] input').prop('disabled', true);
+                    $('[data-field="total_total_gun"] input').prop('disabled', true);
+
+
+
+                    $('[data-field="UsageState1"] select').change(function () {
+                        UsageStateremovednone();
+                    })
+                    $('[data-field="UsageState2"] select').change(function () {
+                        UsageStateremovednone();
+                    })
+                    $('[data-field="UsageState3"] select').change(function () {
+                        UsageStateremovednone();
+                    })
+                    $('[data-field="UsageState4"] select').change(function () {
+                        UsageStateremovednone();
+                    })
+                    $('[data-field="UsageState5"] select').change(function () {
+                        UsageStateremovednone();
+                    })
+                    $('[data-field="UsageState6"] select').change(function () {
+                        UsageStateremovednone();
+                    })
+                    $('[data-field="UsageState7"] select').change(function () {
+                        UsageStateremovednone();
+                    })
+
+
+
+
+
+                    UsageStatednone();
+
+                    UsageStateremovednone()
+
+                }
+
+
+
+
+
+
+                dou_options.afterEditDataConfirm = function (row, callback) {
+
+
+                    var result = multiplesave("AncillaryFacility");
+                    var AncillaryFacility = result.join(';')
+                    row.AncillaryFacility = AncillaryFacility != "" ? AncillaryFacility : "";
+
+                    var result = multiplesave("Facility");
+                    var Facility = result.join(';')
+                    row.Facility = Facility != "" ? Facility : "";
+
+
+
+
+
+
+                    //上傳檔案
+                    upload('File_name', $.AppConfigOptions.baseurl + 'CarFuel_Select/Sendupload', row.ID, row.CaseNo, callback);
+
+
+
+
+
+                }
+
+
+
+
+
+
+
+
+                dou_options.afterUpdateServerData = function (row, callback) {
+                    var URL = $.AppConfigOptions.baseurl + 'CarFuel_OilData?CaseNo=' + row.CaseNo
+                    $(location).attr('href', URL);
+                }
+                dou_options.afterAddServerData = dou_options.afterUpdateServerData
+
+
+
+
+
+
+
+
+                dou_options.tableOptions.pageSize = 15;
+                dou_options.tableOptions.pageList = [15, 30, 80, 200, 500];
+
+                $("#_table").DouEditableTable(dou_options);
+            });
+
+
+
+        </script>
+
+
+    </div>
+    <hr>
+    <footer class="text-center">
+        <p>© 2023 - 版權所有,最佳解析度1280x800</p>
+    </footer>
+
+
+
+
+
+</body>

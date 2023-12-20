@@ -1,0 +1,246 @@
+﻿@using Dou.Misc.Extension
+@Html.MenuMap()
+@Html.DataManagerOptionsJavascript(null, "dou_options")
+
+
+
+
+
+
+
+<div  class="modal-body">
+    <div>改善說明：</div>
+    <label>
+        <input type="radio" name="Improve" id="Improve0" value="0"> 無
+    </label>
+    <br>
+    <label>
+        <input type="radio" name="Improve" id="Improve1" value="1"> 有
+    </label>
+    <br>
+
+    <label>
+        <input type="checkbox" id="OtherImprove1">請檢附改善前、後照片
+    </label>
+    <br>
+    <label>
+        <input type="checkbox" id="OtherImprove2">電氣缺失部分應由初級電氣技術人員檢查並檢附報告(含專業證照影本)，請詳閱本檢查紀錄表所列缺失說明，確實了解問題及原因，並據以進行改善：改善期限經與業者溝通。業者同意於縣(市)政府文到<input type="text" id="Improve_Day">月內完成缺失改善。 意見說明：
+    </label>
+    <br>
+    <textarea id="Improve_Notes"></textarea>
+
+    <br>
+
+
+    <div class="form-group field-container col-md-12" data-field="File">
+        <label class="col-sm-12 control-label"> 查核結果報告上傳：</label>
+        <div class="field-content col-sm-12">
+            <input type="text" class="form-control" data-fn="File" maxlength="5">
+        </div>
+    </div>
+</div>
+
+
+
+
+<table id="_table"></table>
+<button id="summit" onclick="save()" class="btn btn-primary " style="float: right;">儲存</button>
+
+
+<script src="~/Scripts/basic/basic.js"></script>
+<script>
+    $(document).ready(function () {
+
+       
+
+
+        //放初始資料
+        var settings = {
+            "url": "@Url.Action("GetCheckBasicWithPDF", "ComprehensiveOpinions")" + '?CheckNo=' + request('CheckNo'),
+            "method": "GET",
+            "timeout": 0,
+            "dataType": 'json',
+        };
+        $.ajax(settings).done(function (response) {
+
+           //是否要改善
+            if (response.CheckBasic.Improve != null) {
+                switch (response.CheckBasic.Improve.trim()) {
+                    case "0":
+                        $('#Improve0').prop('checked', true);
+                        break
+                    case "1":
+                        $('#Improve1').prop('checked', true);
+                        break
+                };
+            }
+
+            //幾個月內
+            $('#Improve_Day').val(response.CheckBasic.Improve_Day);
+
+            //備註
+            $('#Improve_Notes').val(response.CheckBasic.Improve_Notes);
+
+
+             //是否有照片跟電氣缺失
+            var OtherImprove = response.CheckBasic.OtherImprove
+            if (OtherImprove != null) {
+                var valuesToSelect =OtherImprove.split(",");//分割取得有選到的value
+                valuesToSelect.forEach(function (val) {
+                    switch (val) {
+                        case "a":
+                            $('#OtherImprove1').prop('checked', true);
+                            break
+                        case "b":
+                            $('#OtherImprove2').prop('checked', true);
+                            break
+                    }
+
+                });
+            }
+
+
+            // 檔案
+            if (response.CheckPdfFile==null||response.CheckPdfFile.File == null) {
+                showupload('File')//沒檔案就顯示可上傳
+
+                //是否可以編輯
+                if (request("edit") == "0") {
+                    readonly();
+                }
+            }
+            else {
+                $('div[data-field="File"] input').val(response.CheckPdfFile.File)
+
+
+
+                //是否可以編輯
+                var edit = true;
+                if (request("edit") == "0") {
+                    edit = false;
+                }
+
+
+
+                uploadonlytext('File', "Audit\\Check_Consolidated_Comments\\", edit)//有檔案就顯示檔案
+            }
+ 
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        dou_options.tableOptions.url = dou_options.tableOptions.url + "?CheckNo=" + request('CheckNo')
+
+
+
+
+
+
+
+        dou_options.afterCreateEditDataForm = function ($_c, row) {
+
+
+
+
+            //禁止登打
+            $('[data-field="CaseNo"] input').val(request('CaseNo'));
+            $('[data-field="CaseNo"] input').prop('disabled', true);
+            $('[data-field="CheckNo"] input').val(request('CheckNo'));
+            $('[data-field="CheckNo"] input').prop('disabled', true);
+
+
+
+            //是否可以編輯
+            if (request("edit") == "0") {
+                readonly();
+            }
+        }
+
+        //是否可以編輯
+        if (request("edit") == "0") {
+            readonly();
+            dou_options.addable = false
+            dou_options.deleteable = false
+        }
+
+        $("#_table").DouEditableTable(dou_options);
+
+
+
+
+
+
+
+
+
+    });
+
+
+    //儲存非表格資料
+    function save() {
+        //是否可以編輯
+        if (request("edit") == "0") {
+            var URL = $.AppConfigOptions.baseurl + 'Audit_Guidance_Check_Select'
+            $(location).attr('href', URL);
+        }
+        else
+        {
+
+
+
+        var Improve = $("input[name='Improve']:checked").val();
+
+
+        var OtherImprove = "";
+        if ($('#OtherImprove1').is(':checked')) {
+            OtherImprove = OtherImprove + "a,";
+        }
+        if ($('#OtherImprove2').is(':checked')) {
+            OtherImprove = OtherImprove + "b,";
+        }
+
+        var Improve_Day = $('#Improve_Day').val()
+
+        var Improve_Notes = $('#Improve_Notes').val()
+
+
+        var settings = {
+            "url": "@Url.Action("SaveCheckBasicWithPDF", "ComprehensiveOpinions")" + '?CheckNo=' + request('CheckNo') + '&Improve=' + Improve + '&OtherImprove=' + OtherImprove + '&Improve_Day=' + Improve_Day + '&Improve_Notes=' + Improve_Notes,
+            "method": "GET",
+            "dataType": 'json',
+            "timeout": 0,
+        };
+        $.ajax(settings).done(function (response) {
+
+            var callback = function () { };//共用function需要有callback，所以創一個空函數
+            upload('File', $.AppConfigOptions.baseurl + 'ComprehensiveOpinions/Sendupload', '', request('CheckNo'), callback);//ID沒有用，共用functionCaseNo在這邊要用CheckNo
+
+
+            alert("以儲存")
+            var URL = $.AppConfigOptions.baseurl + 'Audit_Guidance_Check_List'
+            $(location).attr('href', URL);
+
+        });
+
+
+    }
+
+      
+
+    }
+
+
+</script>

@@ -1,0 +1,19 @@
+﻿<script src="~/Scripts/prjReport/Audit_StatisticReportItemView.js"></script>
+<script src="~/Scripts/prj/baseb.js"></script>
+@using Dou.Misc.Extension
+@Html.MenuMap()
+@Html.DataManagerOptionsJavascript(null, "douoptions")
+
+<table id="_table"></table>
+<table style="border-color:#9d962f;width:100%" border="1">
+    <tr>
+        <td align="left" class="tableA_td01">
+            ▲備註
+            <ol>
+                <li>缺失家數定義：截至目前檢查家數，各（非）集團站含有本項缺失之站數總和。</li>
+                <li>查核家數定義：截至目前檢查家數，各（非）集團站站數總和。</li>
+                <li>缺失百分比（％） = （該項次缺失家數／當年檢查家數或台灣中油檢查家數）Ｘ 100。</li>
+            </ol>
+        </td>
+    </tr>
+</table>

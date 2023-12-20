@@ -1,0 +1,99 @@
+﻿@using Dou.Misc.Extension
+@Html.MenuMap()
+@Html.DataManagerOptionsJavascript(null, "dou_options")
+
+<table id="_table"></table>
+
+<script src="~/Scripts/basic/basic.js"></script>
+<script>
+    $(document).ready(function () {
+
+        dou_options.tableOptions.url = dou_options.tableOptions.url + "?CheckNo=" + request('CheckNo')
+
+
+        dou_options.afterCreateEditDataForm = function ($_c, row) {
+
+            //禁止登打
+            $('[data-field="CaseNo"] input').val(request('CaseNo'));
+            $('[data-field="CaseNo"] input').prop('disabled', true);
+            $('[data-field="CheckNo"] input').val(request('CheckNo'));
+            $('[data-field="CheckNo"] input').prop('disabled', true);
+
+
+
+
+
+
+
+
+
+            //變更樣式
+            $('[data-field="CaseNo"] input').after('<HR>');
+            $('[data-field="A_Notes"] input').after('<HR>');
+            $('[data-field="B_Notes"] input').after('<HR>');
+            $('[data-field="C_Notes"] input').after('<HR>');
+            $('[data-field="D_Notes"] input').after('<HR>');
+            //$('[data-field="E_Notes"] input').after('<HR>');
+            //$('[data-field="F_Notes"] input').after('<HR>');
+            $('[data-field="G_Notes"] input').after('<HR>');
+            $('[data-field="H_Notes"] input').after('<HR>');
+          
+
+
+          
+
+
+            //點擊取消回上一頁
+            $('.btn-default').click(function () {
+                var URL = $.AppConfigOptions.baseurl + 'Audit_Guidance_Check_List'
+                $(location).attr('href', URL);
+            });
+
+
+
+            //是否可以編輯
+            if (request("edit") == "0") {
+                readonly();
+
+
+                $('.btn-default').click(function () {
+                    var URL = $.AppConfigOptions.baseurl + 'Audit_Guidance_Check_Select'
+                    $(location).attr('href', URL);
+                });
+
+            }
+        }
+
+        //afterUpdateServerData在singleDataEdit沒有用
+        //編輯完進下一頁StatisticsAtatisticsAuditCarFuel
+        dou_options.afterAddServerData = function (row, callback) {
+            var URL = $.AppConfigOptions.baseurl + 'StatisticsAtatisticsAuditSelfUP?CheckNo=' + row.CheckNo + '&CaseNo=' + row.CaseNo
+            $(location).attr('href', URL);
+        }
+
+
+
+        //是否可以編輯,不行則直接跳頁
+        if (request("edit") == "0") {
+            dou_options.afterEditDataConfirm = function (row, callback) {
+                var URL = $.AppConfigOptions.baseurl + 'StatisticsAtatisticsAuditSelfUP?CheckNo=' + row.CheckNo + '&CaseNo=' + row.CaseNo + '&edit=0'
+                $(location).attr('href', URL);
+            }
+        }
+
+
+
+
+        $("#_table").DouEditableTable(dou_options);
+    });
+
+
+    $(window).on('load', function () {
+
+        //如果沒資料就跳新增
+        if (dou_options.datas.length >= 1) { }
+        else {
+            $('.btn-success').click();
+        }
+    });
+</script>

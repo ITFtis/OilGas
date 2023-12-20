@@ -1,0 +1,24 @@
+﻿<script src="~/Scripts/prjReport/Audit_StatisticReportEquipView.js"></script>
+<script src="~/Scripts/prj/baseb.js"></script>
+@using Dou.Misc.Extension
+@Html.MenuMap()
+@Html.DataManagerOptionsJavascript(null, "douoptions")
+
+<table id="_table"></table>
+
+<hr />
+
+<table id="_tableCount"></table>
+<table style="border-color: #9d962f" border="1" width="100%">
+    <tr>
+        <td class="tableA_td07" colspan="4">
+            ▲備註
+            <ol>
+                <li>「年度」、「區域」及「營業主體」項目，請至少勾選一項。</li>
+                <li>可利用勾選「區域」或「營業主體」前欄位，選取所有區域或營業主體。</li>
+                <li>「非集團站」為該營業主體加油站數小於10間之小型集團。</li>
+                <li>報表顯示「0」即為經統計後無該項缺失；顯示「－」即為該項目無經查核，故無資料。</li>
+            </ol>
+        </td>
+    </tr>
+</table>

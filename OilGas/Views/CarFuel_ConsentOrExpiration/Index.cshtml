@@ -1,0 +1,19 @@
+﻿<script src="~/Scripts/prjReport/CarFuel_ConsentOrExpiration.js"></script>
+<script src="~/Scripts/prj/baseb.js"></script>
+@using Dou.Misc.Extension
+@Html.MenuMap()
+@Html.DataManagerOptionsJavascript(null, "douoptions")
+
+<table id="_table"></table>
+<div>
+    &lt;報表說明&gt;
+    <ol class="first">
+        <li>本報表可查詢申請設置案件同意認定／籌建到已到期之加油站清單。</li>
+        <li>本報表查詢條件說明：
+            <ol class="second">
+                <li>到期日期：以加油站基本資料之營運狀況「申請設置－同意認定／同意籌建期限」為依據，針對舊系統資料如同意認定期限為同意認定發文日期加一年；同意籌建期限為同意籌建發文日期加三年。</li>
+                <li>營運狀態：以加油站基本資料之營運狀況為依據，可查詢同意認定已到期、同意籌建已到期或同意認定及同意籌建已到期之加油站清單。</li>
+            </ol>
+        </li>
+    </ol>
+</div>

@@ -1,0 +1,308 @@
+[
+  {
+    "Name": "Level-1",
+    "MenuPath": "",
+    "Index": 99998,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "系統管理",
+    "MenuPath": "",
+    "Index": 99999,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "加油站",
+    "MenuPath": "",
+    "Index": 1,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "汽車加氣站",
+    "MenuPath": "",
+    "Index": 2,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "漁船加油站",
+    "MenuPath": "",
+    "Index": 3,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "自用加儲油",
+    "MenuPath": "",
+    "Index": 4,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "自用加儲氣",
+    "MenuPath": "",
+    "Index": 5,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "航港自用加儲油",
+    "MenuPath": "",
+    "Index": 6,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "取締管理作業",
+    "MenuPath": "",
+    "Index": 7,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "查核輔導專區",
+    "MenuPath": "",
+    "Index": 8,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "系統管理專區",
+    "MenuPath": "",
+    "Index": 9,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "資訊查詢",
+    "MenuPath": "",
+    "Index": 10,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "A管理專區",
+    "MenuPath": "加油站",
+    "Index": 1,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "A違規案件專區",
+    "MenuPath": "加油站",
+    "Index": 2,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "A統計報表專區",
+    "MenuPath": "加油站",
+    "Index": 3,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "A異常報表",
+    "MenuPath": "加油站",
+    "Index": 4,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "A系統操作手冊",
+    "MenuPath": "加油站",
+    "Index": 5,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "B管理專區",
+    "MenuPath": "汽車加氣站",
+    "Index": 1,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "B違規案件專區",
+    "MenuPath": "汽車加氣站",
+    "Index": 2,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "B統計報表專區",
+    "MenuPath": "汽車加氣站",
+    "Index": 3,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "B系統操作手冊",
+    "MenuPath": "汽車加氣站",
+    "Index": 4,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "C管理專區",
+    "MenuPath": "漁船加油站",
+    "Index": 1,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "C違規案件專區",
+    "MenuPath": "漁船加油站",
+    "Index": 2,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "C統計報表專區",
+    "MenuPath": "漁船加油站",
+    "Index": 3,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "C系統操作手冊",
+    "MenuPath": "漁船加油站",
+    "Index": 4,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "D管理專區",
+    "MenuPath": "自用加儲油",
+    "Index": 1,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "D違規案件專區",
+    "MenuPath": "自用加儲油",
+    "Index": 2,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "D統計報表專區",
+    "MenuPath": "自用加儲油",
+    "Index": 3,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "D系統操作手冊",
+    "MenuPath": "自用加儲油",
+    "Index": 4,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "E設施管理專區",
+    "MenuPath": "航港自用加儲油",
+    "Index": 1,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "E違規案件專區",
+    "MenuPath": "航港自用加儲油",
+    "Index": 2,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "E查核輔導專區",
+    "MenuPath": "航港自用加儲油",
+    "Index": 3,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "E統計報表專區",
+    "MenuPath": "航港自用加儲油",
+    "Index": 4,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "E系統操作手冊",
+    "MenuPath": "航港自用加儲油",
+    "Index": 5,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "F違規案件維護",
+    "MenuPath": "取締管理作業",
+    "Index": 1,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "F統計報表專區",
+    "MenuPath": "取締管理作業",
+    "Index": 2,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "F系統操作手冊",
+    "MenuPath": "取締管理作業",
+    "Index": 3,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "G查核輔導資料",
+    "MenuPath": "查核輔導專區",
+    "Index": 1,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "G公文上傳專區",
+    "MenuPath": "查核輔導專區",
+    "Index": 2,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "G統計報表專區",
+    "MenuPath": "查核輔導專區",
+    "Index": 3,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "G輔導講習專區",
+    "MenuPath": "查核輔導專區",
+    "Index": 4,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "G交叉分析報表",
+    "MenuPath": "查核輔導專區",
+    "Index": 5,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "G異常報表",
+    "MenuPath": "查核輔導專區",
+    "Index": 6,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "H帳號權限管理",
+    "MenuPath": "系統管理專區",
+    "Index": 1,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "H最新消息管理",
+    "MenuPath": "系統管理專區",
+    "Index": 2,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "H工安環保專區",
+    "MenuPath": "系統管理專區",
+    "Index": 3,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "I最新消息",
+    "MenuPath": "資訊查詢",
+    "Index": 1,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "I最新能源法規",
+    "MenuPath": "資訊查詢",
+    "Index": 2,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "IODF相關文件",
+    "MenuPath": "資訊查詢",
+    "Index": 3,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "I函釋資料庫",
+    "MenuPath": "資訊查詢",
+    "Index": 4,
+    "IsOnlyPath": true
+  },
+  {
+    "Name": "I圖文懶人包",
+    "MenuPath": "資訊查詢",
+    "Index": 5,
+    "IsOnlyPath": true
+  }
+]

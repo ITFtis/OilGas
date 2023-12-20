@@ -1,0 +1,45 @@
+﻿@using Dou.Misc.Extension
+@Html.MenuMap()
+@Html.DataManagerOptionsJavascript(null, "dou_options")
+
+<table id="_table"></table>
+
+<script src="~/Scripts/basic/basic.js"></script>
+<script>
+    $(document).ready(function () {
+
+
+        dou_options.tableOptions.pageSize = 15;
+        dou_options.tableOptions.pageList = [15, 30, 80, 200, 500];
+
+
+
+        dou_options.tableOptions.url = dou_options.tableOptions.url + "?BasicDataId=" + request('BasicDataId')
+
+
+
+        dou_options.afterEditDataConfirm = function (row, callback) {
+            row.BasicDataId = row.BasicDataId ? row.BasicDataId : request('BasicDataId');
+
+          
+
+            callback();
+        }
+
+
+
+        dou_options.appendCustomToolbars = [{
+            item: '<span class="btn btn-primary   glyphicon glyphicon-ok " title="完成"> 完成</span>', event: 'click',
+            callback: function (e) {
+
+                var URL = $.AppConfigOptions.baseurl + 'Admin_Protection' 
+                $(location).attr('href', URL);
+            }
+        }];
+
+
+        $("#_table").DouEditableTable(dou_options);
+    });
+
+
+</script>

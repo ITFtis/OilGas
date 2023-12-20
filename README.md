@@ -1,0 +1,22 @@
+# OilGas
+上板前要把[CarFuel_BasicData]的[SoilServerData]從NCHAR改NVARCHAR並拿掉空白
+上板前要把CarFuel_OilData的SaleSoilClass從NCHAR改NVARCHAR並拿掉空白
+上板前要把FishGas_BasicData的Oil_barge和SoilServerData從NCHAR改NVARCHAR並拿掉空白
+上板前要把FishGas_OilData的Tank_type和Oil_type從NCHAR改NVARCHAR並拿掉空白
+上板前要把Check_Item_97和Check_Basic和[Check_Item]和Check_Item_Action和Check_Basic_Action的CheckNo從NCHAR改NVARCHAR並拿掉空白
+上板前要把Check_Basic和Check_Counseling和Check_Item_Action和[Check_Basic_Action]的CheckNo從NCHAR改NVARCHAR並拿掉空白
+
+
+把Check_Item_Fish103塞進Check_Item_Fish
+
+
+USER新增city欄位varchar(10)
+
+
+CarFuel_Insurance的ID是30716要刪除(CASENO是空白)
+
+
+新增FileType、FileDownload、Lesson、Sign
+
+
+Check_document的CheckNo設成KEY

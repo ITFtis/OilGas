@@ -1,0 +1,18 @@
+﻿<script src="~/Scripts/prjReport/Audit_Project_Statistics.js"></script>
+<script src="~/Scripts/prj/baseb.js"></script>
+@using Dou.Misc.Extension
+@Html.MenuMap()
+@Html.DataManagerOptionsJavascript(null, "douoptions")
+
+<table id="_table"></table>
+<table width="100%" border="1" cellspacing="0" cellpadding="0">
+    <thead>
+        <tr align="center">
+            <td>缺失家數定義：截至目前檢查家數，本項目有缺失之加油站總和。</td>
+            
+        </tr>
+        <tr align="center">
+            <td>缺失百分比（％） ＝ （該項檢查發現缺失家數／當年檢查家數） Ｘ 100％</td>
+        </tr>
+    </thead>
+</table>

@@ -1,0 +1,35 @@
+報表：
+汽機車加油站:基本資料欄位清單 完成度75%
+
+Demo:
+1.UI呈現(條件查詢)、(欄位顯示-靜態、動態)
+2.查詢結果
+(a)資料驗證
+(數量)
+1.基底資料
+2.+販售油品、油槽種類與容量
+
+(內容)
+
+
+(b)效能比較
+1.舊系統
+基本查詢：如圖 
+
+******
+動態組SQL及輸出欄位：如圖
+if (Land.Checked)
+{
+	strJoinTable += string.Format(@" Left join LandClassCode lc on cb.LandClass = lc.value
+									 Left join LandUsageZoneCode luc on cb.LandUsageZone = luc.value");
+	........................
+}	
+******
+推論：此查詢為多報表組合
+
+2.新系統 
+(a)一次性關聯所有用到的資料表及輸出欄位：如圖
+分析
+利用cache提升效能，但第一次查詢幾秒，可接受範圍內
+各縣市承辦，將提供縣市條件效能可正常
+備註：如果Linq查詢模式調整成(舊系統模式)，不好維護且程式碼很亂

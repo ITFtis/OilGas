@@ -1,0 +1,233 @@
+﻿@using Dou.Misc.Extension
+@Html.MenuMap()
+@Html.DataManagerOptionsJavascript(null, "dou_options")
+
+<table id="_table"></table>
+
+<script src="~/Scripts/basic/basic.js"></script>
+
+
+
+<script>
+    $(document).ready(function () {
+        //初始表格可以下載
+        datedownload('Gas_Date', 'Gas_File');
+        datedownload('EPB_Date', 'EPB_File');
+        datedownload('GAS2_Date', 'GAS2_File');
+        datedownload('EPB2_Date', 'AEPB2_File');
+        datedownload('GASend_Date', 'GASend_File');
+        datedownload('ZERO_Date', 'ZERO_File');
+
+
+        dou_options.afterCreateEditDataForm = function ($_c, row) {
+
+
+
+            //禁止登打
+            if ($('[data-field="CheckNo"] input').val() != "") {
+                $('[data-field="CheckNo"] input').prop('disabled', true);
+                $('[data-field="CheckDate"] input').prop('disabled', true);
+                $('[data-field="CheckDate_Action"] input').prop('disabled', true);
+                $('[data-field="Gas_Name"] input').prop('disabled', true);
+                $('[data-field="Business_theme"] input').prop('disabled', true);
+                $('[data-field="Addr"] input').prop('disabled', true);
+
+            }
+            else {
+                //新增要能搜尋加油站，先把原本的地方隱藏
+                $('[data-field="CheckNo"] input').addClass('d-none');
+   
+                $('[name="form"] [data-field="CheckDate"]').addClass('d-none');
+                $('[name="form"] [data-field="CheckDate_Action"]').addClass('d-none');
+                $('[name="form"] [data-field="Gas_Name"]').addClass('d-none');
+                $('[name="form"] [data-field="Business_theme"]').addClass('d-none');
+                $('[name="form"] [data-field="Addr"]').addClass('d-none');
+                
+
+
+                $('div[data-field="CheckNo"] .field-content').append('<input type="text" id="CheckNoforSERCH" class="form-control" placeholder="搜尋" maxlength="200"><button type="button" onclick="serchCheckNo()" class="btn btn-primary "> 搜尋</button>');   //加搜尋欄
+
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+            if (row.Gas_File == null || row.Gas_File =='') {
+                showupload('Gas_File')//沒檔案就顯示可上傳
+            }
+            else {
+                uploadonlytext('Gas_File', "Audit_Guidance_Check_document\\Gas_File\\")//有檔案就顯示檔案
+            }
+
+            if (row.EPB_File == null || row.Gas_File == '') {
+                showupload('EPB_File')//沒檔案就顯示可上傳
+            }
+            else {
+                uploadonlytext('EPB_File', "Audit_Guidance_Check_document\\EPB_File\\")//有檔案就顯示檔案
+            }
+
+            if (row.GAS2_File == null || row.Gas_File == '') {
+                showupload('GAS2_File')//沒檔案就顯示可上傳
+            }
+            else {
+                uploadonlytext('GAS2_File', "Audit_Guidance_Check_document\\GAS2_File\\")//有檔案就顯示檔案
+            }
+
+            if (row.EPB2_File == null || row.Gas_File == '') {
+                showupload('EPB2_File')//沒檔案就顯示可上傳
+            }
+            else {
+                uploadonlytext('EPB2_File', "Audit_Guidance_Check_document\\EPB2_File\\")//有檔案就顯示檔案
+            }
+
+            if (row.GASend_File == null || row.Gas_File == '') {
+                showupload('GASend_File')//沒檔案就顯示可上傳
+            }
+            else {
+                uploadonlytext('GASend_File', "Audit_Guidance_Check_document\\GASend_File\\")//有檔案就顯示檔案
+            }
+
+            if (row.ZERO_File == null || row.Gas_File == '') {
+                showupload('ZERO_File')//沒檔案就顯示可上傳
+            }
+            else {
+                uploadonlytext('ZERO_File', "Audit_Guidance_Check_document\\ZERO_File\\")//有檔案就顯示檔案
+            }
+
+            if (row.GAS3_File == null || row.Gas_File == '') {
+                showupload('GAS3_File')//沒檔案就顯示可上傳
+            }
+            else {
+                uploadonlytext('GAS3_File', "Audit_Guidance_Check_document\\GAS3_File\\")//有檔案就顯示檔案
+            }
+
+            if (row.EPB3_File == null || row.Gas_File == '') {
+                showupload('EPB3_File')//沒檔案就顯示可上傳
+            }
+            else {
+                uploadonlytext('EPB3_File', "Audit_Guidance_Check_document\\EPB3_File\\")//有檔案就顯示檔案
+            }
+
+
+        }
+
+
+
+
+
+        dou_options.afterEditDataConfirm = function (row, callback) {
+
+
+
+
+
+            var nullfuntion = function () { };
+            //上傳檔案
+            upload('Gas_File', $.AppConfigOptions.baseurl + 'Audit_Guidance_Check_document/Sendupload?filetype=Gas_File', row.id, row.CheckNo, nullfuntion);
+            upload('EPB_File', $.AppConfigOptions.baseurl + 'Audit_Guidance_Check_document/Sendupload?filetype=EPB_File', row.id, row.CheckNo, nullfuntion);
+            upload('GAS2_File', $.AppConfigOptions.baseurl + 'Audit_Guidance_Check_document/Sendupload?filetype=GAS2_File', row.id, row.CheckNo, nullfuntion);
+            upload('EPB2_File', $.AppConfigOptions.baseurl + 'Audit_Guidance_Check_document/Sendupload?filetype=EPB2_File', row.id, row.CheckNo, nullfuntion);
+            upload('GASend_File', $.AppConfigOptions.baseurl + 'Audit_Guidance_Check_document/Sendupload?filetype=GASend_File', row.id, row.CheckNo, nullfuntion);
+            upload('ZERO_File', $.AppConfigOptions.baseurl + 'Audit_Guidance_Check_document/Sendupload?filetype=ZERO_File', row.id, row.CheckNo, nullfuntion);
+            upload('GAS3_File', $.AppConfigOptions.baseurl + 'Audit_Guidance_Check_document/Sendupload?filetype=GAS3_File', row.id, row.CheckNo, nullfuntion);
+            upload('EPB3_File', $.AppConfigOptions.baseurl + 'Audit_Guidance_Check_document/Sendupload?filetype=EPB3_File', row.id, row.CheckNo, nullfuntion);
+
+
+            callback();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        $("#_table").DouEditableTable(dou_options);
+    });
+
+
+
+     //初始表格可以下載
+    function datedownload(filedate, filetype) {
+        douHelper.getField(dou_options, filedate).formatter = function (v, r) {
+            if (v == null || v == '') {
+                var text = "-"
+            }
+            else {
+                // 使用 JavaScript 的 Date 對象將其轉換為日期
+                v = v.replace('/Date(', '');
+                v = v.replace(')/', '');
+                v = parseInt(v)
+                var date = new Date(v);
+
+                // 將日期格式化為易讀的格式（例如：年-月-日）
+                var formattedDate = date.getFullYear() + '-' +
+                    ('0' + (date.getMonth() + 1)).slice(-2) + '-' +
+                    ('0' + date.getDate()).slice(-2);
+
+                if (r[filetype] == null || r[filetype] == '') {
+                    var text = formattedDate;
+                }
+                else {
+                    var text = '<a href="' + $downloadurl + 'Audit_Guidance_Check_document\\' + filetype + '\\' + r[filetype] + '">' + formattedDate + '</a>';
+                }
+
+            }
+            return (text);
+        }
+
+
+
+
+
+    }
+
+
+
+    //搜尋加油站
+    function serchCheckNo() {
+        var CaseNo = $('#CheckNoforSERCH').val();
+    
+
+        var settings = {
+            "url": $.AppConfigOptions.baseurl + "Audit_Guidance_Check_document/GetCheckNoSelectList?CheckNoOrName=" + CaseNo,
+            "method": "GET",
+        };
+
+        $.ajax(settings).done(function (response) {
+
+
+
+            //組選項
+            //val填入CaseNo,Gas_Name，這樣可以直接存Gas_Name，不用再做處理
+            var option = "";
+            $.each(JSON.parse(response), function (index, value) {
+                option = option + '<option value="' + value.CheckNo + '">' + value.Gas_Name + '(' + value.CheckNo + ')</option>'
+            });
+
+
+            //把隱藏的CaseNo填寫欄位變成下拉選單，並填入選項
+            $('[data-fn="CheckNo"]').replaceWith('<select class="form-control" data-fn="CheckNo">' + option + '</select>');
+            $('[data-field="CheckNo"] input:first').removeClass('d-none');
+        });
+
+    }
+</script>

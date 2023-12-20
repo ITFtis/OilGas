@@ -1,0 +1,55 @@
+﻿@using Dou.Misc.Extension
+@Html.MenuMap()
+@Html.DataManagerOptionsJavascript(null, "dou_options")
+
+<table id="_table"></table>
+
+
+<script src="~/Scripts/basic/basic.js"></script>
+<script>
+    $(document).ready(function () {
+
+        //跳進查核頁
+        douHelper.getField(dou_options, "s_titel").formatter = function (v, r) {
+
+            if (v == null) {
+                var text = "-"
+            }
+            else {
+                var text = '<a  href="' + r.s_http + '">' +v + '</a>';
+            }
+            return (text);
+        }
+
+        dou_options.afterCreateEditDataForm = function ($c, row) {
+
+            if (row.s_pic == null) {
+                showupload('s_pic')//沒檔案就顯示可上傳
+            }
+            else {
+                uploadonlytext('s_pic', "Info_LazybagM/");//有檔案就顯示檔案
+            }
+        }
+
+
+        dou_options.afterEditDataConfirm = function (row, callback) {
+
+
+            //上傳檔案
+            upload('s_pic', $.AppConfigOptions.baseurl + 'Info_LazybagM/Sendupload', row.s_index, "", callback);
+
+        }
+
+
+
+
+
+        $("#_table").DouEditableTable(dou_options);
+    });
+
+
+
+
+
+
+</script>

@@ -1,0 +1,33 @@
+﻿<script src="~/Scripts/prjReport/Audit_ReportCheckPMListDownLoad.js"></script>
+<script src="~/Scripts/prj/baseb.js"></script>
+@using Dou.Misc.Extension
+@Html.MenuMap()
+@Html.DataManagerOptionsJavascript(null, "douoptions")
+
+<table id="_table"></table>
+<div>
+    &lt;報表說明&gt;
+    <ol class="first">
+        <li>「石油設施查核名單篩選」本報表為輔助篩選出某年度建議需要去進行查核輔導的加油站名單。</li>
+        <li>
+            查詢條件說明：
+            <ol class="second">
+                <li>如需引用最新的加油站基本資料及查核輔導資料，請先依序按下重新計算的三個按鈕。</li>
+                <li>查核年度：選擇要查詢的查核年度。</li>
+                <li>查核等級：選擇要篩選出之各加油站最後一次查核的查核等級(預設全選)。</li>
+                <li>縣市別：如只有單一縣市權限僅能查詢單一縣市。如有全國權限，則可選擇縣市與全國進行比較(預設全選)。</li>
+                <li>高風險因子篩選項目：只要上一次的查核缺失有包含勾選到的危險因子，不論它上次的查核等級為何都會被帶出(預設全不選)。</li>
+                <li>新設、變更營業主體及復業：只要該加油站前一年度有符合勾選項目的異動，不論它上次的查核等級為何都會被帶出(預設全不選)。</li>
+                <li>資料呈現方式：將符合篩選條件的資料轉出為Execl，供使用者進一步篩選與後續處理。</li>
+            </ol>
+        </li>
+        <li>
+            查詢結果說明：
+            <ol class="second">
+                <li>預計查核年度：依據每一個加油站最後一次的查核缺失數來歸納其查核等級及查核頻率來計算下一次預計的查核年度。</li>
+                <li>高風險因子篩選項目：找出最後一次的查核缺失中有包含列表中的危險因子的加油站(依據查核結果)。</li>
+                <li>新設、變更營業主體及復業：找出前一年度有新設、變更營業主體及復業行為的加油站(依據發文紀錄)。</li>
+            </ol>
+        </li>
+    </ol>
+</div>

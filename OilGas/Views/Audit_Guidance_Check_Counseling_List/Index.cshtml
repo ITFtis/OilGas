@@ -1,0 +1,188 @@
+﻿@using Dou.Misc.Extension
+@Html.MenuMap()
+@Html.DataManagerOptionsJavascript(null, "dou_options")
+
+<table id="_table"></table>
+
+<script src="~/Scripts/basic/basic.js"></script>
+
+
+
+<script>
+    $(document).ready(function () {
+
+        //是否可以新增
+        if (request("edit") == '0') {
+            dou_options.addable = false
+            dou_options.deleteable = false
+        }
+  
+        dou_options.tableOptions.url = dou_options.tableOptions.url + "?CaseNo=" + request('CaseNo') + "&edit=" + request('edit')
+
+
+        dou_options.afterCreateEditDataForm = function ($_c, row) {
+
+
+
+           
+
+            //填入File_Name
+            var settings = {
+                "url": $.AppConfigOptions.baseurl + "Audit_Guidance_Check_Counseling_List/GETFile_Name?Counseling_NO=" + row.Counseling_No,
+                "method": "GET",
+            };
+
+            $.ajax(settings).done(function (response) {
+               
+                    row.File_Name = response == "" ? null : response
+                    if (row.File_Name == null) {
+                        showupload('File_Name')//沒檔案就顯示可上傳
+                    }
+                    else {
+                        //是否可以上傳檔案
+                        var reupload = true
+                        if (request("edit") == '0') {
+                            reupload = false
+                        }
+
+                        $('div[data-field="File_Name"] input').val(row.File_Name)
+                        uploadonlytext('File_Name', "Audit_Guidance_Check_Counseling_List\\File_Name\\", reupload)//有檔案就顯示檔案
+                    }
+             
+            });
+
+
+
+
+
+
+
+            //禁止登打
+            if ($('[data-field="Counseling_No"] input').val() != "") {
+                $('[data-field="CaseNo"] input').prop('disabled', true);
+                $('[data-field="Gas_Name"] input').prop('disabled', true);
+                $('[data-field="Addr"] input').prop('disabled', true);
+            }
+            else {
+                //新增要能搜尋加油站，先把原本的地方隱藏
+                $('[data-field="CaseNo"] input').addClass('d-none');
+                $('[data-field="Gas_Name"]').addClass('d-none');
+                $('[data-field="Addr"]').addClass('d-none');
+                $('div[data-field="CaseNo"] .field-content').append('<input type="text" id="CaseNoforSERCH" class="form-control" placeholder="搜尋" maxlength="200"><button type="button" onclick="serchCaseNo()" class="btn btn-primary "> 搜尋</button>');   //加搜尋欄
+
+
+            }
+
+
+
+            if (row.Isseud_Data == null) {
+                showupload('Isseud_Data')//沒檔案就顯示可上傳
+            }
+            else {
+                //是否可以上傳檔案
+                var reupload = true
+                if (request("edit") == '0') {
+                    reupload = false
+                }
+
+                uploadonlytext('Isseud_Data', "Audit_Guidance_Check_Counseling_List\\Isseud_Data\\", reupload)//有檔案就顯示檔案
+            }
+
+
+
+          
+
+            multiple(row, "Notes", true)//選項換多選
+
+            //是否可以編輯
+            if (request("edit") == "0") {
+                readonly();
+            }
+
+        }
+
+
+
+
+
+        dou_options.afterEditDataConfirm = function (row, callback) {
+
+
+            var result = multiplesave("Notes");
+            var Notes = result.join(',')
+            row.Notes = Notes != "" ? Notes : "";
+
+
+
+
+
+
+
+
+            var nullfuntion = function () { };
+
+
+            //上傳檔案
+            upload('Isseud_Data', $.AppConfigOptions.baseurl + 'Audit_Guidance_Check_Counseling_List/Sendupload', row.id, row.Counseling_No, nullfuntion);
+            upload('File_Name', $.AppConfigOptions.baseurl + 'Audit_Guidance_Check_Counseling_List/SenduploadFile_Name', row.id, row.Counseling_No, nullfuntion);
+
+
+
+            callback();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        $("#_table").DouEditableTable(dou_options);
+    });
+
+
+
+    //搜尋加油站
+    function serchCaseNo() {
+        var CaseNo = $('#CaseNoforSERCH').val();
+        var type = $('[data-field="CaseType"] select').val();
+
+
+
+        var settings = {
+            "url": $.AppConfigOptions.baseurl + "Audit_Guidance_Check_List/GetCaseNoSelectList?CaseNoOrName=" + CaseNo + "&type=" + type,
+            "method": "GET",
+        };
+
+        $.ajax(settings).done(function (response) {
+
+
+
+            //組選項
+            //val填入CaseNo,Gas_Name，這樣可以直接存Gas_Name，不用再做處理
+            var option = "";
+            $.each(JSON.parse(response), function (index, value) {
+                option = option + '<option value="' + value.CaseNo + ',' + value.Gas_Name + '">' + value.Gas_Name + '(' + value.CaseNo + ')</option>'
+            });
+
+
+            //把隱藏的CaseNo填寫欄位變成下拉選單，並填入選項
+            $('[data-fn="CaseNo"]').replaceWith('<select class="form-control" data-fn="CaseNo">' + option + '</select>');
+            $('[data-field="CaseNo"] input:first').removeClass('d-none');
+        });
+
+    }
+
+
+
+
+</script>

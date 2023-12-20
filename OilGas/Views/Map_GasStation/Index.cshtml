@@ -1,0 +1,104 @@
+﻿<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+      crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+        integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+        crossorigin=""></script>
+
+@Styles.Render("~/Scripts/gis/csskit")
+@Scripts.Render("~/Scripts/gis/jskit")
+
+<script src="~/Scripts/prj/map/mapGasStation.js"></script>
+
+
+<style>
+    body {
+        padding: 0;
+        --dou-menu-height:60px;
+    }
+    .fixed-top {
+        height: var(--dou-menu-height) ;
+    }
+    .fixed-top + .body-content {
+        padding-top: var(--dou-menu-height) !important;
+        /* min-height: calc( 100% - var(--dou-menu-height) ) !important; */
+        /*height: calc( 100% - var(--dou-menu-height) ) !important;*/
+        height: 100vh;
+        padding: 0;
+        margin: 0;
+    }
+    .popu-ctrl-container.fixed-at-left {
+        max-height: calc( 100% - var(--dou-menu-height));
+        top: var(--dou-menu-height);
+    }
+    body > footer, body > hr {
+        display: none;
+    }
+    .meter .pinctrl .glyphicon{
+        display:none;
+    }
+    .pin-list-container tr > th,
+    .pin-list-container tr > td {
+        color: black !important;
+        text-shadow: none !important;
+    }
+    .metertable .table-hover > tbody > tr:hover > td, .metertable .table-hover > tbody > tr:hover > th, .metertable table > tbody > tr.meter-active > td {
+        background-color: white;
+    }
+    #position-ctrl input {
+        max-width: none !important;
+    }
+   /* #position-ctrl .address-geocode .btn{
+        display:none;
+    }*/
+    #position-ctrl .address-geocode .btn {
+        border: var(--bs-border-width) solid var(--bs-border-color);
+    }
+    #position-ctrl .address-geocode .glyphicon-map-marker:before {
+        content: "\e003";
+    }
+    #position-ctrl .circle-radius-desc{
+        padding-left:8px;
+        padding-right:0;
+    }
+</style>
+<div id="mainmenu" class="offdisplay1 navbar fixed-top " style="z-index:950;" data-ctrl-cache="false">
+
+    <div class="container-fluid" style="width:100%">
+        <div class="navbar-header">
+            444444444444
+        </div>
+        <div class="navbar-collapse collapse ">
+            <ul class="nav navbar-nav">
+                
+                <li class="dropdown nav-item">
+                    <a href="#" class="dropdown-toggle  tools-group-ctrl nav-link" data-toggle="dropdown" data-default-show="true">地圖工具<b class="caret"></b></a>
+                    <ul class="dropdown-menu" style="text-shadow:none;top:100px; right:10px;float: right; cursor: pointer;" data-display-direction="right">
+                        <li class="nav-item"><a href="#" class="nav-link fa fa-search-plus" id="_zoomin" data-glyphicon="glyphicon-zoom-in ">放  大</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link fa fa-home" id="_twfullext" data-glyphicon="glyphicon-home">全  景</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link fa fa-search-minus" id="_zoomout" data-glyphicon="glyphicon-zoom-out">縮  小</a></li>
+                        <li class="nav-item"><a href="#main-ctrl" class="popu-ctrl-menu nav-link" data-default-show="true" data-theme="primary" data-glyphicon="glyphicon-th-list" data-default-width="260">圖層資料</a></li>
+                        <li class="nav-item"><a href="#position-ctrl" class="popu-ctrl-menu nav-link" data-default-show="false" data-theme="info" data-glyphicon="glyphicon-map-marker" data-default-width="260">定位</a></li>
+                        <li class="nav-item"><a href="#basemapDiv" class="posit-ctrl-menu nav-link fa fa-tasks" data-default-show="true" data-glyphicon="glyphicon-globe">底  圖</a></li>
+                        <li class="nav-item"><a href="#coordinateInfoDiv" class="posit-ctrl-menu nav-link fa fa-question-circle" data-default-show="true" data-glyphicon="glyphicon-info-sign">座標、比例尺</a></li>
+                        @*<li class="nav-item"><a href="#other-ctrl" class="nav-link popu-ctrl-menu" data-theme="info" data-default-width="280" data-default-top="57" data-default-left="370" data-glyphicon="glyphicon-th-large">氣象、防汛</a></li>*@
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<div id="map"></div>
+<div class="popu-ctrl-container row-fluid fixed-at-left">
+    <div class="basemapDivContainer" style="position:fixed;top:62px; right:1.5rem;z-index:1016;">
+        <div id="basemapDiv" data-display-direction="right" style="float: right; cursor: pointer"></div>
+    </div>
+    <div id="coordinateInfoDiv" style="position: fixed; bottom: 0; right: 0;  " data-display-direction="right">
+    </div>
+
+    <div id="main-ctrl" class="meter"></div>
+    <div id="position-ctrl" class=""></div>
+</div>

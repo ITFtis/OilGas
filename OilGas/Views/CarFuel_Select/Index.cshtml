@@ -1,0 +1,177 @@
+﻿@using Dou.Misc.Extension
+@Html.MenuMap()
+@Html.DataManagerOptionsJavascript(null, "dou_options")
+
+<table id="_table"></table>
+
+
+<script src="~/Scripts/basic/basic.js"></script>
+<script>
+    $(document).ready(function () {
+        dou_options.editformSize = { minWidth: 1000 }
+
+
+
+
+
+        dou_options.afterCreateEditDataForm = function ($_c, row) {
+
+
+            changetypeposition('LicenseNo1', 'LicenseNo2', 'LicenseNo3',"號")
+
+
+
+            if (row.File_name == null) {
+                showupload('File_name')//沒檔案就顯示可上傳
+            }
+            else {
+                uploadonlytext('File_name',"CarFuel\\basic\\")//有檔案就顯示檔案
+            }
+
+
+
+
+
+
+
+
+
+            
+
+
+
+
+
+
+
+
+            otherdisplay("Business_theme", "otherBusiness_theme", 16)//其他
+
+
+
+            multiple(row, "AncillaryFacility")//選項換多選
+            multiple(row, "Facility")//選項換多選
+
+
+            //禁止登打
+            if ($('[data-field="CaseNo"] input').val() == "") {
+                $('[data-field="total_gun"]').addClass('d-none');
+                $('[data-field="Self_total_gun"]').addClass('d-none');
+                $('[data-field="total_one_gun"]').addClass('d-none');
+                $('[data-field="total_two_gun"]').addClass('d-none');
+                $('[data-field="total_four_gun"]').addClass('d-none');
+                $('[data-field="total_six_gun"]').addClass('d-none');
+                $('[data-field="total_eight_gun"]').addClass('d-none');
+                $('[data-field="total_other_gun"]').addClass('d-none');
+                $('[data-field="total_total_gun"]').addClass('d-none');
+            }
+            else {
+                $('[data-field="Report_date"] input').prop('disabled', true);
+            }
+            $('[data-field="Create_date"] input').prop('disabled', true);
+            $('[data-field="Create_name"] input').prop('disabled', true);
+            $('[data-field="Mod_date"] input').prop('disabled', true);
+            $('[data-field="Mod_name"] input').prop('disabled', true);
+            $('[data-field="total_gun"] input').prop('disabled', true);
+            $('[data-field="Self_total_gun"] input').prop('disabled', true);
+            $('[data-field="total_one_gun"] input').prop('disabled', true);
+            $('[data-field="total_two_gun"] input').prop('disabled', true);
+            $('[data-field="total_four_gun"] input').prop('disabled', true);
+            $('[data-field="total_six_gun"] input').prop('disabled', true);
+            $('[data-field="total_eight_gun"] input').prop('disabled', true);
+            $('[data-field="total_other_gun"] input').prop('disabled', true);
+            $('[data-field="total_total_gun"] input').prop('disabled', true);
+
+
+
+            $('[data-field="UsageState1"] select').change(function () {
+                UsageStateremovednone();
+            })
+            $('[data-field="UsageState2"] select').change(function () {
+                UsageStateremovednone();
+            })
+            $('[data-field="UsageState3"] select').change(function () {
+                UsageStateremovednone();
+            })
+            $('[data-field="UsageState4"] select').change(function () {
+                UsageStateremovednone();
+            })
+            $('[data-field="UsageState5"] select').change(function () {
+                UsageStateremovednone();
+            })
+            $('[data-field="UsageState6"] select').change(function () {
+                UsageStateremovednone();
+            })
+            $('[data-field="UsageState7"] select').change(function () {
+                UsageStateremovednone();
+            })
+
+
+
+
+
+            UsageStatednone();
+
+            UsageStateremovednone()
+
+        }
+
+
+
+
+
+
+        dou_options.afterEditDataConfirm = function (row, callback) {
+
+
+            var result = multiplesave("AncillaryFacility");
+            var AncillaryFacility = result.join(';')
+            row.AncillaryFacility = AncillaryFacility != "" ? AncillaryFacility : "";
+
+            var result = multiplesave("Facility");
+            var Facility = result.join(';')
+            row.Facility = Facility != "" ? Facility : "";
+
+
+
+
+
+
+            //上傳檔案
+            upload('File_name', $.AppConfigOptions.baseurl + 'CarFuel_Select/Sendupload', row.ID, row.CaseNo, callback);
+
+
+
+
+          
+        }
+
+
+
+
+
+
+
+
+        dou_options.afterUpdateServerData = function (row, callback) {
+            var URL = $.AppConfigOptions.baseurl + 'CarFuel_OilData?CaseNo=' + row.CaseNo
+            $(location).attr('href', URL);
+        }
+        dou_options.afterAddServerData = dou_options.afterUpdateServerData
+
+
+
+
+
+
+
+
+        dou_options.tableOptions.pageSize = 15;
+        dou_options.tableOptions.pageList = [15, 30, 80, 200, 500];
+
+        $("#_table").DouEditableTable(dou_options);
+    });
+
+
+
+</script>
