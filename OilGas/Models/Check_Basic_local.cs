@@ -12,10 +12,10 @@ namespace OilGas.Models
     public partial class Check_Basic_local
     {
         [Key]
-        [Display(Name = "石油設施編號", Order = 1)]
+        [Display(Name = "加油站編號", Order = 1)]
         public string CaseNo { get; set; }
 
-        [Display(Name = "石油設施名稱", Order = 1)]
+        [Display(Name = "加油站名稱", Order = 1)]
         [StringLength(70)]
         public string Gas_Name { get; set; }
 

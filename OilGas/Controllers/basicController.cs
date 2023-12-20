@@ -156,8 +156,8 @@ namespace OilGas.Controllers
         //比較兩個時間是否相同(差60秒當他相同)
         public bool timecompare(DateTime? t1, DateTime? t2)
         {
-            DateTime time1 = t1.HasValue ? Convert.ToDateTime(t1) : Convert.ToDateTime("1911/1/1 15:12:12");
-            DateTime time2 = t2.HasValue ? Convert.ToDateTime(t2) : Convert.ToDateTime("1911/1/1 15:12:12");
+            DateTime time1 = t1.HasValue ? Convert.ToDateTime(t1) : Convert.ToDateTime("1901/1/1 15:12:12");
+            DateTime time2 = t2.HasValue ? Convert.ToDateTime(t2) : Convert.ToDateTime("1901/1/1 15:12:12");
 
             var compareSeconds = new TimeSpan(time1.Ticks - time2.Ticks).TotalSeconds;
             if (compareSeconds > 60 || compareSeconds < -60)
