@@ -1,4 +1,33 @@
-﻿<!-- Navbar section start -->
+﻿<style>
+	.sr-only {
+		padding: 0.5rem;
+		background: #2b358c;
+		color: #fff;
+		position: absolute;
+		top: -2.5rem;
+		left: 0;
+		-webkit-transition: all 1s ease-out;
+		transition: all 1s ease-out;
+		z-index: 2000;
+	}
+
+		.sr-only:focus {
+			position: absolute;
+			left: 0;
+			top: 0;
+			outline-color: transparent;
+			-webkit-transition: all .1s ease-in;
+			transition: all .1s ease-in;
+			border: #ffbf47 solid 0.4rem;
+			background: #ffbf47;
+			color: #000;
+			font-weight: 700;
+			outline: 3px dotted #0000C4;
+		}
+</style>
+
+<!-- Navbar section start -->
+<a href="#main" id="toMain" title="移至主要內容" class="sr-only">跳到主要內容</a>
 <nav class="navbar sticky-top shadow-sm bg-white">
     <div class="container d-flex">
         <a class="navbar-brand" href="index.html">
@@ -8,5 +37,7 @@
                  height="51" />
         </a>
     </div>
+    
 </nav>
+
 <!-- Navbar section end -->

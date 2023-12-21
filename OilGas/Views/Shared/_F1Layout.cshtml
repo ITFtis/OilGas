@@ -21,13 +21,17 @@
         window.app = window.app || {};
         app.siteRoot = "@Url.Content("~/")";
     </script>
-
+    <style>
+		*:focus {
+			outline: 3px dotted #0000C4 !important;
+		}
+    </style>
 </head>
 <body>
     @Html.Partial("_HeaderPartial")@*標頭*@
 
     <!-- main section start -->
-    <section class="main container mt-4">
+    <section class="main container mt-4" id="main">
         <div class="row g-4">
             <div class="col-lg-8 col-xl-8 col-xxl-9 order-2 order-lg-2">
                 @Html.Partial("_F1BannerPartial")@*前台Banner*@
