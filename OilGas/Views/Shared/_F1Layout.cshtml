@@ -22,8 +22,12 @@
         app.siteRoot = "@Url.Content("~/")";
     </script>
     <style>
-		*:focus {
+		*:focus{
 			outline: 3px dotted #0000C4 !important;
+		}
+
+		.accesskey{
+            text-decoration:none;
 		}
     </style>
 </head>
@@ -31,17 +35,18 @@
     @Html.Partial("_HeaderPartial")@*標頭*@
 
     <!-- main section start -->
-    <section class="main container mt-4" id="main">
-        <div class="row g-4">
-            <div class="col-lg-8 col-xl-8 col-xxl-9 order-2 order-lg-2">
-                @Html.Partial("_F1BannerPartial")@*前台Banner*@
-            </div>
+	<section class="main container mt-4" id="main">
+		<a href="#C" title="主要內容顯示區" id="AC" accesskey="C" name="C" class="accesskey">:::</a>
+		<div class="row g-4">
+			<div class="col-lg-8 col-xl-8 col-xxl-9 order-2 order-lg-2">
+				@Html.Partial("_F1BannerPartial")@*前台Banner*@
+			</div>
 
-            <div class="col-lg-4 col-xl-4 col-xxl-3 order-1 order-lg-2 d-flex align-items-center justify-content-center">
-                @Html.Partial("_F1LoginPartial")@*前台Login*@
-            </div>
-        </div>
-    </section>
+			<div class="col-lg-4 col-xl-4 col-xxl-3 order-1 order-lg-2 d-flex align-items-center justify-content-center">
+				@Html.Partial("_F1LoginPartial")@*前台Login*@
+			</div>
+		</div>
+	</section>
     <!-- main section end -->
     <!-- body-content -->
     <div class="body-content">
@@ -81,6 +86,7 @@
 
     <script type="text/javascript">
         $('.regular').slick({
+            
             autoplay: true,
             dots: true,
             infinite: true,
