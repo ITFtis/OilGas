@@ -78,7 +78,7 @@ namespace OilGas.Controllers.CarGas
         {
             System.Data.Entity.DbContext dbContext = new OilGasModelContextExt();
             Dou.Models.DB.IModelEntity<CarGas_BasicData> CarGas_BasicData = new Dou.Models.DB.ModelEntity<CarGas_BasicData>(dbContext);
-            var bdata = CarGas_BasicData.GetAll().ToArray();
+            var bdata = CarGas_BasicData.GetAll().Where(x => x.UsageState != "-99" & x.Report_date != null).ToArray();
             Dou.Models.DB.IModelEntity<UsageStateCode> usageStateCode = new Dou.Models.DB.ModelEntity<UsageStateCode>(dbContext);
             var uscode = usageStateCode.GetAll().OrderBy(a => a.Rank).ToArray();
          
