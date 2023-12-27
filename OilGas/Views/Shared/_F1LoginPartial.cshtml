@@ -1,4 +1,5 @@
 ﻿@model Dou.Models.UserBase
+
 <div class="input-info rounded overflow-hidden">
     <h3 class="input-info-title text-center text-white py-2 mb-0">
         登入專區
@@ -22,12 +23,16 @@
             </div>
 
             <div class="verification-area">
-                <img src="https://gsl.ftis.org.tw/Account/CheckImageCodeC.aspx"
+                <img src=@ViewBag.CaptchaImg
                      width="130"
-                     alt="登入驗證碼"/>
-                <button class="btn cus-btn-1 text-white p-1 ms-4">
+                     alt="登入驗證碼"
+                     id="CaptchaImg"/>
+                @*<button class="btn cus-btn-1 text-white p-1 ms-4">
                     刷新圖檔
-                </button>
+                </button>*@
+                <div class="btn cus-btn-1 text-white p-1 ms-4" id="refreshCapt">
+                    刷新圖檔
+                </div>
             </div>
 
             <div class="input-btns d-flex align-items-center justify-content-between mt-3">                
@@ -41,3 +46,5 @@
         </div>
     }
 </div>
+
+

@@ -730,6 +730,7 @@
     <Content Include="Scripts\prjReport\Audit_ReportCheckDistribution.js" />
     <Content Include="Scripts\prjReport\FishGas_ConsentOrExpiration.js" />
     <Content Include="Scripts\prjReport\SelfFuel_UsageState.js" />
+    <Content Include="Scripts\prj\Captcha.js" />
     <Content Include="Scripts\prj\map\mapGasStation.js" />
     <Content Include="Success.html" />
     <Content Include="Images\globe-solid.svg" />
