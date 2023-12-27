@@ -11,6 +11,17 @@ namespace OilGas.Controllers
     {
         public ActionResult Index()
         {
+            //取得最新消息
+            Dou.Models.DB.IModelEntity<news> news = new Dou.Models.DB.ModelEntity<news>(_dbContext);
+            ViewBag.news = news.GetAll()
+                            .OrderByDescending(x => x.news_date)
+                            .Take(4)
+                            .ToList();
+
+            //取得懶人包
+            Dou.Models.DB.IModelEntity<Lazybag> lazyBag = new Dou.Models.DB.ModelEntity<Lazybag>(_dbContext);
+            ViewBag.lazyBag = lazyBag.GetAll().ToList();
+
             return View();
         }
 
@@ -19,6 +30,8 @@ namespace OilGas.Controllers
         {
             return new Dou.Models.DB.ModelEntity<User>(_dbContext);
         }
+
+        
 
         public ActionResult About()
         {

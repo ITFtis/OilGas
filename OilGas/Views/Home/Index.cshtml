@@ -10,12 +10,22 @@
     </div>
     <div class="news-list">
         <ul class="mt-2 mb-0 d-flex flex-column gap-2 list-unstyled p-3 py-2">
-            <li class="d-flex align-items-start justify-content-start gap-3 fs-5">
-                <span class="news-date">2018/01/01</span>
-                <span>
-                    <a href="#" class="text-decoration-none" title="前往新消息(另開視窗)">為加強資訊安全，請各承辦人定期(三個月)變更油氣設施資訊系統密碼</a>
-                </span>
-            </li>
+			<li class="d-flex align-items-start justify-content-start gap-3 fs-5">
+				@{
+					List<OilGas.Models.news> news = ViewBag.news;
+					foreach (var n in news)
+					{
+						<span class="news-date">@n.news_date.Value.ToString("yyyy/MM/dd")</span>
+						<span>
+							<a href="#" class="text-decoration-none" title="前往新消息(另開視窗)">@n.news_txt</a>
+						</span>
+					}
+				}
+				@*<span class="news-date">2018/01/01</span>
+				<span>
+					<a href="#" class="text-decoration-none" title="前往新消息(另開視窗)">為加強資訊安全，請各承辦人定期(三個月)變更油氣設施資訊系統密碼</a>
+				</span>*@
+			</li>
 
             @*<li class="d-flex align-items-start justify-content-start gap-3 fs-5">
                 <span class="news-date">2018/01/01</span>
