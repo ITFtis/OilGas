@@ -1,35 +1,38 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-          crossorigin="anonymous" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+		  rel="stylesheet"
+		  integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+		  crossorigin="anonymous" />
 
-    <!-- slide css start -->
-    <link rel="stylesheet" type="text/css" href="~/Content/prj/slick.css" />
-    <link rel="stylesheet" type="text/css" href="~/Content/prj/slick-theme.css" />
-    <!-- slide css end -->
+	<!-- slide css start -->
+	<link rel="stylesheet" type="text/css" href="~/Content/prj/slick.css" />
+	<link rel="stylesheet" type="text/css" href="~/Content/prj/slick-theme.css" />
+	<!-- slide css end -->
 
-    <link rel="stylesheet" href="~/Content/prj/style.css" />
+	<link rel="stylesheet" href="~/Content/prj/style.css" />
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+			integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+			crossorigin="anonymous"></script>
 
-    <title>新油氣設施管理資訊系統</title>
+	<title>新油氣設施管理資訊系統</title>
 
-    <script>
+	<script>
         window.app = window.app || {};
         app.siteRoot = "@Url.Content("~/")";
-    </script>
-    <style>
-		*:focus{
+	</script>
+	<style>
+		*:focus {
 			outline: 3px dotted #0000C4 !important;
 		}
 
-		.accesskey{
-            text-decoration:none;
+		.accesskey {
+			text-decoration: none;
 		}
-    </style>
+	</style>
 </head>
 <body>
     @Html.Partial("_HeaderPartial")@*標頭*@

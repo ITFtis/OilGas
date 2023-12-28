@@ -1,4 +1,5 @@
-﻿using OilGas.Models;
+﻿using DouHelper;
+using OilGas.Models;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -12,7 +13,9 @@ namespace OilGas.Controllers
 {
     public class HomeController : Dou.Controllers.UserBaseControll<User, Role>
     {
-        public ActionResult Index()
+        private string verificationCode { get; set; }
+
+		public ActionResult Index()
         {
             
             //取得最新消息
@@ -29,7 +32,7 @@ namespace OilGas.Controllers
             //圖片驗證碼
             ViewBag.CaptchaImg = GenCaptcha();
 
-            ViewBag.test = Session["VerificationCode"];
+            ViewBag.Vcode = verificationCode;
             return View();
         }
 
@@ -66,20 +69,15 @@ namespace OilGas.Controllers
         {
             var src = GenCaptcha();
 
-            return Json(src, JsonRequestBehavior.AllowGet);
+            return Json(new {src = src, verificationCode = verificationCode }, JsonRequestBehavior.AllowGet);
         }
 
-		private string GenCaptcha()
+        private string GenCaptcha()
 		{
             string imageSrc;
-			//產生隨機數
+			//產生隨機碼
             Random random = new Random();
-            string verificationCode = generatevCode();
-
-            //存入session
-            Session["VerificationCode"] = verificationCode;
-
-			DouHelper.Misc.AddCache(verificationCode, "VerificationCode");
+            verificationCode = generatevCode();
 
 			//create bitmap obj
 			using (Bitmap bitmap = GenerateNoisyImg(90,30,499))
