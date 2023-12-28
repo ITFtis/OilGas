@@ -1,22 +1,19 @@
 ﻿$(document).ready(function () {
   function RefreshCaptcha() {
     $.ajax({
-      url: "RefreshCaptcha",
+      url: "/Home/RefreshCaptcha",
       method: "GET",
       success: function (data) {
         let src = data.src;
         let vcode = data.verificationCode;
         $("#CaptchaImg").attr("src", src);
         $("#captchaCode").val(vcode);
-        console.log($("#captchaCode").val());
       },
       error: function () {
         console.log("some error...");
       },
     });
   }
-
-  console.log($("#captchaCode").val());
 
   //刷新驗證碼圖檔
   $("#refreshCapt").on("click", function (e) {
