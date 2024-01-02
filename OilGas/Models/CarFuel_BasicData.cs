@@ -1,6 +1,7 @@
 namespace OilGas.Models
 {
     using Dou.Misc.Attr;
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -682,6 +683,34 @@ namespace OilGas.Models
         {
             var UsageStateCodes = db.UsageStateCode7.ToArray();
             return UsageStateCodes.Select(s => new KeyValuePair<string, object>(s.Value, "{\"v\":\"" + s.Name + "\",\"Parent\":\"" + s.Parent + "\"}"));
+        }
+    }
+
+    public class CarFuel_BasicDataCaseNoSelectItems : Dou.Misc.Attr.SelectItemsClass
+    {
+        public const string AssemblyQualifiedName = "OilGas.Models.CarFuel_BasicDataCaseNoSelectItems, OilGas";
+
+        public override IEnumerable<KeyValuePair<string, object>> GetSelectItems()
+        {
+            Dou.Models.DB.IModelEntity<CarFuel_BasicData> carFuel_BasicData = new Dou.Models.DB.ModelEntity<CarFuel_BasicData>(new OilGasModelContextExt());
+            var v = carFuel_BasicData.GetAll().Select(a => new { CaseNo = a.CaseNo.Trim(), Gas_Name = a.Gas_Name.Trim() })
+                        .Distinct().ToList();
+
+            return v.Select(s => new KeyValuePair<string, object>(s.CaseNo, JsonConvert.SerializeObject(new { v = s.CaseNo, s = s.CaseNo, Gas_Name = s.Gas_Name })));
+        }
+    }
+
+    public class CarFuel_BasicDataGas_NameSelectItems : Dou.Misc.Attr.SelectItemsClass
+    {
+        public const string AssemblyQualifiedName = "OilGas.Models.CarFuel_BasicDataGas_NameSelectItems, OilGas";
+
+        public override IEnumerable<KeyValuePair<string, object>> GetSelectItems()
+        {
+            Dou.Models.DB.IModelEntity<CarFuel_BasicData> carFuel_BasicData = new Dou.Models.DB.ModelEntity<CarFuel_BasicData>(new OilGasModelContextExt());
+            var v = carFuel_BasicData.GetAll().Select(a => new { CaseNo = a.CaseNo.Trim(), Gas_Name = a.Gas_Name.Trim() })                        
+                        .Distinct().ToList();
+
+            return v.Select(s => new KeyValuePair<string, object>(s.CaseNo, JsonConvert.SerializeObject(new { v = s.Gas_Name, s = s.Gas_Name, CaseNo = s.CaseNo })));
         }
     }
 }

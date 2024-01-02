@@ -710,6 +710,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\prjReport\Audit_Guidance_Check_Basic_AuditDay.js" />
     <Content Include="Scripts\prjReport\Audit_ReportCheckBussionError.js" />
     <Content Include="Scripts\prjReport\Audit_ReportCheckCityError.js" />
     <Content Include="Scripts\prjReport\Audit_ReportCheckItemOil.js" />
@@ -2409,6 +2410,7 @@
     <Content Include="Views\Audit_ReportMissing_statistics\Index.cshtml" />
     <Content Include="Views\Audit_Guidance_Check_List_local\Index.cshtml" />
     <Content Include="Upload\Temp\地方政府查核結果填報\地方政府查核結果填報%28範本%29.xlsx" />
+    <Content Include="Views\Audit_Guidance_Check_Basic_AuditDay\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2423,7 +2425,6 @@
     <Folder Include="Views\Audit_CounselingReportMissing2\" />
     <Folder Include="Views\Audit_CounselingReportRate1\" />
     <Folder Include="Views\Audit_CounselingReportRate2\" />
-    <Folder Include="Views\Audit_Guidance_Check_Basic_AuditDay\" />
     <Folder Include="Views\Audit_Guidance_Check_Basic_AuditHalfYear\" />
     <Folder Include="Views\Audit_Guidance_Check_Basic_AuditMonth\" />
     <Folder Include="Views\Audit_Guidance_Check_document\" />
