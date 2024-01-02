@@ -106,6 +106,40 @@ namespace OilGas
         }
 
         /// <summary>
+        /// 天氣
+        /// </summary>
+        /// <returns></returns>
+        public static IEnumerable<KeyValuePair<string, object>> GetWeather()
+        {
+            IEnumerable<KeyValuePair<string, object>> result = new List<KeyValuePair<string, object>>();
+
+            result = result.Append(new KeyValuePair<string, object>("1", "晴天"));
+            result = result.Append(new KeyValuePair<string, object>("2", "陰天"));
+            result = result.Append(new KeyValuePair<string, object>("3", "雨天"));
+            result = result.Append(new KeyValuePair<string, object>("4", "大雷雨"));
+
+            return result;
+        }
+
+        /// <summary>
+        /// 檢查方法
+        /// </summary>
+        /// <returns></returns>
+        public static IEnumerable<KeyValuePair<string, object>> GetCheckWay()
+        {
+            IEnumerable<KeyValuePair<string, object>> result = new List<KeyValuePair<string, object>>();
+
+            result = result.Append(new KeyValuePair<string, object>("1", "目視"));
+            result = result.Append(new KeyValuePair<string, object>("2", "目視手動"));
+            result = result.Append(new KeyValuePair<string, object>("3", "目視耳聞"));
+            result = result.Append(new KeyValuePair<string, object>("4", "實地操作"));
+            result = result.Append(new KeyValuePair<string, object>("5", "手動檢查"));
+            result = result.Append(new KeyValuePair<string, object>("6", "實地測試"));
+
+            return result;
+        }
+
+        /// <summary>
         /// 年度
         /// </summary>
         /// <returns></returns>

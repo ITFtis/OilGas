@@ -17,6 +17,7 @@ namespace OilGas.Models
         [StringLength(10)]
         [ColumnDef(EditType = EditType.TextList, SelectItemsClassNamespace = OilGas.Models.CarFuel_BasicDataCaseNoSelectItems.AssemblyQualifiedName)]
         [Display(Name = "加油站編號")]
+        [Column(Order = 1)]
         public string CaseNo { get; set; }
 
         [Display(Name = "加油站名稱")]
@@ -24,10 +25,13 @@ namespace OilGas.Models
         [ColumnDef(EditType = EditType.TextList, SelectItemsClassNamespace = OilGas.Models.CarFuel_BasicDataGas_NameSelectItems.AssemblyQualifiedName)]
         public string Gas_Name { get; set; }
 
+        [Key]
         [Display(Name = "檢查日期")]
+        [Column(Order = 2)]
         public DateTime? CheckDate { get; set; }
 
         [Display(Name = "天氣")]
+        [ColumnDef(EditType = EditType.Select, SelectItemsClassNamespace = WeatherSelectItems.AssemblyQualifiedName)]
         public int? Weather { get; set; }
 
         [Display(Name = "檢查人員")]
@@ -35,13 +39,12 @@ namespace OilGas.Models
         public string CheckMan { get; set; }
 
         [StringLength(1)]
-        [Display(Name = "檢查結果")]
-        [Required]
+        [Display(Name = "檢查結果")]        
         [ColumnDef(Visible = false, EditType = EditType.Radio, SelectItems = "{\"N\":\"不符合\",\"Y\":\"符合\"}")]        
         public string A01 { get; set; }
 
         [Display(Name = "檢查方法")]
-        [ColumnDef(Visible = false)]
+        [ColumnDef(Visible = false, EditType = EditType.Select, SelectItemsClassNamespace = CheckWaySelectItems.AssemblyQualifiedName)]
         public int? A01_Way { get; set; }
 
         [StringLength(300)]
@@ -55,14 +58,13 @@ namespace OilGas.Models
         public string A01_Note { get; set; }
 
         [StringLength(1)]
-        [Display(Name = "檢查結果")]
-        [Required]
+        [Display(Name = "檢查結果")]        
         [ColumnDef(Visible = false, EditType = EditType.Radio, SelectItems = "{\"N\":\"不符合\",\"Y\":\"符合\"}")]
         public string A02 { get; set; }
 
         [Display(Name = "檢查方法")]
-        [ColumnDef(Visible = false)]
-        public int A02_Way { get; set; }
+        [ColumnDef(Visible = false, EditType = EditType.Select, SelectItemsClassNamespace = CheckWaySelectItems.AssemblyQualifiedName)]
+        public int? A02_Way { get; set; }
 
         [StringLength(300)]
         [Display(Name = "改善情形")]
@@ -75,14 +77,13 @@ namespace OilGas.Models
         public string A02_Note { get; set; }
 
         [StringLength(1)]
-        [Display(Name = "檢查結果")]
-        [Required]
+        [Display(Name = "檢查結果")]        
         [ColumnDef(Visible = false, EditType = EditType.Radio, SelectItems = "{\"N\":\"不符合\",\"Y\":\"符合\"}")]
         public string A03 { get; set; }
 
         [Display(Name = "檢查方法")]
-        [ColumnDef(Visible = false)]
-        public int A03_Way { get; set; }
+        [ColumnDef(Visible = false, EditType = EditType.Select, SelectItemsClassNamespace = CheckWaySelectItems.AssemblyQualifiedName)]
+        public int? A03_Way { get; set; }
 
         [StringLength(300)]
         [Display(Name = "改善情形")]
@@ -95,14 +96,13 @@ namespace OilGas.Models
         public string A03_Note { get; set; }
 
         [StringLength(1)]
-        [Display(Name = "檢查結果")]
-        [Required]
+        [Display(Name = "檢查結果")]        
         [ColumnDef(Visible = false, EditType = EditType.Radio, SelectItems = "{\"N\":\"不符合\",\"Y\":\"符合\"}")]
         public string A04 { get; set; }
 
         [Display(Name = "檢查方法")]
-        [ColumnDef(Visible = false)]
-        public int A04_Way { get; set; }
+        [ColumnDef(Visible = false, EditType = EditType.Select, SelectItemsClassNamespace = CheckWaySelectItems.AssemblyQualifiedName)]
+        public int? A04_Way { get; set; }
 
         [StringLength(300)]
         [Display(Name = "改善情形")]
@@ -115,14 +115,13 @@ namespace OilGas.Models
         public string A04_Note { get; set; }
 
         [StringLength(1)]
-        [Display(Name = "檢查結果")]
-        [Required]
+        [Display(Name = "檢查結果")]        
         [ColumnDef(Visible = false, EditType = EditType.Radio, SelectItems = "{\"N\":\"不符合\",\"Y\":\"符合\"}")]
         public string A05 { get; set; }
 
         [Display(Name = "檢查方法")]
-        [ColumnDef(Visible = false)]
-        public int A05_Way { get; set; }
+        [ColumnDef(Visible = false, EditType = EditType.Select, SelectItemsClassNamespace = CheckWaySelectItems.AssemblyQualifiedName)]
+        public int? A05_Way { get; set; }
 
         [StringLength(300)]
         [Display(Name = "改善情形")]
@@ -135,14 +134,14 @@ namespace OilGas.Models
         public string A05_Note { get; set; }
 
         [StringLength(1)]
-        [Display(Name = "檢查結果")]
-        [Required]
+        [Display(Name = "檢查結果")]        
         [ColumnDef(Visible = false, EditType = EditType.Radio, SelectItems = "{\"N\":\"不符合\",\"Y\":\"符合\"}")]
         public string A06 { get; set; }
 
         [Display(Name = "檢查方法")]
-        [ColumnDef(Visible = false)]
-        public int A06_Way { get; set; }
+        [ColumnDef(Visible = false,
+            EditType = EditType.Select, SelectItemsClassNamespace = CheckWaySelectItems.AssemblyQualifiedName)]
+        public int? A06_Way { get; set; }
 
         [StringLength(300)]
         [Display(Name = "改善情形")]

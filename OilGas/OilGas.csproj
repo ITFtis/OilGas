@@ -647,11 +647,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="_applyClass\AmountClass.cs" />
+    <Compile Include="_applyClass\CheckWay.cs" />
     <Compile Include="_applyClass\CheckYear.cs" />
     <Compile Include="_applyClass\Check_Item_Report.cs" />
     <Compile Include="_applyClass\KeyValueParams.cs" />
     <Compile Include="_applyClass\OrganizationCaseType.cs" />
     <Compile Include="_applyClass\PMList.cs" />
+    <Compile Include="_applyClass\Weather.cs" />
     <Compile Include="_core\AppConfig.cs" />
     <Compile Include="_core\BkTask.cs" />
     <Compile Include="_core\Cm.cs" />

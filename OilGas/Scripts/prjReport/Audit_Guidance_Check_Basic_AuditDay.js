@@ -4,6 +4,11 @@ $(document).ready(function () {
 
     douoptions.afterCreateEditDataForm = function ($container, row) {
 
+        var isAdd = JSON.stringify(row) == '{}';
+        if (!isAdd) {
+            $('[data-field="Gas_Name"] input').prop('disabled', true);
+        }
+
         //(1)加油站編號 帶入 加油站名稱
         $('[data-fn="CaseNo"]').on('change', function () {
             var val = this.value;
