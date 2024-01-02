@@ -258,6 +258,12 @@
     "IsOnlyPath": true
   },
   {
+    "Name": "G加油站業者",
+    "MenuPath": "查核輔導專區",
+    "Index": 7,
+    "IsOnlyPath": true
+  },
+  {
     "Name": "H帳號權限管理",
     "MenuPath": "系統管理專區",
     "Index": 1,

@@ -219,6 +219,9 @@
     <Compile Include="Controllers\Audit\Audit_CounselingReportMissing2Controller.cs" />
     <Compile Include="Controllers\Audit\Audit_CounselingReportRate1Controller.cs" />
     <Compile Include="Controllers\Audit\Audit_CounselingReportRate2Controller.cs" />
+    <Compile Include="Controllers\Audit\Audit_Guidance_Check_Basic_AuditDayController.cs" />
+    <Compile Include="Controllers\Audit\Audit_Guidance_Check_Basic_AuditHalfYearController.cs" />
+    <Compile Include="Controllers\Audit\Audit_Guidance_Check_Basic_AuditMonthController.cs" />
     <Compile Include="Controllers\Audit\Audit_Guidance_Check_Counseling_ListController.cs" />
     <Compile Include="Controllers\Audit\Audit_Guidance_Check_documentController.cs" />
     <Compile Include="Controllers\Audit\Audit_Guidance_Check_document_listController.cs" />
@@ -372,6 +375,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Check_Basic_AuditDay.cs" />
     <Compile Include="Models\Check_Basic_local.cs" />
     <Compile Include="Models\Administration.cs" />
     <Compile Include="Models\Agenda.cs" />
@@ -2419,6 +2423,9 @@
     <Folder Include="Views\Audit_CounselingReportMissing2\" />
     <Folder Include="Views\Audit_CounselingReportRate1\" />
     <Folder Include="Views\Audit_CounselingReportRate2\" />
+    <Folder Include="Views\Audit_Guidance_Check_Basic_AuditDay\" />
+    <Folder Include="Views\Audit_Guidance_Check_Basic_AuditHalfYear\" />
+    <Folder Include="Views\Audit_Guidance_Check_Basic_AuditMonth\" />
     <Folder Include="Views\Audit_Guidance_Check_document\" />
     <Folder Include="Views\Audit_Guidance_Check_document_list\" />
     <Folder Include="Views\Audit_ReportCheckError1\" />
