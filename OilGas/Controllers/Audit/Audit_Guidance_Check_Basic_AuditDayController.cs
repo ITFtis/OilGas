@@ -37,5 +37,21 @@ namespace OilGas.Controllers.Audit
 
             return opts;
         }
+
+        //匯出基本資料表
+        public ActionResult ExportExcel(string CaseNo)
+        {
+            Rpt_Audit_Guidance_Check_Basic_AuditDay rep = new Rpt_Audit_Guidance_Check_Basic_AuditDay();
+            string url = rep.Export(CaseNo, ".docx");
+
+            if (url == "")
+            {
+                return Json(new { result = false, errorMessage = "X" }, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(new { result = true, url = url }, JsonRequestBehavior.AllowGet);
+            }
+        }
     }
 }

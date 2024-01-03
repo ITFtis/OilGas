@@ -673,6 +673,7 @@
     <Compile Include="_core\StatisticReportFunc.cs" />
     <Compile Include="_core\WebUI.cs" />
     <Compile Include="_report\RptCode.cs" />
+    <Compile Include="_report\Rpt_Audit_Guidance_Check_Basic_AuditDay.cs" />
     <Compile Include="_report\Rpt_CarFuel_BasicData_List.cs" />
     <Compile Include="_report\Rpt_CarFuel_BasicData_Log_List.cs" />
     <Compile Include="_report\Rpt_CarFuel_CaseError1.cs" />
@@ -685,6 +686,7 @@
     <Compile Include="_report\Rpt_PortGas_BasicData.cs" />
     <Compile Include="_report\Rpt_PortGas_BasicDataLog.cs" />
     <Compile Include="_report\Rpt_SelfFuel_BasicData.cs" />
+    <Compile Include="_report\_ReportClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />

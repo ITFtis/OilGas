@@ -35,6 +35,60 @@ $(document).ready(function () {
         EditDataFormSelectDefault();
     }
 
+    douoptions.fields.push({
+        title: "下載",
+        field: "DownloadExcel",
+        formatter: function(v, r) {
+
+            var text = '<button onclick="download(\'' + r.CaseNo + '\')"  >下載</button>';
+
+            return (text);
+        }
+    });
+
     $_MasterTable = $("#_table").DouEditableTable(douoptions); //初始dou table
     
 })
+
+function download(CaseNo) {
+
+    $.ajax({
+        url: app.siteRoot + 'Audit_Guidance_Check_List_local/ExportExcel',
+        datatype: "json",
+        type: "POST",
+        data: { CaseNo: CaseNo },
+        success: function (data) {
+            if (data != "false") {
+                location.href = app.siteRoot + data;
+            } else {
+                alert("下載失敗：\n" + data.errorMessage);
+            }
+        },
+
+    });
+
+    helper.misc.showBusyIndicator();
+    $.ajax({
+        url: app.siteRoot + 'Audit_Guidance_Check_Basic_AuditDay/ExportExcel',
+        datatype: "json",
+        type: "POST",
+        data: { CaseNo: CaseNo },
+        success: function (data) {
+            if (data.result) {
+                //location.href = app.siteRoot + data.url;
+                alert('ok Go');
+            } else {
+                alert("查詢失敗：\n" + data.errorMessage);
+            }
+        },
+        complete: function () {
+            helper.misc.hideBusyIndicator();
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+            helper.misc.hideBusyIndicator();
+        }
+    });
+
+}
