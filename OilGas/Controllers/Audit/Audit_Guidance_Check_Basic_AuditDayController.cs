@@ -42,7 +42,7 @@ namespace OilGas.Controllers.Audit
         public ActionResult ExportExcel(string CaseNo)
         {
             Rpt_Audit_Guidance_Check_Basic_AuditDay rep = new Rpt_Audit_Guidance_Check_Basic_AuditDay();
-            string url = rep.Export(CaseNo, ".docx");
+            string url = rep.Export(CaseNo, ".xlsx");
 
             if (url == "")
             {

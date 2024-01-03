@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <Height>2in</Height>
+    <Style />
+  </Body>
+  <Width>6.5in</Width>
+  <Page>
+    <PageHeight>29.7cm</PageHeight>
+    <PageWidth>21cm</PageWidth>
+    <LeftMargin>2cm</LeftMargin>
+    <RightMargin>2cm</RightMargin>
+    <TopMargin>2cm</TopMargin>
+    <BottomMargin>2cm</BottomMargin>
+    <ColumnSpacing>0.13cm</ColumnSpacing>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="Source_Check_Basic_Audit">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>dd8d45c1-3241-4e13-920f-2236c951bac9</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet1">
+      <Query>
+        <DataSourceName>Source_Check_Basic_Audit</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="加油站名稱">
+          <DataField>加油站名稱</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="檢查日期_年">
+          <DataField>檢查日期_年</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="檢查日期_月">
+          <DataField>檢查日期_月</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="檢查日期_日">
+          <DataField>檢查日期_日</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="檢查日期_星期">
+          <DataField>檢查日期_星期</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="天氣">
+          <DataField>天氣</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="檢查人員">
+          <DataField>檢查人員</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="A01_檢查結果">
+          <DataField>A01_檢查結果</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="A01_檢查方法">
+          <DataField>A01_檢查方法</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="A01_改善情形">
+          <DataField>A01_改善情形</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="A01_備註">
+          <DataField>A01_備註</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="A02_檢查結果">
+          <DataField>A02_檢查結果</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="A02_檢查方法">
+          <DataField>A02_檢查方法</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="A02_改善情形">
+          <DataField>A02_改善情形</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="A02_備註">
+          <DataField>A02_備註</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="A03_檢查結果">
+          <DataField>A03_檢查結果</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="A03_檢查方法">
+          <DataField>A03_檢查方法</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="A03_改善情形">
+          <DataField>A03_改善情形</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="A03_備註2">
+          <DataField>A03_備註2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="A04_檢查結果">
+          <DataField>A04_檢查結果</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="A04_檢查方法">
+          <DataField>A04_檢查方法</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="A04_改善情形">
+          <DataField>A04_改善情形</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="A04_備註">
+          <DataField>A04_備註</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="A05_檢查結果">
+          <DataField>A05_檢查結果</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="A05_檢查方法">
+          <DataField>A05_檢查方法</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="A05_改善情形">
+          <DataField>A05_改善情形</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="A05_備註">
+          <DataField>A05_備註</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="A06_檢查結果">
+          <DataField>A06_檢查結果</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="A06_檢查方法">
+          <DataField>A06_檢查方法</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="A06_改善情形">
+          <DataField>A06_改善情形</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="A06_備註">
+          <DataField>A06_備註</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="B01_檢查結果">
+          <DataField>B01_檢查結果</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="B01_檢查方法">
+          <DataField>B01_檢查方法</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="B01_改善情形">
+          <DataField>B01_改善情形</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="B01_備註">
+          <DataField>B01_備註</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="B02_檢查結果">
+          <DataField>B02_檢查結果</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="B02_檢查方法">
+          <DataField>B02_檢查方法</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="B02_改善情形">
+          <DataField>B02_改善情形</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="B02_備註">
+          <DataField>B02_備註</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="C01_檢查結果">
+          <DataField>C01_檢查結果</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="C01_檢查方法">
+          <DataField>C01_檢查方法</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="C01_改善情形">
+          <DataField>C01_改善情形</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="C01_備註">
+          <DataField>C01_備註</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="C02_檢查結果">
+          <DataField>C02_檢查結果</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="C02_檢查方法">
+          <DataField>C02_檢查方法</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="C02_改善情形">
+          <DataField>C02_改善情形</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="C02_備註">
+          <DataField>C02_備註</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="C03_檢查結果">
+          <DataField>C03_檢查結果</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="C03_檢查方法">
+          <DataField>C03_檢查方法</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="C03_改善情形">
+          <DataField>C03_改善情形</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="C03_備註">
+          <DataField>C03_備註</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D01_檢查結果">
+          <DataField>D01_檢查結果</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D01_檢查方法">
+          <DataField>D01_檢查方法</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D01_改善情形">
+          <DataField>D01_改善情形</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D01_備註">
+          <DataField>D01_備註</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D02_檢查結果">
+          <DataField>D02_檢查結果</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D02_檢查方法">
+          <DataField>D02_檢查方法</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D02_改善情形">
+          <DataField>D02_改善情形</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D02_備註">
+          <DataField>D02_備註</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D03_檢查結果">
+          <DataField>D03_檢查結果</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D03_檢查方法">
+          <DataField>D03_檢查方法</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D03_改善情形">
+          <DataField>D03_改善情形</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D03_備註">
+          <DataField>D03_備註</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D04_檢查結果">
+          <DataField>D04_檢查結果</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D04_檢查方法">
+          <DataField>D04_檢查方法</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D04_改善情形">
+          <DataField>D04_改善情形</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D04_備註">
+          <DataField>D04_備註</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="E01_檢查結果">
+          <DataField>E01_檢查結果</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="E01_檢查方法">
+          <DataField>E01_檢查方法</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="E01_改善情形">
+          <DataField>E01_改善情形</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="E01_備註">
+          <DataField>E01_備註</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="E02_檢查結果">
+          <DataField>E02_檢查結果</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="E02_檢查方法">
+          <DataField>E02_檢查方法</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="E02_改善情形">
+          <DataField>E02_改善情形</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="E02_備註">
+          <DataField>E02_備註</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="E03_檢查結果">
+          <DataField>E03_檢查結果</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="E03_檢查方法">
+          <DataField>E03_檢查方法</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="E03_改善情形">
+          <DataField>E03_改善情形</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="E03_備註">
+          <DataField>E03_備註</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="F01_檢查結果">
+          <DataField>F01_檢查結果</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="F01_檢查方法">
+          <DataField>F01_檢查方法</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="F01_改善情形">
+          <DataField>F01_改善情形</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="F01_備註">
+          <DataField>F01_備註</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="F02_檢查結果">
+          <DataField>F02_檢查結果</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="F02_檢查方法">
+          <DataField>F02_檢查方法</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="F02_改善情形">
+          <DataField>F02_改善情形</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="F02_備註">
+          <DataField>F02_備註</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="F03_檢查結果">
+          <DataField>F03_檢查結果</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="F03_檢查方法">
+          <DataField>F03_檢查方法</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="F03_改善情形">
+          <DataField>F03_改善情形</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="F03_備註">
+          <DataField>F03_備註</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="G01_檢查結果">
+          <DataField>G01_檢查結果</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="G01_檢查方法">
+          <DataField>G01_檢查方法</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="G01_改善情形">
+          <DataField>G01_改善情形</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="G01_備註">
+          <DataField>G01_備註</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H01_檢查結果">
+          <DataField>H01_檢查結果</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H01_檢查方法">
+          <DataField>H01_檢查方法</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H01_改善情形">
+          <DataField>H01_改善情形</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H01_備註">
+          <DataField>H01_備註</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H02_檢查結果">
+          <DataField>H02_檢查結果</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H02_檢查方法">
+          <DataField>H02_檢查方法</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H02_改善情形">
+          <DataField>H02_改善情形</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H02_備註">
+          <DataField>H02_備註</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H03_檢查結果">
+          <DataField>H03_檢查結果</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H03_檢查方法">
+          <DataField>H03_檢查方法</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H03_改善情形">
+          <DataField>H03_改善情形</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H03_備註">
+          <DataField>H03_備註</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H04_檢查結果">
+          <DataField>H04_檢查結果</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H04_檢查方法">
+          <DataField>H04_檢查方法</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H04_改善情形">
+          <DataField>H04_改善情形</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H04_備註">
+          <DataField>H04_備註</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="I01_檢查結果">
+          <DataField>I01_檢查結果</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="I01_檢查方法">
+          <DataField>I01_檢查方法</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="I01_改善情形">
+          <DataField>I01_改善情形</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="I01_備註">
+          <DataField>I01_備註</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="I02_檢查結果">
+          <DataField>I02_檢查結果</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="I02_檢查方法">
+          <DataField>I02_檢查方法</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="I02_改善情形">
+          <DataField>I02_改善情形</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="I02_備註">
+          <DataField>I02_備註</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="j01_檢查結果">
+          <DataField>j01_檢查結果</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="j01_檢查方法">
+          <DataField>j01_檢查方法</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="j01_改善情形">
+          <DataField>j01_改善情形</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="j01_備註">
+          <DataField>j01_備註</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DataColumn1">
+          <DataField>DataColumn1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>Source_Check_Basic_Audit</rd:DataSetName>
+        <rd:SchemaPath>D:\SourceCode\OilGas\OilGas\Report\Source_Check_Basic_Audit.xsd</rd:SchemaPath>
+        <rd:TableName>AuditDay</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>2f9efd89-0d6a-4636-b054-10ec0f608d5c</rd:ReportID>
+</Report>

@@ -7,7 +7,7 @@ namespace OilGas
 {
     public class Rpt_Audit_Guidance_Check_Basic_AuditDay : ReportClass
     {
-        public string Export(string fno, string ext)
+        public string Export(string CaseNo, string ext)
         {
             return "aaaa";
         }
