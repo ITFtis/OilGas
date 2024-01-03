@@ -2413,6 +2413,7 @@
     <Content Include="Views\Audit_Guidance_Check_List_local\Index.cshtml" />
     <Content Include="Upload\Temp\地方政府查核結果填報\地方政府查核結果填報%28範本%29.xlsx" />
     <Content Include="Views\Audit_Guidance_Check_Basic_AuditDay\Index.cshtml" />
+    <Content Include="Views\Audit_Guidance_Check_Basic_AuditDay\EditFormLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,4 +1,6 @@
 ﻿using Dou.Controllers;
+using Dou.Help;
+using Dou.Misc;
 using OilGas.Models;
 using System;
 using System.Collections.Generic;
@@ -17,9 +19,23 @@ namespace OilGas.Controllers.Audit
             return View();
         }
 
+        public ActionResult EditFormLayout()
+        {
+            return View();
+        }
+
         protected override Dou.Models.DB.IModelEntity<Check_Basic_AuditDay> GetModelEntity()
         {
             return new Dou.Models.DB.ModelEntity<Check_Basic_AuditDay>(new OilGasModelContextExt());
+        }
+
+        public override DataManagerOptions GetDataManagerOptions()
+        {
+            var opts = base.GetDataManagerOptions();
+
+            opts.editformLayoutUrl = new UrlHelper(this.ControllerContext.RequestContext).Action("EditFormLayout");
+
+            return opts;
         }
     }
 }
