@@ -30,6 +30,9 @@ $(document).ready(function () {
                 $('[data-fn="CaseNo"]').val(caseno);
             }
         });
+
+        //下拉選單Null或空值預設挑選(afterCreateEditDataForm)
+        EditDataFormSelectDefault();
     }
 
     $_MasterTable = $("#_table").DouEditableTable(douoptions); //初始dou table

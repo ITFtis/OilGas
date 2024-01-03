@@ -63,3 +63,12 @@ function MergeTableRows($container, datas, field) {
         })
     }
 }
+
+//下拉選單Null或空值預設挑選(afterCreateEditDataForm)
+function EditDataFormSelectDefault() {    
+    $('.data-edit-form-group .field-content .form-select').each(function () {
+        if ($(this).val() == null) {
+            $(this).val('');
+        }
+    });
+}
