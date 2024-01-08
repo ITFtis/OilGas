@@ -42,11 +42,11 @@ namespace OilGas.Controllers.Audit
         public ActionResult ExportExcel(string CaseNo)
         {
             Rpt_Audit_Guidance_Check_Basic_AuditDay rep = new Rpt_Audit_Guidance_Check_Basic_AuditDay();
-            string url = rep.Export(CaseNo, ".xlsx");
+            string url = rep.Export(CaseNo);
 
             if (url == "")
             {
-                return Json(new { result = false, errorMessage = "X" }, JsonRequestBehavior.AllowGet);
+                return Json(new { result = false, errorMessage = rep.ErrorMessage }, JsonRequestBehavior.AllowGet);
             }
             else
             {
