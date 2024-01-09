@@ -16,6 +16,7 @@ using NPOI.SS.UserModel;
 using OilGas.Models;
 using System.Reflection;
 using System.Text;
+using NPOI.XSSF.UserModel;
 
 
 namespace OilGas
@@ -25,9 +26,9 @@ namespace OilGas
         public string Export(string CaseNo)
         {
             //複製範本
-            string sourcePath = HttpContext.Current.Server.MapPath(string.Format(@"~/DocsWeb/範本_日_自行安全檢查表_113年系統.xls"));
+            string sourcePath = HttpContext.Current.Server.MapPath(string.Format(@"~/DocsWeb/範本_日_自行安全檢查表_113年系統.xlsx"));
             
-            string fileName = System.IO.Path.GetFileName(sourcePath) + "_" + DateTime.Now.ToString("yyyy-MM-dd_") + ".xls";            
+            string fileName = System.IO.Path.GetFileNameWithoutExtension(sourcePath) + "_" + DateTime.Now.ToString("yyyy-MM-dd_") + ".xlsx";            
             string toFolder = FileHelper.GetFileFolder(Code.TempUploadFile.範本_日_自行安全檢查表_113年系統);
 
             if (!Directory.Exists(toFolder))
@@ -55,19 +56,19 @@ namespace OilGas
             }
 
             //編輯範本檔
-            HSSFWorkbook workbook = null;
-            HSSFSheet sheet = null;
+            XSSFWorkbook workbook = null;
+            XSSFSheet sheet = null;
             FileStream xlsFile = new FileStream(toPath, FileMode.Open, FileAccess.ReadWrite);
-            workbook = new HSSFWorkbook(xlsFile);
+            workbook = new XSSFWorkbook(xlsFile);
             xlsFile.Close();
-            sheet = (HSSFSheet)workbook.GetSheetAt(0);
+            sheet = (XSSFSheet)workbook.GetSheetAt(0);
             workbook.SetSheetName(workbook.GetSheetIndex(sheet), "日_自行安全檢查表");
 
             //Header Gas_Name            
             ICell c;
             c = sheet.GetRow(0).GetCell(0);
             c.SetCellValue(c.StringCellValue.Replace("Gas_Name", basic.Gas_Name));
-            
+
             //Header
             if (v.CheckDate != null)
             {
@@ -85,7 +86,7 @@ namespace OilGas
             c.SetCellValue(c.StringCellValue.Replace("Weather", weather.Count() == 0 ? "" : weather.FirstOrDefault().Value.ToString()));
             c = sheet.GetRow(1).GetCell(7);
             c.SetCellValue(c.StringCellValue.Replace("CheckMan", v.CheckMan));
-            
+
             //A01
             c = sheet.GetRow(3).GetCell(2);
             c.SetCellValue(c.StringCellValue.Replace("□", Code.GetCheckF1(v.A01, "□")));
@@ -93,9 +94,9 @@ namespace OilGas
             sheet.GetRow(3).GetCell(8).SetCellValue(v.A01_Improve);
             sheet.GetRow(3).GetCell(9).SetCellValue(v.A01_Note);
 
-            
 
-            xlsFile = new FileStream(toPath, FileMode.Open, FileAccess.ReadWrite);
+
+            xlsFile = new FileStream(toPath, FileMode.Create, FileAccess.Write);
             workbook.Write(xlsFile);
             xlsFile.Close();
             workbook.Close();
