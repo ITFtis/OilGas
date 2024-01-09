@@ -289,6 +289,22 @@ namespace OilGas
             sheet.GetRow(31).GetCell(7).SetCellValue(v.J01_Way == null ? "" : Code.GetCheckWay().Where(a => a.Key == v.J01_Way.ToString()).FirstOrDefault().Value.ToString());
             sheet.GetRow(31).GetCell(8).SetCellValue(v.J01_Improve);
             sheet.GetRow(31).GetCell(9).SetCellValue(v.J01_Note);
+            
+            //資料列Row高度調整
+            for (int i = 3; i < 32; i++)
+            {
+                IRow row = sheet.GetRow(i);
+                
+                int c8 = (row.GetCell(8).ToString().Length / 6) + 1;    //改善情形(6字換列)
+                int c9 = (row.GetCell(9).ToString().Length / 4) + 1;    //備註(4字換列)
+                List<int> lens = new List<int> { c8, c9 };
+
+                //2列以上處理
+                if (lens.Max() > 1)
+                {
+                    row.HeightInPoints = 16 * lens.Max();
+                }
+            }
 
             //////xxxx
             ////c = sheet.GetRow(xxxx).GetCell(2);
