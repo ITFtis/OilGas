@@ -256,6 +256,28 @@ namespace OilGas
         }
 
         /// <summary>
+        /// 取得查核結果格式1 - YN
+        /// </summary>
+        /// <param name="str">Y/N</param>
+        /// <param name="def">回傳預設值</param>
+        /// <returns></returns>
+        public static string GetCheckF1(string str, string def = "")
+        {
+            string result = def;
+
+            if (str == "Y")
+            {
+                result = "☑";
+            }
+            else if (str == "N")
+            {
+                result = "☒";
+            }
+
+            return result;
+        }
+
+        /// <summary>
         /// 查核輔導專區_儲槽總數差異勾稽報表 --儲油槽
         /// </summary>
         /// <returns></returns>

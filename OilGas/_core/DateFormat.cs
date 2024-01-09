@@ -459,6 +459,48 @@ namespace OilGas
         }
 
         /// <summary>
+        /// 星期一、星期二.....
+        /// </summary>
+        /// <param name="date"></param>
+        /// <returns></returns>
+        public static string ToDate13(string date)
+        {
+            string result = "";
+
+            try
+            {
+                DateTime dd = DateTime.Parse(date);
+                result = ToDate6(dd);
+            }
+            catch
+            {
+                return date;
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// 星期一、星期二.....
+        /// </summary>
+        /// <param name="date"></param>
+        /// <returns></returns>
+        public static string ToDate13(DateTime? date)
+        {
+            string result = "";
+
+            if (date == null)
+                return "";
+
+            DateTime dayWeek = (DateTime)date;
+
+            string[] weekdays = { "星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六" };
+            result = weekdays[Convert.ToInt32(dayWeek.DayOfWeek)];
+
+            return result;
+        }
+
+        /// <summary>
         /// 西元轉民國：2004-12-20 00:00:00.000 => 091/01/01
         /// </summary>
         /// <param name="date"></param>
