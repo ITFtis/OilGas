@@ -596,21 +596,21 @@ namespace OilGas.Models
         [StringLength(1)]
         [Display(Name = "檢查結果")]
         [ColumnDef(Visible = false, EditType = EditType.Radio, SelectItems = "{\"N\":\"不符合\",\"Y\":\"符合\"}")]
-        public string j01 { get; set; }
+        public string J01 { get; set; }
 
         [Display(Name = "檢查方法")]
         [ColumnDef(Visible = false,
             EditType = EditType.Select, SelectItemsClassNamespace = CheckWaySelectItems.AssemblyQualifiedName)]
-        public int? j01_Way { get; set; }
+        public int? J01_Way { get; set; }
 
         [StringLength(300)]
         [Display(Name = "改善情形")]
         [ColumnDef(Visible = false)]
-        public string j01_Improve { get; set; }
+        public string J01_Improve { get; set; }
 
         [StringLength(500)]
         [Display(Name = "備註")]
         [ColumnDef(Visible = false)]
-        public string j01_Note { get; set; }
+        public string J01_Note { get; set; }
     }
 }

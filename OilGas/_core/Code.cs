@@ -72,6 +72,7 @@ namespace OilGas
             查核輔導專區_G交叉分析報表_依各縣市篩選檢查發現缺失項目及統計報表 = 57,
             銷售分析表產出 = 58,
             地方政府查核結果填報 = 59,
+            範本_日_自行安全檢查表_113年系統 = 60,
         }
 
         public enum UploadFile
@@ -268,6 +269,28 @@ namespace OilGas
             }
 
             return list;
+        }
+
+        /// <summary>
+        /// 取得查核結果格式1 - YN
+        /// </summary>
+        /// <param name="str">Y/N</param>
+        /// <param name="def">回傳預設值</param>
+        /// <returns></returns>
+        public static string GetCheckF1(string str, string def = "")
+        {
+            string result = def;
+
+            if (str == "Y")
+            {
+                result = "☑";
+            }
+            else if (str == "N")
+            {
+                result = "☒";
+            }
+
+            return result;
         }
 
         /// <summary>
