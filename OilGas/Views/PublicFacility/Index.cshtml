@@ -1,0 +1,47 @@
+﻿@using Dou.Misc.Extension
+@Html.MenuMap()
+
+
+<label>上傳檔案</label>
+<input id="PF" type="file" />
+
+<button id="btnExportExcel" class="btn btn-success">匯入excel</button>
+
+
+<script>
+    $(document).ready(function () {
+		$('#btnExportExcel').on('click', function () {
+
+
+            var FD = new FormData();
+			FD.append('filePF', $('#PF')[0].files[0]);
+        
+
+            var url ='@Url.Action("Sendupload", "PublicFacility")';
+
+            $.ajax({
+                url: url,
+                type: "POST",
+                data: FD,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    if (data != "false") {
+                        alert("匯入成功");
+                        $('#PF').val('');
+
+                    } else { alert("檔案匯入失敗"); }
+                },
+            }).fail(function () {
+                alert("檔案匯入失敗");
+            });
+
+
+
+
+        })
+
+
+    });
+</script>
+

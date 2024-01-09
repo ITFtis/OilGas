@@ -250,6 +250,7 @@ namespace OilGas.Models
         public virtual DbSet<Check_Basic_View> Check_Basic_View { get; set; }
 
         public virtual DbSet<Check_Basic_AuditDay> Check_Basic_AuditDay { get; set; }
+        public virtual DbSet<PublicFacility> PublicFacility { get; set; }
 
         #region view
 

@@ -21,5 +21,17 @@ namespace OilGas
         {
             return Code.GetCheckWay();
         }
+
+        
+    }
+
+    public class CheckResultSelectItems : SelectItemsClass
+    {
+        public const string AssemblyQualifiedName = "OilGas.CheckResultSelectItems, OilGas";
+
+        public override IEnumerable<KeyValuePair<string, object>> GetSelectItems()
+        {
+            return Code.GetCheckResult();
+        }
     }
 }

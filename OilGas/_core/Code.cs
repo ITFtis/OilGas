@@ -140,6 +140,22 @@ namespace OilGas
         }
 
         /// <summary>
+        /// 檢查結果
+        /// </summary>
+        /// <returns></returns>
+        public static IEnumerable<KeyValuePair<string, object>> GetCheckResult()
+        {
+            IEnumerable<KeyValuePair<string, object>> result = new List<KeyValuePair<string, object>>();
+
+            result = result.Append(new KeyValuePair<string, object>("1", "良好"));
+            result = result.Append(new KeyValuePair<string, object>("2", "不良"));
+            result = result.Append(new KeyValuePair<string, object>("3", "無此設備"));
+
+            return result;
+        }
+
+
+        /// <summary>
         /// 年度
         /// </summary>
         /// <returns></returns>

@@ -210,6 +210,7 @@
     <Compile Include="Controllers\Admin\Admin_NewsMaintainController.cs" />
     <Compile Include="Controllers\Admin\Admin_ProtectionController.cs" />
     <Compile Include="Controllers\Admin\Admin_PwdEditController.cs" />
+    <Compile Include="Controllers\Admin\PublicFacilityController.cs" />
     <Compile Include="Controllers\API\ApiController.cs" />
     <Compile Include="Controllers\Admin\WorkExperienceController.cs" />
     <Compile Include="Controllers\Audit\Audit_Check_countsController.cs" />
@@ -376,6 +377,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Check_Basic_AuditDay.cs" />
+    <Compile Include="Models\Check_Basic_AuditMonth.cs" />
     <Compile Include="Models\Check_Basic_local.cs" />
     <Compile Include="Models\Administration.cs" />
     <Compile Include="Models\Agenda.cs" />
@@ -392,6 +394,8 @@
     <Compile Include="Models\CarFuel_CaseError1.cs" />
     <Compile Include="Models\CarFuel_CaseError2.cs" />
     <Compile Include="Models\Audit_ReportCheckDistribution.cs" />
+    <Compile Include="Models\Check_Basic_NoTime.cs" />
+    <Compile Include="Models\PublicFacility.cs" />
     <Compile Include="Models\SelfFuel_UsageState.cs" />
     <Compile Include="Models\CarFuel_GSM_Select.cs" />
     <Compile Include="Models\CarFuel_CheckOilTypeByYear.cs" />
@@ -2432,6 +2436,7 @@
     <Content Include="Upload\Temp\地方政府查核結果填報\地方政府查核結果填報%28範本%29.xlsx" />
     <Content Include="Views\Audit_Guidance_Check_Basic_AuditDay\Index.cshtml" />
     <Content Include="Views\Audit_Guidance_Check_Basic_AuditDay\EditFormLayout.cshtml" />
+    <Content Include="Views\PublicFacility\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
