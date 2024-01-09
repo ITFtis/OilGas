@@ -28,7 +28,7 @@ namespace OilGas
             try
             {
                 //複製範本
-                string sourcePath = HttpContext.Current.Server.MapPath(string.Format(@"~/DocsWeb/範本_日_自行安全檢查表_113年系統.xlsx"));
+                string sourcePath = FileHelper.GetTempleteFolder() + "範本_日_自行安全檢查表_113年系統.xlsx";
 
                 string fileName = System.IO.Path.GetFileNameWithoutExtension(sourcePath) + "_" + DateTime.Now.ToString("yyyy-MM-dd_") + ".xlsx";
                 string toFolder = FileHelper.GetFileFolder(Code.TempUploadFile.範本_日_自行安全檢查表_113年系統);

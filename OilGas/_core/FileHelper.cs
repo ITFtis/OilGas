@@ -8,6 +8,13 @@ namespace OilGas
 {
     public class FileHelper
     {
+        public static string GetTempleteFolder(string id1 = "")
+        {
+            string result = HttpContext.Current.Server.MapPath("~\\") + "DocsWeb\\";
+            
+            return result;
+        }
+
         public static string GetFileFolder(Code.TempUploadFile en, string id1 = "")
         {
             string result = "";
