@@ -1,23 +1,25 @@
+Ôªøusing Dou.Misc.Attr;
+using OilGas._applyClass;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Web;
+
 namespace OilGas.Models
 {
-    using Dou.Misc.Attr;
-    using OilGas._applyClass;
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
-
-    public partial class CarVehicleGas_LicenseNo
+    [Table("z_CarVehicleGas_LicenseNo_Logs")]
+    public class CarVehicleGas_LicenseNo_Log
     {
-        [Display(Name ="ß«")]
+        
+        [Display(Name = "Â∫è")]
         [ColumnDef(VisibleEdit = false)]
         public int ID { get; set; }
 
         [Required]
         [StringLength(5)]
-        [ColumnDef(Visible = false,VisibleEdit = false)]
+        [ColumnDef(Visible = false, VisibleEdit = false)]
         public string City { get; set; }
 
         [StringLength(3)]
@@ -26,7 +28,7 @@ namespace OilGas.Models
 
         [Required]
         [StringLength(3)]
-        [Display(Name = "¶~´◊")]
+        [Display(Name = "Âπ¥Â∫¶")]
         [ColumnDef(EditType = EditType.Select, SelectItemsClassNamespace = LienceNoYearSelectItem.AssemblyQualifiedName)]
         public string Year { get; set; }
 
@@ -35,7 +37,7 @@ namespace OilGas.Models
         public string LicenseNo { get; set; }
 
         [StringLength(50)]
-        [Display(Name = "µo§Â¶r∏π")]
+        [Display(Name = "ÁôºÊñáÂ≠óËôü")]
         public string DispatchNo { get; set; }
 
         [StringLength(3)]
@@ -46,7 +48,7 @@ namespace OilGas.Models
         public DateTime? CreateTime { get; set; }
 
         [StringLength(10)]
-        [ColumnDef(Visible =false, VisibleEdit = false)]
+        [ColumnDef(Visible = false, VisibleEdit = false)]
         public string Creator { get; set; }
 
         [ColumnDef(Visible = false, VisibleEdit = false)]
@@ -55,5 +57,11 @@ namespace OilGas.Models
         [StringLength(5)]
         [ColumnDef(Visible = false, VisibleEdit = false)]
         public string Modifier { get; set; }
+
+        [ColumnDef(Visible = false)]
+        public DateTime? DeleteTime { get; set; }
+
+        [ColumnDef(Visible = false)]
+        public string Deletor { get; set; }
     }
 }

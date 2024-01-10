@@ -40,6 +40,7 @@ namespace OilGas.Controllers.Admin
                 ISheet sheet;
                 IRow headerRow;
                 int cellCount;
+                int sheetCount;
 
                 try
                 {
@@ -52,8 +53,11 @@ namespace OilGas.Controllers.Admin
                         wb = new HSSFWorkbook(stream);
                     }
 
+                    sheetCount = wb.NumberOfSheets;
+
                     //抓第一個頁籤
                     sheet = wb.GetSheetAt(0);
+                    
 
                     //取第一頁籤第一列
                     headerRow = sheet.GetRow(0);

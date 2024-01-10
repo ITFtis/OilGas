@@ -251,6 +251,7 @@ namespace OilGas.Models
 
         public virtual DbSet<Check_Basic_AuditDay> Check_Basic_AuditDay { get; set; }
         public virtual DbSet<PublicFacility> PublicFacility { get; set; }
+        public virtual DbSet<CarVehicleGas_LicenseNo_Log> CarVehicleGas_LicenseNo_Log { get; set; }
 
         #region view
 

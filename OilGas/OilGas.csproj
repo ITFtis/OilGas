@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DeepCloner, Version=0.10.0.0, Culture=neutral, PublicKeyToken=dc0b95cf99bf4e99, processorArchitecture=MSIL">
+      <HintPath>packages\DeepCloner.0.10.4\lib\net40\DeepCloner.dll</HintPath>
+    </Reference>
     <Reference Include="Dou, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\DouBin\Dou.dll</HintPath>
@@ -377,6 +380,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CarVehicleGas_LicenseNo_Log.cs" />
     <Compile Include="Models\Check_Basic_AuditDay.cs" />
     <Compile Include="Models\Check_Basic_AuditMonth.cs" />
     <Compile Include="Models\Check_Basic_local.cs" />
