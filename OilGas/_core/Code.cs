@@ -446,6 +446,22 @@ namespace OilGas
             return result;
         }
 
+        /// <summary>
+        /// 取得下拉清單年度
+        /// </summary>
+        /// <returns></returns>
+        public static IEnumerable<KeyValuePair<string,object>> GetLienceNoYear()
+        {
+            IEnumerable<KeyValuePair<string,object>> result = new List<KeyValuePair<string,object>>();
+            int startYear = 90;
+            int endYear = DateTime.UtcNow.Year - 1911;
+            for(var i = startYear; i <= endYear; i++)
+            {
+                result = result.Append(new KeyValuePair<string, object>(i.ToString(), i.ToString()));
+            }
+            return result;
+        }
+
         /// <summary>子系統類別</summary>
         public enum SubSystemType
         {

@@ -210,6 +210,7 @@
     <Compile Include="Controllers\Admin\Admin_NewsMaintainController.cs" />
     <Compile Include="Controllers\Admin\Admin_ProtectionController.cs" />
     <Compile Include="Controllers\Admin\Admin_PwdEditController.cs" />
+    <Compile Include="Controllers\Admin\CarVehicleGas_LicenseNoController.cs" />
     <Compile Include="Controllers\Admin\PublicFacilityController.cs" />
     <Compile Include="Controllers\API\ApiController.cs" />
     <Compile Include="Controllers\Admin\WorkExperienceController.cs" />
@@ -655,6 +656,7 @@
     <Compile Include="_applyClass\CheckYear.cs" />
     <Compile Include="_applyClass\Check_Item_Report.cs" />
     <Compile Include="_applyClass\KeyValueParams.cs" />
+    <Compile Include="_applyClass\LienceNoYear.cs" />
     <Compile Include="_applyClass\OrganizationCaseType.cs" />
     <Compile Include="_applyClass\PMList.cs" />
     <Compile Include="_applyClass\Weather.cs" />
@@ -2421,6 +2423,7 @@
     <Content Include="Views\Audit_Guidance_Check_Basic_AuditDay\Index.cshtml" />
     <Content Include="Views\Audit_Guidance_Check_Basic_AuditDay\EditFormLayout.cshtml" />
     <Content Include="Views\PublicFacility\Index.cshtml" />
+    <Content Include="Views\CarVehicleGas_LicenseNo\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
