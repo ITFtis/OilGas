@@ -22,7 +22,7 @@ namespace OilGas.Controllers.Admin
 
 
         private static DateTime now = DateTime.Now;
-        private DateTime timeForDB = new DateTime(now.Year, now.Month, now.Day, now.Hour, now.Minute, now.Second);
+        private DateTime timeForDB = new DateTime(now.Year, now.Month, now.Day, now.Hour, now.Minute, now.Second,now.Millisecond);
 
         private User user = Dou.Context.CurrentUser<User>();
 
@@ -103,7 +103,7 @@ namespace OilGas.Controllers.Admin
             var data = convertToLogData(oriData, method);
 
 
-            var sql = @"INSERT INTO zz_CarVehicleGas_LicenseNo_Logs (ID,City,CityCode,Year,LicenseNo,DispatchNo,Act,CreateTime,Creator,ModifyTime,Modifier,DeleteTime,Deletor)
+            var sql = @"INSERT INTO CarVehicleGas_LicenseNo_Log (ID,City,CityCode,Year,LicenseNo,DispatchNo,Act,CreateTime,Creator,ModifyTime,Modifier,DeleteTime,Deletor)
 VALUES(@ID,@City,@CityCode,@Year,@LicenseNo,@DispatchNo,@Act,@CreateTime,@Creator,@ModifyTime,@Modifier,@DeleteTime,@Deletor)";
 
             SqlParameter[] paras = {
@@ -146,6 +146,7 @@ VALUES(@ID,@City,@CityCode,@Year,@LicenseNo,@DispatchNo,@Act,@CreateTime,@Creato
 
             if (method == "delete")
             {
+                result.Act = "del";
                 result.DeleteTime = timeForDB;
                 result.Deletor = user.Name;
             }
