@@ -2,6 +2,9 @@
 
 $(document).ready(function () {
 
+    //UpdateForm
+    SetUpdateForm();
+
     var aryCheck = [];
     douoptions.useMutiSelect = true;
 
@@ -68,4 +71,64 @@ $(document).ready(function () {
     };
 
     var $_MasterTable = $("#_table").DouEditableTable(douoptions); //初始dou table
+
+    function SetUpdateForm() {
+        $.getJSON($.AppConfigOptions.baseurl + 'CarFuel_Update/getUpdateForm', function (_opt) { //取model option
+
+            _opt.title = '批次變更表單';
+
+            //實體Dou js                                
+            $('#_UpdateForm').douTable(_opt);
+
+            //隱藏div(button 確定、取消)            
+            $('.modal-dialog').css('min-height', '');
+            $('.modal-dialog .modal-footer').addClass('justify-content-center');
+
+            $('.modal-dialog .modal-footer button').hide();
+            var back = '<button id="btnBatch" class="btn btn-primary">批次變更修改資料</button>';
+            $(back).appendTo($('.modal-dialog .modal-footer'));
+
+            //批次變更修改資料
+            $('#btnBatch').click(function () {
+
+                var CaseNos = aryCheck;
+                if (CaseNos.length == 0) {
+                    alert('請勾選需變更負責人之案件');
+                    return;
+                }
+
+                var obj = {};
+                obj.txt_BossName = $('.modal-dialog').find('[data-fn="txt_BossName"]').val();
+                obj.txt_ID_No = $('.modal-dialog').find('[data-fn="txt_ID_No"]').val();
+                obj.txt_Boss_Tel = $('.modal-dialog').find('[data-fn="txt_Boss_Tel"]').val();
+                obj.txt_Boss_Email = $('.modal-dialog').find('[data-fn="txt_Boss_Email"]').val();
+                obj.txt_Dispatch_date = $('.modal-dialog').find('[data-fn="txt_Dispatch_date"] input').val();
+                obj.txt_Dispatch_No2 = $('.modal-dialog').find('[data-fn="txt_Dispatch_No2"]').val();
+                obj.txt_Shouwen_Units = $('.modal-dialog').find('[data-fn="txt_Shouwen_Units"]').val();
+
+                helper.misc.showBusyIndicator();
+                $.ajax({
+                    url: app.siteRoot + 'CarFuel_Update/BatchSave',
+                    datatype: "json",
+                    type: "Post",
+                    data: { "CaseNos": CaseNos, "obj": obj },
+                    success: function (data) {
+                        if (data.result) {
+                            alert("批次變更負責人已完成");
+                        } else {
+                            alert("批次變更負責人失敗：\n" + data.errorMessage);
+                        }
+                    },
+                    complete: function () {
+                        helper.misc.hideBusyIndicator();
+                    },
+                    error: function (xhr, status, error) {
+                        var err = eval("(" + xhr.responseText + ")");
+                        alert(err.Message);
+                        helper.misc.hideBusyIndicator();
+                    }
+                });
+            });
+        });
+    }
 })
