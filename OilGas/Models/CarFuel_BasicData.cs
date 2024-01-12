@@ -56,7 +56,7 @@ namespace OilGas.Models
 
 
         [StringLength(70)]
-        [ColumnDef(Filter = true)]
+        [ColumnDef(Filter = true, FilterAssign = FilterAssignType.Contains)]
         [Display(Name = "¥[ªo¯¸¦WºÙ", Order = 2)]
         public string Gas_Name { get; set; }
 
