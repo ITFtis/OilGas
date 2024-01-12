@@ -300,6 +300,7 @@
     <Compile Include="Controllers\CarFuel\CarFuel_StopBusinessController.cs" />
     <Compile Include="Controllers\CarFuel\CarFuel_TGOS_AreaController.cs" />
     <Compile Include="Controllers\CarFuel\CarFuel_TGOS_SelectController.cs" />
+    <Compile Include="Controllers\CarFuel\CarFuel_UpdateController.cs" />
     <Compile Include="Controllers\CarGas\CarGas_BasicData_ListController.cs" />
     <Compile Include="Controllers\CarGas\CarGas_BasicData_Log_ListController.cs" />
     <Compile Include="Controllers\CarGas\CarGas_BasicData_Log_StatisticController.cs" />
@@ -756,6 +757,7 @@
     <Content Include="Scripts\prjReport\SelfFuel_UsageState.js" />
     <Content Include="Scripts\prjReport\WS_GSM_Log.js" />
     <Content Include="Scripts\prjReport\WS_GSM.js" />
+    <Content Include="Scripts\prj\act\CarFuel_Update.js" />
     <Content Include="Scripts\prj\Captcha.js" />
     <Content Include="Scripts\prj\map\mapGasStation.js" />
     <Content Include="Success.html" />
@@ -2436,6 +2438,7 @@
     <Content Include="Views\PublicFacility\Index.cshtml" />
     <Content Include="Views\CarVehicleGas_LicenseNo\Index.cshtml" />
     <Content Include="Views\WS_GSM_Log\Index.cshtml" />
+    <Content Include="Views\CarFuel_Update\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
