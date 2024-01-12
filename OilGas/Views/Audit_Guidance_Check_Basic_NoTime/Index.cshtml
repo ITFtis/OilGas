@@ -1,0 +1,20 @@
+﻿
+@using Dou.Misc.Extension
+@Html.MenuMap()
+@Html.DataManagerOptionsJavascript(null, "douoptions")
+
+<table id="_table"></table>
+
+<script src="~/Scripts/prj/baseb.js"></script>
+<script>
+	$(document).ready(function () {
+		douoptions.afterCreateEditDataForm = function (e, row) {
+
+			//營業主體選其他的話就會有輸入其他營業主體的選項輸入
+			otherdisplay("Business_theme", "otherBusiness_theme", 16)
+		}
+
+		$("#_table").DouEditableTable(douoptions);
+	})
+</script>
+

@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace OilGas.Controllers.Admin
 {
-    [Dou.Misc.Attr.MenuDef(Id = "WS_GSM_Log", Name = "資料交換紀錄", MenuPath = "系統管理專區/H環保署地下儲槽系統資料交換專區", Action = "Index", Index = 2, Func = Dou.Misc.Attr.FuncEnum.None, AllowAnonymous = false)]
+    [Dou.Misc.Attr.MenuDef(Id = "WS_GSM_Log", Name = "資料交換紀錄", MenuPath = "系統管理專區/H地下儲槽系統資料交換專區", Action = "Index", Index = 2, Func = Dou.Misc.Attr.FuncEnum.None, AllowAnonymous = false)]
     public class WS_GSM_LogController : APaginationModelController<WS_GSM_Log>
     {
         // GET: WS_GSM_Log
