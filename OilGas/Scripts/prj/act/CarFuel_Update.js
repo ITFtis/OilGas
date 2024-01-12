@@ -70,6 +70,31 @@ $(document).ready(function () {
         return false;
     };
 
+    $(douoptions.fields).each(function () {
+        if (this.field == "CaseNo") {
+            this.formatter = function (v, d) {
+                var text = '<a href="' + app.siteRoot + 'CarFuel_Select/Index?ID=' + d.ID + '">' + d.CaseNo + '</a>';
+                return text;
+            }
+        }
+    })
+
+    //var _filed = douHelper.getField(douoptions.fields, "CaseNo");
+    //_filed.formatter = function (v, d) {
+    //    var text = '<a>' + d.CaseNo + '</a>';
+    //};
+
+    //douoptions.fields.push({
+    //    title: "下載",
+    //    field: "DownloadExcel",
+    //    formatter: function (v, r) {
+
+    //        var text = '<button onclick="download(\'' + r.CaseNo + '\')"  >下載</button>';
+
+    //        return (text);
+    //    }
+    //});
+
     var $_MasterTable = $("#_table").DouEditableTable(douoptions); //初始dou table
 
     function SetUpdateForm() {

@@ -36,7 +36,7 @@
 
 
 
-            
+
 
 
 
@@ -143,7 +143,7 @@
 
 
 
-          
+
         }
 
 
@@ -170,6 +170,14 @@
         dou_options.tableOptions.pageList = [15, 30, 80, 200, 500];
 
         $("#_table").DouEditableTable(dou_options);
+
+        //trigger進入編輯頁 (批次連結轉編輯頁)
+        setTimeout(function () {
+            var ID = '@(Request.QueryString["ID"] == null ? "" : Request.QueryString["ID"].ToString())';
+            if (ID != null && ID != '') {
+                $('.bootstrap-table.carfuel_selectcontroller').find('td .btn-update-data-manager').trigger('click');
+            }
+        }, 100);
     });
 
 
