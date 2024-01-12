@@ -11,7 +11,7 @@ using static NPOI.HSSF.Util.HSSFColor;
 
 namespace OilGas.Controllers.Admin
 {
-    [Dou.Misc.Attr.MenuDef(Id = "WS_GSM", Name = "未對應清單", MenuPath = "系統管理專區/H環保署地下儲槽系統資料交換專區", Action = "Index", Index = 1, Func = Dou.Misc.Attr.FuncEnum.None, AllowAnonymous = false)]
+    [Dou.Misc.Attr.MenuDef(Id = "WS_GSM", Name = "未對應清單", MenuPath = "系統管理專區/H地下儲槽系統資料交換專區", Action = "Index", Index = 1, Func = Dou.Misc.Attr.FuncEnum.None, AllowAnonymous = false)]
 
     public class WS_GSMController : APaginationModelController<WS_GSM>
     {

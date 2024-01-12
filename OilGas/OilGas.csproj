@@ -229,6 +229,7 @@
     <Compile Include="Controllers\Audit\Audit_Guidance_Check_Basic_AuditDayController.cs" />
     <Compile Include="Controllers\Audit\Audit_Guidance_Check_Basic_AuditHalfYearController.cs" />
     <Compile Include="Controllers\Audit\Audit_Guidance_Check_Basic_AuditMonthController.cs" />
+    <Compile Include="Controllers\Audit\Audit_Guidance_Check_Basic_NoTimeController.cs" />
     <Compile Include="Controllers\Audit\Audit_Guidance_Check_Counseling_ListController.cs" />
     <Compile Include="Controllers\Audit\Audit_Guidance_Check_documentController.cs" />
     <Compile Include="Controllers\Audit\Audit_Guidance_Check_document_listController.cs" />
@@ -2436,6 +2437,8 @@
     <Content Include="Views\PublicFacility\Index.cshtml" />
     <Content Include="Views\CarVehicleGas_LicenseNo\Index.cshtml" />
     <Content Include="Views\WS_GSM_Log\Index.cshtml" />
+    <Content Include="Views\WS_GSM\Index.cshtml" />
+    <Content Include="Views\Audit_Guidance_Check_Basic_NoTime\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2490,7 +2493,6 @@
     <Folder Include="Views\SelfGas_TGOS_Area\" />
     <Folder Include="Views\SelfGas_TGOS_Select\" />
     <Folder Include="Views\SelfGas_UsageState\" />
-    <Folder Include="Views\WS_GSM\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
