@@ -2440,6 +2440,7 @@
     <Content Include="Views\WS_GSM_Log\Index.cshtml" />
     <Content Include="Views\WS_GSM\Index.cshtml" />
     <Content Include="Views\Audit_Guidance_Check_Basic_NoTime\Index.cshtml" />
+    <Content Include="Views\Audit_Guidance_Check_Basic_NoTime\EditFormLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

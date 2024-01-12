@@ -1,4 +1,5 @@
 ﻿using Dou.Controllers;
+using Dou.Misc;
 using Dou.Models.DB;
 using OilGas.Models;
 using System;
@@ -16,6 +17,18 @@ namespace OilGas.Controllers.Audit
         public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult EditFormLayout()
+        {
+            return View();
+        }
+
+        public override DataManagerOptions GetDataManagerOptions()
+        {
+            var opts = base.GetDataManagerOptions();
+            opts.editformLayoutUrl = new UrlHelper(ControllerContext.RequestContext).Action("EditFormLayout");
+            return opts;
         }
 
         protected override IModelEntity<Check_Basic_NoTime> GetModelEntity()
