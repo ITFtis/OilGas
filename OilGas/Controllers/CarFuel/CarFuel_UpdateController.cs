@@ -97,7 +97,7 @@ namespace OilGas.Controllers.CarFuel
 
                         //2.Save CarFuel_Dispatch
                         CarFuel_Dispatch v2 = new CarFuel_Dispatch();
-                        v2.Dispatch_date = DateTime.Parse(obj.txt_Dispatch_date); //Dispatch_date,
+                        v2.Dispatch_date = obj.txt_Dispatch_date; //Dispatch_date,
                         //otherCopyUnit,
                         //DispatchClass,
                         //License_No,
@@ -189,8 +189,8 @@ namespace OilGas.Controllers.CarFuel
         public string txt_Boss_Email { get; set; }
 
         [Display(Name = "發文日期")]
-        [ColumnDef(ColSize = 3)]
-        public string txt_Dispatch_date { get; set; }
+        [ColumnDef(EditType = EditType.Date, ColSize = 3)]
+        public DateTime? txt_Dispatch_date { get; set; }
 
         //[Display(Name = "發文字號1")]
         //[ColumnDef(ColSize = 3)]
