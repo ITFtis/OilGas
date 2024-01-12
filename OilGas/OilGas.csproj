@@ -301,6 +301,7 @@
     <Compile Include="Controllers\CarFuel\CarFuel_StopBusinessController.cs" />
     <Compile Include="Controllers\CarFuel\CarFuel_TGOS_AreaController.cs" />
     <Compile Include="Controllers\CarFuel\CarFuel_TGOS_SelectController.cs" />
+    <Compile Include="Controllers\CarFuel\CarFuel_UpdateController.cs" />
     <Compile Include="Controllers\CarGas\CarGas_BasicData_ListController.cs" />
     <Compile Include="Controllers\CarGas\CarGas_BasicData_Log_ListController.cs" />
     <Compile Include="Controllers\CarGas\CarGas_BasicData_Log_StatisticController.cs" />
