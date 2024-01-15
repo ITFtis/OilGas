@@ -380,6 +380,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Audit_CounselingReportAFMissing.cs" />
     <Compile Include="Models\CarVehicleGas_LicenseNo_Log.cs" />
     <Compile Include="Models\Check_Basic_AuditDay.cs" />
     <Compile Include="Models\Check_Basic_AuditMonth.cs" />
@@ -727,6 +728,7 @@
     <Content Include="Scripts\prjReport\Audit_Guidance_Check_Basic_AuditDay.js" />
     <Content Include="Scripts\prjReport\Audit_ReportCheckBussionError.js" />
     <Content Include="Scripts\prjReport\Audit_ReportCheckCityError.js" />
+    <Content Include="Scripts\prjReport\Audit_CounselingReportAFMissing.js" />
     <Content Include="Scripts\prjReport\Audit_ReportCheckItemOil.js" />
     <Content Include="Scripts\prjReport\Audit_ReportMissing_statistics.js" />
     <Content Include="Scripts\prjReport\Audit_ReportMissing_statistics_County.js" />
@@ -2428,6 +2430,7 @@
     <Content Include="Views\Audit_Guidance_Check_Basic_AuditDay\EditFormLayout.cshtml" />
     <Content Include="Views\PublicFacility\Index.cshtml" />
     <Content Include="Views\CarVehicleGas_LicenseNo\Index.cshtml" />
+    <Content Include="Views\Audit_CounselingReportAFMissing\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2437,7 +2440,6 @@
     <Folder Include="Views\Admin_NewsMaintain\" />
     <Folder Include="Views\Admin_PwdEdit\" />
     <Folder Include="Views\Audit_CounselingDataM\" />
-    <Folder Include="Views\Audit_CounselingReportAFMissing\" />
     <Folder Include="Views\Audit_CounselingReportMissing1\" />
     <Folder Include="Views\Audit_CounselingReportMissing2\" />
     <Folder Include="Views\Audit_CounselingReportRate1\" />
