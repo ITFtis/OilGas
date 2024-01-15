@@ -17,7 +17,7 @@ namespace OilGas.Controllers.Audit
     [Dou.Misc.Attr.MenuDef(Id = "Audit_CounselingReportRate1", Name = "參加講習會的縣市出席率統計", MenuPath = "查核輔導專區/G輔導講習專區", Action = "Index", Index = 2, Func = Dou.Misc.Attr.FuncEnum.Update, AllowAnonymous = false)]
     public class Audit_CounselingReportRate1Controller : AGenericModelController<Counseling_Rate_City>
     {
-        static List<Counseling_Rate_City> _lsAuditCRR1 = new List<Counseling_Rate_City>();
+        static List<Counseling_Rate_City> _lsCRC = new List<Counseling_Rate_City>();
         static string Counseling_Year = "";
 
         // GET: Audit_CounselingReportRate1
@@ -41,8 +41,8 @@ namespace OilGas.Controllers.Audit
                 return new List<Counseling_Rate_City>().AsQueryable();
             }
 
-            _lsAuditCRR1 = StatisticReportFunc.ConvertToList<Counseling_Rate_City>(getListData(Counseling_Year));
-            return _lsAuditCRR1;
+            _lsCRC = StatisticReportFunc.ConvertToList<Counseling_Rate_City>(getListData(Counseling_Year));
+            return _lsCRC;
         }
 
         protected override void UpdateDBObject(IModelEntity<Counseling_Rate_City> dbEntity, IEnumerable<Counseling_Rate_City> objs)
@@ -160,7 +160,7 @@ namespace OilGas.Controllers.Audit
         protected string getStrHtml()
         {
             string ReportName, QryString = "", Total = "";
-            DataTable dt = StatisticReportFunc.ConvertToDataTable(_lsAuditCRR1);
+            DataTable dt = StatisticReportFunc.ConvertToDataTable(_lsCRC);
             dt.Columns.Remove("Counseling_Year");
             dt.Columns.Remove("CityCode");
             dt.Columns.Remove("Rank");
@@ -213,6 +213,5 @@ Average2=case when isnull((select sum(Total) from Gas_Total_TempV where CaseType
 
             return Json(new { result = true }, JsonRequestBehavior.AllowGet);
         }
-
     }
 }
