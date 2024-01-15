@@ -130,7 +130,7 @@ SELECT
         {
             string error = "";
             string url = "";
-            string folder = FileHelper.GetFileFolder(Code.TempUploadFile.查核輔導專區_G輔導講習會專區_參加講習會的縣市出席率統計);
+            string folder = FileHelper.GetFileFolder(Code.TempUploadFile.查核輔導專區_G輔導講習會專區_參加講習會的集團出席率統計);
             string fileTitle = "參加講習會的集團出席率統計";
 
             var ltrResults = getStrHtml();
