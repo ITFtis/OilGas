@@ -216,5 +216,52 @@ namespace OilGas.Models
             var result = BUSS.Select(s => new KeyValuePair<string, object>(s.Value + "_" + s.CaseType.ToString(), "{\"v\":\"" + s.Name + "\",\"CaseType\":\"" + s.CaseType + "\"}"));
             return result;
         }
-    }    
+    }
+
+    //view(«È»s¤Æ)
+    public class CarVehicleGas_BusinessOrganizationV3SelectItemsClassImp : SelectItemsClass
+    {
+        public const string AssemblyQualifiedName = "OilGas.Models.CarVehicleGas_BusinessOrganizationV3SelectItemsClassImp, OilGas";
+
+        static IEnumerable<CarVehicleGas_BusinessOrganizationV> _buss;
+        public static IEnumerable<CarVehicleGas_BusinessOrganizationV> BUSS
+        {
+            get
+            {
+                if (_buss == null || _buss.Count() == 0)
+                {
+                    var dbContext = new OilGasModelContextExt();
+                    Dou.Models.DB.IModelEntity<CarVehicleGas_BusinessOrganizationV> model = new Dou.Models.DB.ModelEntity<CarVehicleGas_BusinessOrganizationV>(dbContext);
+
+                    var datas = model.GetAll().Where(a => a.CaseType == "CarFuel_BasicData").Select(a => new {
+                        CaseType = a.CaseType,
+                        a.Name,
+                        a.Value,
+                        a.Rank
+                    }).ToArray();
+
+                    _buss = datas.Select(a => new CarVehicleGas_BusinessOrganizationV
+                    {
+                        CaseType = a.CaseType,
+                        Name = a.Name,
+                        Value = a.Value,
+                        Rank = a.Rank,
+                    }).OrderBy(a => a.Rank);
+                }
+
+                return _buss;
+            }
+        }
+
+
+        public static void Reset()
+        {
+            _buss = null;
+        }
+        public override IEnumerable<KeyValuePair<string, object>> GetSelectItems()
+        {
+            var result = BUSS.Select(s => new KeyValuePair<string, object>(s.Value + "_" + s.CaseType.ToString(), "{\"v\":\"" + s.Name + "\",\"CaseType\":\"" + s.CaseType + "\"}"));
+            return result;
+        }
+    }
 }

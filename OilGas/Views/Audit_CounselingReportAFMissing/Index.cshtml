@@ -1,0 +1,49 @@
+﻿<script src="~/Scripts/prjReport/Audit_CounselingReportAFMissing.js"></script>
+<script src="~/Scripts/highcharts/7.1.2/highcharts.js"></script>
+<script src="~/Scripts/prj/baseb.js"></script>
+@using Dou.Misc.Extension
+@Html.MenuMap()
+@Html.DataManagerOptionsJavascript(null, "douoptions")
+
+<table id="_table"></table>
+<div>
+    <ul>
+        <li>所在縣市：講習會出席資料中可明確對應到縣市及加油站案號的資料，再依各縣市篩選出要進行分析的加油站。</li>
+        <li>營業主體：講習會出席資料中可明確對應到集團營業主體及加油站案號的資料，再依各集團篩選出要進行分析的加油站。</li>
+        <li>參加講習會前：該筆加油站第一次參加講習會的上一年之前全部的查核次數與缺失總計來計算平均缺失數。</li>
+        <li>參加講習會後：該筆加油站第一次參加講習會當年之後全部的查核次數與缺失總計來計算平均缺失數。</li>
+        <li>從未參加講習會：從未參加講習會的加油站其全部的查核次數與缺失總計來計算平均缺失數。</li>
+        <li>PS：由於計算繁雜，為避免作業逾期請選擇單一縣市或單一集團進行分析，跨縣市且跨集團的分析容易作業逾時。</li>
+    </ul>
+</div>
+<div class="modal fade" id="ITPopUp" role="dialog">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h3><span id="titledetail"></span></h3>
+                <div class="fixed-table-toolbar">
+                    <button type="button" class="btn btn-success glyphicon glyphicon-download-alt" onclick="ExportDetailExcel()">匯出Excel</button>
+                </div>
+                <div class="fixed-table-body default-scrollbar">
+                    <table id="_table_detail" class="table table-bordered table-hover">
+                        <tr>
+                            <th>加氣站編號</th>
+                            <th>加氣站名稱</th>
+                            <th>營業主體</th>
+                            <th>發文日期</th>
+                            <th>發文文號</th>
+                            <th>發文類別</th>
+                            <th>縣市別</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <span id="DetailCount"></span>
+                @*<button type="button" class="btn btn-default" onclick="closeDialog()">取消</button>*@
+            </div>
+        </div>
+    </div>
+</div>
+<div id="container1" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
+
