@@ -245,13 +245,15 @@ namespace OilGas.Models
         public virtual DbSet<UsageStateCode> UsageStateCode { get; set; }
 
         public virtual DbSet<WS_GSM_Relation> WS_GSM_Relation { get; set; }
-        public virtual DbSet<WS_GSM> WS_GSM { get; set; }       
+        public virtual DbSet<WS_GSM> WS_GSM { get; set; }
+        public virtual DbSet<WS_GSM_Log> WS_GSM_Log { get; set; }
         public virtual DbSet<FacilityType> FacilityType { get; set; }        
         public virtual DbSet<Check_Basic_View> Check_Basic_View { get; set; }
 
         public virtual DbSet<Check_Basic_AuditDay> Check_Basic_AuditDay { get; set; }
         public virtual DbSet<PublicFacility> PublicFacility { get; set; }
         public virtual DbSet<CarVehicleGas_LicenseNo_Log> CarVehicleGas_LicenseNo_Log { get; set; }
+        public virtual DbSet<Check_Basic_NoTime> Check_Basic_NoTime { get; set; }
 
         #region view
 

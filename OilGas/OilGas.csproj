@@ -215,6 +215,8 @@
     <Compile Include="Controllers\Admin\Admin_PwdEditController.cs" />
     <Compile Include="Controllers\Admin\CarVehicleGas_LicenseNoController.cs" />
     <Compile Include="Controllers\Admin\PublicFacilityController.cs" />
+    <Compile Include="Controllers\Admin\WS_GSMController.cs" />
+    <Compile Include="Controllers\Admin\WS_GSM_LogController.cs" />
     <Compile Include="Controllers\API\ApiController.cs" />
     <Compile Include="Controllers\Admin\WorkExperienceController.cs" />
     <Compile Include="Controllers\Audit\Audit_Check_countsController.cs" />
@@ -227,6 +229,7 @@
     <Compile Include="Controllers\Audit\Audit_Guidance_Check_Basic_AuditDayController.cs" />
     <Compile Include="Controllers\Audit\Audit_Guidance_Check_Basic_AuditHalfYearController.cs" />
     <Compile Include="Controllers\Audit\Audit_Guidance_Check_Basic_AuditMonthController.cs" />
+    <Compile Include="Controllers\Audit\Audit_Guidance_Check_Basic_NoTimeController.cs" />
     <Compile Include="Controllers\Audit\Audit_Guidance_Check_Counseling_ListController.cs" />
     <Compile Include="Controllers\Audit\Audit_Guidance_Check_documentController.cs" />
     <Compile Include="Controllers\Audit\Audit_Guidance_Check_document_listController.cs" />
@@ -298,6 +301,7 @@
     <Compile Include="Controllers\CarFuel\CarFuel_StopBusinessController.cs" />
     <Compile Include="Controllers\CarFuel\CarFuel_TGOS_AreaController.cs" />
     <Compile Include="Controllers\CarFuel\CarFuel_TGOS_SelectController.cs" />
+    <Compile Include="Controllers\CarFuel\CarFuel_UpdateController.cs" />
     <Compile Include="Controllers\CarGas\CarGas_BasicData_ListController.cs" />
     <Compile Include="Controllers\CarGas\CarGas_BasicData_Log_ListController.cs" />
     <Compile Include="Controllers\CarGas\CarGas_BasicData_Log_StatisticController.cs" />
@@ -652,6 +656,7 @@
     <Compile Include="Models\UsageState_Third.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\WS_GSM.cs" />
+    <Compile Include="Models\WS_GSM_Log.cs" />
     <Compile Include="Models\WS_GSM_Relation.cs" />
     <Compile Include="Models\_ReportData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -697,6 +702,8 @@
     <Compile Include="_report\Rpt_PortGas_BasicData.cs" />
     <Compile Include="_report\Rpt_PortGas_BasicDataLog.cs" />
     <Compile Include="_report\Rpt_SelfFuel_BasicData.cs" />
+    <Compile Include="_report\Rpt_WS_GSM.cs" />
+    <Compile Include="_report\Rpt_WS_GSM_Log.cs" />
     <Compile Include="_report\_ReportClass.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -751,6 +758,8 @@
     <Content Include="Scripts\prjReport\Audit_ReportCheckDistribution.js" />
     <Content Include="Scripts\prjReport\FishGas_ConsentOrExpiration.js" />
     <Content Include="Scripts\prjReport\SelfFuel_UsageState.js" />
+    <Content Include="Scripts\prjReport\WS_GSM_Log.js" />
+    <Content Include="Scripts\prjReport\WS_GSM.js" />
     <Content Include="Scripts\prj\Captcha.js" />
     <Content Include="Scripts\prj\map\mapGasStation.js" />
     <Content Include="Success.html" />
@@ -2431,6 +2440,10 @@
     <Content Include="Views\PublicFacility\Index.cshtml" />
     <Content Include="Views\CarVehicleGas_LicenseNo\Index.cshtml" />
     <Content Include="Views\Audit_CounselingReportAFMissing\Index.cshtml" />
+    <Content Include="Views\WS_GSM_Log\Index.cshtml" />
+    <Content Include="Views\WS_GSM\Index.cshtml" />
+    <Content Include="Views\Audit_Guidance_Check_Basic_NoTime\Index.cshtml" />
+    <Content Include="Views\Audit_Guidance_Check_Basic_NoTime\EditFormLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
