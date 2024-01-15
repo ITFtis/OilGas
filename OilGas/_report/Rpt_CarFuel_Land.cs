@@ -17,6 +17,7 @@ namespace OilGas
         static object lockGetAllCityCode = new object();
         static object lockGetGSLCodeByCityCode = new object();
         static object lockGetAllAreaCode = new object();
+        static object lockGetAllCounselingData = new object();
 
         public static IEnumerable<LandUsageZoneCode> GetAllLandUsageZoneCode(int cachetimer = shortcacheduration)
         {
@@ -135,6 +136,30 @@ namespace OilGas
         public static void ResetGetAllAreaCode()
         {
             string key = "OilGas.AreaCode";
+            DouHelper.Misc.ClearCache(key);
+        }
+
+        public static IEnumerable<CounselingData> GetAllCounselingData(int cachetimer = shortcacheduration)
+        {
+            string key = "OilGas.CounselingData";
+            var alldatas = DouHelper.Misc.GetCache<IEnumerable<CounselingData>>(cachetimer, key);
+            lock (lockGetAllCounselingData)
+            {
+                if (alldatas == null)
+                {
+                    using (var cxt = new OilGasModelContextExt())
+                    {
+                        alldatas = cxt.CounselingData.ToArray();
+                        DouHelper.Misc.AddCache(alldatas, key);
+                    }
+                }
+            }
+            return alldatas;
+        }
+
+        public static void ResetGetAllCounselingData()
+        {
+            string key = "OilGas.CounselingData";
             DouHelper.Misc.ClearCache(key);
         }
 
