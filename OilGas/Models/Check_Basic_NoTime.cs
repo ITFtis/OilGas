@@ -19,15 +19,22 @@ namespace OilGas.Models
     public class Check_Basic_NoTime
     {
         [Key]
+        [StringLength(7)]
+        [Display(Name ="查核編號")]
+        
+        public string Check_Number { get; set; }
+
         [StringLength(20)]
+        [Required]
         [ColumnDef(EditType = EditType.TextList, SelectGearingWith = "Gas_Name,bt",
             SelectSourceDbContextNamespace = "OilGas.Models.OilGasModelContextExt, OilGas",
          SelectSourceModelNamespace = "OilGas.Models.CarVehicleGas_BusinessOrganization, OilGas"
             ,SelectSourceModelValueField ="Value"
             ,SelectSourceModelDisplayField ="Name")]
-        [Display(Name = "營業主體", Order = 1)]
+        [Display(Name = "營業主體")]
         public string Business_theme { get; set; }
 
+        
         [StringLength(30)]
         [ColumnDef(Visible = false,EditType = EditType.TextList, SelectGearingWith = "Gas_Name,ob", SelectItemsClassNamespace = OtherBThemeSelectItemsClassImp.AssemblyQualifiedName)]
         [Display(Name = "其他營業主體")]
@@ -35,11 +42,13 @@ namespace OilGas.Models
 
 
         [Display(Name = "加油(氣)站名稱")]
+        [Required]
         [StringLength(70)]
         [ColumnDef(EditType = EditType.TextList,SelectItemsClassNamespace = GasFuleStationNameSelectItemsClassImp.AssemblyQualifiedName)]
         public string Gas_Name { get; set; }
 
-        
+
+        [Required]
         [Display(Name = "檢查日期")]
         [Column(Order = 2)]
         public DateTime? CheckDate { get; set; }
@@ -54,6 +63,7 @@ namespace OilGas.Models
         [ColumnDef(EditType = EditType.Text)]
         public string PhoneNumber { get; set; }
 
+        [Required]
         [Display(Name = "檢查人員")]
         [StringLength(50)]
         public string CheckMan { get; set; }

@@ -74,7 +74,8 @@ namespace OilGas
             地方政府查核結果填報 = 59,
             範本_日_自行安全檢查表_113年系統 = 60,
             範本_未對應清單 = 61,
-            範本_資料交換紀錄 = 62
+            範本_資料交換紀錄 = 62,
+            範本_自行填報系統 = 63
         }
 
         public enum UploadFile
@@ -150,13 +151,17 @@ namespace OilGas
         {
             IEnumerable<KeyValuePair<string, object>> result = new List<KeyValuePair<string, object>>();
 
-            result = result.Append(new KeyValuePair<string, object>("1", "良好"));
-            result = result.Append(new KeyValuePair<string, object>("2", "不良"));
+            result = result.Append(new KeyValuePair<string, object>("1", "良好V"));
+            result = result.Append(new KeyValuePair<string, object>("2", "不良X"));
             result = result.Append(new KeyValuePair<string, object>("3", "無此設備"));
 
             return result;
         }
 
+        public static string GetCheckResultStr(string r)
+        {
+            return r == null ? null : Code.GetCheckResult().Where(a => a.Key == r).FirstOrDefault().Value.ToString();
+        }
 
         /// <summary>
         /// 年度

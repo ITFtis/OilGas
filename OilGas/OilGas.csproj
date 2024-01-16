@@ -689,6 +689,7 @@
     <Compile Include="_core\WebUI.cs" />
     <Compile Include="_report\RptCode.cs" />
     <Compile Include="_report\Rpt_Audit_Guidance_Check_Basic_AuditDay.cs" />
+    <Compile Include="_report\Rpt_Audit_Guidance_Check_Basic_Audit_NoTime.cs" />
     <Compile Include="_report\Rpt_CarFuel_BasicData_List.cs" />
     <Compile Include="_report\Rpt_CarFuel_BasicData_Log_List.cs" />
     <Compile Include="_report\Rpt_CarFuel_CaseError1.cs" />
@@ -732,6 +733,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\prjReport\Audit_Guidance_Check_Basic_AuditDay.js" />
+    <Content Include="Scripts\prjReport\Audit_Guidance_Check_Basic_Audit_NoTime.js" />
     <Content Include="Scripts\prjReport\Audit_ReportCheckBussionError.js" />
     <Content Include="Scripts\prjReport\Audit_ReportCheckCityError.js" />
     <Content Include="Scripts\prjReport\Audit_ReportCheckItemOil.js" />
