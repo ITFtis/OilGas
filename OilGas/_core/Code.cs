@@ -76,6 +76,9 @@ namespace OilGas
             範本_未對應清單 = 61,
             範本_資料交換紀錄 = 62,
             範本_自行填報系統 = 63
+<<<<<<< HEAD
+            範本_自行填報系統 = 65,
+>>>>>>> c0d5248d4b9cf6f3bad28830910e40d9c314adfc
         }
 
         public enum UploadFile

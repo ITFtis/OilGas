@@ -625,8 +625,9 @@ WHERE ((UsageState = '8' and GetDate() > Build_Deadline) or (UsageState = '9' an
 		SqlConnection conn = new SqlConnection(connstring);
 		SqlCommand cmd = new SqlCommand(sql, conn);
 		conn.Open();
-		SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-		DataTable dt = new DataTable();
+        cmd.CommandTimeout = 600;
+        SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+        DataTable dt = new DataTable();
 		dt.Load(dr); ;
 		return dt;
 	}

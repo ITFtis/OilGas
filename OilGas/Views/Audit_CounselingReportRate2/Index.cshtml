@@ -1,0 +1,47 @@
+﻿<script src="~/Scripts/prjReport/Audit_CounselingReportRate2.js"></script>
+<script src="~/Scripts/prj/baseb.js"></script>
+@using Dou.Misc.Extension
+@Html.MenuMap()
+@Html.DataManagerOptionsJavascript(null, "douoptions")
+
+<table id="_table"></table>
+<div>
+    <ul>
+		<li>出席人數：該年度該集團參加講習會的出席人數，一筆報名資料代表一個出席人數，多人代表一個站出席，則會計算多次。</li>
+		<li>出席站：該年度該集團參加講習會的加油站數，一個加油站案號代表一個出席站，一人代表多個站出席，匯入前需先將各站拆成多筆出席資料，各站才都會計算一次出席，集團管理單位不計入任何一站。</li>
+		<li>轄內加油站：系統自動帶出目前該集團底下營運中的加油站數，因為歷年數據是會變動的，所以此數值可以讓使用者修改後儲存。</li>
+		<li>出席率(人)：出席人數除以轄內加油站並轉化為百分比小數點後2位。</li>
+		<li>出席率(站)：出席站除以轄內加油站並轉化為百分比小數點後2位。</li>
+	</ul>
+</div>
+<div class="modal fade" id="ITPopUp" role="dialog">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h3><span id="titledetail"></span></h3>
+                <div class="fixed-table-toolbar">
+                    <button type="button" class="btn btn-success glyphicon glyphicon-download-alt" onclick="ExportDetailExcel()">匯出Excel</button>
+                </div>
+                <div class="fixed-table-body default-scrollbar">
+                    <table id="_table_detail" class="table table-bordered table-hover">
+                        <tr>
+                            <th>加氣站編號</th>
+                            <th>加氣站名稱</th>
+                            <th>營業主體</th>
+                            <th>發文日期</th>
+                            <th>發文文號</th>
+                            <th>發文類別</th>
+                            <th>縣市別</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <span id="DetailCount"></span>
+                @*<button type="button" class="btn btn-default" onclick="closeDialog()">取消</button>*@
+            </div>
+        </div>
+    </div>
+</div>
+<div id="container1" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
+

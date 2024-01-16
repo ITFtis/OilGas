@@ -384,6 +384,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Audit_CounselingReportAFMissing.cs" />
+    <Compile Include="Models\Audit_CounselingReportRate1.cs" />
     <Compile Include="Models\CarVehicleGas_LicenseNo_Log.cs" />
     <Compile Include="Models\Check_Basic_AuditDay.cs" />
     <Compile Include="Models\Check_Basic_AuditMonth.cs" />
@@ -732,10 +734,12 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\prjReport\Audit_CounselingReportRate1.js" />
     <Content Include="Scripts\prjReport\Audit_Guidance_Check_Basic_AuditDay.js" />
     <Content Include="Scripts\prjReport\Audit_Guidance_Check_Basic_Audit_NoTime.js" />
     <Content Include="Scripts\prjReport\Audit_ReportCheckBussionError.js" />
     <Content Include="Scripts\prjReport\Audit_ReportCheckCityError.js" />
+    <Content Include="Scripts\prjReport\Audit_CounselingReportAFMissing.js" />
     <Content Include="Scripts\prjReport\Audit_ReportCheckItemOil.js" />
     <Content Include="Scripts\prjReport\Audit_ReportMissing_statistics.js" />
     <Content Include="Scripts\prjReport\Audit_ReportMissing_statistics_County.js" />
@@ -2439,10 +2443,12 @@
     <Content Include="Views\Audit_Guidance_Check_Basic_AuditDay\EditFormLayout.cshtml" />
     <Content Include="Views\PublicFacility\Index.cshtml" />
     <Content Include="Views\CarVehicleGas_LicenseNo\Index.cshtml" />
+    <Content Include="Views\Audit_CounselingReportAFMissing\Index.cshtml" />
     <Content Include="Views\WS_GSM_Log\Index.cshtml" />
     <Content Include="Views\WS_GSM\Index.cshtml" />
     <Content Include="Views\Audit_Guidance_Check_Basic_NoTime\Index.cshtml" />
     <Content Include="Views\Audit_Guidance_Check_Basic_NoTime\EditFormLayout.cshtml" />
+    <Content Include="Views\Audit_CounselingReportRate1\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2452,10 +2458,8 @@
     <Folder Include="Views\Admin_NewsMaintain\" />
     <Folder Include="Views\Admin_PwdEdit\" />
     <Folder Include="Views\Audit_CounselingDataM\" />
-    <Folder Include="Views\Audit_CounselingReportAFMissing\" />
     <Folder Include="Views\Audit_CounselingReportMissing1\" />
     <Folder Include="Views\Audit_CounselingReportMissing2\" />
-    <Folder Include="Views\Audit_CounselingReportRate1\" />
     <Folder Include="Views\Audit_CounselingReportRate2\" />
     <Folder Include="Views\Audit_Guidance_Check_Basic_AuditHalfYear\" />
     <Folder Include="Views\Audit_Guidance_Check_Basic_AuditMonth\" />
