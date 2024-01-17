@@ -44,8 +44,15 @@ namespace OilGas.Controllers
 			base.DeleteDBObject(dbEntity, objs);
 		}
 
+        public override ActionResult DouLogin(User user, string returnUrl, bool redirectLogin = false)
+        {
+			//Rest登入者權限
+			CarVehicleGas_LicenseNoSelectItems.Reset();
 
-		internal static System.Data.Entity.DbContext _dbContext = new OilGasModelContextExt();
+            return base.DouLogin(user, returnUrl, redirectLogin);
+        }
+
+        internal static System.Data.Entity.DbContext _dbContext = new OilGasModelContextExt();
         protected override Dou.Models.DB.IModelEntity<User> GetModelEntity()
         {
             return new Dou.Models.DB.ModelEntity<User>(_dbContext);
