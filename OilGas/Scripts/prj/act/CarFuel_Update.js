@@ -102,6 +102,23 @@ $(document).ready(function () {
 
             _opt.title = '批次變更表單';
 
+            _opt.afterCreateEditDataForm = function ($container, row) {
+                //多選                
+                var cbl_CopyUnit = $('.modal-dialog').find("[data-fn=cbl_CopyUnit]")
+                    .attr('multiple', true).selectpicker({
+                        noneSelectedText: '請挑選副本單位',
+                        actionsBox: true,
+                        selectAllText: '全選',
+                        deselectAllText: '取消已選',
+                        selectedTextFormat: 'count > 1',
+                        countSelectedText: function (sc, all) {
+                            return '副本單位:挑' + sc + '個'
+                        }
+                    });
+
+                cbl_CopyUnit.selectpicker('deselectAll');	
+            }
+
             //實體Dou js                                
             $('#_UpdateForm').douTable(_opt);
 
@@ -131,6 +148,9 @@ $(document).ready(function () {
                 obj.ddl_selectLicenseNo = $('.modal-dialog').find('[data-fn="ddl_selectLicenseNo"]').val();
                 obj.txt_Dispatch_No = $('.modal-dialog').find('[data-fn="txt_Dispatch_No"]').val();
                 obj.txt_Shouwen_Units = $('.modal-dialog').find('[data-fn="txt_Shouwen_Units"]').val();
+                obj.cbl_CopyUnit = $('.modal-dialog').find('[data-fn="cbl_CopyUnit"]').val().join(';');
+                obj.txt_OtherCopyUnit = $('.modal-dialog').find('[data-fn="txt_OtherCopyUnit"]').val();
+                //return;
 
                 helper.misc.showBusyIndicator();
                 $.ajax({

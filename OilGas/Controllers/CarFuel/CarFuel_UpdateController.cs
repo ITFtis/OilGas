@@ -129,7 +129,7 @@ namespace OilGas.Controllers.CarFuel
                         //****4.新增發文紀錄 CarFuel_Dispatch****
                         CarFuel_Dispatch v2 = new CarFuel_Dispatch();
                         v2.Dispatch_date = obj.txt_Dispatch_date; //Dispatch_date,
-                        //otherCopyUnit,
+                        v2.otherCopyUnit = obj.txt_OtherCopyUnit; //otherCopyUnit,
                         //DispatchClass,
                         v2.License_No = obj.ddl_selectLicenseNo; //License_No,
                         v2.Shouwen_Units = obj.txt_Shouwen_Units; //Shouwen_Units,
@@ -138,7 +138,8 @@ namespace OilGas.Controllers.CarFuel
                         //Note,
                         v2.CaseNo = CaseNo; //CaseNo,
                         v2.MemberID = Dou.Context.CurrentUserBase.Id; //MemberID,
-                        //CopyUnit
+                        v2.CopyUnit = obj.cbl_CopyUnit; //CopyUnit
+
 
                         dbContext.CarFuel_Dispatch.Add(v2);
                     }
@@ -167,7 +168,7 @@ namespace OilGas.Controllers.CarFuel
             opts.GetFiled("Gas_Name").filter = true;            
             opts.GetFiled("Business_theme").filter = true;            
             opts.GetFiled("Boss").visible = true;
-            opts.GetFiled("Recipient_date").visible = false;
+            opts.GetFiled("Recipient_date").visible = false;            
 
             return opts;
         }
@@ -241,9 +242,15 @@ namespace OilGas.Controllers.CarFuel
         [ColumnDef(ColSize = 3)]
         public string txt_Shouwen_Units { get; set; }
 
-        ////[Display(Name = "副本單位")]
-        ///[ColumnDef(ColSize = 3)]
-        ////public string xxxxx { get; set; }
+        [Display(Name = "副本單位")]        
+        [ColumnDef(EditType = EditType.Select, SelectItemsClassNamespace = CarVehicleGas_CopyUnitSelectItems.AssemblyQualifiedName,
+            Filter = true, FilterAssign = FilterAssignType.Contains,
+            ColSize = 3)]
+        public string cbl_CopyUnit { get; set; }
+
+        [Display(Name = "副本其他說明")]
+        [ColumnDef(ColSize = 3)]
+        public string txt_OtherCopyUnit { get; set; }
 
     }
 }
