@@ -20,6 +20,7 @@ namespace OilGas.Models
         [ColumnDef(VisibleEdit = true, Sortable = true, Filter = true, EditType = EditType.Select, SelectItemsClassNamespace = RolesSelectItemsClassImp.AssemblyQualifiedName)]
         public string grade { set; get; }
 
+        //臺東縣
         [Display(Name = "單位名稱")]
         [ColumnDef(VisibleEdit = false, Visible = false)]
         public string OrganizationName
@@ -34,7 +35,22 @@ namespace OilGas.Models
             }
         }
 
-		[Display(Name = "權限查詢")]
+        //台東縣政府－財政及經濟發展處
+        [Display(Name = "單位完整名稱")]
+        [ColumnDef(VisibleEdit = false, Visible = false)]
+        public string OrganizationFullName
+        {
+            get
+            {
+                var pCitys = PowerCitysCodes();
+                var citys = Code.ConvertTwCity(pCitys);
+                var orgs = CarVehicleGas_DispatchUnit.GetAllDatas().Where(a => pCitys.Any(b => b == a.Value)).Select(a => a.Name);
+
+                return string.Join(", ", orgs);
+            }
+        }
+
+        [Display(Name = "權限查詢")]
 		[ColumnDef(VisibleEdit = false, Visible = false)]
 		private List<CityCode> PowerCitys
 		{

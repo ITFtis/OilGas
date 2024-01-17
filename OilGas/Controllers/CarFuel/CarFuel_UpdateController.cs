@@ -13,6 +13,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml.Linq;
 
 namespace OilGas.Controllers.CarFuel
 {
@@ -38,6 +39,10 @@ namespace OilGas.Controllers.CarFuel
             {
                 return new List<CarFuel_BasicData>().AsQueryable();
             }
+
+            //權限查詢 (縣市權限，變動清除catch)
+            var pCitys = Dou.Context.CurrentUser<User>().PowerCitysGSLs();
+            iquery = iquery.Where(a => a.CaseNo != null && pCitys.Any(b => b == a.CaseNo.Substring(4, 2)));
 
             return base.BeforeIQueryToPagedList(iquery, paras);
         }
@@ -127,9 +132,9 @@ namespace OilGas.Controllers.CarFuel
                         //otherCopyUnit,
                         //DispatchClass,
                         v2.License_No = obj.ddl_selectLicenseNo; //License_No,
-                        //Shouwen_Units,
+                        v2.Shouwen_Units = obj.txt_Shouwen_Units; //Shouwen_Units,
                         v2.Dispatch_No = obj.txt_Dispatch_No; //Dispatch_No,
-                        //DispatchUnit,
+                        v2.DispatchUnit = Dou.Context.CurrentUser<User>().OrganizationFullName; //DispatchUnit,
                         //Note,
                         v2.CaseNo = CaseNo; //CaseNo,
                         v2.MemberID = Dou.Context.CurrentUserBase.Id; //MemberID,
@@ -224,7 +229,7 @@ namespace OilGas.Controllers.CarFuel
             ColSize = 3)]
         public string ddl_selectLicenseNo { get; set; }
 
-        [Display(Name = "發文字號")]
+        [Display(Name = "發文字號No")]
         [ColumnDef(ColSize = 3)]
         public string txt_Dispatch_No { get; set; }
 
