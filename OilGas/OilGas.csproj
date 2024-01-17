@@ -764,6 +764,7 @@
     <Content Include="Scripts\prjReport\SelfFuel_UsageState.js" />
     <Content Include="Scripts\prjReport\WS_GSM_Log.js" />
     <Content Include="Scripts\prjReport\WS_GSM.js" />
+    <Content Include="Scripts\prj\act\CarFuel_Update.js" />
     <Content Include="Scripts\prj\Captcha.js" />
     <Content Include="Scripts\prj\map\mapGasStation.js" />
     <Content Include="Success.html" />

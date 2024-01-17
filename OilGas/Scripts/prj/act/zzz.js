@@ -140,10 +140,6 @@ $(document).ready(function () {
                     success: function (data) {
                         if (data.result) {
                             alert("批次變更負責人已完成");
-
-                            aryCheck = [];
-                            $('.bootstrap-table.carfuel_updatecontroller').find('.btn-confirm').trigger('click');
-
                         } else {
                             alert("批次變更負責人失敗：\n" + data.errorMessage);
                         }
