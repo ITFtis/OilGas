@@ -79,16 +79,27 @@ namespace OilGas.Controllers.CarFuel
                 {                    
                     foreach (string CaseNo in CaseNos)
                     {
-                        //1.(Log+修改) Log:CarFuel_BasicData => CarFuel_BasicData_Log, 修改 CarFuel_BasicData
-                        //CarFuel_BasicData_Log
-                        CarFuel_BasicData_Log a_log = new CarFuel_BasicData_Log();
-                        //dbContext.CarFuel_BasicData_Log.Add(v1);
-
-                        //修改 CarFuel_BasicData
                         CarFuel_BasicData u_carFuel = dbContext.CarFuel_BasicData.Where(a => a.CaseNo == CaseNo).FirstOrDefault();
                         if (u_carFuel == null)
                             continue;
 
+                        //****1.新增 CarFuel_BasicData_Log****
+                        CarFuel_BasicData_Log a_log = new CarFuel_BasicData_Log();
+                        a_log.Boss_Tel = u_carFuel.Boss_Tel;
+                        a_log.LicenseNo1 = u_carFuel.LicenseNo1;
+                        a_log.MemberID = u_carFuel.MemberID;
+                        a_log.LicenseNo2 = u_carFuel.LicenseNo2;
+                        a_log.Address2 = u_carFuel.Address2;
+                        a_log.LicenseNo3 = u_carFuel.LicenseNo3;
+                        a_log.ChangeReport_date = u_carFuel.ChangeReport_date;
+                        a_log.ID_No = u_carFuel.ID_No;
+                        a_log.Boss_Email = u_carFuel.Boss_Email;
+                        a_log.ZipCode2 = u_carFuel.ZipCode2;
+                        a_log.Boss = u_carFuel.Boss;
+
+                        dbContext.CarFuel_BasicData_Log.Add(a_log);
+
+                        //****2.修改 CarFuel_BasicData****
                         u_carFuel.Boss_Tel = obj.txt_Boss_Tel;               //Boss_Tel = '聯絡電話1',
                         //LicenseNo1 = '經〈110〉能高中油',
                         u_carFuel.MemberID = Dou.Context.CurrentUserBase.Id; //MemberID = '6E9D42DE5E6E2738',
@@ -102,15 +113,15 @@ namespace OilGas.Controllers.CarFuel
                         u_carFuel.Boss = obj.txt_BossName;                   //Boss = '負責人111'
                         u_carFuel.CaseNo = CaseNo;
 
-                        
 
-                        //2.寫入變更歷程檔
+
+                        //****3.寫入變更歷程檔****
                         //string recordData = "";
                         //recordData += "批次變更負責人為" + _bossname + "<br/>";
                         //recordData += "[證號]" + "變更為" + _LicenseNo1 + "字第" + _LicenseNo2 + "之" + _LicenseNo3 + "號<br/>";
                         //Code.RecordLog(_caseno, recordData, "", user.UserName, user.MemberID);
 
-                        //3.新增發文紀錄 Save CarFuel_Dispatch
+                        //****4.新增發文紀錄 CarFuel_Dispatch****
                         CarFuel_Dispatch v2 = new CarFuel_Dispatch();
                         v2.Dispatch_date = obj.txt_Dispatch_date; //Dispatch_date,
                         //otherCopyUnit,
