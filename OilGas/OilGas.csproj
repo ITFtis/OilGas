@@ -764,6 +764,7 @@
     <Content Include="Scripts\prjReport\SelfFuel_UsageState.js" />
     <Content Include="Scripts\prjReport\WS_GSM_Log.js" />
     <Content Include="Scripts\prjReport\WS_GSM.js" />
+    <Content Include="Scripts\prj\act\CarFuel_Update.js" />
     <Content Include="Scripts\prj\Captcha.js" />
     <Content Include="Scripts\prj\map\mapGasStation.js" />
     <Content Include="Success.html" />
@@ -2449,6 +2450,7 @@
     <Content Include="Views\Audit_Guidance_Check_Basic_NoTime\Index.cshtml" />
     <Content Include="Views\Audit_Guidance_Check_Basic_NoTime\EditFormLayout.cshtml" />
     <Content Include="Views\Audit_CounselingReportRate1\Index.cshtml" />
+    <Content Include="Views\CarFuel_Update\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
