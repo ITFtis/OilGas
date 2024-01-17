@@ -128,18 +128,17 @@ namespace OilGas.Controllers.CarFuel
 
                         //****4.新增發文紀錄 CarFuel_Dispatch****
                         CarFuel_Dispatch v2 = new CarFuel_Dispatch();
-                        v2.Dispatch_date = obj.txt_Dispatch_date; //Dispatch_date,
-                        v2.otherCopyUnit = obj.txt_OtherCopyUnit; //otherCopyUnit,
-                        //DispatchClass,
-                        v2.License_No = obj.ddl_selectLicenseNo; //License_No,
-                        v2.Shouwen_Units = obj.txt_Shouwen_Units; //Shouwen_Units,
-                        v2.Dispatch_No = obj.txt_Dispatch_No; //Dispatch_No,
-                        v2.DispatchUnit = Dou.Context.CurrentUser<User>().OrganizationFullName; //DispatchUnit,
-                        //Note,
-                        v2.CaseNo = CaseNo; //CaseNo,
-                        v2.MemberID = Dou.Context.CurrentUserBase.Id; //MemberID,
-                        v2.CopyUnit = obj.cbl_CopyUnit; //CopyUnit
-
+                        v2.Dispatch_date = obj.txt_Dispatch_date;
+                        v2.otherCopyUnit = obj.txt_OtherCopyUnit;
+                        v2.DispatchClass = "37";
+                        v2.License_No = obj.ddl_selectLicenseNo;
+                        v2.Shouwen_Units = obj.txt_Shouwen_Units;
+                        v2.Dispatch_No = obj.txt_Dispatch_No;
+                        v2.DispatchUnit = Dou.Context.CurrentUser<User>().OrganizationFullName;
+                        v2.Note = "批次變更";
+                        v2.CaseNo = CaseNo;
+                        v2.MemberID = Dou.Context.CurrentUserBase.Id;
+                        v2.CopyUnit = obj.cbl_CopyUnit;
 
                         dbContext.CarFuel_Dispatch.Add(v2);
                     }
