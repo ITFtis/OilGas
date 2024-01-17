@@ -2450,6 +2450,7 @@
     <Content Include="Views\Audit_Guidance_Check_Basic_NoTime\Index.cshtml" />
     <Content Include="Views\Audit_Guidance_Check_Basic_NoTime\EditFormLayout.cshtml" />
     <Content Include="Views\Audit_CounselingReportRate1\Index.cshtml" />
+    <Content Include="Views\CarFuel_Update\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
