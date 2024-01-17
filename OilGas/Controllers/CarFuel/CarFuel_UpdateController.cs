@@ -126,9 +126,9 @@ namespace OilGas.Controllers.CarFuel
                         v2.Dispatch_date = obj.txt_Dispatch_date; //Dispatch_date,
                         //otherCopyUnit,
                         //DispatchClass,
-                        //License_No,
+                        v2.License_No = obj.ddl_selectLicenseNo; //License_No,
                         //Shouwen_Units,
-                        //Dispatch_No,
+                        v2.Dispatch_No = obj.txt_Dispatch_No; //Dispatch_No,
                         //DispatchUnit,
                         //Note,
                         v2.CaseNo = CaseNo; //CaseNo,
@@ -218,13 +218,15 @@ namespace OilGas.Controllers.CarFuel
         [ColumnDef(EditType = EditType.Date, ColSize = 3)]
         public DateTime? txt_Dispatch_date { get; set; }
 
-        //[Display(Name = "發文字號1")]
-        //[ColumnDef(ColSize = 3)]
-        //public string xxxxxx { get; set; }
+        [Display(Name = "發文字號")]
+        [ColumnDef(EditType = EditType.Select, SelectItemsClassNamespace = CarVehicleGas_LicenseNoSelectItems.AssemblyQualifiedName,
+            Filter = true, FilterAssign = FilterAssignType.Contains,
+            ColSize = 3)]
+        public string ddl_selectLicenseNo { get; set; }
 
-        [Display(Name = "發文字號2")]
+        [Display(Name = "發文字號")]
         [ColumnDef(ColSize = 3)]
-        public string txt_Dispatch_No2 { get; set; }
+        public string txt_Dispatch_No { get; set; }
 
         ////[Display(Name = "發文資料")]
         ///[ColumnDef(ColSize = 3)]

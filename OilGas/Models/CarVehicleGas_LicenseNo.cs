@@ -8,6 +8,7 @@ namespace OilGas.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Linq;
 
     public partial class CarVehicleGas_LicenseNo
     {
@@ -55,5 +56,36 @@ namespace OilGas.Models
         [StringLength(5)]
         [ColumnDef(Visible = false, VisibleEdit = false)]
         public string Modifier { get; set; }
+    }
+
+    public class CarVehicleGas_LicenseNoSelectItems : Dou.Misc.Attr.SelectItemsClass
+    {
+        public const string AssemblyQualifiedName = "OilGas.Models.CarVehicleGas_LicenseNoSelectItems, OilGas";
+
+        protected static IEnumerable<CarVehicleGas_LicenseNo> _carVehicleGas_LicenseNos;
+        internal static IEnumerable<CarVehicleGas_LicenseNo> BasicUsers
+        {
+            get
+            {
+                if (_carVehicleGas_LicenseNos == null)
+                {
+                    using (var db = new OilGasModelContextExt())
+                    {
+                        _carVehicleGas_LicenseNos = db.CarVehicleGas_LicenseNo.ToArray();
+                    }
+                }
+                return _carVehicleGas_LicenseNos;
+            }
+        }
+
+
+        public static void Reset()
+        {
+            _carVehicleGas_LicenseNos = null;
+        }
+        public override IEnumerable<KeyValuePair<string, object>> GetSelectItems()
+        {
+            return BasicUsers.Select(s => new KeyValuePair<string, object>(s.DispatchNo, s.DispatchNo));
+        }
     }
 }

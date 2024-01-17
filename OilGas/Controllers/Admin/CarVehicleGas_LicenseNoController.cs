@@ -63,6 +63,7 @@ namespace OilGas.Controllers.Admin
             data.Creator = user.Name;
 
             base.AddDBObject(dbEntity, objs);
+            CarVehicleGas_LicenseNoSelectItems.Reset();
         }
 
         protected override void UpdateDBObject(IModelEntity<CarVehicleGas_LicenseNo> dbEntity, IEnumerable<CarVehicleGas_LicenseNo> objs)
@@ -79,7 +80,7 @@ namespace OilGas.Controllers.Admin
             data.Modifier = user.Name;
            
             base.UpdateDBObject(dbEntity, objs);
-
+            CarVehicleGas_LicenseNoSelectItems.Reset();
         }
 
 
@@ -91,6 +92,7 @@ namespace OilGas.Controllers.Admin
             InsertLog(oriData,"delete");
 
             base.DeleteDBObject(dbEntity, objs);
+            CarVehicleGas_LicenseNoSelectItems.Reset();
         }
 
         protected override IModelEntity<CarVehicleGas_LicenseNo> GetModelEntity()

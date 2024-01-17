@@ -128,7 +128,8 @@ $(document).ready(function () {
                 obj.txt_Boss_Tel = $('.modal-dialog').find('[data-fn="txt_Boss_Tel"]').val();
                 obj.txt_Boss_Email = $('.modal-dialog').find('[data-fn="txt_Boss_Email"]').val();
                 obj.txt_Dispatch_date = $('.modal-dialog').find('[data-fn="txt_Dispatch_date"] input').val();
-                obj.txt_Dispatch_No2 = $('.modal-dialog').find('[data-fn="txt_Dispatch_No2"]').val();
+                obj.ddl_selectLicenseNo = $('.modal-dialog').find('[data-fn="ddl_selectLicenseNo"]').val();
+                obj.txt_Dispatch_No = $('.modal-dialog').find('[data-fn="txt_Dispatch_No"]').val();
                 obj.txt_Shouwen_Units = $('.modal-dialog').find('[data-fn="txt_Shouwen_Units"]').val();
 
                 helper.misc.showBusyIndicator();
