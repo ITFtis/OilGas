@@ -142,6 +142,8 @@ $(document).ready(function () {
                 var obj = {};
                 obj.txt_BossName = $('.modal-dialog').find('[data-fn="txt_BossName"]').val();
                 obj.txt_ID_No = $('.modal-dialog').find('[data-fn="txt_ID_No"]').val();
+                obj.ZipCode2 = $('.modal-dialog').find('[data-fn="ZipCode2"]').val();
+                obj.Address2 = $('.modal-dialog').find('[data-fn="Address2"]').val();
                 obj.txt_Boss_Tel = $('.modal-dialog').find('[data-fn="txt_Boss_Tel"]').val();
                 obj.txt_Boss_Email = $('.modal-dialog').find('[data-fn="txt_Boss_Email"]').val();
                 obj.txt_Dispatch_date = $('.modal-dialog').find('[data-fn="txt_Dispatch_date"] input').val();

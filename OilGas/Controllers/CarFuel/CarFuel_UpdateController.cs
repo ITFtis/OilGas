@@ -105,11 +105,11 @@ namespace OilGas.Controllers.CarFuel
                         dbContext.CarFuel_BasicData_Log.Add(a_log);
 
                         //****2.修改 CarFuel_BasicData****
-                        u_carFuel.Boss_Tel = obj.txt_Boss_Tel;               //Boss_Tel = '聯絡電話1',
                         //不變動的資料 LicenseNo1 = '經〈110〉能高中油', LicenseNo2 = '186', LicenseNo3 = '5',
+                        u_carFuel.Boss_Tel = obj.txt_Boss_Tel;               //Boss_Tel = '聯絡電話1',                        
                         u_carFuel.MemberID = Dou.Context.CurrentUserBase.Id; //MemberID = '6E9D42DE5E6E2738',
-                        //ZipCode2 = '437',
-                        //Address2 = '台中市大甲區八德街一巷二弄三之四號五樓之六',                        
+                        u_carFuel.ZipCode2 = obj.ZipCode2;
+                        u_carFuel.Address2 = obj.Address2;
                         u_carFuel.ChangeReport_date = DateTime.Parse(DateTime.Now.ToString("yyyy/MM/dd")); //ChangeReport_date = '2024/01/12',
                         u_carFuel.ID_No = obj.txt_ID_No;                     //ID_No = '2',
                         u_carFuel.Boss_Email = obj.txt_Boss_Email;           //Boss_Email = 'brianlin12345@gmail.com',                        
@@ -209,10 +209,14 @@ namespace OilGas.Controllers.CarFuel
         [Display(Name = "負責人身份證字號")]
         [ColumnDef(ColSize = 3)]
         public string txt_ID_No { get; set; }
-
-        ////[Display(Name = "負責人聯絡地址")]
-        ///[ColumnDef(ColSize = 3)]
-        ////public string xxxxx { get; set; }
+        
+        [Display(Name = "負責人郵遞區號")]
+        [ColumnDef(ColSize = 3)]
+        public string ZipCode2 { get; set; }
+        
+        [Display(Name = "負責人聯絡地址")]
+        [ColumnDef(ColSize = 3)]
+        public string Address2 { get; set; }
 
         [Display(Name = "負責人聯絡電話")]
         [ColumnDef(ColSize = 3)]
@@ -235,10 +239,6 @@ namespace OilGas.Controllers.CarFuel
         [Display(Name = "發文字號No")]
         [ColumnDef(ColSize = 3)]
         public string txt_Dispatch_No { get; set; }
-
-        ////[Display(Name = "發文資料")]
-        ///[ColumnDef(ColSize = 3)]
-        ////public string xxxxx { get; set; }
 
         [Display(Name = "受文者單位")]
         [ColumnDef(ColSize = 3)]
