@@ -63,7 +63,7 @@ namespace OilGas.Models
         public const string AssemblyQualifiedName = "OilGas.Models.CarVehicleGas_LicenseNoSelectItems, OilGas";
 
         protected static IEnumerable<CarVehicleGas_LicenseNo> _carVehicleGas_LicenseNos;
-        internal static IEnumerable<CarVehicleGas_LicenseNo> BasicUsers
+        internal static IEnumerable<CarVehicleGas_LicenseNo> CarVehicleGas_LicenseNos
         {
             get
             {
@@ -71,7 +71,12 @@ namespace OilGas.Models
                 {
                     using (var db = new OilGasModelContextExt())
                     {
-                        _carVehicleGas_LicenseNos = db.CarVehicleGas_LicenseNo.ToArray();
+                        //權限查詢 (縣市權限，變動清除catch)
+                        var pCitys = Dou.Context.CurrentUser<User>().PowerCitysCodes();
+
+                        _carVehicleGas_LicenseNos = db.CarVehicleGas_LicenseNo
+                                                    .Where(x => pCitys.Contains(x.CityCode.Trim()))
+                                                    .ToArray();
                     }
                 }
                 return _carVehicleGas_LicenseNos;
@@ -85,7 +90,7 @@ namespace OilGas.Models
         }
         public override IEnumerable<KeyValuePair<string, object>> GetSelectItems()
         {
-            return BasicUsers.Select(s => new KeyValuePair<string, object>(s.DispatchNo, s.DispatchNo));
+            return CarVehicleGas_LicenseNos.Select(s => new KeyValuePair<string, object>(s.DispatchNo, s.DispatchNo));
         }
     }
 }
