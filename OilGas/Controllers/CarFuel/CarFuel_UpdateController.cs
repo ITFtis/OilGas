@@ -106,27 +106,30 @@ namespace OilGas.Controllers.CarFuel
 
                         //****2.修改 CarFuel_BasicData****
                         u_carFuel.Boss_Tel = obj.txt_Boss_Tel;               //Boss_Tel = '聯絡電話1',
-                        //LicenseNo1 = '經〈110〉能高中油',
+                        //不變動的資料 LicenseNo1 = '經〈110〉能高中油', LicenseNo2 = '186', LicenseNo3 = '5',
                         u_carFuel.MemberID = Dou.Context.CurrentUserBase.Id; //MemberID = '6E9D42DE5E6E2738',
-                        //LicenseNo2 = '186',
-                        //Address2 = '台中市大甲區八德街一巷二弄三之四號五樓之六',
-                        //LicenseNo3 = '5',
+                        //ZipCode2 = '437',
+                        //Address2 = '台中市大甲區八德街一巷二弄三之四號五樓之六',                        
                         u_carFuel.ChangeReport_date = DateTime.Parse(DateTime.Now.ToString("yyyy/MM/dd")); //ChangeReport_date = '2024/01/12',
                         u_carFuel.ID_No = obj.txt_ID_No;                     //ID_No = '2',
-                        u_carFuel.Boss_Email = obj.txt_Boss_Email;           //Boss_Email = 'brianlin12345@gmail.com',
-                        //ZipCode2 = '437',
+                        u_carFuel.Boss_Email = obj.txt_Boss_Email;           //Boss_Email = 'brianlin12345@gmail.com',                        
                         u_carFuel.Boss = obj.txt_BossName;                   //Boss = '負責人111'
                         u_carFuel.CaseNo = CaseNo;
 
+                        //****3.新增 寫入變更歷程檔****                        
+                        string recordData = "";
+                        recordData += "批次變更負責人為" + u_carFuel.Boss + "<br/>";
+                        recordData += "[證號]" + "變更為" + u_carFuel.LicenseNo1 + "字第" + u_carFuel.LicenseNo2 + "之" + u_carFuel.LicenseNo3 + "號<br/>";
+                        RecordLog record = new RecordLog();
+                        record.CaseNo = u_carFuel.CaseNo;
+                        record.recordData = recordData;
+                        record.File_name = "";
+                        record.Mod_name = Dou.Context.CurrentUserBase.Name;
+                        record.Mod_date = DateTime.Now;
+                        record.MemberID = Dou.Context.CurrentUserBase.Id;
+                        dbContext.RecordLog.Add(record);
 
-
-                        //****3.寫入變更歷程檔****
-                        //string recordData = "";
-                        //recordData += "批次變更負責人為" + _bossname + "<br/>";
-                        //recordData += "[證號]" + "變更為" + _LicenseNo1 + "字第" + _LicenseNo2 + "之" + _LicenseNo3 + "號<br/>";
-                        //Code.RecordLog(_caseno, recordData, "", user.UserName, user.MemberID);
-
-                        //****4.新增發文紀錄 CarFuel_Dispatch****
+                        //****4.新增 發文紀錄 CarFuel_Dispatch****
                         CarFuel_Dispatch v2 = new CarFuel_Dispatch();
                         v2.Dispatch_date = obj.txt_Dispatch_date;
                         v2.otherCopyUnit = obj.txt_OtherCopyUnit;
