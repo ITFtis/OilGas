@@ -202,6 +202,7 @@ namespace OilGas.Controllers.CarFuel
 
     public class vwe_CarFuel_UpdateForm
     {
+        [Required]
         [Display(Name = "負責人名稱")]
         [ColumnDef(ColSize = 3)]
         public string txt_BossName { get; set; }
@@ -223,23 +224,27 @@ namespace OilGas.Controllers.CarFuel
         public string txt_Boss_Tel { get; set; }
 
         [Display(Name = "電子郵件信箱")]
-        [ColumnDef(ColSize = 3)]
+        [ColumnDef(EditType = EditType.Email, ColSize = 3)]
         public string txt_Boss_Email { get; set; }
 
+        [Required]
         [Display(Name = "發文日期")]
         [ColumnDef(EditType = EditType.Date, ColSize = 3)]
         public DateTime? txt_Dispatch_date { get; set; }
 
+        [Required]
         [Display(Name = "發文字號")]
         [ColumnDef(EditType = EditType.Select, SelectItemsClassNamespace = CarVehicleGas_LicenseNoSelectItems.AssemblyQualifiedName,
             Filter = true, FilterAssign = FilterAssignType.Contains,
             ColSize = 3)]
         public string ddl_selectLicenseNo { get; set; }
 
+        [Required]
         [Display(Name = "發文字號No")]
         [ColumnDef(ColSize = 3)]
         public string txt_Dispatch_No { get; set; }
 
+        [Required]
         [Display(Name = "受文者單位")]
         [ColumnDef(ColSize = 3)]
         public string txt_Shouwen_Units { get; set; }

@@ -120,7 +120,7 @@ $(document).ready(function () {
             }
 
             //實體Dou js                                
-            $('#_UpdateForm').douTable(_opt);
+            var $_dt1 = $('#_UpdateForm').douTable(_opt);
 
             //隱藏div(button 確定、取消)            
             $('.modal-dialog').css('min-height', '');
@@ -132,6 +132,11 @@ $(document).ready(function () {
 
             //批次變更修改資料
             $('#btnBatch').click(function () {
+                
+                //表單驗證(dou)
+                var current = $_dt1.instance;
+                if (!ValidateFrom(current))
+                    return;
 
                 var CaseNos = aryCheck;
                 if (CaseNos.length == 0) {

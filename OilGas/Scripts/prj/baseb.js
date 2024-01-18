@@ -72,3 +72,52 @@ function EditDataFormSelectDefault() {
         }
     });
 }
+
+//表單驗證(dou)
+function ValidateFrom(current) {
+    $('.modal-dialog .errormsg').empty();
+    $('.modal-dialog .errormsg').hide();
+
+    var rdata = {};
+    var errors = [];
+
+
+    //將資料組成新資料
+    $.each(current.settings._dataFields, function (idx, f) {
+        //if (idx == current.settings.fields.length - 1) //ctrl 編輯、刪除
+        if (f.visibleEdit === false) {
+            //rdata[f.field] = row[f.field];
+            return true;
+        }
+        var $_del = $(".field-container[data-field=" + f.field + "]", current.$___currentEditFormWindow).find(".field-content").children().first();
+        if ($_del.length > 0) {
+            var v = f.editFormtter.getValue.call(f, $_del, rdata);
+            rdata[f.field] = v;
+        }
+    });
+    var errors = [];
+    var firstErrorField;
+    //驗證
+    $.each(current.settings._dataFields, function (idx, f) {
+        if (f.visibleEdit === false)
+            return true;
+        var $_del = $(".field-container[data-field=" + f.field + "]", current.$___currentEditFormWindow).find(".field-content").children().first();
+        var oer;
+        if ($_del.length > 0) {
+            if (f.validate && (oer = f.validate(rdata[f.field], rdata)) !== true)
+                errors.push(f.title + ":" + f.validate(rdata[f.field], rdata));
+            else if ($_del[0].validationMessage)
+                errors.push(f.title + ":" + $_del[0].validationMessage);
+            if (errors.length == 1)
+                firstErrorField = firstErrorField ? firstErrorField : this;
+        }
+    });
+
+    if (errors && errors.length > 0) {
+        errors = $.isArray(errors) ? errors : [errors];
+        current.$___currentEditFormWindow.trigger("set-error-message", '<span class="' + current.settings.buttonClasses.error_message + '" aria-hidden="true"></span>&nbsp; ' + errors.join('<br><span class="' + current.settings.buttonClasses.error_message + '" aria-hidden="true"></span>&nbsp; '));
+        return false;
+    }
+
+    return true;
+}
