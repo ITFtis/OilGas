@@ -2451,6 +2451,7 @@
     <Content Include="Views\Audit_Guidance_Check_Basic_NoTime\EditFormLayout.cshtml" />
     <Content Include="Views\Audit_CounselingReportRate1\Index.cshtml" />
     <Content Include="Views\CarFuel_Update\Index.cshtml" />
+    <Content Include="Views\Audit_Guidance_Check_document\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2465,7 +2466,6 @@
     <Folder Include="Views\Audit_CounselingReportRate2\" />
     <Folder Include="Views\Audit_Guidance_Check_Basic_AuditHalfYear\" />
     <Folder Include="Views\Audit_Guidance_Check_Basic_AuditMonth\" />
-    <Folder Include="Views\Audit_Guidance_Check_document\" />
     <Folder Include="Views\Audit_Guidance_Check_document_list\" />
     <Folder Include="Views\Audit_ReportCheckError1\" />
     <Folder Include="Views\basic\" />

@@ -122,6 +122,10 @@ $(document).ready(function () {
             //實體Dou js                                
             var $_dt1 = $('#_UpdateForm').douTable(_opt);
 
+            //讓filename變成上傳的input
+            $('div[data-field="FileName"] input').attr('type', 'file');
+            $('div[data-field="FileName"] input').attr('accept', '.pdf,.jpg,.bmp');
+
             //隱藏div(button 確定、取消)            
             $('.modal-dialog').css('min-height', '');
             $('.modal-dialog .modal-footer').addClass('justify-content-center');
@@ -157,6 +161,7 @@ $(document).ready(function () {
                 obj.txt_Shouwen_Units = $('.modal-dialog').find('[data-fn="txt_Shouwen_Units"]').val();
                 obj.cbl_CopyUnit = $('.modal-dialog').find('[data-fn="cbl_CopyUnit"]').val().join(';');
                 obj.txt_OtherCopyUnit = $('.modal-dialog').find('[data-fn="txt_OtherCopyUnit"]').val();
+                obj.fileName = $('.modal-dialog').find('[data-fn="FileName"]').val();
                 //return;
 
                 helper.misc.showBusyIndicator();
@@ -185,6 +190,10 @@ $(document).ready(function () {
                         helper.misc.hideBusyIndicator();
                     }
                 });
+
+                //上傳檔案
+                var nullfuntion = function () { };
+                upload("FileName", $.AppConfigOptions.baseurl + ' CarFuel_Update/Sendupload', txt_ID_No, CaseNos, nullfuntion);
             });
         });
     }

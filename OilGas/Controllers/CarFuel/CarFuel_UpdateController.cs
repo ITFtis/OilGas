@@ -101,6 +101,7 @@ namespace OilGas.Controllers.CarFuel
                         a_log.Boss_Email = u_carFuel.Boss_Email;
                         a_log.ZipCode2 = u_carFuel.ZipCode2;
                         a_log.Boss = u_carFuel.Boss;
+                        a_log.File_name = u_carFuel.File_name;
 
                         dbContext.CarFuel_BasicData_Log.Add(a_log);
 
@@ -115,6 +116,7 @@ namespace OilGas.Controllers.CarFuel
                         u_carFuel.Boss_Email = obj.txt_Boss_Email;           //Boss_Email = 'brianlin12345@gmail.com',                        
                         u_carFuel.Boss = obj.txt_BossName;                   //Boss = '負責人111'
                         u_carFuel.CaseNo = CaseNo;
+                        u_carFuel.File_name = obj.FileName;
 
                         //****3.新增 寫入變更歷程檔****                        
                         string recordData = "";
@@ -127,6 +129,7 @@ namespace OilGas.Controllers.CarFuel
                         record.Mod_name = Dou.Context.CurrentUserBase.Name;
                         record.Mod_date = DateTime.Now;
                         record.MemberID = Dou.Context.CurrentUserBase.Id;
+                        record.File_name = obj.FileName;
                         dbContext.RecordLog.Add(record);
 
                         //****4.新增 發文紀錄 CarFuel_Dispatch****
@@ -142,6 +145,7 @@ namespace OilGas.Controllers.CarFuel
                         v2.CaseNo = CaseNo;
                         v2.MemberID = Dou.Context.CurrentUserBase.Id;
                         v2.CopyUnit = obj.cbl_CopyUnit;
+                        v2.File_name = obj.FileName;
 
                         dbContext.CarFuel_Dispatch.Add(v2);
                     }
@@ -168,11 +172,35 @@ namespace OilGas.Controllers.CarFuel
                 field.filter = false;
 
             opts.GetFiled("Gas_Name").filter = true;            
-            opts.GetFiled("Business_theme").filter = true;            
+            opts.GetFiled("Business_theme").filter = true;
+            opts.GetFiled("CITY").filter = true;
             opts.GetFiled("Boss").visible = true;
             opts.GetFiled("Recipient_date").visible = false;            
 
             return opts;
+        }
+
+        [HttpPost]
+        public string Sendupload(string ID, string[] CaseNo, HttpPostedFileBase file)
+        {
+            using (var db = new OilGasModelContextExt())
+            {
+                foreach (var caseNo in CaseNo)
+                {
+                    var dataInDB = db.CarFuel_BasicData.Where(x => x.CaseNo == caseNo).FirstOrDefault();
+
+                    if(dataInDB != null)
+                    {
+                        var oldFileName = dataInDB.File_name ?? "NULL";
+                        new basicController().upload(file, dataInDB.File_name, "CarFuel\\basic");
+                    }
+                    
+                }
+
+            }
+
+            return "ok";
+            
         }
 
         public virtual ActionResult getUpdateForm()
@@ -227,7 +255,14 @@ namespace OilGas.Controllers.CarFuel
         [ColumnDef(EditType = EditType.Email, ColSize = 3)]
         public string txt_Boss_Email { get; set; }
 
+<<<<<<< Updated upstream
         [Required]
+=======
+        [Display(Name = "發文資料")]
+        [ColumnDef(ColSize = 3)]
+        public string FileName { get; set; }
+
+>>>>>>> Stashed changes
         [Display(Name = "發文日期")]
         [ColumnDef(EditType = EditType.Date, ColSize = 3)]
         public DateTime? txt_Dispatch_date { get; set; }
@@ -258,6 +293,8 @@ namespace OilGas.Controllers.CarFuel
         [Display(Name = "副本其他說明")]
         [ColumnDef(ColSize = 3)]
         public string txt_OtherCopyUnit { get; set; }
+
+        
 
     }
 }

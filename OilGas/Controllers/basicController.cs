@@ -83,7 +83,7 @@ namespace OilGas.Controllers
             string extension = Path.GetExtension(file.FileName);
             string filename = Path.GetFileName(file.FileName);
             //只收txt、doc、docx、pdf
-            if (extension == ".txt" | extension == ".doc" | extension == ".docx" | extension == ".pdf" | extension == ".jpg" | extension == ".png")
+            if (extension == ".txt" | extension == ".doc" | extension == ".docx" | extension == ".pdf" | extension == ".jpg" | extension == ".png" | extension == ".bmp")
             {
               
                 string savePath = ConfigurationManager.AppSettings["uploadfilepath"] + filepath + "\\" + filename;
