@@ -161,7 +161,9 @@ $(document).ready(function () {
                 obj.txt_Shouwen_Units = $('.modal-dialog').find('[data-fn="txt_Shouwen_Units"]').val();
                 obj.cbl_CopyUnit = $('.modal-dialog').find('[data-fn="cbl_CopyUnit"]').val().join(';');
                 obj.txt_OtherCopyUnit = $('.modal-dialog').find('[data-fn="txt_OtherCopyUnit"]').val();
-                obj.fileName = $('.modal-dialog').find('[data-fn="FileName"]').val();
+
+                var input = $('.modal-dialog').find('[data-fn="FileName"]')
+                obj.fileName = input[0].files[0].name;
                 //return;
 
                 helper.misc.showBusyIndicator();

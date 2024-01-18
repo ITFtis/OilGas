@@ -255,14 +255,13 @@ namespace OilGas.Controllers.CarFuel
         [ColumnDef(EditType = EditType.Email, ColSize = 3)]
         public string txt_Boss_Email { get; set; }
 
-<<<<<<< Updated upstream
-        [Required]
-=======
+
+        
         [Display(Name = "發文資料")]
         [ColumnDef(ColSize = 3)]
         public string FileName { get; set; }
 
->>>>>>> Stashed changes
+        [Required]
         [Display(Name = "發文日期")]
         [ColumnDef(EditType = EditType.Date, ColSize = 3)]
         public DateTime? txt_Dispatch_date { get; set; }
