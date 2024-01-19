@@ -694,6 +694,7 @@
     <Compile Include="_core\WebUI.cs" />
     <Compile Include="_report\RptCode.cs" />
     <Compile Include="_report\Rpt_Audit_Guidance_Check_Basic_AuditDay.cs" />
+    <Compile Include="_report\Rpt_Audit_Guidance_Check_Basic_Audit_NoTime.cs" />
     <Compile Include="_report\Rpt_CarFuel_BasicData_List.cs" />
     <Compile Include="_report\Rpt_CarFuel_BasicData_Log_List.cs" />
     <Compile Include="_report\Rpt_CarFuel_CaseError1.cs" />
@@ -741,6 +742,7 @@
     <Content Include="Scripts\prjReport\Audit_CounselingReportMissing2.js" />
     <Content Include="Scripts\prjReport\Audit_CounselingReportRate1.js" />
     <Content Include="Scripts\prjReport\Audit_Guidance_Check_Basic_AuditDay.js" />
+    <Content Include="Scripts\prjReport\Audit_Guidance_Check_Basic_Audit_NoTime.js" />
     <Content Include="Scripts\prjReport\Audit_ReportCheckBussionError.js" />
     <Content Include="Scripts\prjReport\Audit_ReportCheckCityError.js" />
     <Content Include="Scripts\prjReport\Audit_CounselingReportAFMissing.js" />
@@ -768,6 +770,7 @@
     <Content Include="Scripts\prjReport\SelfFuel_UsageState.js" />
     <Content Include="Scripts\prjReport\WS_GSM_Log.js" />
     <Content Include="Scripts\prjReport\WS_GSM.js" />
+    <Content Include="Scripts\prj\act\CarFuel_Update.js" />
     <Content Include="Scripts\prj\Captcha.js" />
     <Content Include="Scripts\prj\map\mapGasStation.js" />
     <Content Include="Success.html" />
@@ -2456,6 +2459,8 @@
     <Content Include="Views\Audit_CounselingReportMissing1\Index.cshtml" />
     <Content Include="Views\Audit_CounselingReportMissing2\Index.cshtml" />
     <Content Include="Views\Info_Dashboard\Index.cshtml" />
+    <Content Include="Views\CarFuel_Update\Index.cshtml" />
+    <Content Include="Views\Audit_Guidance_Check_document\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2468,7 +2473,6 @@
     <Folder Include="Views\Audit_CounselingReportRate2\" />
     <Folder Include="Views\Audit_Guidance_Check_Basic_AuditHalfYear\" />
     <Folder Include="Views\Audit_Guidance_Check_Basic_AuditMonth\" />
-    <Folder Include="Views\Audit_Guidance_Check_document\" />
     <Folder Include="Views\Audit_Guidance_Check_document_list\" />
     <Folder Include="Views\Audit_ReportCheckError1\" />
     <Folder Include="Views\basic\" />

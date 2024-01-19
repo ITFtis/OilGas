@@ -1,6 +1,7 @@
 ﻿using Dou.Controllers;
 using Dou.Misc;
 using Dou.Misc.Attr;
+using Dou.Models;
 using Dou.Models.DB;
 using Microsoft.Ajax.Utilities;
 using Newtonsoft.Json;
@@ -9,9 +10,11 @@ using OilGas.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml.Linq;
 
 namespace OilGas.Controllers.CarFuel
 {
@@ -37,6 +40,10 @@ namespace OilGas.Controllers.CarFuel
             {
                 return new List<CarFuel_BasicData>().AsQueryable();
             }
+
+            //權限查詢 (縣市權限，變動清除catch)
+            var pCitys = Dou.Context.CurrentUser<User>().PowerCitysGSLs();
+            iquery = iquery.Where(a => a.CaseNo != null && pCitys.Any(b => b == a.CaseNo.Substring(4, 2)));
 
             return base.BeforeIQueryToPagedList(iquery, paras);
         }
@@ -78,36 +85,68 @@ namespace OilGas.Controllers.CarFuel
                 {                    
                     foreach (string CaseNo in CaseNos)
                     {
-                        //1.Save CarFuel_BasicData_Log
-                        CarFuel_BasicData_Log v1 = new CarFuel_BasicData_Log();                        
-                        v1.Boss_Tel = obj.txt_Boss_Tel;               //Boss_Tel = '聯絡電話1',
-                        //LicenseNo1 = '經〈110〉能高中油',
-                        v1.MemberID = Dou.Context.CurrentUserBase.Id; //MemberID = '6E9D42DE5E6E2738',
-                        //LicenseNo2 = '186',
-                        //Address2 = '台中市大甲區八德街一巷二弄三之四號五樓之六',
-                        //LicenseNo3 = '5',
-                        v1.ChangeReport_date = DateTime.Parse(DateTime.Now.ToString("yyyy/MM/dd")); //ChangeReport_date = '2024/01/12',
-                        v1.ID_No = obj.txt_ID_No;                     //ID_No = '2',
-                        v1.Boss_Email = obj.txt_Boss_Email;           //Boss_Email = 'brianlin12345@gmail.com',
-                        //ZipCode2 = '437',
-                        v1.Boss = obj.txt_BossName;                   //Boss = '負責人111'
-                        v1.CaseNo = CaseNo;
+                        CarFuel_BasicData u_carFuel = dbContext.CarFuel_BasicData.Where(a => a.CaseNo == CaseNo).FirstOrDefault();
+                        if (u_carFuel == null)
+                            continue;
 
-                        dbContext.CarFuel_BasicData_Log.Add(v1);
+                        //****1.新增 CarFuel_BasicData_Log****
+                        CarFuel_BasicData_Log a_log = new CarFuel_BasicData_Log();
+                        a_log.Boss_Tel = u_carFuel.Boss_Tel;
+                        a_log.LicenseNo1 = u_carFuel.LicenseNo1;
+                        a_log.MemberID = u_carFuel.MemberID;
+                        a_log.LicenseNo2 = u_carFuel.LicenseNo2;
+                        a_log.Address2 = u_carFuel.Address2;
+                        a_log.LicenseNo3 = u_carFuel.LicenseNo3;
+                        a_log.ChangeReport_date = u_carFuel.ChangeReport_date;
+                        a_log.ID_No = u_carFuel.ID_No;
+                        a_log.Boss_Email = u_carFuel.Boss_Email;
+                        a_log.ZipCode2 = u_carFuel.ZipCode2;
+                        a_log.Boss = u_carFuel.Boss;
+                        a_log.File_name = u_carFuel.File_name;
 
-                        //2.Save CarFuel_Dispatch
+                        dbContext.CarFuel_BasicData_Log.Add(a_log);
+
+                        //****2.修改 CarFuel_BasicData****
+                        //不變動的資料 LicenseNo1 = '經〈110〉能高中油', LicenseNo2 = '186', LicenseNo3 = '5',
+                        u_carFuel.Boss_Tel = obj.txt_Boss_Tel;               //Boss_Tel = '聯絡電話1',                        
+                        u_carFuel.MemberID = Dou.Context.CurrentUserBase.Id; //MemberID = '6E9D42DE5E6E2738',
+                        u_carFuel.ZipCode2 = obj.ZipCode2;
+                        u_carFuel.Address2 = obj.Address2;
+                        u_carFuel.ChangeReport_date = DateTime.Parse(DateTime.Now.ToString("yyyy/MM/dd")); //ChangeReport_date = '2024/01/12',
+                        u_carFuel.ID_No = obj.txt_ID_No;                     //ID_No = '2',
+                        u_carFuel.Boss_Email = obj.txt_Boss_Email;           //Boss_Email = 'brianlin12345@gmail.com',                        
+                        u_carFuel.Boss = obj.txt_BossName;                   //Boss = '負責人111'
+                        u_carFuel.CaseNo = CaseNo;
+                        u_carFuel.File_name = obj.FileName;
+
+                        //****3.新增 寫入變更歷程檔****                        
+                        string recordData = "";
+                        recordData += "批次變更負責人為" + u_carFuel.Boss + "<br/>";
+                        recordData += "[證號]" + "變更為" + u_carFuel.LicenseNo1 + "字第" + u_carFuel.LicenseNo2 + "之" + u_carFuel.LicenseNo3 + "號<br/>";
+                        RecordLog record = new RecordLog();
+                        record.CaseNo = u_carFuel.CaseNo;
+                        record.recordData = recordData;
+                        record.File_name = "";
+                        record.Mod_name = Dou.Context.CurrentUserBase.Name;
+                        record.Mod_date = DateTime.Now;
+                        record.MemberID = Dou.Context.CurrentUserBase.Id;
+                        record.File_name = obj.FileName;
+                        dbContext.RecordLog.Add(record);
+
+                        //****4.新增 發文紀錄 CarFuel_Dispatch****
                         CarFuel_Dispatch v2 = new CarFuel_Dispatch();
-                        v2.Dispatch_date = obj.txt_Dispatch_date; //Dispatch_date,
-                        //otherCopyUnit,
-                        //DispatchClass,
-                        //License_No,
-                        //Shouwen_Units,
-                        //Dispatch_No,
-                        //DispatchUnit,
-                        //Note,
-                        v2.CaseNo = CaseNo; //CaseNo,
-                        v2.MemberID = Dou.Context.CurrentUserBase.Id; //MemberID,
-                        //CopyUnit
+                        v2.Dispatch_date = obj.txt_Dispatch_date;
+                        v2.otherCopyUnit = obj.txt_OtherCopyUnit;
+                        v2.DispatchClass = "37";
+                        v2.License_No = obj.ddl_selectLicenseNo;
+                        v2.Shouwen_Units = obj.txt_Shouwen_Units;
+                        v2.Dispatch_No = obj.txt_Dispatch_No;
+                        v2.DispatchUnit = Dou.Context.CurrentUser<User>().OrganizationFullName;
+                        v2.Note = "批次變更";
+                        v2.CaseNo = CaseNo;
+                        v2.MemberID = Dou.Context.CurrentUserBase.Id;
+                        v2.CopyUnit = obj.cbl_CopyUnit;
+                        v2.File_name = obj.FileName;
 
                         dbContext.CarFuel_Dispatch.Add(v2);
                     }
@@ -119,7 +158,8 @@ namespace OilGas.Controllers.CarFuel
             }
             catch (Exception ex)
             {
-                return Json(new { result = false, errorMessage = ex.Message });
+                
+                //return Json(new { result = false, errorMessage = ex.Message });
             }
 
             return Json(new { result = true });
@@ -134,11 +174,35 @@ namespace OilGas.Controllers.CarFuel
                 field.filter = false;
 
             opts.GetFiled("Gas_Name").filter = true;            
-            opts.GetFiled("Business_theme").filter = true;            
+            opts.GetFiled("Business_theme").filter = true;
+            opts.GetFiled("CITY").filter = true;
             opts.GetFiled("Boss").visible = true;
-            opts.GetFiled("Recipient_date").visible = false;
+            opts.GetFiled("Recipient_date").visible = false;            
 
             return opts;
+        }
+
+        [HttpPost]
+        public string Sendupload(string ID, string[] CaseNo, HttpPostedFileBase file)
+        {
+            using (var db = new OilGasModelContextExt())
+            {
+                foreach (var caseNo in CaseNo)
+                {
+                    var dataInDB = db.CarFuel_BasicData.Where(x => x.CaseNo == caseNo).FirstOrDefault();
+
+                    if(dataInDB != null)
+                    {
+                        var oldFileName = dataInDB.File_name ?? "NULL";
+                        new basicController().upload(file, dataInDB.File_name, "CarFuel\\basic");
+                    }
+                    
+                }
+
+            }
+
+            return "ok";
+            
         }
 
         public virtual ActionResult getUpdateForm()
@@ -168,6 +232,7 @@ namespace OilGas.Controllers.CarFuel
 
     public class vwe_CarFuel_UpdateForm
     {
+        [Required]
         [Display(Name = "負責人名稱")]
         [ColumnDef(ColSize = 3)]
         public string txt_BossName { get; set; }
@@ -175,42 +240,62 @@ namespace OilGas.Controllers.CarFuel
         [Display(Name = "負責人身份證字號")]
         [ColumnDef(ColSize = 3)]
         public string txt_ID_No { get; set; }
-
-        ////[Display(Name = "負責人聯絡地址")]
-        ///[ColumnDef(ColSize = 3)]
-        ////public string xxxxx { get; set; }
+        
+        [Display(Name = "負責人郵遞區號")]
+        [ColumnDef(ColSize = 3)]
+        public string ZipCode2 { get; set; }
+        
+        [Display(Name = "負責人聯絡地址")]
+        [ColumnDef(ColSize = 3)]
+        public string Address2 { get; set; }
 
         [Display(Name = "負責人聯絡電話")]
         [ColumnDef(ColSize = 3)]
         public string txt_Boss_Tel { get; set; }
 
         [Display(Name = "電子郵件信箱")]
-        [ColumnDef(ColSize = 3)]
+        [ColumnDef(EditType = EditType.Email, ColSize = 3)]
         public string txt_Boss_Email { get; set; }
 
+
+        
+        [Display(Name = "發文資料")]
+        [ColumnDef(ColSize = 3)]
+        public string FileName { get; set; }
+
+        [Required]
         [Display(Name = "發文日期")]
         [ColumnDef(EditType = EditType.Date, ColSize = 3)]
         public DateTime? txt_Dispatch_date { get; set; }
 
-        //[Display(Name = "發文字號1")]
-        //[ColumnDef(ColSize = 3)]
-        //public string xxxxxx { get; set; }
+        [Required]
+        [Display(Name = "發文字號")]
+        [ColumnDef(EditType = EditType.Select, SelectItemsClassNamespace = CarVehicleGas_LicenseNoSelectItems.AssemblyQualifiedName,
+            Filter = true, FilterAssign = FilterAssignType.Contains,
+            ColSize = 3)]
+        public string ddl_selectLicenseNo { get; set; }
 
-        [Display(Name = "發文字號2")]
+        [Required]
+        [Display(Name = "發文字號No")]
         [ColumnDef(ColSize = 3)]
-        public string txt_Dispatch_No2 { get; set; }
+        public string txt_Dispatch_No { get; set; }
 
-        ////[Display(Name = "發文資料")]
-        ///[ColumnDef(ColSize = 3)]
-        ////public string xxxxx { get; set; }
-
+        [Required]
         [Display(Name = "受文者單位")]
         [ColumnDef(ColSize = 3)]
         public string txt_Shouwen_Units { get; set; }
 
-        ////[Display(Name = "副本單位")]
-        ///[ColumnDef(ColSize = 3)]
-        ////public string xxxxx { get; set; }
+        [Display(Name = "副本單位")]        
+        [ColumnDef(EditType = EditType.Select, SelectItemsClassNamespace = CarVehicleGas_CopyUnitSelectItems.AssemblyQualifiedName,
+            Filter = true, FilterAssign = FilterAssignType.Contains,
+            ColSize = 3)]
+        public string cbl_CopyUnit { get; set; }
+
+        [Display(Name = "副本其他說明")]
+        [ColumnDef(ColSize = 3)]
+        public string txt_OtherCopyUnit { get; set; }
+
+        
 
     }
 }

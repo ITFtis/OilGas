@@ -32,6 +32,15 @@ namespace OilGas.Controllers.CarFuel
 
         protected override IQueryable<CarFuel_BasicData> BeforeIQueryToPagedList(IQueryable<CarFuel_BasicData> iquery, params KeyValueParams[] paras)
         {
+            Uri myUri = new Uri(Request.UrlReferrer.ToString());
+            string ID = HttpUtility.ParseQueryString(myUri.Query).Get("ID");
+
+            if (!string.IsNullOrEmpty(ID))
+            {
+                iquery = iquery.Where(a => a.ID.ToString() == ID);
+            }
+
+
             //權限查詢
 
             //var pCitys = Dou.Context.CurrentUser<User>().PowerCitys;

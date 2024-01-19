@@ -6,41 +6,6 @@
 <table id="_table"></table>
 
 <script src="~/Scripts/basic/basic.js"></script>
-<script>
+<script src="~/Scripts/prjReport/Audit_Guidance_Check_Basic_Audit_NoTime.js"></script>
 
-	function otherdisplayInput(file, otherfile, val) {
-		console.log($('[data-field="' + file + '"] input').val())
-		if ($('[data-field="' + file + '"] input').val() != val) {
-			$('[data-field="' + otherfile + '"]').addClass('d-none')
-		}
-		else {
-			$('[data-field="' + otherfile + '"]').removeClass('d-none')
-		}
-
-
-
-		$('[data-field="' + file + '"] input').change(function () {
-			otherdisplayInput(file, otherfile, val)
-		})
-	}
-
-	$(document).ready(function () {
-		douoptions.afterCreateEditDataForm = function (e, row) {
-
-			//營業主體選其他的話就會有輸入其他營業主體的選項輸入
-			otherdisplayInput("Business_theme", "otherBusiness_theme", "其他")
-
-
-			//let file = "Business_theme"
-
-			//$('[data-field="' + file + '"] input').change(function () {
-			//	console.log("123")
-			//})
-		}
-
-		
-
-		$("#_table").DouEditableTable(douoptions);
-	})
-</script>
 

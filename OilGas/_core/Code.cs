@@ -79,6 +79,7 @@ namespace OilGas
             查核輔導專區_G輔導講習會專區_參加講習會的集團出席率統計 = 64,
             查核輔導專區_G輔導講習會專區_各縣市出席率與查核缺失數比較 = 65,
             查核輔導專區_G輔導講習會專區_各集團出席率與查核缺失數比較 = 66,
+            範本_自行填報系統 = 67,
         }
 
         public enum UploadFile
@@ -154,13 +155,17 @@ namespace OilGas
         {
             IEnumerable<KeyValuePair<string, object>> result = new List<KeyValuePair<string, object>>();
 
-            result = result.Append(new KeyValuePair<string, object>("1", "良好"));
-            result = result.Append(new KeyValuePair<string, object>("2", "不良"));
+            result = result.Append(new KeyValuePair<string, object>("1", "良好V"));
+            result = result.Append(new KeyValuePair<string, object>("2", "不良X"));
             result = result.Append(new KeyValuePair<string, object>("3", "無此設備"));
 
             return result;
         }
 
+        public static string GetCheckResultStr(string r)
+        {
+            return r == null ? null : Code.GetCheckResult().Where(a => a.Key == r).FirstOrDefault().Value.ToString();
+        }
 
         /// <summary>
         /// 年度
