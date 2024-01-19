@@ -1,0 +1,52 @@
+﻿<script src="~/Scripts/prjReport/Info_Dashboard.js"></script>
+<script src="~/Scripts/highcharts/7.1.2/highcharts.js"></script>
+<script src="~/Scripts/prj/baseb.js"></script>
+@using Dou.Misc.Extension
+@Html.MenuMap()
+@Html.DataManagerOptionsJavascript(null, "douoptions")
+
+<table id="_table"></table>
+
+
+<style>
+    div.c1 {
+        width: auto;
+    }
+
+    div.c2 {
+        width: auto;
+    }
+
+    div.detail1 {
+        width: 99.5%;
+    }
+
+    div.detail2 {
+        width: 33%;
+    }
+
+    div.detail3 {
+        width: 33%;
+    }
+
+    div.detail4 {
+        width: 33%;
+    }
+</style>
+
+<div class="c1">
+    <div class="detail1">
+        <div id="container1" style="min-width: 310px; height: 210px; margin: 0 auto"></div>
+    </div>
+</div>
+<div class="c2">
+    <div class="detail2" style="display: inline-block;">
+        <div id="container2" style="min-width: 50px; height: 210px; margin: 0 auto"> </div>
+    </div>
+    <div class="detail3" style="display: inline-block;">
+        <div id="container3" style="min-width: 50px; height: 210px; margin: 0 auto"> </div>
+    </div>
+    <div class="detail4" style="display: inline-block;">
+        <div id="container4" style="min-width: 50px; height: 210px; margin: 0 auto"> </div>
+    </div>
+</div>
