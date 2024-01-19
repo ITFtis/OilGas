@@ -1,24 +1,27 @@
 ﻿using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
+using OilGas.Controllers.CarFuel;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Web;
+using Xceed.Words.NET;
 
 namespace OilGas._report
 {
     public class Ppt_CarFuel_Update_Lience : ReportClass
     {
-        public string Export(IQueryable<Models.WS_GSM> query)
+        public string Export(CarFuel_Update_Lience query)
         {
             try
             {
                 //複製範本
-                string sourcePath = FileHelper.GetTempleteFolder() + "未對應清單.xlsx";
+                string sourcePath = FileHelper.GetTempleteFolder() + "證照套印.docx";
 
-                string fileName = System.IO.Path.GetFileNameWithoutExtension(sourcePath) + "_" + DateTime.Now.ToString("yyyy-MM-dd_") + ".xlsx";
-                string toFolder = FileHelper.GetFileFolder(Code.TempUploadFile.範本_未對應清單);
+                string fileName = query.Gas_Name +  System.IO.Path.GetFileNameWithoutExtension(sourcePath) + "_" + DateTime.Now.ToString("yyyy-MM-dd_") + ".docx";
+                string toFolder = FileHelper.GetFileFolder(Code.TempUploadFile.範本_證件套印);
 
                 if (!Directory.Exists(toFolder))
                 {
@@ -26,42 +29,41 @@ namespace OilGas._report
                 }
 
                 string toPath = toFolder + fileName;
-                File.Copy(sourcePath, toPath, true);
+                //File.Copy(sourcePath, toPath, true);
 
-                var data = query.ToList();
+                //編輯word範本檔
+                var culture = new CultureInfo("zh-TW");
+                culture.DateTimeFormat.Calendar = new System.Globalization.TaiwanCalendar();
+                var date = query.ReportDate.Value.ToString("yyy/MM/dd",culture);
+                var l = date.Split(new char[] { '/' });
+                var year = l[0];
+                var month = l[1];
+                var day = l[2];
 
-                //編輯範本檔
-                XSSFWorkbook workbook = null;
-                XSSFSheet sheet = null;
-                FileStream xlsFile = new FileStream(toPath, FileMode.Open, FileAccess.ReadWrite);
-                workbook = new XSSFWorkbook(xlsFile);
-                xlsFile.Close();
-                sheet = (XSSFSheet)workbook.GetSheetAt(0);
-                workbook.SetSheetName(workbook.GetSheetIndex(sheet), "未對應清單");
+                Dictionary<string, string> doc = new Dictionary<string, string>()
+                    {
+                        {"Lience_No",query.LienceNo},
+                        {"GasName", query.Gas_Name },
+                        {"BT",query.Business_Theme },
+                        {"MA", query.Boss },
+                        {"Address", query.Address },
+                        {"Type", query.SellType },
+                        {"YY", year },
+                        {"MM", month },
+                        {"DD", day}
+                    };
 
-                IRow row;
-
-                //編輯主體
-                for (var i = 0; i < data.Count; i++)
+                using (DocX document = DocX.Load(sourcePath))
                 {
-                    row = sheet.GetRow(i + 3);
-                    var c1 = row.Cells[0];
-                    var c2 = row.Cells[1];
-                    var c3 = row.Cells[2];
-                    var c4 = row.Cells[3];
+                    foreach(var k in doc)
+                    {
+                        document.ReplaceText("[$" + k.Key + "$]", k.Value);
+                    }
 
-                    c1.SetCellValue(data[i].gsm_id);
-                    c2.SetCellValue(data[i].gsm_name);
-                    c3.SetCellValue(data[i].gsm_field03);
-                    c4.SetCellValue(data[i].Situation);
+                    document.SaveAs(toPath);
                 }
 
-                xlsFile = new FileStream(toPath, FileMode.Create, FileAccess.Write);
-                workbook.Write(xlsFile);
-                xlsFile.Close();
-                workbook.Close();
-
-                return OilGas.Cm.PhysicalToUrl(toPath);
+                    return OilGas.Cm.PhysicalToUrl(toPath);
             }
             catch (Exception ex)
             {
