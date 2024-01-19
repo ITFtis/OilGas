@@ -162,8 +162,9 @@ $(document).ready(function () {
                 obj.cbl_CopyUnit = $('.modal-dialog').find('[data-fn="cbl_CopyUnit"]').val().join(';');
                 obj.txt_OtherCopyUnit = $('.modal-dialog').find('[data-fn="txt_OtherCopyUnit"]').val();
 
-                var input = $('.modal-dialog').find('[data-fn="FileName"]')
-                obj.fileName = input[0].files[0].name;
+                var fileInput = $('.modal-dialog').find('[data-fn="FileName"]');
+                obj.fileName = fileInput[0].files[0].name;
+
                 //return;
 
                 helper.misc.showBusyIndicator();
@@ -195,7 +196,7 @@ $(document).ready(function () {
 
                 //上傳檔案
                 var nullfuntion = function () { };
-                upload("FileName", $.AppConfigOptions.baseurl + ' CarFuel_Update/Sendupload', txt_ID_No, CaseNos, nullfuntion);
+                upload("FileName", $.AppConfigOptions.baseurl + 'CarFuel_Update/Sendupload', obj.txt_ID_No, CaseNos, nullfuntion);
             });
         });
     }

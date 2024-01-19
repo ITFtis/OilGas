@@ -10,6 +10,7 @@ using OilGas.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -157,7 +158,8 @@ namespace OilGas.Controllers.CarFuel
             }
             catch (Exception ex)
             {
-                return Json(new { result = false, errorMessage = ex.Message });
+                
+                //return Json(new { result = false, errorMessage = ex.Message });
             }
 
             return Json(new { result = true });
