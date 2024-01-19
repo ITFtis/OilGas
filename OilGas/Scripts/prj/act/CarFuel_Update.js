@@ -1,4 +1,30 @@
 ﻿
+//證照套印下載功能
+function download(v) {
+    helper.misc.showBusyIndicator();
+    $.ajax({
+        url: app.siteRoot + 'CarFuel_Update/ExportExcel',
+        datatype: "json",
+        type: "Post",
+        data: { "CaseNo": v },
+        success: function (data) {
+            if (data.result) {
+                console.log(data.result)
+
+            } else {
+                
+            }
+        },
+        complete: function () {
+            helper.misc.hideBusyIndicator();
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+            helper.misc.hideBusyIndicator();
+        }
+    });
+}
 
 $(document).ready(function () {
 
@@ -73,7 +99,7 @@ $(document).ready(function () {
     $(douoptions.fields).each(function () {
         if (this.field == "CaseNo") {
             this.formatter = function (v, d) {
-                var text = '<a href="' + app.siteRoot + 'CarFuel_Select/Index?ID=' + d.ID + '">' + d.CaseNo + '</a>';
+                var text = '<a href="' + app.siteRoot + 'CarFuel_Select/Index?ID=' + d.ID + '">' + d.CaseNo + '</a>' + '<button onclick="download(\'' + v +'\')"  class="btn btn-primary float-end">證照套印</button>';
                 return text;
             }
         }
@@ -200,4 +226,6 @@ $(document).ready(function () {
             });
         });
     }
+
+    
 })

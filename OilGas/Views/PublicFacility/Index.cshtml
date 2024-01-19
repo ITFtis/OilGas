@@ -6,6 +6,7 @@
 <input id="PF" type="file" />
 
 <button id="btnExportExcel" class="btn btn-success">匯入excel</button>
+<button id="downloadExample" class="btn btn-primary">下載範例excel</button>
 
 
 <script>
@@ -40,6 +41,11 @@
 
 
         })
+
+        $('#downloadExample').on('click', function () {
+			location.href = app.siteRoot + "DocsWeb\\(範例檔)臺灣地區公共設施匯入.xlsx";
+        })
+        
 
 
     });

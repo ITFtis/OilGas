@@ -6,12 +6,14 @@ using Dou.Models.DB;
 using Microsoft.Ajax.Utilities;
 using Newtonsoft.Json;
 using NPOI.SS.Formula.Functions;
+using OilGas._report;
 using OilGas.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity.Validation;
 using System.Linq;
+using System.Security.Policy;
 using System.Web;
 using System.Web.Mvc;
 using System.Xml.Linq;
@@ -228,6 +230,58 @@ namespace OilGas.Controllers.CarFuel
             return Content(jstr, "application/json");
         }
 
+        //public ActionResult ExportExcel(string CaseNo)
+        //{
+        //    //var query = getDataQuery();
+        //    Rpt_WS_GSM rep = new Rpt_WS_GSM();
+        //    //string url = rep.Export(query);
+
+        //    //if (url == "")
+        //    //{
+        //    //    return Json(new { result = false, errorMessage = rep.ErrorMessage }, JsonRequestBehavior.AllowGet);
+        //    //}
+        //    //else
+        //    //{
+        //    //    return Json(new { result = true, url = url }, JsonRequestBehavior.AllowGet);
+
+
+        //    //}
+        //}
+
+        /// <summary>
+        /// 取得證照的內容
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        //private IQueryable<WS_GSM> getDataQuery()
+        //{
+        //    var _db = new OilGasModelContextExt();
+        //    var enableBT = _db.CarVehicleGas_BusinessOrganization.Where(x => x.IsEnable == true);
+
+        //    var dataInDB = _db.CarFuel_BasicData.Join(enableBT, a => a.Business_theme, b => b.Value, (a, b) =>
+        //    new CarFuel_Update_Lience
+        //    {
+        //        LienceNo = getLienceNumber(a),
+        //        Gas_Name = a.Gas_Name,
+        //        Business_Theme = a.Business_theme == "16" ? a.otherBusiness_theme : b.Name,
+        //        ReportDate = a.ChangeReport_date ?? a.Report_date,
+
+        //    });
+              
+                
+        //}
+
+        private string getLienceNumber(CarFuel_BasicData a)
+        {
+            string lienceNo;
+            var l1 = string.IsNullOrEmpty(a.LicenseNo1) ? string.Empty : a.LicenseNo1;
+            var l2 = string.IsNullOrEmpty(a.LicenseNo2) ? string.Empty : " 字 第 " + a.LicenseNo2;
+            var l3 = string.IsNullOrEmpty(a.LicenseNo3) ? string.Empty : " 之 " + a.LicenseNo3;
+
+            lienceNo = l1 + l2 + l3 ;
+            return string.IsNullOrEmpty(lienceNo) ? string.Empty : lienceNo + " 號";
+            
+        }
     }
 
     public class vwe_CarFuel_UpdateForm
@@ -296,6 +350,18 @@ namespace OilGas.Controllers.CarFuel
         public string txt_OtherCopyUnit { get; set; }
 
         
+
+    }
+
+    public class CarFuel_Update_Lience
+    {
+        public string LienceNo { get; set; }
+        public string Gas_Name { get; set; }
+        public string Business_Theme { get; set; }
+        public DateTime ReportDate { get; set; }
+        public string Boss { get; set; }
+        public string Address { get; set; }
+        public string SellType { get; set; }
 
     }
 }

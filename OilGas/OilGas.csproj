@@ -689,6 +689,7 @@
     <Compile Include="_core\SQLHelper.cs" />
     <Compile Include="_core\StatisticReportFunc.cs" />
     <Compile Include="_core\WebUI.cs" />
+    <Compile Include="_report\Ppt_CarFuel_Update_Lience.cs" />
     <Compile Include="_report\RptCode.cs" />
     <Compile Include="_report\Rpt_Audit_Guidance_Check_Basic_AuditDay.cs" />
     <Compile Include="_report\Rpt_Audit_Guidance_Check_Basic_Audit_NoTime.cs" />
