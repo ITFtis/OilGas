@@ -345,6 +345,7 @@
     <Compile Include="Controllers\Info\Info_LawSearchController.cs" />
     <Compile Include="Controllers\Info\Info_LawSearchMController.cs" />
     <Compile Include="Controllers\Info\Info_LazybagMController.cs" />
+    <Compile Include="Controllers\Info\Info_Dashboard.cs" />
     <Compile Include="Controllers\Info\Info_MainController.cs" />
     <Compile Include="Controllers\Info\Info_ODFDownLoadController.cs" />
     <Compile Include="Controllers\Info\Info_ODFViewController.cs" />
@@ -385,7 +386,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Audit_CounselingReportAFMissing.cs" />
-    <Compile Include="Models\Audit_CounselingReportRate1.cs" />
+    <Compile Include="Models\Audit_CounselingReportMissing1.cs" />
+    <Compile Include="Models\Audit_CounselingReportMissing2.cs" />
+    <Compile Include="Models\Info_Dashboard.cs" />
     <Compile Include="Models\CarVehicleGas_LicenseNo_Log.cs" />
     <Compile Include="Models\Check_Basic_AuditDay.cs" />
     <Compile Include="Models\Check_Basic_AuditMonth.cs" />
@@ -733,6 +736,9 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\prjReport\Info_Dashboard.js" />
+    <Content Include="Scripts\prjReport\Audit_CounselingReportMissing1.js" />
+    <Content Include="Scripts\prjReport\Audit_CounselingReportMissing2.js" />
     <Content Include="Scripts\prjReport\Audit_CounselingReportRate1.js" />
     <Content Include="Scripts\prjReport\Audit_Guidance_Check_Basic_AuditDay.js" />
     <Content Include="Scripts\prjReport\Audit_ReportCheckBussionError.js" />
@@ -2447,6 +2453,9 @@
     <Content Include="Views\Audit_Guidance_Check_Basic_NoTime\Index.cshtml" />
     <Content Include="Views\Audit_Guidance_Check_Basic_NoTime\EditFormLayout.cshtml" />
     <Content Include="Views\Audit_CounselingReportRate1\Index.cshtml" />
+    <Content Include="Views\Audit_CounselingReportMissing1\Index.cshtml" />
+    <Content Include="Views\Audit_CounselingReportMissing2\Index.cshtml" />
+    <Content Include="Views\Info_Dashboard\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2456,8 +2465,6 @@
     <Folder Include="Views\Admin_NewsMaintain\" />
     <Folder Include="Views\Admin_PwdEdit\" />
     <Folder Include="Views\Audit_CounselingDataM\" />
-    <Folder Include="Views\Audit_CounselingReportMissing1\" />
-    <Folder Include="Views\Audit_CounselingReportMissing2\" />
     <Folder Include="Views\Audit_CounselingReportRate2\" />
     <Folder Include="Views\Audit_Guidance_Check_Basic_AuditHalfYear\" />
     <Folder Include="Views\Audit_Guidance_Check_Basic_AuditMonth\" />

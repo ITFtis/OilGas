@@ -163,6 +163,30 @@ namespace OilGas
             DouHelper.Misc.ClearCache(key);
         }
 
+        public static IEnumerable<Check_Basic> GetAllCheck_Basic(int cachetimer = shortcacheduration)
+        {
+            string key = "OilGas.Check_Basic";
+            var alldatas = DouHelper.Misc.GetCache<IEnumerable<Check_Basic>>(cachetimer, key);
+            lock (lockGetAllCounselingData)
+            {
+                if (alldatas == null)
+                {
+                    using (var cxt = new OilGasModelContextExt())
+                    {
+                        alldatas = cxt.Check_Basic.Where(x=>x.CaseType == "CarFuel_BasicData").ToArray();
+                        DouHelper.Misc.AddCache(alldatas, key);
+                    }
+                }
+            }
+            return alldatas;
+        }
+
+        public static void ResetGetAllCheck_Basic()
+        {
+            string key = "OilGas.Check_Basic";
+            DouHelper.Misc.ClearCache(key);
+        }
+
         public class CarFuel_1
         {
             public string 案件編號 { get; set; }
