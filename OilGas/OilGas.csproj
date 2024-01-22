@@ -347,6 +347,7 @@
     <Compile Include="Controllers\FishGas\FishGas_StopBusinessController.cs" />
     <Compile Include="Controllers\FishGas\FishGas_TGOS_AreaController.cs" />
     <Compile Include="Controllers\FishGas\FishGas_TGOS_SelectController.cs" />
+    <Compile Include="Controllers\FishGas\FishGas_UpdateController.cs" />
     <Compile Include="Controllers\GasLawBan\GasLawBan_DownLoad_OperateController.cs" />
     <Compile Include="Controllers\GasLawBan\GasLawBan_SelectController.cs" />
     <Compile Include="Controllers\GasLawBan\GasLawBan_StatisticReportCaseController.cs" />
@@ -2508,6 +2509,7 @@
     <Folder Include="Views\FishGas_DownLoad_Operate\" />
     <Folder Include="Views\FishGas_TGOS_Area\" />
     <Folder Include="Views\FishGas_TGOS_Select\" />
+    <Folder Include="Views\FishGas_Update\" />
     <Folder Include="Views\GasLawBan_DownLoad_Operate\" />
     <Folder Include="Views\GasLawBan_StatisticReportCase\" />
     <Folder Include="Views\GasLawBan_StatisticReportPlace\" />
