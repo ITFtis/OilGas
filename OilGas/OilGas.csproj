@@ -293,6 +293,7 @@
     <Compile Include="Controllers\Audit\StatisticsAtatisticsAuditSelfDownActionController.cs" />
     <Compile Include="Controllers\Audit\StatisticsAtatisticsAuditSelfUPController.cs" />
     <Compile Include="Controllers\basicController.cs" />
+    <Compile Include="Controllers\CarFuel\CarFuel_BanController.cs" />
     <Compile Include="Controllers\CarFuel\CarFuel_SelectController.cs" />
     <Compile Include="Controllers\CarFuel\CarFuel_BasicData_ListController.cs" />
     <Compile Include="Controllers\CarFuel\CarFuel_BasicData_Log_ListController.cs" />
@@ -369,6 +370,7 @@
     <Compile Include="Controllers\Info\SignAddController.cs" />
     <Compile Include="Controllers\Info\SignController.cs" />
     <Compile Include="Controllers\LoggerController.cs" />
+    <Compile Include="Controllers\Map\Map_CarGasStation.cs" />
     <Compile Include="Controllers\Map\Map_GasStationController.cs" />
     <Compile Include="Controllers\MarkupOilGas\MarkupController.cs" />
     <Compile Include="Controllers\PortGas\PortGas_Ban_ViewController.cs" />
@@ -707,6 +709,7 @@
     <Compile Include="_core\StatisticReportFunc.cs" />
     <Compile Include="_core\WebUI.cs" />
     <Compile Include="_report\Ppt_CarFuel_Update_Lience.cs" />
+    <Compile Include="_report\Ppt_FishGas_Update_Lience.cs" />
     <Compile Include="_report\RptCode.cs" />
     <Compile Include="_report\Rpt_Audit_Guidance_Check_Basic_AuditDay.cs" />
     <Compile Include="_report\Rpt_Audit_Guidance_Check_Basic_Audit_NoTime.cs" />
@@ -786,6 +789,7 @@
     <Content Include="Scripts\prjReport\WS_GSM_Log.js" />
     <Content Include="Scripts\prjReport\WS_GSM.js" />
     <Content Include="Scripts\prj\act\CarFuel_Update.js" />
+    <Content Include="Scripts\prj\act\FishGas_Update.js" />
     <Content Include="Scripts\prj\Captcha.js" />
     <Content Include="Scripts\prj\map\mapGasStation.js" />
     <Content Include="Success.html" />
@@ -2476,6 +2480,8 @@
     <Content Include="Views\Info_Dashboard\Index.cshtml" />
     <Content Include="Views\CarFuel_Update\Index.cshtml" />
     <Content Include="Views\Audit_Guidance_Check_document\Index.cshtml" />
+    <Content Include="Views\FishGas_Update\Index.cshtml" />
+    <Content Include="Views\CarFuel_Ban\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2509,7 +2515,6 @@
     <Folder Include="Views\FishGas_DownLoad_Operate\" />
     <Folder Include="Views\FishGas_TGOS_Area\" />
     <Folder Include="Views\FishGas_TGOS_Select\" />
-    <Folder Include="Views\FishGas_Update\" />
     <Folder Include="Views\GasLawBan_DownLoad_Operate\" />
     <Folder Include="Views\GasLawBan_StatisticReportCase\" />
     <Folder Include="Views\GasLawBan_StatisticReportPlace\" />

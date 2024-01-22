@@ -29,8 +29,16 @@ namespace OilGas.Controllers.FishGas
 
         protected override IQueryable<FishGas_BasicData> BeforeIQueryToPagedList(IQueryable<FishGas_BasicData> iquery, params KeyValueParams[] paras)
         {
+            //透過網址ID取得資料
+            Uri myUri = new Uri(Request.UrlReferrer.ToString());
+            string ID = HttpUtility.ParseQueryString(myUri.Query).Get("ID");
 
-             if (!Dou.Context.CurrentIsAdminUser && !basic.Permissions("admin"))
+            if (!string.IsNullOrEmpty(ID))
+            {
+                iquery = iquery.Where(a => a.ID.ToString() == ID);
+            }
+
+            if (!Dou.Context.CurrentIsAdminUser && !basic.Permissions("admin"))
             {
                 var CITYdata = Dou.Context.CurrentUser<User>().city.Split(',');
                 iquery = iquery.ToList().Where(x => CITYdata.Contains(x.CITY)).AsQueryable();

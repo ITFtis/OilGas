@@ -15,9 +15,10 @@
 
 
         dou_options.afterCreateEditDataForm = function ($_c, row) {
+            console.log(row)
 
             otherdisplay("Business_theme", "otherBusiness_theme", 16)//其他
-       
+
 
 
             changetypeposition('LicenseNo1', 'LicenseNo2', 'LicenseNo3', "號")
@@ -88,7 +89,7 @@
         dou_options.afterEditDataConfirm = function (row, callback) {
 
 
-          
+
             //上傳檔案
             upload('File_name', $.AppConfigOptions.baseurl + 'FishGas_Select/Sendupload', row.ID, row.CaseNo, callback);
 
@@ -118,6 +119,16 @@
 
         dou_options.tableOptions.pageSize = 15;
         dou_options.tableOptions.pageList = [15, 30, 80, 200, 500];
+
+        dou_options.tableOptions.onLoadSuccess = function (datas) {
+
+    //trigger進入編輯頁 (批次連結轉編輯頁)
+    var ID = '@(Request.QueryString["ID"] == null ? "" : Request.QueryString["ID"].ToString())';
+    if (ID != null && ID != '') {
+        $('.bootstrap-table.fishgas_selectcontroller').find('td .btn-update-data-manager').trigger('click');
+    }
+
+}
 
         $("#_table").DouEditableTable(dou_options);
     });
