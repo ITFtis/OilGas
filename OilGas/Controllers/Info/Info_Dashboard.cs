@@ -1,4 +1,5 @@
-﻿using Dou.Controllers;
+﻿using DocumentFormat.OpenXml.Drawing;
+using Dou.Controllers;
 using Dou.Misc;
 using Dou.Misc.Attr;
 using Dou.Models.DB;
@@ -27,6 +28,7 @@ namespace OilGas.Controllers.Info
         static string CaseType = "";
         static string CheckYear = "";
         static int lastSumAmount = 0;
+        List<string> pCitys = Dou.Context.CurrentUser<User>().PowerCitysGSLs();
 
         // GET: Info_Dashboard
         public ActionResult Index()
@@ -45,17 +47,20 @@ namespace OilGas.Controllers.Info
             CityCode1 = KeyValue.GetFilterParaValue(paras, "CityCode1");
             CaseType = KeyValue.GetFilterParaValue(paras, "CaseType");
             CheckYear = KeyValue.GetFilterParaValue(paras, "CheckYear");
+            _GSLCode = "";
             //進入頁面不顯示清單(未使用查詢)
             KeyValueParams filter = paras.FirstOrDefault((KeyValueParams s) => s.key == "filter");
             if (filter == null)
             {
                 return new List<Info_Dashboard>().AsQueryable();
             }
+
             _GSLCode = string.IsNullOrEmpty(CityCode1) ? "" : Rpt_CarFuel_Land.GetGSLCodeByCityCode(CityCode1).First().GSLCode.ToString();
             List<string> titles = new List<string>() { "查核輔導專區_已查核家數統計表，查詢條件:" };
             List<dynamic> result = GetOutputData(ref titles, paras);
             _lsID = new List<Info_Dashboard>();
             _lsID.Add(new Info_Dashboard { Sum_Total = lastSumAmount });
+            Rpt_CarFuel_Land.ResetGetGSLCodeByCityCode();
             return _lsID;
         }
 
@@ -100,8 +105,13 @@ namespace OilGas.Controllers.Info
             //    _lsCFCCE1 = q1.Where(x => pCitys.Contains(x.CaseNo.Substring(4, 2))).OrderBy(x => x.CheckNo).ToList();
             //}
 
-            var pCitys = Dou.Context.CurrentUser<User>().PowerCitysGSLs();
+            //var pCitys = Dou.Context.CurrentUser<User>().PowerCitysGSLs();
             bdata = bdata.Where(x => pCitys.Contains(x.CITY)).ToArray();
+            //20240122. add by markhong 
+            List<string> lsGSLCode = new List<string>();
+            lsGSLCode.Add(_GSLCode);
+            bdata = _GSLCode != "" ? bdata.Where(x => lsGSLCode.Contains(x.CITY)).ToArray() : bdata.Where(x => pCitys.Contains(x.CITY)).ToArray();
+
             Dou.Models.DB.IModelEntity<UsageStateCode> usageStateCode = new Dou.Models.DB.ModelEntity<UsageStateCode>(dbContext);
             var uscode = usageStateCode.GetAll().OrderBy(a => a.Rank).ToArray();
 
@@ -158,7 +168,8 @@ namespace OilGas.Controllers.Info
             lstquery.Add(new YearlyData { year = "2012", counts = 2668 });
             lstquery.Add(new YearlyData { year = "2013", counts = 2621 });
             lstquery.Add(new YearlyData { year = "2014", counts = 2619 });
-            lstquery.Add(new YearlyData { year = query[0].year.ToString(), counts = query[0].counts });
+            if (query.Length > 0)
+                lstquery.Add(new YearlyData { year = query[0].year.ToString(), counts = query[0].counts });
 
             return lstquery;
         }
@@ -172,6 +183,14 @@ namespace OilGas.Controllers.Info
             System.Data.Entity.DbContext dbContext = new OilGasModelContextExt();
             Dou.Models.DB.IModelEntity<CarGas_BasicData> CarGas_BasicData = new Dou.Models.DB.ModelEntity<CarGas_BasicData>(dbContext);
             var bdata = CarGas_BasicData.GetAll().Where(x => x.UsageState != "-99" & x.Report_date != null).ToArray();
+
+            //var pCitys = Dou.Context.CurrentUser<User>().PowerCitysGSLs();
+            bdata = bdata.Where(x => pCitys.Contains(x.CITY)).ToArray();
+            //20240122. add by markhong 
+            List<string> lsGSLCode = new List<string>();
+            lsGSLCode.Add(_GSLCode);
+            bdata = _GSLCode != "" ? bdata.Where(x => lsGSLCode.Contains(x.CITY)).ToArray() : bdata.Where(x => pCitys.Contains(x.CITY)).ToArray();
+
             Dou.Models.DB.IModelEntity<UsageStateCode> usageStateCode = new Dou.Models.DB.ModelEntity<UsageStateCode>(dbContext);
             var uscode = usageStateCode.GetAll().OrderBy(a => a.Rank).ToArray();
 
@@ -213,6 +232,14 @@ namespace OilGas.Controllers.Info
             System.Data.Entity.DbContext dbContext = new OilGasModelContextExt();
             Dou.Models.DB.IModelEntity<FishGas_BasicData> FishGas_BasicData = new Dou.Models.DB.ModelEntity<FishGas_BasicData>(dbContext);
             var bdata = FishGas_BasicData.GetAll().Where(x => x.UsageState != "-99" & x.Report_date != null).ToArray();
+
+            //var pCitys = Dou.Context.CurrentUser<User>().PowerCitysGSLs();
+            bdata = bdata.Where(x => pCitys.Contains(x.CITY)).ToArray();
+            //20240122. add by markhong 
+            List<string> lsGSLCode = new List<string>();
+            lsGSLCode.Add(_GSLCode);
+            bdata = _GSLCode != "" ? bdata.Where(x => lsGSLCode.Contains(x.CITY)).ToArray() : bdata.Where(x => pCitys.Contains(x.CITY)).ToArray();
+
             Dou.Models.DB.IModelEntity<UsageStateCode> usageStateCode = new Dou.Models.DB.ModelEntity<UsageStateCode>(dbContext);
             var uscode = usageStateCode.GetAll().OrderBy(a => a.Rank).ToArray();
 
