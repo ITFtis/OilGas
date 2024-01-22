@@ -20,7 +20,7 @@ namespace OilGas._report
                 //複製範本
                 string sourcePath = FileHelper.GetTempleteFolder() + "證照套印.docx";
 
-                string fileName = query.Gas_Name +  System.IO.Path.GetFileNameWithoutExtension(sourcePath) + "_" + DateTime.Now.ToString("yyyy-MM-dd_") + ".docx";
+                string fileName = query.Gas_Name.Trim() + "_" +  System.IO.Path.GetFileNameWithoutExtension(sourcePath) + "_" + DateTime.Now.ToString("yyyy-MM-dd_") + ".docx";
                 string toFolder = FileHelper.GetFileFolder(Code.TempUploadFile.範本_證件套印);
 
                 if (!Directory.Exists(toFolder))
@@ -34,8 +34,17 @@ namespace OilGas._report
                 //編輯word範本檔
                 var culture = new CultureInfo("zh-TW");
                 culture.DateTimeFormat.Calendar = new System.Globalization.TaiwanCalendar();
-                var date = query.ReportDate.Value.ToString("yyy/MM/dd",culture);
-                var l = date.Split(new char[] { '/' });
+                string date;
+                try
+                {
+                    date = query.ReportDate.Value.ToString("yyy/MM/dd", culture);
+                }
+                catch (Exception ex)
+                {
+                    date = DateTime.Now.ToString("yyy/MM/dd", culture);
+                }
+
+              var l = date.Split(new char[] { '/' });
                 var year = l[0];
                 var month = l[1];
                 var day = l[2];

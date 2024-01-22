@@ -36,6 +36,10 @@ namespace OilGas.Controllers.CarFuel
 
         protected override IQueryable<CarFuel_BasicData> BeforeIQueryToPagedList(IQueryable<CarFuel_BasicData> iquery, params KeyValueParams[] paras)
         {
+            //已開業的usestage
+            var _db = new OilGasModelContextExt();
+            var useStage = _db.UsageStateCode.Where(x => x.Type == "已開業").Select(x => x.Value).ToList();
+
             //進入頁面不顯示清單(未使用查詢)
             KeyValueParams filter = paras.FirstOrDefault((KeyValueParams s) => s.key == "filter");
             if (filter == null)
@@ -45,7 +49,9 @@ namespace OilGas.Controllers.CarFuel
 
             //權限查詢 (縣市權限，變動清除catch)
             var pCitys = Dou.Context.CurrentUser<User>().PowerCitysGSLs();
-            iquery = iquery.Where(a => a.CaseNo != null && pCitys.Any(b => b == a.CaseNo.Substring(4, 2)));
+
+
+            iquery = iquery.Where(a => a.CaseNo != null && pCitys.Any(b => b == a.CaseNo.Substring(4, 2)) && useStage.Any(b => b == a.UsageState));
 
             return base.BeforeIQueryToPagedList(iquery, paras);
         }
@@ -292,9 +298,9 @@ namespace OilGas.Controllers.CarFuel
         private string getLienceNumber(CarFuel_BasicData a)
         {
             string lienceNo;
-            var l1 = string.IsNullOrWhiteSpace(a.LicenseNo1) ? string.Empty : a.LicenseNo1;
-            var l2 = string.IsNullOrWhiteSpace(a.LicenseNo2) ? string.Empty : " 字 第 " + a.LicenseNo2;
-            var l3 = string.IsNullOrWhiteSpace(a.LicenseNo3) ? string.Empty : " 之 " + a.LicenseNo3;
+            var l1 = string.IsNullOrWhiteSpace(a.LicenseNo1) ? string.Empty : a.LicenseNo1.Trim();
+            var l2 = string.IsNullOrWhiteSpace(a.LicenseNo2) ? string.Empty : " 字 第 " + a.LicenseNo2.Trim();
+            var l3 = string.IsNullOrWhiteSpace(a.LicenseNo3) ? string.Empty : " 之 " + a.LicenseNo3.Trim();
 
             lienceNo = l1 + l2 + l3 ;
             return string.IsNullOrEmpty(lienceNo) ? string.Empty : lienceNo + " 號";
@@ -382,4 +388,6 @@ namespace OilGas.Controllers.CarFuel
         public string SellType { get; set; }
 
     }
+
+    
 }

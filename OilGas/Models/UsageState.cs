@@ -17,5 +17,6 @@ namespace OilGas.Models
         public string Value { get; set; }
 
         public byte? Rank { get; set; }
+        
     }
 }

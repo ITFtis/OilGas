@@ -190,7 +190,7 @@ $(document).ready(function () {
                 obj.txt_OtherCopyUnit = $('.modal-dialog').find('[data-fn="txt_OtherCopyUnit"]').val();
 
                 var fileInput = $('.modal-dialog').find('[data-fn="FileName"]');
-                obj.fileName = fileInput == undefined ? "" : fileInput[0].files[0].name;
+                obj.fileName = fileInput[0].files[0] == undefined ? "" : fileInput[0].files[0].name;
 
                 //return;
 
