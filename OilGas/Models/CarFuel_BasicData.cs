@@ -596,6 +596,29 @@ namespace OilGas.Models
         }
 
 
+        static object lockGetAllCarFuel_BasicData = new object();
+        public static IEnumerable<CarFuel_BasicData> GetAllCarFuel_BasicData(int cachetimer = 0)
+        {
+            if (cachetimer == 0) cachetimer = Constant.cacheTime;
+
+            string key = "OilGas.Models.F22Holiday.GetAllCarFuel_BasicData";
+            var allcb = DouHelper.Misc.GetCache<IEnumerable<CarFuel_BasicData>>(cachetimer, key);
+            lock (lockGetAllCarFuel_BasicData)
+            {
+                if (allcb == null)
+                {
+                    System.Data.Entity.DbContext OilGasModelContextExt = new OilGasModelContextExt();
+                    Dou.Models.DB.IModelEntity<CarFuel_BasicData> db = new Dou.Models.DB.ModelEntity<CarFuel_BasicData>(OilGasModelContextExt);
+                    allcb = db.GetAll().ToList();
+
+                    DouHelper.Misc.AddCache(allcb, key);
+                }
+            }
+
+            return allcb;
+        }
+
+
 
 
     }
