@@ -38,11 +38,11 @@ namespace OilGas.Models
         }
 
         [StringLength(10)]
-        [ColumnDef(Display = "案件編號", Index = 2,Filter = true)]
+        [ColumnDef(Display = "案件編號", Index = 2,Filter = true,FilterAssign = FilterAssignType.Contains)]
         public string CaseNo { get; set; }
 
         [StringLength(10)]
-        [ColumnDef(Display = "違規案件編號", Index = 1, Filter = true )]
+        [ColumnDef(Display = "違規案件編號", Index = 1, Filter = true, FilterAssign = FilterAssignType.Contains)]
         public string BanCaseNo { get; set; }
 
         [StringLength(30)]
@@ -50,7 +50,7 @@ namespace OilGas.Models
         public string CompanyType { get; set; }
 
         [StringLength(30)]
-        [ColumnDef(Display = "站名", Filter = true)]
+        [ColumnDef(Display = "站名", Filter = true,FilterAssign = FilterAssignType.Contains)]
         public string Name { 
             get
             {              

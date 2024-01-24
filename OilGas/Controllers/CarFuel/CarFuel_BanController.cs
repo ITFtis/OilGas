@@ -1,4 +1,5 @@
-﻿using Dou.Controllers;
+﻿using DocumentFormat.OpenXml.Bibliography;
+using Dou.Controllers;
 using Dou.Misc;
 using Dou.Models.DB;
 using DouHelper;
@@ -21,11 +22,26 @@ namespace OilGas.Controllers.CarFuel
         }
 
         protected override IQueryable<CarFuel_Ban> BeforeIQueryToPagedList(IQueryable<CarFuel_Ban> iquery, params KeyValueParams[] paras)
-        {         
+        {
+            //用站名查出caseNo 因為虛擬欄位無法直接查詢
+            List<string> caseNo = new List<string>();
+            var _db = new OilGasModelContextExt();
+            var gasName = HelperUtilities.GetFilterParaValue(paras, "Name");
+            if(!string.IsNullOrEmpty(gasName))
+                caseNo = _db.CarFuel_BasicData.Where(x => x.Gas_Name.Contains(gasName)).Select(x => x.CaseNo).ToList();
+
+            var city = HelperUtilities.GetFilterParaValue(paras, "CITY");
+
             //權限查詢 (縣市權限，變動清除catch)
             var pCitys = Dou.Context.CurrentUser<User>().PowerCitysGSLs();
 
+            if(!string.IsNullOrEmpty(city))
+                pCitys = city.Split(',').ToList();
+
             var query = iquery.Where(a => a.CaseNo != null && pCitys.Any(b => b == a.CaseNo.Substring(4, 2)));
+
+            if (caseNo.Count > 0)
+                query = query.Where(a => caseNo.Any(b => a.CaseNo == b));
 
             return base.BeforeIQueryToPagedList(query, paras);
         }

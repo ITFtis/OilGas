@@ -1,4 +1,5 @@
-﻿using Dou.Controllers;
+﻿using DocumentFormat.OpenXml.Bibliography;
+using Dou.Controllers;
 using Dou.Misc;
 using Dou.Misc.Attr;
 using Dou.Models;
@@ -47,9 +48,20 @@ namespace OilGas.Controllers.CarFuel
                 return new List<CarFuel_BasicData>().AsQueryable();
             }
 
+            var city = KeyValue.GetFilterParaValue(paras, "CITY");
+            //if(city != null)
+            //{
+            //    var CITYdata = city.Split(',').ToList();
+            //    iquery = iquery.Where(x => x.CaseNo.Substring(4, 2) == city);
+            //}
+
             //權限查詢 (縣市權限，變動清除catch)
             var pCitys = Dou.Context.CurrentUser<User>().PowerCitysGSLs();
 
+            if (!string.IsNullOrEmpty(city))
+                pCitys = city.Split(',').ToList();
+               
+            
 
             iquery = iquery.Where(a => a.CaseNo != null && pCitys.Any(b => b == a.CaseNo.Substring(4, 2)) && useStage.Any(b => b == a.UsageState));
 

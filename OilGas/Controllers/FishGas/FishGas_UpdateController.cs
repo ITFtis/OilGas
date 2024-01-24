@@ -42,8 +42,18 @@ namespace OilGas.Controllers.FishGas
                 return new List<FishGas_BasicData>().AsQueryable();
             }
 
+            var city = KeyValue.GetFilterParaValue(paras, "CITY");
+            //if(city != null)
+            //{
+            //    var CITYdata = city.Split(',').ToList();
+            //    iquery = iquery.Where(x => x.CaseNo.Substring(4, 2) == city);
+            //}
+
             //權限查詢 (縣市權限，變動清除catch)
             var pCitys = Dou.Context.CurrentUser<User>().PowerCitysGSLs();
+
+            if (!string.IsNullOrEmpty(city))
+                pCitys = city.Split(',').ToList();
 
 
             iquery = iquery.Where(a => a.CaseNo != null && pCitys.Any(b => b == a.CaseNo.Substring(4, 2)) && useStage.Any(b => b == a.UsageState));
