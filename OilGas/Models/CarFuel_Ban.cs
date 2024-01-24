@@ -50,7 +50,7 @@ namespace OilGas.Models
         public string CompanyType { get; set; }
 
         [StringLength(30)]
-        [ColumnDef(Display = "站名", Filter = true,FilterAssign = FilterAssignType.Contains)]
+        [ColumnDef(Display = "站名", Filter = true)]
         public string Name { 
             get
             {              
@@ -180,6 +180,7 @@ namespace OilGas.Models
         private CarFuel_BasicData CBData { get
             {
                 return CarFuel_BasicData.GetAllCarFuel_BasicData().Where(x => x.CaseNo == this.CaseNo).FirstOrDefault();
-            } }
+            }
+        }
     }
 }

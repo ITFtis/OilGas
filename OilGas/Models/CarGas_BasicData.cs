@@ -6,6 +6,7 @@ namespace OilGas.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Linq;
     using static OilGas.Controllers.basicController;
 
     public partial class CarGas_BasicData: UsageStatebasic
@@ -446,6 +447,29 @@ namespace OilGas.Models
         [ColumnDef(Visible = false, VisibleEdit = false)]
         [Display(Name = "Y", Order = 97)]
         public string Longitude_N { get; set; }
+
+
+        static object lockGetAllCarGas_BasicData = new object();
+        public static IEnumerable<CarGas_BasicData> GetAllCarGas_BasicData(int cachetimer = 0)
+        {
+            if (cachetimer == 0) cachetimer = Constant.cacheTime;
+
+            string key = "OilGas.Models.GetAllCarGas_BasicData";
+            var allcgb = DouHelper.Misc.GetCache<IEnumerable<CarGas_BasicData>>(cachetimer, key);
+            lock (lockGetAllCarGas_BasicData)
+            {
+                if (allcgb == null)
+                {
+                    System.Data.Entity.DbContext OilGasModelContextExt = new OilGasModelContextExt();
+                    Dou.Models.DB.IModelEntity<CarGas_BasicData> db = new Dou.Models.DB.ModelEntity<CarGas_BasicData>(OilGasModelContextExt);
+                    allcgb = db.GetAll().ToList();
+
+                    DouHelper.Misc.AddCache(allcgb, key);
+                }
+            }
+
+            return allcgb;
+        }
 
     }
 }
