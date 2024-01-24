@@ -12,7 +12,7 @@ using System.Web.Mvc;
 
 namespace OilGas.Controllers.CarFuel
 {
-    [Dou.Misc.Attr.MenuDef(Id = "CarFuel_Ban", Name = "違規案件資料查詢", MenuPath = "加油站/B違規案件專區", Action = "Index", Index = 1, Func = Dou.Misc.Attr.FuncEnum.None, AllowAnonymous = false)]
+    [Dou.Misc.Attr.MenuDef(Id = "CarFuel_Ban", Name = "違規案件資料查詢", MenuPath = "加油站/A違規案件專區", Action = "Index", Index = 1, Func = Dou.Misc.Attr.FuncEnum.None, AllowAnonymous = false)]
     public class CarFuel_BanController : APaginationModelController<CarFuel_Ban>
     {
         // GET: CarFuel_Ban
@@ -27,6 +27,7 @@ namespace OilGas.Controllers.CarFuel
             List<string> caseNo = new List<string>();
             var _db = new OilGasModelContextExt();
             var gasName = HelperUtilities.GetFilterParaValue(paras, "Name");
+            gasName = gasName != null ? gasName.Trim() : gasName;
             var city = HelperUtilities.GetFilterParaValue(paras, "CITY");
 
             if (!string.IsNullOrEmpty(gasName))

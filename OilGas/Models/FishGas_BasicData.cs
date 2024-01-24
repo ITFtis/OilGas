@@ -6,6 +6,7 @@ namespace OilGas.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Linq;
     using static OilGas.Controllers.basicController;
 
     public partial class FishGas_BasicData : UsageStatebasic
@@ -447,5 +448,27 @@ namespace OilGas.Models
         [ColumnDef(Visible = false, VisibleEdit = false)]
         [Display(Name = "Y", Order = 97)]
         public string Longitude_N { get; set; }
+
+        static object lockGetAllFishGas_BasicData = new object();
+        public static IEnumerable<FishGas_BasicData> GetAllFishGas_BasicData(int cachetimer = 0)
+        {
+            if (cachetimer == 0) cachetimer = Constant.cacheTime;
+
+            string key = "OilGas.Models.GetAllFishGas_BasicData";
+            var allFGData = DouHelper.Misc.GetCache<IEnumerable<FishGas_BasicData>>(cachetimer, key);
+            lock (lockGetAllFishGas_BasicData)
+            {
+                if (allFGData == null)
+                {
+                    System.Data.Entity.DbContext OilGasModelContextExt = new OilGasModelContextExt();
+                    Dou.Models.DB.IModelEntity<FishGas_BasicData> db = new Dou.Models.DB.ModelEntity<FishGas_BasicData>(OilGasModelContextExt);
+                    allFGData = db.GetAll().ToList();
+
+                    DouHelper.Misc.AddCache(allFGData, key);
+                }
+            }
+
+            return allFGData;
+        }
     }
 }

@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace OilGas.Controllers.CarGas
 {
-    [Dou.Misc.Attr.MenuDef(Id = "CarGas_LandData", Name = "已開業汽車加氣站分析統計報表", MenuPath = "汽車加氣站/B統計報表專區", Action = "Index", Index = 7, Func = Dou.Misc.Attr.FuncEnum.None, AllowAnonymous = false)]
+    [Dou.Misc.Attr.MenuDef(Id = "CarGas_LandData", Name = "已開業汽車加氣站分析統計報表", MenuPath = "加氣站/B統計報表專區", Action = "Index", Index = 7, Func = Dou.Misc.Attr.FuncEnum.None, AllowAnonymous = false)]
     public class CarGas_LandDataController : AGenericModelController<CarGas_LandData>
     {
         // GET: CarGas_LandData

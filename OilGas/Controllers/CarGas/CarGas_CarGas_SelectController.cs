@@ -14,7 +14,7 @@ using System.Web.Mvc;
 
 namespace OilGas.Controllers.CarGas
 {
-    [Dou.Misc.Attr.MenuDef(Id = "CarGas_CarGas_Select", Name = "汽車加氣站基本資料查詢修改", MenuPath = "汽車加氣站/B管理專區", Action = "Index", Index = 1, Func = Dou.Misc.Attr.FuncEnum.ALL, AllowAnonymous = false)]
+    [Dou.Misc.Attr.MenuDef(Id = "CarGas_CarGas_Select", Name = "加氣站基本資料查詢修改", MenuPath = "加氣站/B管理專區", Action = "Index", Index = 1, Func = Dou.Misc.Attr.FuncEnum.ALL, AllowAnonymous = false)]
     public class CarGas_CarGas_SelectController : APaginationModelController<CarGas_BasicData>
     {
         static public OilGasModelContextExt db = new OilGasModelContextExt();

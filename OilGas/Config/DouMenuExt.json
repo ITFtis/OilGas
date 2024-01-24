@@ -18,7 +18,7 @@
     "IsOnlyPath": true
   },
   {
-    "Name": "汽車加氣站",
+    "Name": "加氣站",
     "MenuPath": "",
     "Index": 2,
     "IsOnlyPath": true
@@ -103,25 +103,25 @@
   },
   {
     "Name": "B管理專區",
-    "MenuPath": "汽車加氣站",
+    "MenuPath": "加氣站",
     "Index": 1,
     "IsOnlyPath": true
   },
   {
     "Name": "B違規案件專區",
-    "MenuPath": "汽車加氣站",
+    "MenuPath": "加氣站",
     "Index": 2,
     "IsOnlyPath": true
   },
   {
     "Name": "B統計報表專區",
-    "MenuPath": "汽車加氣站",
+    "MenuPath": "加氣站",
     "Index": 3,
     "IsOnlyPath": true
   },
   {
     "Name": "B系統操作手冊",
-    "MenuPath": "汽車加氣站",
+    "MenuPath": "加氣站",
     "Index": 4,
     "IsOnlyPath": true
   },

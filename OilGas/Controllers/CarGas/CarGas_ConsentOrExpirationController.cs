@@ -13,7 +13,7 @@ using System.Web.Mvc;
 
 namespace OilGas.Controllers.CarGas
 {
-    [Dou.Misc.Attr.MenuDef(Id = "CarGas_ConsentOrExpiration", Name = "加氣站申請設置同意認定/籌建到期報表", MenuPath = "汽車加氣站/B統計報表專區", Action = "Index", Index = 5, Func = Dou.Misc.Attr.FuncEnum.ALL, AllowAnonymous = false)]
+    [Dou.Misc.Attr.MenuDef(Id = "CarGas_ConsentOrExpiration", Name = "加氣站申請設置同意認定/籌建到期報表", MenuPath = "加氣站/B統計報表專區", Action = "Index", Index = 5, Func = Dou.Misc.Attr.FuncEnum.ALL, AllowAnonymous = false)]
     public class CarGas_ConsentOrExpirationController : AGenericModelController<CarGas_ConsentOrExpiration>
     {
         public static List<CarGas_ConsentOrExpiration> _lsCGC = new List<CarGas_ConsentOrExpiration>();

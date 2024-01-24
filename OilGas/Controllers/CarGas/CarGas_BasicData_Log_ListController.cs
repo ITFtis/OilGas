@@ -20,7 +20,7 @@ using System.Security.Cryptography.Xml;
 
 namespace OilGas.Controllers.CarGas
 {
-    [Dou.Misc.Attr.MenuDef(Id = "CarGas_BasicData_Log_List", Name = "變更歷程-基本資料欄位清單", MenuPath = "汽車加氣站/B統計報表專區", Action = "Index", Index = 3, Func = Dou.Misc.Attr.FuncEnum.ALL, AllowAnonymous = false)]
+    [Dou.Misc.Attr.MenuDef(Id = "CarGas_BasicData_Log_List", Name = "變更歷程-基本資料欄位清單", MenuPath = "加氣站/B統計報表專區", Action = "Index", Index = 3, Func = Dou.Misc.Attr.FuncEnum.ALL, AllowAnonymous = false)]
     public class CarGas_BasicData_Log_ListController : Controller
     {
         // GET: CarGas_BasicData_Log_List

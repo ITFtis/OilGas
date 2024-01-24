@@ -333,6 +333,7 @@
     <Compile Include="Controllers\CarGas\CarGas_StopBusinessController.cs" />
     <Compile Include="Controllers\CarGas\CarGas_TGOS_AreaController.cs" />
     <Compile Include="Controllers\CarGas\CarGas_TGOS_SelectController.cs" />
+    <Compile Include="Controllers\FishGas\FishGas_BanController.cs" />
     <Compile Include="Controllers\FishGas\FishGas_BasicData_ListController.cs" />
     <Compile Include="Controllers\FishGas\FishGas_BasicData_Log_ListController.cs" />
     <Compile Include="Controllers\FishGas\FishGas_BasicData_Log_StatisticController.cs" />
@@ -2484,6 +2485,7 @@
     <Content Include="Views\FishGas_Update\Index.cshtml" />
     <Content Include="Views\CarFuel_Ban\Index.cshtml" />
     <Content Include="Views\CarGas_Ban\Index.cshtml" />
+    <Content Include="Views\FishGas_Ban\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

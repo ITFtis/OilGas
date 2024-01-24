@@ -11,7 +11,7 @@ using System.Web.Mvc;
 
 namespace OilGas.Controllers.CarGas
 {
-    [Dou.Misc.Attr.MenuDef(Id = "CarGas_Closed", Name = "各縣市暫停營業家數統計報表", MenuPath = "汽車加氣站/B統計報表專區", Action = "Index", Index = 8, Func = Dou.Misc.Attr.FuncEnum.ALL, AllowAnonymous = false)]
+    [Dou.Misc.Attr.MenuDef(Id = "CarGas_Closed", Name = "各縣市暫停營業家數統計報表", MenuPath = "加氣站/B統計報表專區", Action = "Index", Index = 8, Func = Dou.Misc.Attr.FuncEnum.ALL, AllowAnonymous = false)]
     public class CarGas_ClosedController : AGenericModelController<vw_CarGas_Closed_show>
     {
         public static List<vw_CarGas_Closed_show> _vwCGCs = new List<vw_CarGas_Closed_show>();
