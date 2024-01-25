@@ -2487,6 +2487,7 @@
     <Content Include="Views\CarGas_Ban\Index.cshtml" />
     <Content Include="Views\FishGas_Ban\Index.cshtml" />
     <Content Include="Views\Audit_CounselingReportRate2\Index.cshtml" />
+    <Content Include="Views\CarFuel_CarVehicleGas_CheckError1\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2503,7 +2504,6 @@
     <Folder Include="Views\basic\" />
     <Folder Include="Views\CarFuel_BasicData_Log_Statistic\" />
     <Folder Include="Views\CarFuel_BasicData_Statistic\" />
-    <Folder Include="Views\CarFuel_CarVehicleGas_CheckError1\" />
     <Folder Include="Views\CarFuel_DownLoad_Operate\" />
     <Folder Include="Views\CarFuel_TGOS_Area\" />
     <Folder Include="Views\CarFuel_TGOS_Select\" />
