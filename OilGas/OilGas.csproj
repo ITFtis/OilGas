@@ -2486,6 +2486,7 @@
     <Content Include="Views\CarFuel_Ban\Index.cshtml" />
     <Content Include="Views\CarGas_Ban\Index.cshtml" />
     <Content Include="Views\FishGas_Ban\Index.cshtml" />
+    <Content Include="Views\Audit_CounselingReportRate2\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2495,7 +2496,6 @@
     <Folder Include="Views\Admin_NewsMaintain\" />
     <Folder Include="Views\Admin_PwdEdit\" />
     <Folder Include="Views\Audit_CounselingDataM\" />
-    <Folder Include="Views\Audit_CounselingReportRate2\" />
     <Folder Include="Views\Audit_Guidance_Check_Basic_AuditHalfYear\" />
     <Folder Include="Views\Audit_Guidance_Check_Basic_AuditMonth\" />
     <Folder Include="Views\Audit_Guidance_Check_document_list\" />
